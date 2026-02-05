@@ -53,7 +53,7 @@ export default function Home() {
   const handleSelectPrompt = (prompt: Prompt) => {
     setSelectedPrompt(prompt);
     addToRecent(prompt.id);
-    trackPromptView(prompt.id, prompt.title, prompt.category, prompt.tier);
+    trackPromptView(prompt.id, prompt.title, prompt.framework, prompt.tier);
   };
 
   // Handle filter mode change with analytics

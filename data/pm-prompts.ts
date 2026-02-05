@@ -7,7 +7,9 @@ export const pmPrompts: Prompt[] = [
   {
     id: 'cons-1',
     title: 'Site Safety Inspection Mastery',
-    category: 'waterfall',
+    framework: 'pmbok',
+    phase: 'Monitoring & Controlling',
+    canonicalPhase: 4,
     description: 'Transform safety observations into comprehensive compliance reports with root cause analysis, corrective action tracking, and regulatory alignment.',
     template: `You are a Certified Safety Professional (CSP) and OSHA 30-Hour certified Construction Safety Manager with 15+ years experience on major EPC projects. Transform raw safety observations into actionable compliance documentation that prevents incidents, satisfies regulatory requirements, and builds a culture of safety excellence.
 
@@ -320,15 +322,16 @@ QUALITY INDICATORS
       { name: 'hazards', description: 'Specific dangers identified', example: 'Fall hazard - unprotected floor opening, fall hazard - missing PFAS, electrical hazard - wet conditions', required: true },
       { name: 'actions_taken', description: 'On-the-spot corrections made', example: 'Stopped work on scaffold, installed temp guardrail around floor opening, removed cords from water and replaced with GFCI-protected setup', required: false },
     ],
-    frameworks: ['OSHA 29 CFR 1926', 'ISO 45001:2018', 'ANSI Z10', 'OSHA Focus Four'],
     tier: 'premium',
     estimatedTimeSaved: '2 hours',
-    tags: ['safety', 'compliance', 'site-management', 'osha', 'construction', 'risk-assessment'],
+    tags: ['safety', 'compliance', 'site-management', 'osha', 'construction', 'risk-assessment', 'OSHA 29 CFR 1926', 'ISO 45001:2018', 'ANSI Z10', 'OSHA Focus Four'],
   },
   {
     id: 'cons-2',
     title: 'RFI (Request for Information) Mastery',
-    category: 'waterfall',
+    framework: 'pmbok',
+    phase: 'Executing',
+    canonicalPhase: 3,
     description: 'Draft precision RFIs that resolve design conflicts, protect schedule, and establish clear contractual documentation for claims prevention.',
     template: `You are a Senior Construction Project Manager and Contract Administrator with 20+ years experience managing complex EPC projects. Your RFIs are renowned for their clarity, completeness, and effectiveness in driving rapid design resolution while protecting the contractor's contractual position.
 
@@ -655,15 +658,16 @@ QUALITY INDICATORS
       { name: 'proposed_solution', description: 'Constructive suggestion with rationale', example: 'Re-route duct 8 inches south to pass below beam flange, transitioning back to alignment after grid line B5. This maintains ceiling height and avoids sprinkler conflict. Requires approximately 6 LF additional ductwork.', required: true },
       { name: 'schedule_impact', description: 'Consequence of delayed response', example: 'Ductwork installation in this area scheduled to begin Monday, March 15. If response not received by March 12, ceiling close-in will be delayed by 3 days minimum, impacting finish painting on critical path.', required: false },
     ],
-    frameworks: ['AIA A201', 'ConsensusDocs', 'DBIA', 'EJCDC'],
     tier: 'premium',
     estimatedTimeSaved: '1 hour',
-    tags: ['contractual', 'rfi', 'engineering', 'claims-prevention', 'construction', 'design-coordination'],
+    tags: ['contractual', 'rfi', 'engineering', 'claims-prevention', 'construction', 'design-coordination', 'AIA A201', 'ConsensusDocs', 'DBIA', 'EJCDC'],
   },
   {
     id: 'cons-3',
     title: 'Daily Construction Report Mastery',
-    category: 'waterfall',
+    framework: 'pmbok',
+    phase: 'Monitoring & Controlling',
+    canonicalPhase: 4,
     description: 'Create legally defensible daily reports that serve as the definitive project record for claims, disputes, and progress verification.',
     template: `You are a seasoned Construction Superintendent and Project Controls Specialist with 25+ years documenting complex EPC projects. Your daily reports are renowned for their completeness, objectivity, and legal defensibility. They serve as the authoritative project record that has supported millions in successful claims resolution.
 
@@ -1018,10 +1022,9 @@ QUALITY INDICATORS
       { name: 'delays', description: 'Issues and blockers encountered', example: 'Concrete truck arrived 2 hours late (7:00 AM scheduled, 9:00 AM arrived) - supplier dispatch error. Lost 2 hours production, made up with overtime. RFI-047 response still pending - holding drywall Grid D-E pending ceiling height clarification.', required: false },
       { name: 'materials', description: 'Significant deliveries received', example: 'Rebar delivery #405 (15 tons) - verified against PO, stored north laydown. Switchgear arrived damaged - documented with photos, rejected, replacement ordered (2 week lead). Drywall delivery (200 sheets 5/8 Type X) - staged Level 2.', required: false },
     ],
-    frameworks: ['AIA', 'AGC', 'ASCE', 'CSI'],
     tier: 'premium',
     estimatedTimeSaved: '1 hour',
-    tags: ['reporting', 'site-management', 'claims-documentation', 'construction', 'daily-log'],
+    tags: ['reporting', 'site-management', 'claims-documentation', 'construction', 'daily-log', 'AIA', 'AGC', 'ASCE', 'CSI'],
   },
 
   // ============================================================================
@@ -1030,7 +1033,9 @@ QUALITY INDICATORS
   {
     id: 'leg-1',
     title: 'COBOL to Java/Python Logic Analyzer',
-    category: 'hybrid',
+    framework: 'hybrid',
+    phase: 'Planning',
+    canonicalPhase: 2,
     description: 'Transform cryptic mainframe code into crystal-clear modern specifications with complete data flow mapping, edge case identification, and migration-ready pseudo-code.',
     template: `You are a Legacy Modernization Architect with 25+ years translating COBOL/mainframe systems to modern platforms. Your analysis must bridge the knowledge gap between retiring mainframe experts and modern development teams.
 
@@ -1312,15 +1317,16 @@ QUALITY INDICATORS FOR THIS ANALYSIS
       { name: 'target_platform', description: 'Destination technology stack', example: 'Java 17 with Spring Boot microservices', required: false },
       { name: 'business_domain', description: 'Functional area this code supports', example: 'Core banking - account balance management', required: false },
     ],
-    frameworks: ['Gartner Application Modernization', 'IBM Rational', 'Micro Focus', 'AWS Mainframe Modernization', 'Azure Migration'],
     tier: 'premium',
     estimatedTimeSaved: '4 hours',
-    tags: ['cobol', 'migration', 'mainframe', 'modernization', 'java', 'python', 'legacy-transformation', 'technical-debt'],
+    tags: ['cobol', 'migration', 'mainframe', 'modernization', 'java', 'python', 'legacy-transformation', 'technical-debt', 'Gartner Application Modernization', 'IBM Rational', 'Micro Focus', 'AWS Mainframe Modernization', 'Azure Migration'],
   },
   {
     id: 'leg-2',
     title: 'Legacy System Risk Assessment',
-    category: 'hybrid',
+    framework: 'hybrid',
+    phase: 'Planning',
+    canonicalPhase: 2,
     description: 'Conduct comprehensive technical debt analysis with quantified business impact, knowledge attrition modeling, and strategic modernization roadmap prioritization.',
     template: `You are a Chief Technology Risk Officer specializing in legacy system assessment for Fortune 500 enterprises. Your analysis must quantify technical debt in business terms that executives can act upon, while providing engineers with specific remediation priorities.
 
@@ -1615,10 +1621,9 @@ QUALITY INDICATORS FOR THIS ASSESSMENT
       { name: 'business_criticality', description: 'Business importance classification', example: 'Tier 1 - Mission Critical: Processes 80% of daily transactions ($2B/day)', required: false },
       { name: 'annual_cost', description: 'Current annual operating cost', example: '$4.2M (licenses: $1.5M, support: $800K, infrastructure: $1.9M)', required: false },
     ],
-    frameworks: ['COBIT 2019', 'NIST Cybersecurity Framework', 'ISO 27001', 'Gartner Technical Debt', 'TOGAF', 'FAIR Risk Quantification'],
     tier: 'premium',
     estimatedTimeSaved: '6 hours',
-    tags: ['risk', 'audit', 'legacy', 'technical-debt', 'modernization', 'compliance', 'security', 'business-case'],
+    tags: ['risk', 'audit', 'legacy', 'technical-debt', 'modernization', 'compliance', 'security', 'business-case', 'COBIT 2019', 'NIST Cybersecurity Framework', 'ISO 27001', 'Gartner Technical Debt', 'TOGAF', 'FAIR Risk Quantification'],
   },
 
   // ============================================================================
@@ -1627,7 +1632,9 @@ QUALITY INDICATORS FOR THIS ASSESSMENT
   {
     id: 'itil-1',
     title: 'Major Incident Report (Retro)',
-    category: 'itil',
+    framework: 'itil',
+    phase: 'Deliver & Support',
+    canonicalPhase: 4,
     description: 'Generate a comprehensive Post-Incident Review that transforms outages into organizational learning opportunities with blameless analysis, systemic root cause investigation, and actionable reliability improvements.',
     template: `You are a Site Reliability Engineering Leader and ITIL v4 Incident Management specialist with expertise in blameless post-mortems, complex system failure analysis, and building high-reliability organizations. Your incident reports don't just document what happened—they create lasting organizational memory that prevents recurrence and builds trust with stakeholders.
 
@@ -1887,15 +1894,16 @@ QUALITY INDICATORS FOR PIR
       { name: 'timeline', description: 'Key incident timestamps', example: 'Trigger 14:00, Detected 14:03, Engaged 14:05, Mitigated 14:25, Resolved 14:45', required: true },
       { name: 'business_impact', description: 'Quantified business impact', example: '~$50k lost revenue, 2,147 failed transactions, 12% of daily users affected, SLA breach for enterprise tier', required: true },
     ],
-    frameworks: ['ITIL v4 Incident Management', 'Google SRE', 'Blameless Post-Mortems', 'Just Culture', 'Swiss Cheese Model', '5 Whys', 'Chaos Engineering'],
     tier: 'premium',
     estimatedTimeSaved: '4 hours',
-    tags: ['incident-management', 'itil', 'sre', 'post-mortem', 'root-cause-analysis', 'reliability', 'ops', 'blameless'],
+    tags: ['incident-management', 'itil', 'sre', 'post-mortem', 'root-cause-analysis', 'reliability', 'ops', 'blameless', 'ITIL v4 Incident Management', 'Google SRE', 'Blameless Post-Mortems', 'Just Culture', 'Swiss Cheese Model', '5 Whys', 'Chaos Engineering'],
   },
   {
     id: 'itil-2',
     title: 'Change Request (RFC) Justification',
-    category: 'itil',
+    framework: 'itil',
+    phase: 'Design & Transition',
+    canonicalPhase: 3,
     description: 'Generate a comprehensive Request for Change that satisfies Change Advisory Board scrutiny with quantified risk analysis, rollback strategies, testing evidence, and stakeholder impact assessment.',
     template: `You are a Change Management Specialist with deep expertise in ITIL v4 Change Enablement, risk-based change classification, and navigating complex CAB approval processes. Your RFC documents must demonstrate thorough due diligence while building confidence that the proposed change is necessary, well-planned, and safely reversible.
 
@@ -2189,10 +2197,9 @@ QUALITY INDICATORS FOR RFC
       { name: 'rollback_plan', description: 'Strategy to reverse the change if needed', example: 'Restore from pre-change snapshot (tested in staging, 15-minute recovery); firmware downgrade procedure documented', required: true },
       { name: 'testing_summary', description: 'Summary of testing performed', example: 'Tested in staging environment for 48 hours; no regression in throughput or latency; security scan passed; UAT signed off by network team', required: true },
     ],
-    frameworks: ['ITIL v4 Change Enablement', 'ITIL Change Advisory Board', 'ISO 20000', 'COBIT Change Management', 'DevOps Change Management'],
     tier: 'premium',
     estimatedTimeSaved: '2 hours',
-    tags: ['change-management', 'itil', 'cab', 'rfc', 'governance', 'risk-management', 'compliance'],
+    tags: ['change-management', 'itil', 'cab', 'rfc', 'governance', 'risk-management', 'compliance', 'ITIL v4 Change Enablement', 'ITIL Change Advisory Board', 'ISO 20000', 'COBIT Change Management', 'DevOps Change Management'],
   },
 
   // ============================================================================
@@ -2201,7 +2208,9 @@ QUALITY INDICATORS FOR RFC
   {
     id: 'agile-1',
     title: 'User Story Writer (Gherkin)',
-    category: 'agile',
+    framework: 'agile',
+    phase: 'Iteration Planning',
+    canonicalPhase: 2,
     description: 'Transform feature concepts into INVEST-compliant user stories with comprehensive Gherkin acceptance criteria, edge case coverage, and testable specifications that bridge product vision and engineering execution.',
     template: `You are a Product Owner and Behavior-Driven Development specialist with deep expertise in user story crafting, Gherkin syntax, and bridging business requirements with technical implementation. Your user stories don't just describe features—they create shared understanding, enable test automation, and ensure every team member has the same definition of "done."
 
@@ -2486,15 +2495,16 @@ QUALITY INDICATORS FOR USER STORY
       { name: 'scenario_1', description: 'Primary happy path scenario', example: 'User successfully authenticates with FaceID on first attempt', required: false },
       { name: 'scenario_2', description: 'Edge case or alternative scenario', example: 'User fails FaceID 3 times and falls back to password entry', required: false },
     ],
-    frameworks: ['Scrum', 'Behavior-Driven Development (BDD)', 'INVEST Criteria', 'Gherkin Syntax', 'User-Centered Design'],
     tier: 'premium',
     estimatedTimeSaved: '1 hour',
-    tags: ['requirements', 'product-owner', 'user-story', 'bdd', 'gherkin', 'agile', 'acceptance-criteria'],
+    tags: ['requirements', 'product-owner', 'user-story', 'bdd', 'gherkin', 'agile', 'acceptance-criteria', 'Scrum', 'Behavior-Driven Development (BDD)', 'INVEST Criteria', 'Gherkin Syntax', 'User-Centered Design'],
   },
   {
     id: 'agile-2',
     title: 'Sprint Retrospective Facilitator',
-    category: 'agile',
+    framework: 'agile',
+    phase: 'Iteration Planning',
+    canonicalPhase: 2,
     description: 'Design a psychologically safe, outcome-driven retrospective that surfaces real issues, generates actionable improvements, and rebuilds team energy with facilitation techniques matched to current morale and sprint context.',
     template: `You are a Scrum Master and Team Facilitation expert with deep expertise in psychological safety, continuous improvement, and group dynamics. Your retrospectives don't just check a box—they surface the real issues teams are hesitant to discuss, generate genuinely actionable improvements, and leave teams feeling energized rather than drained.
 
@@ -2856,10 +2866,9 @@ QUALITY INDICATORS FOR RETROSPECTIVE
       { name: 'morale', description: 'Current team morale assessment', example: 'Low - team is tired from overtime, some frustration about last-minute scope changes, but proud of delivery', required: true },
       { name: 'issue', description: 'Primary issue or topic to address', example: 'Too many unplanned bugs found in production after release; QA process may need strengthening', required: true },
     ],
-    frameworks: ['Scrum Guide 2020', 'Agile Retrospectives (Derby & Larsen)', 'Psychological Safety (Edmondson)', 'Liberating Structures', 'Prime Directive'],
     tier: 'premium',
     estimatedTimeSaved: '2 hours',
-    tags: ['scrum-master', 'continuous-improvement', 'retrospective', 'facilitation', 'team-health', 'agile'],
+    tags: ['scrum-master', 'continuous-improvement', 'retrospective', 'facilitation', 'team-health', 'agile', 'Scrum Guide 2020', 'Agile Retrospectives (Derby & Larsen)', 'Psychological Safety (Edmondson)', 'Liberating Structures', 'Prime Directive'],
   },
 
   // ============================================================================
@@ -2868,7 +2877,9 @@ QUALITY INDICATORS FOR RETROSPECTIVE
   {
     id: 'gov-1',
     title: 'Project Business Case (PRINCE2)',
-    category: 'prince2',
+    framework: 'prince2',
+    phase: 'Controlling a Stage',
+    canonicalPhase: 4,
     description: 'Draft comprehensive PRINCE2-aligned Business Cases that provide robust investment justification, rigorous options analysis, quantified benefits with tolerance ranges, risk-adjusted financial projections, and clear governance decision points that enable confident executive approval or rejection.',
     template: `You are a Senior Business Analyst and PRINCE2 Practitioner with expertise in developing investment-grade business cases that withstand executive scrutiny. Your cases provide the economic justification that enables confident go/no-go decisions while establishing the benefits baseline against which project success will ultimately be measured.
 
@@ -3367,15 +3378,16 @@ QUALITY INDICATORS
       { name: 'sponsor', description: 'Executive sponsor name and title', example: 'Jane Smith, CFO', required: false },
       { name: 'version', description: 'Document version for tracking', example: '1.0 - Initial Approval Request', required: false },
     ],
-    frameworks: ['PRINCE2', 'PMI', 'Business Case Development', 'Investment Appraisal', 'Benefits Management'],
     tier: 'premium',
     estimatedTimeSaved: '4 hours',
-    tags: ['business-case', 'strategy', 'prince2', 'investment', 'governance', 'npv', 'roi'],
+    tags: ['business-case', 'strategy', 'prince2', 'investment', 'governance', 'npv', 'roi', 'PRINCE2', 'PMI', 'Business Case Development', 'Investment Appraisal', 'Benefits Management'],
   },
   {
     id: 'gov-2',
     title: 'Steering Committee Status Deck',
-    category: 'prince2',
+    framework: 'prince2',
+    phase: 'Controlling a Stage',
+    canonicalPhase: 4,
     description: 'Craft executive-ready steering committee presentations that communicate project health transparently, frame decisions clearly for busy executives, anticipate questions before they are asked, and drive timely decisions while building sustained confidence in project governance.',
     template: `You are an Executive Communications Specialist and Senior Project Director with expertise in presenting to C-level steering committees. Your presentations are renowned for crisp messaging, transparent status reporting, and the ability to drive decisions efficiently while maintaining executive confidence even when delivering difficult news.
 
@@ -3792,10 +3804,9 @@ QUALITY INDICATORS
       { name: 'budget_status', description: 'Current financial position', example: '10% over budget ($50k) due to unplanned API integration complexity; requesting contingency release', required: true },
       { name: 'presenter', description: 'Person presenting to the committee', example: 'Sarah Johnson, Project Director', required: false },
     ],
-    frameworks: ['PRINCE2', 'PMI', 'Executive Communication', 'Governance', 'RAG Reporting'],
     tier: 'premium',
     estimatedTimeSaved: '2 hours',
-    tags: ['reporting', 'executive', 'steering-committee', 'governance', 'presentation', 'prince2'],
+    tags: ['reporting', 'executive', 'steering-committee', 'governance', 'presentation', 'prince2', 'PRINCE2', 'PMI', 'Executive Communication', 'Governance', 'RAG Reporting'],
   },
     // ============================================================================
   // PROJECT MANAGEMENT (General)
@@ -3803,7 +3814,9 @@ QUALITY INDICATORS
     {
     id: 'pm-1',
     title: 'Project Charter Generator',
-    category: 'pmbok',
+    framework: 'pmbok',
+    phase: 'Initiating',
+    canonicalPhase: 1,
     description: 'Generate PMI-compliant Project Charters that formally authorize initiatives, establish PM authority, align stakeholders on vision, and create the foundational document that drives project success from day one.',
     template: `You are a PMP-certified Project Management Professional and Charter Development Specialist. Your charters don't just authorize projects—they establish clear vision, unambiguous authority, and stakeholder alignment that prevents scope wars and political battles throughout the project lifecycle.
 
@@ -4159,15 +4172,16 @@ QUALITY INDICATORS
       { name: 'sponsor', description: 'Executive sponsor authorizing and funding the project', example: 'Jane Smith, VP of Marketing / John Doe, CIO', required: false },
       { name: 'organization', description: 'Company or department name', example: 'Acme Corporation / Digital Products Division', required: false },
     ],
-    frameworks: ['PMI PMBOK', 'Project Initiation', 'Project Governance'],
     estimatedTimeSaved: '3 hours',
     tier: 'premium',
-    tags: ['initiation', 'charter', 'pmbok', 'governance', 'authorization', 'pmp'],
+    tags: ['initiation', 'charter', 'pmbok', 'governance', 'authorization', 'pmp', 'PMI PMBOK', 'Project Initiation', 'Project Governance'],
   },
   {
     id: 'pm-2',
     title: 'Stakeholder Communication Plan',
-    category: 'pmbok',
+    framework: 'pmbok',
+    phase: 'Planning',
+    canonicalPhase: 2,
     description: 'Create comprehensive stakeholder communication plans with audience analysis, channel strategies, escalation protocols, and crisis communication frameworks that ensure the right information reaches the right people at the right time.',
     template: `You are a Communications Planning Specialist and Stakeholder Engagement Expert with deep expertise in PMI communication management. Your plans don't just schedule updates—they strategically manage information flow to build trust, preempt concerns, and maintain stakeholder alignment throughout the project lifecycle.
 
@@ -4563,15 +4577,16 @@ QUALITY INDICATORS
       { name: 'project_manager', description: 'Name of the project manager responsible for communications', example: 'Jane Smith / John Doe, PMP', required: false },
       { name: 'comm_lead', description: 'Name of the communications or change management lead if different from PM', example: 'Sarah Johnson, Change Manager', required: false },
     ],
-    frameworks: ['PMI PMBOK', 'Communication Management', 'Stakeholder Engagement', 'Change Management'],
     estimatedTimeSaved: '2.5 hours',
     tier: 'premium',
-    tags: ['communications', 'stakeholders', 'pmbok', 'change-management', 'escalation'],
+    tags: ['communications', 'stakeholders', 'pmbok', 'change-management', 'escalation', 'PMI PMBOK', 'Communication Management', 'Stakeholder Engagement', 'Change Management'],
   },
   {
     id: 'cons-4',
     title: 'Material Procurement Schedule Mastery',
-    category: 'waterfall',
+    framework: 'pmbok',
+    phase: 'Monitoring & Controlling',
+    canonicalPhase: 4,
     description: 'Master long-lead item tracking with critical path integration, supplier risk management, and proactive expediting strategies.',
     template: `You are a Senior Procurement Manager and Supply Chain Specialist with 20+ years managing complex EPC project materials. Your procurement schedules have prevented countless schedule delays by identifying risks early and implementing proactive mitigation strategies.
 
@@ -4916,15 +4931,16 @@ QUALITY INDICATORS
       { name: 'lead_time', description: 'Total lead time in weeks', example: '16', required: true },
       { name: 'delivery_date', description: 'Required delivery date', example: 'May 6, 2024', required: true },
     ],
-    frameworks: ['CPM', 'Supply Chain Management', 'Risk Management'],
     tier: 'premium',
     estimatedTimeSaved: '1.5 hours',
-    tags: ['procurement', 'logistics', 'construction', 'long-lead', 'supply-chain'],
+    tags: ['procurement', 'logistics', 'construction', 'long-lead', 'supply-chain', 'CPM', 'Supply Chain Management', 'Risk Management'],
   },
   {
     id: 'cons-5',
     title: 'Subcontractor Performance Tracking Mastery',
-    category: 'waterfall',
+    framework: 'pmbok',
+    phase: 'Planning',
+    canonicalPhase: 2,
     description: 'Comprehensive subcontractor monitoring with productivity metrics, quality scoring, and performance trend analysis for contract administration.',
     template: `You are a Senior Construction Manager specializing in subcontractor coordination and performance management. Your tracking systems have been adopted industry-wide for their ability to document performance objectively, identify issues early, and support both incentive and back-charge administration.
 
@@ -5251,15 +5267,16 @@ QUALITY INDICATORS
       { name: 'scope', description: 'Work accomplished', example: 'Completed 350 LF conduit run Level 2 (Grid A-E), pulled wire in 6 homerun circuits Panel LP-2A, installed 8 receptacle boxes conference rooms 201-204', required: true },
       { name: 'issues', description: 'Problems or concerns', example: 'Blocked at Grid D-E by HVAC ductwork installation - lost 2 hours, coordination meeting scheduled for tomorrow AM. Also noted 2 workers without hard hats - verbal warning issued.', required: false },
     ],
-    frameworks: ['Construction Management', 'Contract Administration', 'Earned Value'],
     tier: 'premium',
     estimatedTimeSaved: '45 mins',
-    tags: ['subcontractor', 'daily-log', 'performance-tracking', 'construction', 'contract-administration'],
+    tags: ['subcontractor', 'daily-log', 'performance-tracking', 'construction', 'contract-administration', 'Construction Management', 'Contract Administration', 'Earned Value'],
   },
   {
     id: 'cons-6',
     title: 'Punch List and Closeout Mastery',
-    category: 'waterfall',
+    framework: 'pmbok',
+    phase: 'Monitoring & Controlling',
+    canonicalPhase: 4,
     description: 'Comprehensive closeout documentation with systematic deficiency tracking, acceptance criteria, and handover coordination.',
     template: `You are a Senior Project Closeout Specialist with expertise in construction quality assurance and owner turnover. Your punch list systems have accelerated project closeouts by 40% while achieving first-time owner acceptance rates above 95%.
 
@@ -5581,15 +5598,16 @@ QUALITY INDICATORS
       { name: 'status_2', description: 'Status of second item', example: 'In Progress', required: true },
       { name: 'assignee_2', description: 'Trade responsible for second item', example: 'XYZ Hardware', required: true },
     ],
-    frameworks: ['Construction Closeout', 'Quality Assurance', 'Owner Turnover'],
     tier: 'premium',
     estimatedTimeSaved: '1.5 hours',
-    tags: ['quality', 'closeout', 'punch-list', 'construction', 'turnover'],
+    tags: ['quality', 'closeout', 'punch-list', 'construction', 'turnover', 'Construction Closeout', 'Quality Assurance', 'Owner Turnover'],
   },
   {
     id: 'cons-7',
     title: 'Weather Delay Notice and Claims Mastery',
-    category: 'waterfall',
+    framework: 'pmbok',
+    phase: 'Executing',
+    canonicalPhase: 3,
     description: 'Draft legally defensible weather delay notices with meteorological documentation, impact analysis, and time extension calculations.',
     template: `You are a Construction Claims Consultant and Contract Administrator specializing in schedule delay analysis. Your weather delay notices have achieved a 95%+ approval rate due to their thorough documentation, clear contract references, and professional presentation.
 
@@ -5956,10 +5974,9 @@ QUALITY INDICATORS
       { name: 'impact', description: 'Work prevented by weather', example: 'Unable to perform scheduled concrete placement for Bridge Abutment B (Activity ID: BRG-120). Crane operations suspended due to wind speed. Earthwork grading in Area 3 halted due to saturated conditions.', required: true },
       { name: 'clause', description: 'Contract section for weather/delay', example: 'Section 14.2 (Excusable Delays) and Section 8.3 (Time Extensions)', required: true },
     ],
-    frameworks: ['AIA', 'ConsensusDocs', 'EJCDC', 'FAR'],
     tier: 'premium',
     estimatedTimeSaved: '1.5 hours',
-    tags: ['legal', 'delay', 'claims', 'construction', 'weather', 'time-extension'],
+    tags: ['legal', 'delay', 'claims', 'construction', 'weather', 'time-extension', 'AIA', 'ConsensusDocs', 'EJCDC', 'FAR'],
   },
 
   // ======================
@@ -5968,7 +5985,9 @@ QUALITY INDICATORS
   {
     id: 'itil-3',
     title: 'Service Level Agreement (SLA) Review',
-    category: 'itil',
+    framework: 'itil',
+    phase: 'Strategy & Engage',
+    canonicalPhase: 1,
     description: 'Generate a comprehensive SLA performance review that transforms vendor accountability from reactive penalty enforcement to proactive service partnership with trend analysis, root cause patterns, and continuous improvement roadmaps.',
     template: `You are a Vendor Management and Service Level expert with deep expertise in ITIL v4 Service Level Management, contract negotiation, and building strategic vendor partnerships. Your SLA reviews don't just measure compliance—they identify systemic improvement opportunities and strengthen vendor relationships through data-driven accountability.
 
@@ -6246,15 +6265,16 @@ QUALITY INDICATORS FOR SLA REVIEW
       { name: 'target_2', description: 'Contractual response time target', example: 'P1: 15 min, P2: 1 hour, P3: 4 hours', required: true },
       { name: 'actual_2', description: 'Actual response time achieved', example: 'P1: 12 min avg, P2: 52 min avg, P3: 3.2 hours avg', required: true },
     ],
-    frameworks: ['ITIL v4 Service Level Management', 'ITIL Supplier Management', 'ISO 20000', 'Vendor Risk Management', 'Contract Lifecycle Management'],
     tier: 'premium',
     estimatedTimeSaved: '3 hours',
-    tags: ['sla', 'vendor', 'reporting', 'performance', 'contract', 'supplier-management', 'itil'],
+    tags: ['sla', 'vendor', 'reporting', 'performance', 'contract', 'supplier-management', 'itil', 'ITIL v4 Service Level Management', 'ITIL Supplier Management', 'ISO 20000', 'Vendor Risk Management', 'Contract Lifecycle Management'],
   },
   {
     id: 'itil-4',
     title: 'Problem Management Record (Known Error)',
-    category: 'itil',
+    framework: 'itil',
+    phase: 'Deliver & Support',
+    canonicalPhase: 4,
     description: 'Generate a comprehensive Known Error Database entry that enables frontline support to resolve issues quickly while tracking root cause analysis and permanent fix progress through the problem management lifecycle.',
     template: `You are a Problem Management Specialist with deep expertise in ITIL v4 Problem Management, root cause analysis methodologies, and building effective Known Error Databases. Your KEDB entries don't just document workarounds—they accelerate incident resolution, track permanent fix progress, and prevent recurring incidents through organizational learning.
 
@@ -6532,15 +6552,16 @@ QUALITY INDICATORS FOR KEDB ENTRY
       { name: 'workaround', description: 'Temporary resolution steps', example: 'Clear browser cache and cookies, wait 30 seconds, retry login. If persistent, restart authentication service pod (requires L2 access)', required: true },
       { name: 'fix_status', description: 'Status of permanent fix', example: 'Code fix merged to develop branch; scheduled for v2.4.1 release in Sprint 47 (target: March 15); blocked by QA capacity', required: true },
     ],
-    frameworks: ['ITIL v4 Problem Management', 'Known Error Database (KEDB)', 'Root Cause Analysis', '5 Whys', 'Knowledge-Centered Service (KCS)'],
     tier: 'premium',
     estimatedTimeSaved: '2 hours',
-    tags: ['support', 'problem-management', 'itil', 'kedb', 'knowledge', 'incident-management', 'root-cause'],
+    tags: ['support', 'problem-management', 'itil', 'kedb', 'knowledge', 'incident-management', 'root-cause', 'ITIL v4 Problem Management', 'Known Error Database (KEDB)', 'Root Cause Analysis', '5 Whys', 'Knowledge-Centered Service (KCS)'],
   },
   {
     id: 'itil-5',
     title: 'Access Request Approval Template',
-    category: 'itil',
+    framework: 'itil',
+    phase: 'Build',
+    canonicalPhase: 3,
     description: 'Generate a comprehensive access request justification that satisfies security compliance requirements with least-privilege analysis, risk assessment, audit trails, and automated provisioning readiness.',
     template: `You are an Identity and Access Management (IAM) Specialist with deep expertise in ITIL v4 Access Management, zero-trust security principles, and regulatory compliance (SOX, HIPAA, PCI-DSS, GDPR). Your access requests don't just grant permissions—they demonstrate least-privilege adherence, create audit-ready documentation, and protect both the organization and the employee.
 
@@ -6827,15 +6848,16 @@ QUALITY INDICATORS FOR ACCESS REQUEST
       { name: 'level', description: 'Access level requested', example: 'Read-Only SELECT access to orders and order_items tables only (no PII columns)', required: true },
       { name: 'duration', description: 'Access duration requested', example: '4 hours (immediate), with auto-expiration at end of business day', required: true },
     ],
-    frameworks: ['ITIL v4 Access Management', 'Zero Trust Security', 'Least Privilege Principle', 'SOX Controls', 'NIST IAM', 'ISO 27001'],
     tier: 'premium',
     estimatedTimeSaved: '1 hour',
-    tags: ['security', 'compliance', 'iam', 'access-control', 'audit', 'governance', 'itil'],
+    tags: ['security', 'compliance', 'iam', 'access-control', 'audit', 'governance', 'itil', 'ITIL v4 Access Management', 'Zero Trust Security', 'Least Privilege Principle', 'SOX Controls', 'NIST IAM', 'ISO 27001'],
   },
   {
     id: 'itil-6',
     title: 'UAT Sign-off Document',
-    category: 'itil',
+    framework: 'itil',
+    phase: 'Improve',
+    canonicalPhase: 4,
     description: 'Generate a comprehensive User Acceptance Testing sign-off document that provides auditable evidence of business validation, risk-based go/no-go decisions, and clear accountability for production deployment authorization.',
     template: `You are a Quality Assurance and Release Management specialist with deep expertise in user acceptance testing governance, risk-based deployment decisions, and regulatory compliance requirements. Your UAT sign-off documents don't just record test results—they create auditable evidence that the business has validated functionality, accepted residual risks, and formally authorized production deployment.
 
@@ -7139,10 +7161,9 @@ QUALITY INDICATORS FOR UAT SIGN-OFF
       { name: 'total_count', description: 'Total number of test cases executed', example: '147', required: true },
       { name: 'defects', description: 'Summary of open defects by severity', example: '0 Critical, 1 High (DEF-892 - edge case workaround documented), 3 Medium (deferred to v2.4.1), 2 Low (cosmetic)', required: true },
     ],
-    frameworks: ['ITIL v4 Release Management', 'IEEE 829 Test Documentation', 'ISO 25010 Quality Model', 'Agile Release Governance', 'GxP Validation (if applicable)'],
     tier: 'premium',
     estimatedTimeSaved: '2 hours',
-    tags: ['testing', 'sign-off', 'release', 'qa', 'uat', 'governance', 'deployment', 'itil'],
+    tags: ['testing', 'sign-off', 'release', 'qa', 'uat', 'governance', 'deployment', 'itil', 'ITIL v4 Release Management', 'IEEE 829 Test Documentation', 'ISO 25010 Quality Model', 'Agile Release Governance', 'GxP Validation (if applicable)'],
   },
   // ======================
   // LEGACY & MAINFRAME EXPANSION
@@ -7150,7 +7171,9 @@ QUALITY INDICATORS FOR UAT SIGN-OFF
   {
     id: 'leg-3',
     title: 'JCL (Job Control Language) Description',
-    category: 'hybrid',
+    framework: 'hybrid',
+    phase: 'Monitoring & Controlling',
+    canonicalPhase: 4,
     description: 'Transform cryptic batch job streams into comprehensive operational documentation with data flow diagrams, error handling maps, and modern CI/CD integration patterns.',
     template: `You are a Mainframe Batch Operations Architect with deep expertise in z/OS JCL, job scheduling, and batch modernization. Your documentation must enable modern DevOps engineers to understand, maintain, and eventually modernize critical batch workflows.
 
@@ -7456,15 +7479,16 @@ QUALITY INDICATORS FOR THIS DOCUMENTATION
       { name: 'output', description: 'Output files and destinations', example: 'ACH file to BANK.XMIT.READY, Check print to SYSOUT=A, Archive to PAYROLL.HIST(+1)', required: true },
       { name: 'business_function', description: 'Business purpose of this job', example: 'Weekly payroll processing - calculates wages, deductions, generates paychecks and ACH deposits', required: false },
     ],
-    frameworks: ['IBM z/OS JCL', 'CA-7', 'Control-M', 'TWS', 'Airflow Migration'],
     tier: 'premium',
     estimatedTimeSaved: '3 hours',
-    tags: ['mainframe', 'documentation', 'jcl', 'batch-processing', 'scheduling', 'modernization'],
+    tags: ['mainframe', 'documentation', 'jcl', 'batch-processing', 'scheduling', 'modernization', 'IBM z/OS JCL', 'CA-7', 'Control-M', 'TWS', 'Airflow Migration'],
   },
   {
     id: 'leg-4',
     title: 'Data Field Mapping (EBCDIC to ASCII)',
-    category: 'hybrid',
+    framework: 'hybrid',
+    phase: 'Monitoring & Controlling',
+    canonicalPhase: 4,
     description: 'Generate comprehensive data transformation specifications with encoding conversion rules, packed decimal handling, null semantics, and ETL pipeline code generation.',
     template: `You are a Data Migration Architect specializing in mainframe-to-modern data transformations. Your mapping specification must be precise enough to generate working ETL code while being understandable to both legacy and modern data engineers.
 
@@ -7805,15 +7829,16 @@ QUALITY INDICATORS
       { name: 'transform_logic', description: 'Key transformation rules', example: 'Unpack COMP-3 with 2 decimal places, convert dates from YYYYMMDD, decode status A/I/D to Active/Inactive/Deleted', required: true },
       { name: 'data_volume', description: 'Expected data volume', example: '50M records, 25GB raw, daily delta of 100K records', required: false },
     ],
-    frameworks: ['IBM Data Management', 'Informatica', 'Talend', 'AWS Glue', 'Azure Data Factory', 'Apache Spark'],
     tier: 'premium',
     estimatedTimeSaved: '4 hours',
-    tags: ['data-migration', 'cobol', 'etl', 'ebcdic', 'encoding', 'packed-decimal', 'mainframe'],
+    tags: ['data-migration', 'cobol', 'etl', 'ebcdic', 'encoding', 'packed-decimal', 'mainframe', 'IBM Data Management', 'Informatica', 'Talend', 'AWS Glue', 'Azure Data Factory', 'Apache Spark'],
   },
   {
     id: 'leg-5',
     title: 'Legacy API Wrapper Design',
-    category: 'hybrid',
+    framework: 'hybrid',
+    phase: 'Initiating',
+    canonicalPhase: 1,
     description: 'Design production-grade RESTful API facades with circuit breakers, connection pooling, protocol translation, error mapping, and observability for mainframe integration.',
     template: `You are an Enterprise Integration Architect specializing in legacy system modernization. Design a robust API wrapper that shields modern consumers from mainframe complexity while ensuring reliability, security, and observability.
 
@@ -8288,15 +8313,16 @@ QUALITY INDICATORS
       { name: 'sla_requirements', description: 'Performance and availability requirements', example: 'P99 latency < 500ms, 99.9% availability, max 100 TPS', required: false },
       { name: 'security_context', description: 'Security and compliance requirements', example: 'PCI-DSS compliant, OAuth2 required, PII must be masked in logs', required: false },
     ],
-    frameworks: ['IBM CTG', 'IBM MQ', 'z/OS Connect', 'Strangler Fig Pattern', 'API Gateway', 'Spring Cloud', 'Resilience4j'],
     tier: 'premium',
     estimatedTimeSaved: '6 hours',
-    tags: ['api-design', 'legacy', 'modernization', 'integration', 'cics', 'mq', 'resilience', 'strangler-pattern'],
+    tags: ['api-design', 'legacy', 'modernization', 'integration', 'cics', 'mq', 'resilience', 'strangler-pattern', 'IBM CTG', 'IBM MQ', 'z/OS Connect', 'Strangler Fig Pattern', 'API Gateway', 'Spring Cloud', 'Resilience4j'],
   },
   {
     id: 'leg-6',
     title: 'Legacy Test Case Generator',
-    category: 'hybrid',
+    framework: 'hybrid',
+    phase: 'Closing',
+    canonicalPhase: 5,
     description: 'Generate comprehensive test suites for green-screen applications with boundary analysis, screen navigation validation, field-level testing, and automated test script generation.',
     template: `You are a Mainframe QA Architect with expertise in 3270 terminal testing, CICS transaction validation, and legacy system quality assurance. Generate comprehensive test cases that cover functional, boundary, and negative scenarios for green-screen applications.
 
@@ -8750,10 +8776,9 @@ QUALITY INDICATORS
       { name: 'message', description: 'Expected feedback message', example: 'CUSTOMER RECORD FOUND or INQUIRY SUCCESSFUL', required: true },
       { name: 'business_function', description: 'Business operation being tested', example: 'Customer balance inquiry for teller operations', required: false },
     ],
-    frameworks: ['ISTQB', 'IBM HATS', 'Micro Focus RUMBA', 'BlueZone', 'py3270', 'Robot Framework'],
     tier: 'premium',
     estimatedTimeSaved: '2 hours',
-    tags: ['testing', 'mainframe', 'manual-test', '3270', 'terminal', 'automation', 'qa', 'green-screen'],
+    tags: ['testing', 'mainframe', 'manual-test', '3270', 'terminal', 'automation', 'qa', 'green-screen', 'ISTQB', 'IBM HATS', 'Micro Focus RUMBA', 'BlueZone', 'py3270', 'Robot Framework'],
   },
 
   // ======================
@@ -8762,7 +8787,9 @@ QUALITY INDICATORS
   {
     id: 'agile-3',
     title: 'Definition of Done (DoD) Checklist',
-    category: 'agile',
+    framework: 'agile',
+    phase: 'Iteration Planning',
+    canonicalPhase: 2,
     description: 'Architect comprehensive, team-specific Definition of Done criteria that establish unambiguous quality gates, prevent technical debt accumulation, ensure cross-functional alignment, and create a shared understanding of "shippable" that eliminates ambiguity and protects product quality.',
     template: `You are a Scrum Master and Quality Engineering Lead with expertise in establishing measurable quality gates that balance thoroughness with delivery velocity. Your DoD creates the quality contract between team, Product Owner, and stakeholders that defines when work is truly complete.
 
@@ -9178,15 +9205,16 @@ QUALITY INDICATORS
       { name: 'approvals', description: 'Required sign-offs and review gates', example: '2 peer reviews required, QA sign-off, PO acceptance in staging, security review for auth changes', required: true },
       { name: 'compliance_requirements', description: 'Regulatory and compliance context', example: 'SOC 2 Type II, GDPR (EU customer data), PCI-DSS Level 1 for payment features', required: false },
     ],
-    frameworks: ['Scrum', 'Quality Engineering', 'DevOps', 'CI/CD', 'Test Pyramid', 'Shift-Left Testing'],
     tier: 'premium',
     estimatedTimeSaved: '2 hours',
-    tags: ['scrum', 'quality', 'dod', 'definition-of-done', 'quality-gates', 'ci-cd', 'testing', 'agile'],
+    tags: ['scrum', 'quality', 'dod', 'definition-of-done', 'quality-gates', 'ci-cd', 'testing', 'agile', 'Scrum', 'Quality Engineering', 'DevOps', 'CI/CD', 'Test Pyramid', 'Shift-Left Testing'],
   },
   {
     id: 'agile-4',
     title: 'Release Notes Generator (SemVer)',
-    category: 'agile',
+    framework: 'agile',
+    phase: 'Review & Retrospective',
+    canonicalPhase: 4,
     description: 'Transform technical changelogs into compelling, audience-appropriate release communications that celebrate improvements, clearly communicate breaking changes, guide migration paths, and drive adoption while maintaining SemVer compliance and building user confidence in your release process.',
     template: `You are a Technical Writer and Product Marketing specialist who transforms developer changelogs into compelling release communications. Your notes celebrate improvements, clearly communicate risks, and guide users through migrations while maintaining trust and driving adoption.
 
@@ -9615,15 +9643,16 @@ QUALITY INDICATORS
       { name: 'fixes', description: 'Bugs resolved in this release', example: 'Fixed login crash on iOS 17, Resolved memory leak in dashboard refresh, Corrected timezone handling in scheduled reports', required: true },
       { name: 'breaking', description: 'Breaking changes requiring user action', example: 'API v1 endpoints deprecated (use v2), Config file format changed from YAML to TOML, Minimum Node.js version now 18', required: true },
     ],
-    frameworks: ['SemVer', 'Keep a Changelog', 'Conventional Commits', 'Product Marketing', 'Technical Writing'],
     tier: 'premium',
     estimatedTimeSaved: '1.5 hours',
-    tags: ['release-notes', 'product', 'marketing', 'changelog', 'semver', 'documentation', 'agile'],
+    tags: ['release-notes', 'product', 'marketing', 'changelog', 'semver', 'documentation', 'agile', 'SemVer', 'Keep a Changelog', 'Conventional Commits', 'Product Marketing', 'Technical Writing'],
   },
   {
     id: 'agile-5',
     title: 'Tech Debt Negotiation Script',
-    category: 'agile',
+    framework: 'agile',
+    phase: 'Roadmapping',
+    canonicalPhase: 2,
     description: 'Craft persuasive, business-language arguments for technical debt remediation that quantify invisible costs, translate engineering concerns into revenue impact, build stakeholder empathy through analogies, and secure executive buy-in for refactoring investments while maintaining engineering credibility.',
     template: `You are a Principal Engineer and Technical Program Manager skilled in translating engineering concerns into business language. You help technical leaders secure investment in debt remediation by quantifying invisible costs and building compelling narratives that resonate with non-technical stakeholders.
 
@@ -10061,15 +10090,16 @@ QUALITY INDICATORS
       { name: 'benefit', description: 'Expected benefits from remediation', example: 'Reduce auth feature development time by 70%, eliminate auth-related outages, improve developer satisfaction scores by 20 points', required: true },
       { name: 'feature', description: 'Feature to potentially trade off', example: 'Comment History feature (P2 priority, 3 sprint estimate)', required: true },
     ],
-    frameworks: ['Technical Debt Quadrant', 'Cost of Delay', 'Negotiation', 'Stakeholder Management', 'Business Case Development'],
     tier: 'premium',
     estimatedTimeSaved: '2 hours',
-    tags: ['soft-skills', 'tech-debt', 'leadership', 'negotiation', 'stakeholder-management', 'business-case', 'agile'],
+    tags: ['soft-skills', 'tech-debt', 'leadership', 'negotiation', 'stakeholder-management', 'business-case', 'agile', 'Technical Debt Quadrant', 'Cost of Delay', 'Negotiation', 'Stakeholder Management', 'Business Case Development'],
   },
   {
     id: 'agile-6',
     title: 'Scrum of Scrums Agenda',
-    category: 'agile',
+    framework: 'agile',
+    phase: 'Envisioning',
+    canonicalPhase: 1,
     description: 'Orchestrate effective cross-team coordination ceremonies that surface dependencies before they become blockers, resolve integration risks, align release trains, and maintain program-level visibility while respecting team autonomy and keeping meetings focused on actionable cross-cutting concerns.',
     template: `You are a Release Train Engineer and Agile Program Manager specializing in scaled agile coordination. You facilitate Scrum of Scrums ceremonies that surface cross-team dependencies, resolve blockers proactively, and maintain program-level coherence while respecting individual team autonomy.
 
@@ -10517,15 +10547,16 @@ QUALITY INDICATORS
       { name: 'cadence', description: 'Meeting frequency', example: 'Twice weekly (Monday/Thursday 10am)', required: false },
       { name: 'pi_number', description: 'Program Increment or release number', example: 'PI 24.2 (Jan-Mar 2025)', required: false },
     ],
-    frameworks: ['SAFe', 'LeSS', 'Nexus', 'Scrum@Scale', 'Spotify Model'],
     tier: 'premium',
     estimatedTimeSaved: '1.5 hours',
-    tags: ['scaling', 'scrum-of-scrums', 'program-mgmt', 'coordination', 'dependencies', 'safe', 'agile'],
+    tags: ['scaling', 'scrum-of-scrums', 'program-mgmt', 'coordination', 'dependencies', 'safe', 'agile', 'SAFe', 'LeSS', 'Nexus', 'Scrum@Scale', 'Spotify Model'],
   },
   {
     id: 'agile-7',
     title: 'MVP Scope Negotiation',
-    category: 'agile',
+    framework: 'agile',
+    phase: 'Release',
+    canonicalPhase: 5,
     description: 'Facilitate ruthless scope prioritization sessions that distinguish true minimum viability from feature creep, validate assumptions before building, optimize for learning velocity over feature completeness, and ship products that test hypotheses quickly while preserving the core value proposition.',
     template: `You are a Lean Startup Coach and Product Strategy Consultant who specializes in helping teams ship faster by cutting scope ruthlessly. You guide MVP definition that maximizes learning per dollar spent while preserving the core value proposition that makes the product worth building.
 
@@ -10987,15 +11018,16 @@ QUALITY INDICATORS
       { name: 'problem', description: 'Core problem being solved', example: 'Finding a reliable, trustworthy dog walker on short notice (< 2 hours) when unexpected work commitments arise', required: true },
       { name: 'target_date', description: 'Target MVP launch date', example: '6 weeks from today (March 15, 2025)', required: false },
     ],
-    frameworks: ['Lean Startup', 'RICE Prioritization', 'MoSCoW', 'Kano Model', 'Jobs To Be Done', 'Cupcake MVP'],
     tier: 'premium',
     estimatedTimeSaved: '3 hours',
-    tags: ['product-mgmt', 'startup', 'prioritization', 'lean', 'mvp', 'scope-management', 'agile'],
+    tags: ['product-mgmt', 'startup', 'prioritization', 'lean', 'mvp', 'scope-management', 'agile', 'Lean Startup', 'RICE Prioritization', 'MoSCoW', 'Kano Model', 'Jobs To Be Done', 'Cupcake MVP'],
   },
   {
     id: 'agile-8',
     title: 'Bug Triage Protocol',
-    category: 'agile',
+    framework: 'agile',
+    phase: 'Review & Retrospective',
+    canonicalPhase: 4,
     description: 'Establish systematic bug classification and triage processes that ensure consistent severity assessment, appropriate escalation paths, SLA compliance, root cause analysis, and continuous improvement through defect pattern analysis while preventing bug queue burnout and maintaining customer trust.',
     template: `You are a QA Lead and Engineering Manager with expertise in defect management systems. You design triage protocols that ensure consistent classification, appropriate urgency, clear ownership, and continuous learning from defects while preventing triage fatigue and maintaining team morale.
 
@@ -11523,10 +11555,9 @@ QUALITY INDICATORS
       { name: 'role', description: 'Escalation role for unresolved Sev1', example: 'VP of Engineering', required: true },
       { name: 'triage_cadence', description: 'How often triage meetings occur', example: 'Daily 15-min standup + Weekly 30-min deep dive', required: false },
     ],
-    frameworks: ['SRE', 'ITIL Incident Management', 'Agile Quality', 'DevOps', 'Continuous Improvement'],
     tier: 'premium',
     estimatedTimeSaved: '2 hours',
-    tags: ['quality', 'triage', 'process', 'bug-management', 'sla', 'incident-response', 'agile'],
+    tags: ['quality', 'triage', 'process', 'bug-management', 'sla', 'incident-response', 'agile', 'SRE', 'ITIL Incident Management', 'Agile Quality', 'DevOps', 'Continuous Improvement'],
   },
   // ======================
   // GOVERNANCE & PMO EXPANSION
@@ -11534,7 +11565,9 @@ QUALITY INDICATORS
   {
     id: 'gov-3',
     title: 'PMO Charter Template',
-    category: 'prince2',
+    framework: 'prince2',
+    phase: 'Managing Product Delivery',
+    canonicalPhase: 3,
     description: 'Establish comprehensive PMO charters that clearly define authority, service offerings, operating model, success metrics, stakeholder relationships, and the path to PMO maturity while balancing governance rigor with project team autonomy.',
     template: `You are a PMO Director and Portfolio Management Consultant with expertise in establishing PMOs that deliver measurable value while earning stakeholder trust. Your charters create clarity around PMO authority, service offerings, and success criteria while building organizational buy-in for project governance.
 
@@ -11933,15 +11966,16 @@ QUALITY INDICATORS
       { name: 'version', description: 'Charter version', example: '1.0', required: false },
       { name: 'effective_date', description: 'Charter effective date', example: 'January 1, 2025', required: false },
     ],
-    frameworks: ['P3O', 'PMI', 'PRINCE2', 'OPM3', 'Portfolio Management'],
     tier: 'premium',
     estimatedTimeSaved: '4 hours',
-    tags: ['pmo', 'charter', 'strategy', 'governance', 'portfolio-management', 'prince2'],
+    tags: ['pmo', 'charter', 'strategy', 'governance', 'portfolio-management', 'prince2', 'P3O', 'PMI', 'PRINCE2', 'OPM3', 'Portfolio Management'],
   },
   {
     id: 'gov-4',
     title: 'Governance Gate Review Agenda',
-    category: 'prince2',
+    framework: 'prince2',
+    phase: 'Controlling a Stage',
+    canonicalPhase: 4,
     description: 'Orchestrate rigorous stage-gate reviews that ensure projects meet defined criteria before proceeding, surface risks early, enable objective go/no-go decisions, and maintain governance discipline while avoiding analysis paralysis and unnecessary bureaucracy.',
     template: `You are a Stage-Gate Process Owner and Governance Specialist with expertise in designing gate reviews that provide meaningful quality assurance without becoming bureaucratic obstacles. Your gate meetings are efficient, criteria-focused, and result in clear decisions that protect project investments while enabling delivery velocity.
 
@@ -12325,15 +12359,16 @@ QUALITY INDICATORS
       { name: 'voters', description: 'Voting members on the gate board', example: 'Enterprise Architect, Finance Business Partner, Security Officer, Business Sponsor', required: true },
       { name: 'gate_owner', description: 'Person chairing the gate', example: 'PMO Director', required: false },
     ],
-    frameworks: ['Stage-Gate', 'PRINCE2', 'Governance', 'Quality Gates', 'PMI'],
     tier: 'premium',
     estimatedTimeSaved: '1.5 hours',
-    tags: ['gate-review', 'milestone', 'control', 'governance', 'quality-gate', 'prince2'],
+    tags: ['gate-review', 'milestone', 'control', 'governance', 'quality-gate', 'prince2', 'Stage-Gate', 'PRINCE2', 'Governance', 'Quality Gates', 'PMI'],
   },
   {
     id: 'gov-5',
     title: 'Audit Response Checklist',
-    category: 'prince2',
+    framework: 'prince2',
+    phase: 'Closing',
+    canonicalPhase: 5,
     description: 'Prepare comprehensive audit readiness programs that anticipate auditor requirements, gather evidence systematically, prepare stakeholders for interviews, address common findings proactively, and demonstrate governance maturity while maintaining operational continuity during audit periods.',
     template: `You are an Internal Audit Manager and Compliance Specialist with extensive experience preparing projects for internal QA reviews, external audits, and regulatory examinations. Your preparation ensures teams are confident, evidence is organized, and audits conclude with clean findings or manageable recommendations.
 
@@ -12831,15 +12866,16 @@ QUALITY INDICATORS
       { name: 'audit_date', description: 'Date of the audit', example: 'February 20-24, 2025', required: false },
       { name: 'lead_auditor', description: 'Lead auditor name/firm', example: 'External: Deloitte (Lead: Jennifer Smith)', required: false },
     ],
-    frameworks: ['Internal Audit', 'ISO Standards', 'SOX Compliance', 'PRINCE2', 'Governance'],
     tier: 'premium',
     estimatedTimeSaved: '3 hours',
-    tags: ['audit', 'compliance', 'checklist', 'governance', 'risk-management', 'prince2'],
+    tags: ['audit', 'compliance', 'checklist', 'governance', 'risk-management', 'prince2', 'Internal Audit', 'ISO Standards', 'SOX Compliance', 'PRINCE2', 'Governance'],
   },
   {
     id: 'gov-6',
     title: 'Compliance Traceability Matrix',
-    category: 'prince2',
+    framework: 'prince2',
+    phase: 'Controlling a Stage',
+    canonicalPhase: 4,
     description: 'Build comprehensive regulatory compliance traceability systems that demonstrate complete coverage from requirement through implementation to evidence. Create living documentation that proves organizational compliance with audit-ready precision.',
     template: `You are a Regulatory Compliance Officer and Requirements Traceability Specialist with expertise in building compliance matrices that satisfy the most demanding auditors.
 
@@ -13172,10 +13208,9 @@ QUALITY INDICATORS
       { name: 'system_name', description: 'Project or system being assessed for compliance', example: 'Customer Data Platform v2.0', required: false },
       { name: 'compliance_deadline', description: 'Target date for achieving full compliance', example: 'Q4 2024 / December 31, 2024', required: false },
     ],
-    frameworks: ['GDPR', 'HIPAA', 'PCI-DSS', 'SOX', 'ISO 27001', 'Requirements Traceability', 'GRC', 'PRINCE2'],
     tier: 'premium',
     estimatedTimeSaved: '4 hours',
-    tags: ['traceability', 'compliance', 'regulatory', 'matrix', 'gdpr', 'hipaa', 'audit', 'governance', 'prince2'],
+    tags: ['traceability', 'compliance', 'regulatory', 'matrix', 'gdpr', 'hipaa', 'audit', 'governance', 'prince2', 'GDPR', 'HIPAA', 'PCI-DSS', 'SOX', 'ISO 27001', 'Requirements Traceability', 'GRC', 'PRINCE2'],
   },
 
   // ======================
@@ -13184,7 +13219,9 @@ QUALITY INDICATORS
   {
     id: 'fin-1',
     title: 'Earned Value Management (EVM) Report',
-    category: 'pmbok',
+    framework: 'pmbok',
+    phase: 'Monitoring & Controlling',
+    canonicalPhase: 4,
     description: 'Generate comprehensive earned value analysis with performance indices, variance analysis, forecasting, and executive-ready interpretation that transforms raw project metrics into actionable intelligence for cost and schedule control.',
     template: `You are a Project Controls Specialist and Earned Value Management Expert with PMI certification and deep experience translating EVM metrics into executive decision support.
 
@@ -13585,15 +13622,16 @@ QUALITY INDICATORS
       { name: 'reporting_period', description: 'The time period this EVM report covers', example: 'Week 12 / Month 6 / Q3 2024 / Sprint 15', required: false },
       { name: 'project_name', description: 'Name of the project for report headers', example: 'ERP Implementation Phase 2 / Mobile App Replatform', required: false },
     ],
-    frameworks: ['PMI PMBOK', 'Earned Value Management', 'Project Controls', 'ANSI/EIA-748'],
     tier: 'premium',
     estimatedTimeSaved: '2 hours',
-    tags: ['finance', 'forecasting', 'metrics', 'evm', 'cost-management', 'schedule-management', 'pmbok', 'performance'],
+    tags: ['finance', 'forecasting', 'metrics', 'evm', 'cost-management', 'schedule-management', 'pmbok', 'performance', 'PMI PMBOK', 'Earned Value Management', 'Project Controls', 'ANSI/EIA-748'],
   },
   {
     id: 'fin-2',
     title: 'CapEx vs OpEx Justification',
-    category: 'pmbok',
+    framework: 'pmbok',
+    phase: 'Planning',
+    canonicalPhase: 2,
     description: 'Build comprehensive capital expenditure justification memos that satisfy Finance, Accounting, and Audit scrutiny. Navigate GAAP/IFRS capitalization criteria with evidence-based arguments for asset recognition and amortization treatment.',
     template: `You are a Financial Controller and Capital Asset Specialist with CPA credentials and deep expertise in project cost capitalization under GAAP/IFRS. Your CapEx justifications withstand audit scrutiny and optimize financial statement presentation.
 
@@ -13988,15 +14026,16 @@ QUALITY INDICATORS
       { name: 'total_cost', description: 'Total cost amount being evaluated for capitalization', example: '$250,000 / $1.2M / €500,000', required: false },
       { name: 'project_name', description: 'Name of the project or initiative for reference', example: 'Digital Transformation Phase 2 / Core Banking Modernization', required: false },
     ],
-    frameworks: ['GAAP', 'IFRS', 'ASC 350-40', 'IAS 38', 'PMI PMBOK', 'Financial Accounting'],
     tier: 'premium',
     estimatedTimeSaved: '2 hours',
-    tags: ['budget', 'accounting', 'capex', 'opex', 'finance', 'capitalization', 'amortization', 'pmbok'],
+    tags: ['budget', 'accounting', 'capex', 'opex', 'finance', 'capitalization', 'amortization', 'pmbok', 'GAAP', 'IFRS', 'ASC 350-40', 'IAS 38', 'PMI PMBOK', 'Financial Accounting'],
   },
   {
     id: 'fin-3',
     title: 'Cost Benefit Analysis (CBA)',
-    category: 'pmbok',
+    framework: 'pmbok',
+    phase: 'Initiating',
+    canonicalPhase: 1,
     description: 'Build rigorous cost-benefit analyses that withstand executive scrutiny and drive confident investment decisions. Quantify tangible ROI, monetize intangibles, calculate payback periods, and present compelling business cases with sensitivity analysis.',
     template: `You are a Business Case Analyst and Financial Decision Specialist with MBA training and deep expertise in investment analysis. Your CBAs transform complex decisions into clear, defensible recommendations that executives trust.
 
@@ -14466,15 +14505,16 @@ QUALITY INDICATORS
       { name: 'time_horizon', description: 'Analysis period for evaluating costs and benefits', example: '3 years / 5 years / 7 years', required: false },
       { name: 'organization', description: 'Organization name for report branding', example: 'Acme Corp / Finance Division / IT Department', required: false },
     ],
-    frameworks: ['PMI PMBOK', 'Financial Analysis', 'Investment Appraisal', 'Business Case Development'],
     tier: 'premium',
     estimatedTimeSaved: '3 hours',
-    tags: ['decision-making', 'cba', 'roi', 'npv', 'irr', 'payback', 'investment-analysis', 'pmbok', 'business-case'],
+    tags: ['decision-making', 'cba', 'roi', 'npv', 'irr', 'payback', 'investment-analysis', 'pmbok', 'business-case', 'PMI PMBOK', 'Financial Analysis', 'Investment Appraisal', 'Business Case Development'],
   },
   {
     id: 'fin-4',
     title: 'Vendor RFP Scorecard',
-    category: 'pmbok',
+    framework: 'pmbok',
+    phase: 'Planning',
+    canonicalPhase: 2,
     description: 'Create defensible, procurement-compliant vendor evaluation scorecards with weighted criteria, objective scoring rubrics, and documented rationale that withstand audit scrutiny and drive confident vendor selection decisions.',
     template: `You are a Strategic Sourcing Manager and Procurement Specialist with CPSM certification and deep expertise in vendor evaluation methodologies. Your scorecards ensure fair, defensible vendor selections that satisfy stakeholders, procurement compliance, and audit requirements.
 
@@ -14857,10 +14897,9 @@ QUALITY INDICATORS
       { name: 'vendor_count', description: 'Number of vendors being evaluated', example: '3 / 5 / 4 finalists', required: false },
       { name: 'deadline', description: 'Deadline for completing evaluation', example: 'March 15, 2024 / End of Q2', required: false },
     ],
-    frameworks: ['PMI PMBOK', 'Strategic Sourcing', 'Procurement Management', 'Vendor Management'],
     tier: 'premium',
     estimatedTimeSaved: '3 hours',
-    tags: ['rfp', 'vendor', 'decision-matrix', 'procurement', 'sourcing', 'evaluation', 'scorecard', 'pmbok'],
+    tags: ['rfp', 'vendor', 'decision-matrix', 'procurement', 'sourcing', 'evaluation', 'scorecard', 'pmbok', 'PMI PMBOK', 'Strategic Sourcing', 'Procurement Management', 'Vendor Management'],
   },
 
   // ======================
@@ -14869,7 +14908,9 @@ QUALITY INDICATORS
   {
     id: 'hr-1',
     title: 'Resource Histogram Generator',
-    category: 'pmbok',
+    framework: 'pmbok',
+    phase: 'Planning',
+    canonicalPhase: 2,
     description: 'Generate comprehensive resource demand vs capacity analyses with visualization guidance, over-allocation detection, leveling strategies, and actionable recommendations for optimizing project resource utilization.',
     template: `You are a Resource Planning Specialist and Capacity Manager with deep expertise in PMI resource management, workforce planning, and project portfolio optimization. Your resource histograms don't just show numbers—they reveal capacity risks, optimization opportunities, and drive proactive staffing decisions.
 
@@ -15242,15 +15283,16 @@ QUALITY INDICATORS
       { name: 'time_horizon', description: 'Duration of analysis period', example: '6 months / 12 sprints / Full project lifecycle', required: false },
       { name: 'organization', description: 'Team or organization name', example: 'Digital Transformation Team / IT Operations / Product Engineering', required: false },
     ],
-    frameworks: ['PMI PMBOK', 'Resource Management', 'Capacity Planning', 'Workforce Planning'],
     tier: 'premium',
     estimatedTimeSaved: '2 hours',
-    tags: ['capacity', 'resourcing', 'planning', 'histogram', 'leveling', 'staffing', 'pmbok'],
+    tags: ['capacity', 'resourcing', 'planning', 'histogram', 'leveling', 'staffing', 'pmbok', 'PMI PMBOK', 'Resource Management', 'Capacity Planning', 'Workforce Planning'],
   },
   {
     id: 'hr-2',
     title: 'Vendor Performance Improvement Plan (PIP)',
-    category: 'pmbok',
+    framework: 'pmbok',
+    phase: 'Monitoring & Controlling',
+    canonicalPhase: 4,
     description: 'Create legally defensible vendor performance improvement plans that document issues, establish measurable improvement targets, define monitoring mechanisms, and outline consequences—protecting organizational interests while giving vendors fair opportunity to remediate.',
     template: `You are a Vendor Management Specialist and Contract Performance Manager with legal affairs experience. Your PIPs don't just document problems—they create clear, enforceable improvement frameworks that protect the organization while giving vendors fair, achievable paths to success.
 
@@ -15690,10 +15732,9 @@ QUALITY INDICATORS
       { name: 'contract_ref', description: 'Contract number or reference for the vendor agreement', example: 'MSA-2023-0145 / SOW-IT-2024-Q1-003', required: false },
       { name: 'organization', description: 'Your organization name for the PIP document', example: 'Acme Corporation / IT Department / Digital Services Division', required: false },
     ],
-    frameworks: ['PMI PMBOK', 'Vendor Management', 'Contract Management', 'Procurement'],
     tier: 'premium',
     estimatedTimeSaved: '3 hours',
-    tags: ['vendor', 'performance', 'legal', 'pip', 'contract', 'remediation', 'pmbok'],
+    tags: ['vendor', 'performance', 'legal', 'pip', 'contract', 'remediation', 'pmbok', 'PMI PMBOK', 'Vendor Management', 'Contract Management', 'Procurement'],
   },
 
   // ======================
@@ -15702,7 +15743,9 @@ QUALITY INDICATORS
   {
     id: 'risk-1',
     title: 'Business Continuity Plan (BCP) Trigger',
-    category: 'itil',
+    framework: 'itil',
+    phase: 'Planning',
+    canonicalPhase: 2,
     description: 'Generate a comprehensive BCP activation protocol that provides clear decision criteria for disaster declaration, structured command hierarchy, immediate response actions, and recovery coordination across technical and business functions.',
     template: `You are a Business Continuity and Disaster Recovery specialist with deep expertise in ITIL v4 Service Continuity Management, ISO 22301, and crisis management. Your BCP activation protocols don't just list actions—they provide clear decision frameworks that enable rapid, confident disaster declaration and coordinated response under extreme pressure.
 
@@ -16019,15 +16062,16 @@ QUALITY INDICATORS FOR BCP ACTIVATION
       { name: 'chain', description: 'Notification chain of command', example: 'CEO (primary), CIO (operations), General Counsel (legal/regulatory), CISO (security), VP Communications (PR), CFO (insurance), Board Chair (governance)', required: true },
       { name: 'actions', description: 'Immediate priority actions', example: '1. Isolate all network segments to prevent spread, 2. Activate cyber insurance and legal retainer, 3. Engage forensics firm, 4. Notify FBI cyber division, 5. Prepare customer holding statement', required: true },
     ],
-    frameworks: ['ISO 22301 Business Continuity', 'ITIL v4 Service Continuity', 'NIST Cybersecurity Framework', 'BCI Good Practice Guidelines', 'FEMA ICS'],
     tier: 'premium',
     estimatedTimeSaved: '4 hours',
-    tags: ['crisis', 'bcp', 'disaster', 'continuity', 'recovery', 'incident-command', 'itil'],
+    tags: ['crisis', 'bcp', 'disaster', 'continuity', 'recovery', 'incident-command', 'itil', 'ISO 22301 Business Continuity', 'ITIL v4 Service Continuity', 'NIST Cybersecurity Framework', 'BCI Good Practice Guidelines', 'FEMA ICS'],
   },
   {
     id: 'risk-2',
     title: 'Crisis Communications Press Release',
-    category: 'itil',
+    framework: 'itil',
+    phase: 'Planning',
+    canonicalPhase: 2,
     description: 'Generate comprehensive crisis communications that balance transparency with legal prudence, demonstrate empathy while maintaining authority, and provide stakeholders with accurate information through a carefully sequenced multi-channel communication strategy.',
     template: `You are a Crisis Communications Specialist with deep expertise in reputation management, regulatory disclosure requirements, and stakeholder communication during high-pressure events. Your crisis communications don't just inform—they maintain trust, demonstrate accountability, manage expectations, and protect organizational reputation while ensuring legal and regulatory compliance.
 
@@ -16369,15 +16413,16 @@ QUALITY INDICATORS FOR CRISIS COMMUNICATIONS
       { name: 'facts', description: 'Confirmed facts safe to communicate', example: 'Unauthorized access detected Sunday 2am EST; contained within 4 hours; no evidence of financial data access; passwords were encrypted; investigation ongoing with third-party forensics firm', required: true },
       { name: 'next_update', description: 'Committed time for next update', example: 'Within 4 hours (by 2pm EST today), and then every 6 hours until resolution', required: true },
     ],
-    frameworks: ['Crisis Communication Best Practices', 'NIST Incident Communication', 'GDPR Breach Notification', 'SEC Disclosure Requirements', 'Reputation Management'],
     tier: 'premium',
     estimatedTimeSaved: '3 hours',
-    tags: ['pr', 'crisis', 'comms', 'communications', 'press-release', 'stakeholder', 'reputation', 'itil'],
+    tags: ['pr', 'crisis', 'comms', 'communications', 'press-release', 'stakeholder', 'reputation', 'itil', 'Crisis Communication Best Practices', 'NIST Incident Communication', 'GDPR Breach Notification', 'SEC Disclosure Requirements', 'Reputation Management'],
   },
   {
     id: 'pm-3',
     title: 'Formal Meeting Minutes',
-    category: 'pmbok',
+    framework: 'pmbok',
+    phase: 'Monitoring & Controlling',
+    canonicalPhase: 4,
     description: 'Generate legally defensible meeting minutes that serve as authoritative records of decisions, votes, action items, and commitments with full audit trail and governance compliance.',
     template: `You are a Corporate Governance Specialist and certified meeting professional with expertise in Robert's Rules of Order, corporate law, and audit documentation. Your mission: Transform raw meeting notes into comprehensive, legally defensible minutes that protect the organization and ensure accountability.
 
@@ -16766,10 +16811,9 @@ QUALITY INDICATORS
       { name: 'decisions', description: 'Key decisions made during the meeting with voting results if applicable', example: 'Approved FY24 budget increase of $2M (Vote: 5-0-1) / Authorized Phase 2 kickoff pending legal review / Deferred vendor selection to February meeting', required: true },
       { name: 'actions', description: 'Action items assigned during the meeting with owners and due dates', example: 'CFO to present revised forecast by Jan 20 / Legal to complete contract review by Jan 25 / PMO to schedule vendor demos week of Feb 3 / HR to finalize job descriptions by EOM', required: true },
     ],
-    frameworks: ['PMI PMBOK', 'Corporate Governance', 'Robert\'s Rules of Order', 'Audit Documentation', 'Legal Compliance'],
     tier: 'premium',
     estimatedTimeSaved: '2 hours',
-    tags: ['minutes', 'governance', 'pmbok', 'meetings', 'decisions', 'actions', 'audit', 'legal', 'documentation', 'board'],
+    tags: ['minutes', 'governance', 'pmbok', 'meetings', 'decisions', 'actions', 'audit', 'legal', 'documentation', 'board', 'PMI PMBOK', 'Corporate Governance', 'Roberts Rules of Order', 'Audit Documentation', 'Legal Compliance'],
   },
 
   // ============================================================================
@@ -16778,7 +16822,9 @@ QUALITY INDICATORS
   {
     id: 'scrum-1',
     title: 'Sprint Planning Strategic Architect',
-    category: 'scrum',
+    framework: 'scrum',
+    phase: 'Sprint Planning',
+    canonicalPhase: 2,
     description: 'Transform sprint planning from a backlog-pulling exercise into a strategic capacity optimization session that maximizes value delivery while stress-testing assumptions and identifying hidden risks.',
     template: `Act as an elite Scrum strategist with deep expertise in capacity planning, behavioral economics, and team dynamics. Your mission: Transform this Sprint Planning into a high-leverage strategic session that delivers 10x the value of a standard planning meeting.
 
@@ -16919,15 +16965,16 @@ Deliver this analysis with specific recommendations, not generic advice. Challen
       { name: 'capacity_constraints', description: 'Known constraints', example: '2 devs on PTO days 3-5, 1 dev 50% on support rotation', required: true },
       { name: 'backlog_items', description: 'Candidate items with estimates', example: 'Password Reset (8), Email Service (5), 2FA Integration (13), Admin Dashboard (8)', required: true },
     ],
-    frameworks: ['Scrum Guide 2020', 'Agile Capacity Planning', 'MoSCoW Prioritization'],
     tier: 'premium',
     estimatedTimeSaved: '2 hours',
-    tags: ['sprint-planning', 'scrum', 'capacity', 'strategic-planning', 'risk-management'],
+    tags: ['sprint-planning', 'scrum', 'capacity', 'strategic-planning', 'risk-management', 'Scrum Guide 2020', 'Agile Capacity Planning', 'MoSCoW Prioritization'],
   },
   {
     id: 'scrum-2',
     title: 'Daily Scrum Intelligence Amplifier',
-    category: 'scrum',
+    framework: 'scrum',
+    phase: 'Sprint Execution',
+    canonicalPhase: 3,
     description: 'Transform your Daily Scrum from a status meeting into a tactical coordination session that surfaces risks early, optimizes flow, and drives sprint goal achievement.',
     template: `Act as an elite Scrum facilitator and team dynamics expert. Your mission: Transform this Daily Scrum from a rote status update into a high-signal tactical session that maximizes sprint goal probability.
 
@@ -17045,15 +17092,16 @@ Deliver specific, actionable facilitation guidance. Call out exactly what to pro
       { name: 'gap', description: 'Variance from expected', example: '5', required: false },
       { name: 'parking_lot', description: 'Topics to defer', example: 'API versioning strategy, test coverage standards', required: false },
     ],
-    frameworks: ['Scrum Guide 2020', 'Flow Optimization', 'Team Dynamics'],
     tier: 'free',
     estimatedTimeSaved: '30 mins',
-    tags: ['standup', 'daily-scrum', 'ceremonies', 'flow', 'team-coordination'],
+    tags: ['standup', 'daily-scrum', 'ceremonies', 'flow', 'team-coordination', 'Scrum Guide 2020', 'Flow Optimization', 'Team Dynamics'],
   },
   {
     id: 'scrum-3',
     title: 'Sprint Review Stakeholder Influence Engine',
-    category: 'scrum',
+    framework: 'scrum',
+    phase: 'Sprint Review',
+    canonicalPhase: 4,
     description: 'Transform your Sprint Review from a demo session into a strategic stakeholder influence event that shapes product direction, builds political capital, and drives meaningful feedback.',
     template: `Act as an elite product strategist and stakeholder management expert. Your mission: Transform this Sprint Review from a passive demo into a high-impact influence session that shapes product direction and builds organizational momentum.
 
@@ -17213,15 +17261,16 @@ Deliver this guidance with specific recommendations for this team's context. Foc
       { name: 'stakeholder_2', description: 'Key stakeholder 2', example: 'Head of Sales - Mike', required: false },
       { name: 'next_sprint', description: 'Next sprint number', example: '25', required: false },
     ],
-    frameworks: ['Scrum Guide 2020', 'Stakeholder Management', 'Executive Communication'],
     tier: 'premium',
     estimatedTimeSaved: '2 hours',
-    tags: ['sprint-review', 'demo', 'stakeholders', 'influence', 'communication'],
+    tags: ['sprint-review', 'demo', 'stakeholders', 'influence', 'communication', 'Scrum Guide 2020', 'Stakeholder Management', 'Executive Communication'],
   },
   {
     id: 'scrum-4',
     title: 'Backlog Refinement Value Maximizer',
-    category: 'scrum',
+    framework: 'scrum',
+    phase: 'Sprint Retrospective',
+    canonicalPhase: 4,
     description: 'Transform backlog refinement from story decomposition into a strategic value optimization session that stress-tests assumptions, exposes hidden complexity, and ensures every item delivers maximum business impact.',
     template: `Act as an elite product strategist and estimation expert with deep knowledge of user story mapping, complexity analysis, and value stream optimization. Your mission: Transform this refinement session into a high-leverage value maximization exercise.
 
@@ -17394,15 +17443,16 @@ Deliver this analysis with specific observations about each item. Challenge vagu
       { name: 'dependencies', description: 'Known dependencies', example: 'Bill Pay needs Payment Gateway API from Platform team (due Sprint 24)', required: false },
       { name: 'sprint_capacity', description: 'Team velocity for context', example: '40', required: false },
     ],
-    frameworks: ['Scrum Guide 2020', 'User Story Mapping', 'INVEST Criteria'],
     tier: 'premium',
     estimatedTimeSaved: '1 hour',
-    tags: ['refinement', 'grooming', 'estimation', 'value-analysis', 'acceptance-criteria'],
+    tags: ['refinement', 'grooming', 'estimation', 'value-analysis', 'acceptance-criteria', 'Scrum Guide 2020', 'User Story Mapping', 'INVEST Criteria'],
   },
   {
     id: 'scrum-5',
     title: 'Impediment Obliteration System',
-    category: 'scrum',
+    framework: 'scrum',
+    phase: 'Product Backlog Creation',
+    canonicalPhase: 1,
     description: 'Transform impediment management from passive logging into an aggressive blocker-elimination system with root cause analysis, strategic escalation paths, and systemic prevention measures.',
     template: `Act as an elite Scrum Master with expertise in organizational dynamics, systems thinking, and influence without authority. Your mission: Don't just log this impediment—obliterate it and prevent its recurrence.
 
@@ -17578,15 +17628,16 @@ Deliver this analysis with specific, actionable recommendations. Don't just log�
       { name: 'resolution', description: 'Resolution notes', example: 'IT granted access Jan 17, created automation to prevent recurrence', required: false },
       { name: 'daily_cost', description: 'Estimated daily cost', example: '2400', required: false },
     ],
-    frameworks: ['Scrum Guide 2020', 'Servant Leadership', 'Systems Thinking', '5 Whys'],
     tier: 'premium',
     estimatedTimeSaved: '1 hour',
-    tags: ['impediments', 'scrum-master', 'blockers', 'escalation', 'root-cause-analysis'],
+    tags: ['impediments', 'scrum-master', 'blockers', 'escalation', 'root-cause-analysis', 'Scrum Guide 2020', 'Servant Leadership', 'Systems Thinking', '5 Whys'],
   },
   {
     id: 'scrum-6',
     title: 'Sprint Trajectory Intelligence System',
-    category: 'scrum',
+    framework: 'scrum',
+    phase: 'Sprint Execution',
+    canonicalPhase: 3,
     description: 'Transform burndown analysis from a lagging indicator into a predictive intelligence system with Monte Carlo forecasting, pattern recognition, and proactive intervention strategies.',
     template: `Act as an elite data analyst and Scrum expert specializing in predictive analytics, flow metrics, and team performance optimization. Your mission: Don't just report on burndown—predict the future and recommend interventions.
 
@@ -17769,10 +17820,9 @@ Deliver this analysis with specific numbers, not generic assessments. The goal i
       { name: 'risk_level', description: 'Current risk assessment', example: 'At Risk', required: true },
       { name: 'actions', description: 'Recommended mitigations', example: 'Swarm on AUTH-42 (8pts), defer PERF-15 to next sprint', required: false },
     ],
-    frameworks: ['Scrum Guide 2020', 'Flow Metrics', 'Monte Carlo Forecasting', 'Evidence-Based Management'],
     tier: 'premium',
     estimatedTimeSaved: '1 hour',
-    tags: ['burndown', 'metrics', 'forecasting', 'predictive-analytics', 'sprint-health'],
+    tags: ['burndown', 'metrics', 'forecasting', 'predictive-analytics', 'sprint-health', 'Scrum Guide 2020', 'Flow Metrics', 'Monte Carlo Forecasting', 'Evidence-Based Management'],
   },
 
   // ============================================================================
@@ -17781,7 +17831,9 @@ Deliver this analysis with specific numbers, not generic assessments. The goal i
   {
     id: 'kanban-1',
     title: 'Flow-Optimized Kanban System Architect',
-    category: 'kanban',
+    framework: 'kanban',
+    phase: 'Work In Progress',
+    canonicalPhase: 3,
     description: 'Design a Kanban system that maximizes flow efficiency through strategic WIP limits, bottleneck-aware column design, and policies that surface problems rather than hide them.',
     template: `Act as an elite Kanban practitioner and flow optimization expert with deep expertise in systems thinking, queuing theory, and organizational behavior. Your mission: Design a Kanban system that doesn't just visualize work—it actively optimizes flow and exposes improvement opportunities.
 
@@ -17999,15 +18051,16 @@ Deliver this design with specific recommendations for this workflow. The board s
       { name: 'done_criteria', description: 'Definition of Done', example: 'Customer confirms issue resolved, ticket closed in system', required: true },
       { name: 'swimlanes', description: 'Desired swim lanes', example: 'Expedite, Standard Bug, Feature Request, Internal', required: false },
     ],
-    frameworks: ['Kanban Method', 'Lean', 'Theory of Constraints', "Little's Law"],
     tier: 'premium',
     estimatedTimeSaved: '3 hours',
-    tags: ['kanban-board', 'visualization', 'workflow', 'wip-limits', 'flow-optimization'],
+    tags: ['kanban-board', 'visualization', 'workflow', 'wip-limits', 'flow-optimization', 'Kanban Method', 'Lean', 'Theory of Constraints'],
   },
   {
     id: 'kanban-2',
     title: 'WIP Violation Forensics & Flow Recovery',
-    category: 'kanban',
+    framework: 'kanban',
+    phase: 'Flow Monitoring',
+    canonicalPhase: 4,
     description: 'Transform WIP violations from firefighting moments into strategic learning opportunities with root cause analysis, flow impact quantification, and systemic prevention mechanisms.',
     template: `Act as an elite flow optimization expert and Kanban coach with deep expertise in queuing theory, systems thinking, and organizational change. Your mission: Don't just report this WIP violation—understand why it happened, quantify its damage, and prevent its recurrence.
 
@@ -18216,15 +18269,16 @@ Deliver this analysis with specific, quantified recommendations. The goal is to 
       { name: 'throughput', description: 'Normal throughput', example: '2 items/day', required: false },
       { name: 'target_lead_time', description: 'Target lead time', example: '3 days', required: false },
     ],
-    frameworks: ['Kanban Method', "Little's Law", 'Theory of Constraints', '5 Whys'],
     tier: 'premium',
     estimatedTimeSaved: '1 hour',
-    tags: ['wip-limits', 'flow', 'bottleneck', 'root-cause-analysis', 'continuous-improvement'],
+    tags: ['wip-limits', 'flow', 'bottleneck', 'root-cause-analysis', 'continuous-improvement', 'Kanban Method', 's Law", ', ', '],
   },
   {
     id: 'kanban-3',
     title: 'CFD Pattern Intelligence & Flow Diagnostics',
-    category: 'kanban',
+    framework: 'kanban',
+    phase: 'Commitment Point',
+    canonicalPhase: 2,
     description: 'Master the art of reading Cumulative Flow Diagrams to diagnose flow health, predict delivery dates, and identify systemic bottlenecks before they become critical.',
     template: `Act as an elite flow metrics analyst and Kanban expert with deep expertise in statistical analysis, queuing theory, and predictive modeling. Your mission: Read this CFD like a cardiologist reads an ECG—diagnose the health of your flow system and prescribe interventions.
 
@@ -18474,15 +18528,16 @@ Deliver this analysis with specific, actionable insights. The CFD is your most p
       { name: 'bottleneck', description: 'Identified constraint', example: 'QA stage - only 1 tester, 12 items queued', required: true },
       { name: 'recommendation', description: 'Initial recommendation', example: 'Add automated testing to reduce QA load, cross-train developers on testing', required: true },
     ],
-    frameworks: ['Kanban Method', 'Flow Metrics', "Little's Law", 'Monte Carlo Forecasting'],
     tier: 'premium',
     estimatedTimeSaved: '2 hours',
-    tags: ['cfd', 'metrics', 'bottleneck-analysis', 'forecasting', 'flow-diagnostics'],
+    tags: ['cfd', 'metrics', 'bottleneck-analysis', 'forecasting', 'flow-diagnostics', 'Kanban Method', 'Flow Metrics', 's Law", '],
   },
   {
     id: 'kanban-4',
     title: 'Service Level Expectation (SLE) Engineering System',
-    category: 'kanban',
+    framework: 'kanban',
+    phase: 'Flow Monitoring',
+    canonicalPhase: 4,
     description: 'Build probabilistic delivery commitments that you can actually keep—using statistical analysis, class-of-service differentiation, and continuous monitoring to transform unpredictable delivery into reliable service.',
     template: `Act as an elite service delivery analyst with deep expertise in statistical process control, probability distributions, and customer expectation management. Your mission: Create SLEs that are both achievable and meaningful—commitments you can keep that stakeholders actually care about.
 
@@ -18713,15 +18768,16 @@ Deliver this analysis with specific, data-grounded recommendations. SLEs build t
       { name: 'standard_sle', description: 'Standard class SLE', example: '5 days at 85% confidence', required: false },
       { name: 'intangible_sle', description: 'Intangible class SLE', example: '10 days at 85% confidence', required: false },
     ],
-    frameworks: ['Kanban Method', 'Service Delivery Management', 'Statistical Process Control'],
     tier: 'premium',
     estimatedTimeSaved: '2 hours',
-    tags: ['sle', 'predictability', 'metrics', 'service-delivery', 'class-of-service'],
+    tags: ['sle', 'predictability', 'metrics', 'service-delivery', 'class-of-service', 'Kanban Method', 'Service Delivery Management', 'Statistical Process Control'],
   },
   {
     id: 'kanban-5',
     title: 'Strategic Cadence System Design',
-    category: 'kanban',
+    framework: 'kanban',
+    phase: 'Work In Progress',
+    canonicalPhase: 3,
     description: 'Master the seven Kanban cadences to create a continuous improvement engine—from daily flow management to strategic planning—with the right people, topics, and outcomes at each level.',
     template: `Act as an elite Kanban coach and organizational design expert with deep expertise in meeting facilitation, feedback loops, and continuous improvement systems. Your mission: Design a cadence system that creates rhythm, surfaces problems, and drives improvement at every level.
 
@@ -18766,8 +18822,8 @@ YOUR SELECTED CADENCE: {{cadence_type}}
 CADENCE DEEP DIVE: {{cadence_type}}
 ═══════════════════════════════════════════════════════════════════════════════
 
-${"{{cadence_type}}" === "Kanban Meeting" ? `
-KANBAN MEETING (DAILY STANDUP ALTERNATIVE)
+───────────────────────────────────────────────────────────────────────────────
+CADENCE OPTION 1: KANBAN MEETING (DAILY STANDUP ALTERNATIVE)
 Frequency: Daily | Duration: 15 min max | Facilitator: Rotates
 
 ATTENDEES
@@ -18798,10 +18854,9 @@ SUCCESS METRICS
 □ Meeting stays under 15 minutes
 □ All blocked items have owners
 □ Team leaves knowing what to focus on
-` : ""}
 
-${"{{cadence_type}}" === "Service Delivery Review" ? `
-SERVICE DELIVERY REVIEW
+───────────────────────────────────────────────────────────────────────────────
+CADENCE OPTION 2: SERVICE DELIVERY REVIEW
 Frequency: Bi-weekly | Duration: 60 min | Facilitator: Service Delivery Manager
 
 ATTENDEES
@@ -18842,10 +18897,9 @@ POLICY DISCUSSION
 - Any policies need adjustment?
 - Any exceptions granted this period?
 - Any new policies needed?
-` : ""}
 
-${"{{cadence_type}}" === "Replenishment" ? `
-REPLENISHMENT MEETING
+───────────────────────────────────────────────────────────────────────────────
+CADENCE OPTION 3: REPLENISHMENT MEETING
 Frequency: As needed (when backlog runs low) | Duration: 30 min
 
 ATTENDEES
@@ -18881,7 +18935,6 @@ OUTPUT
 - Items added to Ready queue
 - Capacity commitment understood
 - Next replenishment date set
-` : ""}
 
 ═══════════════════════════════════════════════════════════════════════════════
 GENERIC CADENCE TEMPLATE
@@ -18975,15 +19028,16 @@ Deliver this cadence design with specific, actionable guidance. The right cadenc
       { name: 'metrics', description: 'Data to review', example: 'Lead time distribution, Throughput trend, SLE hit rate, WIP vs limits, Blocked item count', required: true },
       { name: 'prev_actions', description: 'Previous action items', example: 'Reduce Review WIP limit to 3 - Done; Cross-train Alice on code review - In Progress', required: false },
     ],
-    frameworks: ['Kanban Method', 'Cadences', 'Continuous Improvement', 'Meeting Facilitation'],
     tier: 'premium',
     estimatedTimeSaved: '1 hour',
-    tags: ['cadences', 'meetings', 'continuous-improvement', 'feedback-loops', 'service-delivery'],
+    tags: ['cadences', 'meetings', 'continuous-improvement', 'feedback-loops', 'service-delivery', 'Kanban Method', 'Cadences', 'Continuous Improvement', 'Meeting Facilitation'],
   },
   {
     id: 'kanban-6',
     title: 'Blocker Elimination & Flow Restoration System',
-    category: 'kanban',
+    framework: 'kanban',
+    phase: 'Demand Shaping',
+    canonicalPhase: 1,
     description: 'Transform blocker management from passive waiting into aggressive flow restoration with categorization, escalation protocols, and systemic prevention—because every blocked hour is lost value.',
     template: `Act as an elite flow optimization expert and organizational troubleshooter with deep expertise in dependency management, escalation strategies, and systems thinking. Your mission: Don't just flag blockers—eliminate them systematically and prevent their recurrence.
 
@@ -19224,10 +19278,9 @@ Deliver this protocol with specific, actionable guidance. Blocked work is burnin
       { name: 'tier3_action', description: 'Executive response', example: 'Director-level escalation, executive communication, demand resolution commitment', required: true },
       { name: 'visual_indicator', description: 'How blockers appear on board', example: 'Red border, blocker icon, age badge showing days blocked', required: false },
     ],
-    frameworks: ['Kanban Method', 'Flow Management', 'Escalation Management', 'Systems Thinking'],
     tier: 'premium',
     estimatedTimeSaved: '2 hours',
-    tags: ['blockers', 'escalation', 'policies', 'flow-management', 'continuous-improvement'],
+    tags: ['blockers', 'escalation', 'policies', 'flow-management', 'continuous-improvement', 'Kanban Method', 'Flow Management', 'Escalation Management', 'Systems Thinking'],
   },
 
   // ============================================================================
@@ -19236,7 +19289,9 @@ Deliver this protocol with specific, actionable guidance. Blocked work is burnin
   {
     id: 'safe-1',
     title: 'PI Planning Strategic Orchestrator',
-    category: 'safe',
+    framework: 'safe',
+    phase: 'PI Planning',
+    canonicalPhase: 2,
     description: 'Transform PI Planning from a logistics exercise into a strategic alignment event that creates genuine commitment, surfaces hidden dependencies, and delivers executable plans with measurable confidence.',
     template: `Act as an elite SAFe Release Train Engineer and PI Planning facilitator. Design and execute a PI Planning event for {{art_name}} that achieves genuine alignment, not theater.
 
@@ -19574,15 +19629,16 @@ Deliver this PI Planning with strategic intent. The goal isn't a filled-in progr
       { name: 'product_mgmt', description: 'Product leader presenting vision', example: 'Chief Product Officer', required: true },
       { name: 'system_architect', description: 'Technical leader presenting architecture', example: 'Enterprise Architect', required: true },
     ],
-    frameworks: ['SAFe 6.0', 'PI Planning', 'Program Management', 'Dependency Management'],
     tier: 'premium',
     estimatedTimeSaved: '4 hours',
-    tags: ['pi-planning', 'safe', 'art', 'strategic-alignment', 'facilitation', 'dependency-management'],
+    tags: ['pi-planning', 'safe', 'art', 'strategic-alignment', 'facilitation', 'dependency-management', 'SAFe 6.0', 'PI Planning', 'Program Management', 'Dependency Management'],
   },
   {
     id: 'safe-2',
     title: 'ART Sync Coordination Engine',
-    category: 'safe',
+    framework: 'safe',
+    phase: 'Iteration Execution',
+    canonicalPhase: 3,
     description: 'Transform the ART Sync from a status reporting ritual into a cross-team coordination engine that surfaces dependencies early, resolves blockers fast, and keeps the entire train aligned to PI objectives.',
     template: `Act as an elite Release Train Engineer facilitating ART Sync for {{art_name}}. Make this meeting a high-value coordination session, not a status theater.
 
@@ -19878,15 +19934,16 @@ Deliver this ART Sync as a coordination engine. If teams leave without clarity o
       { name: 'integration', description: 'Integration environment status', example: 'CI pipeline green, staging environment stable', required: false },
       { name: 'milestones', description: 'Upcoming milestones and dates', example: 'System Demo Friday, Hardening Sprint starts Monday', required: false },
     ],
-    frameworks: ['SAFe 6.0', 'Program Management', 'Dependency Management', 'Risk Management'],
     tier: 'premium',
     estimatedTimeSaved: '1 hour',
-    tags: ['art-sync', 'coordination', 'dependencies', 'risk-management', 'facilitation'],
+    tags: ['art-sync', 'coordination', 'dependencies', 'risk-management', 'facilitation', 'SAFe 6.0', 'Program Management', 'Dependency Management', 'Risk Management'],
   },
   {
     id: 'safe-3',
     title: 'ROAM Risk Management System',
-    category: 'safe',
+    framework: 'safe',
+    phase: 'PI Planning',
+    canonicalPhase: 2,
     description: 'Transform program-level risk management from a checkbox exercise into a proactive defense system. Use ROAM to categorize, track, and neutralize risks before they derail your PI.',
     template: `Act as an elite SAFe risk management strategist. Build and operate a ROAM risk board for PI {{pi_number}} that actually protects your train from derailment.
 
@@ -20236,15 +20293,16 @@ Deliver this ROAM system with discipline. A risk board that doesn't drive action
       { name: 'status', description: 'Current ROAM classification', example: 'Owned', required: true },
       { name: 'frequency', description: 'How often risk is reviewed', example: 'Weekly at ART Sync', required: true },
     ],
-    frameworks: ['SAFe 6.0', 'ROAM', 'Risk Management', 'Program Management'],
     tier: 'premium',
     estimatedTimeSaved: '1.5 hours',
-    tags: ['roam', 'risk-management', 'pi-planning', 'safe', 'program-management'],
+    tags: ['roam', 'risk-management', 'pi-planning', 'safe', 'program-management', 'SAFe 6.0', 'ROAM', 'Risk Management', 'Program Management'],
   },
   {
     id: 'safe-4',
     title: 'Feature Decomposition Architect',
-    category: 'safe',
+    framework: 'safe',
+    phase: 'PI Planning',
+    canonicalPhase: 2,
     description: 'Transform high-level features into executable work that teams can deliver. Create benefit hypotheses that drive real outcomes, split features strategically, and identify enablers that prevent downstream blockers.',
     template: `Act as an elite SAFe Product Manager and solution architect. Decompose {{feature_name}} into executable work that delivers measurable business value, not just functional output.
 
@@ -20623,15 +20681,16 @@ Deliver this feature decomposition with strategic intent. The goal is value deli
       { name: 'infra_enabler', description: 'Infrastructure enabler needed', example: 'Kafka cluster setup with 3-node configuration', required: false },
       { name: 'explore_enabler', description: 'Exploration/spike needed', example: 'Evaluate message queue options: Kafka vs RabbitMQ vs AWS SQS', required: false },
     ],
-    frameworks: ['SAFe 6.0', 'Product Management', 'Lean Portfolio Management', 'INVEST'],
     tier: 'premium',
     estimatedTimeSaved: '2 hours',
-    tags: ['features', 'stories', 'enablers', 'decomposition', 'benefit-hypothesis', 'safe'],
+    tags: ['features', 'stories', 'enablers', 'decomposition', 'benefit-hypothesis', 'safe', 'SAFe 6.0', 'Product Management', 'Lean Portfolio Management', 'INVEST'],
   },
   {
     id: 'safe-5',
     title: 'Inspect & Adapt Strategic Workshop',
-    category: 'safe',
+    framework: 'safe',
+    phase: 'Inspect & Adapt',
+    canonicalPhase: 4,
     description: 'Transform the I&A from a "what went wrong" session into a strategic improvement engine. Use data-driven analysis, structured problem-solving, and measurable experiments to continuously elevate ART performance.',
     template: `Act as an elite SAFe coach and continuous improvement facilitator. Design and run an Inspect & Adapt workshop for PI {{pi_number}} that drives measurable improvement, not just venting.
 
@@ -21052,15 +21111,16 @@ Deliver this I&A with strategic intent. The goal isn't catharsis—it's measurab
       { name: 'top_problem', description: 'Top impediment for problem-solving workshop', example: 'Dependencies not identified early enough, causing sprint disruptions', required: true },
       { name: 'improvements', description: 'Improvement backlog items', example: 'Add dependency mapping to refinement, implement WIP limits, create DoR checklist', required: true },
     ],
-    frameworks: ['SAFe 6.0', 'Continuous Improvement', 'A3 Problem Solving', 'Lean'],
     tier: 'premium',
     estimatedTimeSaved: '3 hours',
-    tags: ['inspect-adapt', 'retrospective', 'pi', 'continuous-improvement', 'problem-solving', 'safe'],
+    tags: ['inspect-adapt', 'retrospective', 'pi', 'continuous-improvement', 'problem-solving', 'safe', 'SAFe 6.0', 'Continuous Improvement', 'A3 Problem Solving', 'Lean'],
   },
   {
     id: 'safe-6',
     title: 'Solution Train Orchestration System',
-    category: 'safe',
+    framework: 'safe',
+    phase: 'Portfolio Discovery',
+    canonicalPhase: 1,
     description: 'Master the complexity of coordinating multiple ARTs toward a unified solution. Build visibility across trains, manage cross-ART dependencies, coordinate suppliers, and drive integration with strategic precision.',
     template: `Act as an elite Solution Train Engineer managing {{solution_name}}. Build and operate a coordination system that keeps multiple ARTs aligned, dependencies flowing, and the solution on track for delivery.
 
@@ -21521,10 +21581,9 @@ Deliver this Solution Train coordination with strategic mastery. The goal is a u
       { name: 'suppliers', description: 'Supplier and partner delivery status', example: 'Chip supplier 2 weeks delayed; software partner on track', required: false },
       { name: 'escalations', description: 'Issues requiring Solution Management attention', example: 'Budget variance needs approval; resource conflict between ARTs', required: false },
     ],
-    frameworks: ['SAFe 6.0', 'Large Solution', 'Solution Train', 'Program Management'],
     tier: 'premium',
     estimatedTimeSaved: '2 hours',
-    tags: ['solution-train', 'coordination', 'large-scale', 'safe', 'multi-art', 'integration'],
+    tags: ['solution-train', 'coordination', 'large-scale', 'safe', 'multi-art', 'integration', 'SAFe 6.0', 'Large Solution', 'Solution Train', 'Program Management'],
   },
 
   // ============================================================================
@@ -21533,7 +21592,9 @@ Deliver this Solution Train coordination with strategic mastery. The goal is a u
   {
     id: 'lean-1',
     title: 'Value Stream Mapping Mastery',
-    category: 'lean',
+    framework: 'lean',
+    phase: 'Map Value Stream',
+    canonicalPhase: 2,
     description: 'Transform process understanding through rigorous value stream analysis. Map current state with precision, identify all 8 wastes, calculate process efficiency, and design a future state that delivers dramatic improvement.',
     template: `Act as an elite Lean practitioner and value stream mapping facilitator. Create a comprehensive VSM for {{process_name}} that exposes hidden waste, reveals the true cost of inefficiency, and designs a future state that dramatically reduces lead time.
 
@@ -21901,15 +21962,16 @@ Deliver this Value Stream Map with precision and strategic insight. The goal isn
       { name: 'target_lead', description: 'Target lead time for future state', example: '3 days', required: true },
       { name: 'improvements', description: 'Proposed improvements', example: 'Automate approval workflow, eliminate manual data entry, implement parallel processing', required: true },
     ],
-    frameworks: ['Lean', 'Value Stream Mapping', 'Toyota Production System', 'Process Improvement'],
     tier: 'premium',
     estimatedTimeSaved: '4 hours',
-    tags: ['vsm', 'waste-elimination', 'process-improvement', 'lean', 'continuous-improvement'],
+    tags: ['vsm', 'waste-elimination', 'process-improvement', 'lean', 'continuous-improvement', 'Lean', 'Value Stream Mapping', 'Toyota Production System', 'Process Improvement'],
   },
   {
     id: 'lean-2',
     title: '5 Whys Deep Root Cause Analysis',
-    category: 'lean',
+    framework: 'lean',
+    phase: 'Map Value Stream',
+    canonicalPhase: 2,
     description: 'Master the art of root cause analysis by drilling beyond symptoms to systemic causes. Use structured questioning, verification techniques, and countermeasure design to prevent problem recurrence.',
     template: `Act as an elite Lean problem-solving facilitator. Conduct a rigorous 5 Whys analysis for {{problem}} that gets past surface symptoms to the true root cause, then design countermeasures that prevent recurrence.
 
@@ -22279,15 +22341,16 @@ Deliver this 5 Whys with rigor. The goal isn't to complete the exercise—it's t
       { name: 'root_cause', description: 'Identified root cause', example: 'No post-maintenance checklist to verify all services are re-enabled', required: true },
       { name: 'countermeasure', description: 'Proposed solution', example: 'Create and enforce maintenance completion checklist with sign-off requirement', required: true },
     ],
-    frameworks: ['Lean', 'Root Cause Analysis', 'Toyota Production System', 'Problem Solving'],
     tier: 'premium',
     estimatedTimeSaved: '1.5 hours',
-    tags: ['5-whys', 'root-cause', 'problem-solving', 'lean', 'continuous-improvement'],
+    tags: ['5-whys', 'root-cause', 'problem-solving', 'lean', 'continuous-improvement', 'Lean', 'Root Cause Analysis', 'Toyota Production System', 'Problem Solving'],
   },
   {
     id: 'lean-3',
     title: 'Kaizen Event Strategic Playbook',
-    category: 'lean',
+    framework: 'lean',
+    phase: 'Pursue Perfection',
+    canonicalPhase: 4,
     description: 'Design and execute a high-impact Kaizen event that delivers measurable improvement within days. Master the art of rapid, focused improvement through rigorous preparation, structured execution, and sustained results.',
     template: `Act as an elite Kaizen facilitator and Lean transformation expert. Plan and execute a Kaizen event for {{focus_area}} that achieves breakthrough improvement through focused team effort and structured problem-solving.
 
@@ -22699,15 +22762,16 @@ Deliver this Kaizen event with intensity and discipline. The goal is measurable,
       { name: 'agenda', description: 'High-level event agenda', example: 'Day 1: Observe & Map, Day 2: Analyze & Design, Day 3: Implement & Measure', required: true },
       { name: 'followup', description: '30-day follow-up activities', example: 'Weekly metric reviews, standard work audits, remaining action completion', required: false },
     ],
-    frameworks: ['Lean', 'Kaizen', 'Toyota Production System', 'Continuous Improvement'],
     tier: 'premium',
     estimatedTimeSaved: '3 hours',
-    tags: ['kaizen', 'continuous-improvement', 'event', 'lean', 'process-improvement'],
+    tags: ['kaizen', 'continuous-improvement', 'event', 'lean', 'process-improvement', 'Lean', 'Kaizen', 'Toyota Production System', 'Continuous Improvement'],
   },
   {
     id: 'lean-4',
     title: 'A3 Problem Solving Mastery',
-    category: 'lean',
+    framework: 'lean',
+    phase: 'Identify Value',
+    canonicalPhase: 1,
     description: 'Master the Toyota A3 methodology for structured problem-solving. Build a complete A3 that tells a compelling story, drives consensus, and produces lasting solutions through rigorous PDCA thinking.',
     template: `Act as an elite Toyota-trained problem-solving coach. Create a comprehensive A3 report for {{problem_title}} that follows PDCA thinking, builds organizational capability, and produces sustainable countermeasures.
 
@@ -23100,15 +23164,16 @@ Deliver this A3 with the rigor of a Toyota problem-solver. The goal isn't a comp
       { name: 'owner', description: 'A3 owner responsible for resolution', example: 'Sarah Chen, Product Manager', required: true },
       { name: 'date', description: 'A3 creation/revision date', example: 'Jan 15, 2025', required: true },
     ],
-    frameworks: ['Lean', 'Toyota Production System', 'A3 Thinking', 'PDCA'],
     tier: 'premium',
     estimatedTimeSaved: '2 hours',
-    tags: ['a3', 'problem-solving', 'toyota', 'lean', 'pdca', 'continuous-improvement'],
+    tags: ['a3', 'problem-solving', 'toyota', 'lean', 'pdca', 'continuous-improvement', 'Lean', 'Toyota Production System', 'A3 Thinking', 'PDCA'],
   },
   {
     id: 'lean-5',
     title: 'Standard Work Documentation System',
-    category: 'lean',
+    framework: 'lean',
+    phase: 'Create Flow',
+    canonicalPhase: 3,
     description: 'Create bulletproof standard work that captures best practices, enables training, drives consistency, and provides the foundation for continuous improvement. Transform tribal knowledge into organizational capability.',
     template: `Act as an elite Lean standard work specialist. Create comprehensive standard work documentation for {{process_name}} that captures the current best method, enables consistent execution, and serves as the baseline for improvement.
 
@@ -23442,15 +23507,16 @@ Deliver this standard work as the foundation for excellence. The goal isn't docu
       { name: 'materials', description: 'Required tools and access', example: 'CI/CD pipeline access, AWS credentials, Kubernetes config, Monitoring dashboard', required: false },
       { name: 'revision', description: 'Document version', example: 'v2.1 - Updated Jan 2025 - Added rollback verification', required: false },
     ],
-    frameworks: ['Lean', 'Toyota Production System', 'Standard Work', 'TWI'],
     tier: 'premium',
     estimatedTimeSaved: '2 hours',
-    tags: ['standard-work', 'documentation', 'process', 'lean', 'training', 'continuous-improvement'],
+    tags: ['standard-work', 'documentation', 'process', 'lean', 'training', 'continuous-improvement', 'Lean', 'Toyota Production System', 'Standard Work', 'TWI'],
   },
   {
     id: 'lean-6',
     title: 'Gemba Walk Leadership System',
-    category: 'lean',
+    framework: 'lean',
+    phase: 'Pursue Perfection',
+    canonicalPhase: 4,
     description: 'Transform leadership presence into a powerful improvement engine. Master the art of going to where work happens, asking the right questions, and driving continuous improvement through observation, respect, and action.',
     template: `Act as an elite Lean leadership coach. Design and execute a Gemba Walk for {{area}} that builds understanding, surfaces problems, engages workers, and drives meaningful improvement—not just a management walkabout.
 
@@ -23822,10 +23888,9 @@ Deliver this Gemba Walk with genuine curiosity and respect. The goal isn't to ca
       { name: 'actions', description: 'Follow-up actions identified', example: 'Consolidate to single dashboard, add system capacity, update knowledge base search', required: true },
       { name: 'followup', description: 'Follow-up date', example: 'Feb 15, 2025', required: false },
     ],
-    frameworks: ['Lean', 'Toyota Production System', 'Gemba', 'Leadership'],
     tier: 'premium',
     estimatedTimeSaved: '1.5 hours',
-    tags: ['gemba', 'observation', 'leadership', 'lean', 'continuous-improvement', 'management'],
+    tags: ['gemba', 'observation', 'leadership', 'lean', 'continuous-improvement', 'management', 'Lean', 'Toyota Production System', 'Gemba', 'Leadership'],
   },
 
   // ============================================================================
@@ -23834,7 +23899,9 @@ Deliver this Gemba Walk with genuine curiosity and respect. The goal isn't to ca
   {
     id: 'scrumban-1',
     title: 'Scrumban Board Design Mastery',
-    category: 'scrumban',
+    framework: 'scrumban',
+    phase: 'Backlog Prioritization',
+    canonicalPhase: 1,
     description: 'Design a hybrid workflow system that captures the best of Scrum and Kanban. Create a pull-based board with intelligent WIP limits, adaptive cadences, and visual management that optimizes flow while maintaining planning discipline.',
     template: `Act as an elite Scrumban coach and flow optimization expert. Design a comprehensive Scrumban board for {{team_name}} that combines Scrum's planning discipline with Kanban's flow efficiency—creating a system that adapts to changing demands while maintaining predictability.
 
@@ -24058,15 +24125,16 @@ Provide complete Scrumban board design including:
       { name: 'pull_policy', description: 'Rules for pulling work', example: 'Pull highest priority from right to left when capacity available', required: true },
       { name: 'threshold', description: 'Planning trigger threshold', example: '5 items in Ready queue', required: true },
     ],
-    frameworks: ['Scrumban', 'Kanban', 'Scrum', 'Hybrid Agile', 'Lean'],
     tier: 'free',
     estimatedTimeSaved: '2 hours',
-    tags: ['scrumban', 'board-design', 'hybrid', 'wip-limits', 'pull-system', 'flow-optimization'],
+    tags: ['scrumban', 'board-design', 'hybrid', 'wip-limits', 'pull-system', 'flow-optimization', 'Scrumban', 'Kanban', 'Scrum', 'Hybrid Agile', 'Lean'],
   },
   {
     id: 'scrumban-2',
     title: 'On-Demand Planning Orchestrator',
-    category: 'scrumban',
+    framework: 'scrumban',
+    phase: 'Planning on Demand',
+    canonicalPhase: 2,
     description: 'Master the art of trigger-based planning that responds to actual demand rather than arbitrary calendar dates. Facilitate efficient replenishment sessions that maintain flow, optimize priorities using WSJF/CD3, and ensure the team never starves for ready work.',
     template: `Act as an elite Scrumban facilitator and pull-based planning expert. Orchestrate an on-demand planning session for {{team_name}} that efficiently replenishes the Ready queue with properly prioritized, right-sized work items—maintaining continuous flow without the overhead of fixed sprint boundaries.
 
@@ -24324,15 +24392,16 @@ Provide complete on-demand planning session deliverables including:
       { name: 'backlog_candidates', description: 'Items to consider for the Ready queue', example: 'Feature A, Bug B, Tech Debt C, Enhancement D', required: true },
       { name: 'estimation_method', description: 'Sizing approach', example: 'T-shirt sizing (XS/S/M/L/XL)', required: false },
     ],
-    frameworks: ['Scrumban', 'Kanban', 'WSJF', 'Lean Planning', 'Pull-Based Planning'],
     tier: 'free',
     estimatedTimeSaved: '1.5 hours',
-    tags: ['on-demand', 'planning', 'threshold', 'wsjf', 'prioritization', 'replenishment'],
+    tags: ['on-demand', 'planning', 'threshold', 'wsjf', 'prioritization', 'replenishment', 'Scrumban', 'Kanban', 'WSJF', 'Lean Planning', 'Pull-Based Planning'],
   },
   {
     id: 'scrumban-3',
     title: 'Intelligent Triage & Routing System',
-    category: 'scrumban',
+    framework: 'scrumban',
+    phase: 'Metrics & Review',
+    canonicalPhase: 4,
     description: 'Build a systematic triage engine that rapidly categorizes incoming work, routes items to the right queue, and protects flow from disruption. Master the art of saying "not now" while still honoring urgent requests through expedite policies.',
     template: `Act as an elite Scrumban triage specialist and demand management expert. Design and execute a systematic triage process for {{workflow}} that rapidly categorizes incoming work, routes items appropriately, and protects team flow while ensuring urgent items get proper attention.
 
@@ -24568,15 +24637,16 @@ Provide complete triage decision including:
       { name: 'standard', description: 'Action for standard items', example: 'Add to backlog, prioritize in next replenishment', required: true },
       { name: 'priority', description: 'Final priority assignment', example: 'Expedite', required: true },
     ],
-    frameworks: ['Scrumban', 'Kanban', 'Triage', 'Service Level Management', 'Demand Management'],
     tier: 'premium',
     estimatedTimeSaved: '45 mins',
-    tags: ['triage', 'prioritization', 'incoming-work', 'expedite', 'routing', 'service-levels'],
+    tags: ['triage', 'prioritization', 'incoming-work', 'expedite', 'routing', 'service-levels', 'Scrumban', 'Kanban', 'Triage', 'Service Level Management', 'Demand Management'],
   },
   {
     id: 'scrumban-4',
     title: 'Continuous Improvement Capacity Engine',
-    category: 'scrumban',
+    framework: 'scrumban',
+    phase: 'Flow Execution',
+    canonicalPhase: 3,
     description: 'Build a sustainable system for allocating and protecting improvement capacity. Balance feature delivery with technical health, ensure improvement work actually gets done, and create a culture of continuous kaizen within your Scrumban workflow.',
     template: `Act as an elite Scrumban improvement strategist and technical health advocate. Design a comprehensive continuous improvement capacity system for {{team_name}} that protects time for quality work, systematically addresses technical debt, and creates sustainable balance between delivery pressure and system health.
 
@@ -24844,15 +24914,16 @@ Provide complete continuous improvement capacity system including:
       { name: 'cadence', description: 'Review frequency', example: 'Monthly', required: true },
       { name: 'focus', description: 'This cycle focus area', example: 'Add monitoring dashboards and alerting', required: false },
     ],
-    frameworks: ['Scrumban', 'Kanban', 'Technical Debt Management', 'Continuous Improvement', 'Kaizen'],
     tier: 'free',
     estimatedTimeSaved: '1.5 hours',
-    tags: ['capacity', 'improvement', 'tech-debt', 'allocation', 'sustainability', 'technical-health'],
+    tags: ['capacity', 'improvement', 'tech-debt', 'allocation', 'sustainability', 'technical-health', 'Scrumban', 'Kanban', 'Technical Debt Management', 'Continuous Improvement', 'Kaizen'],
   },
   {
     id: 'scrumban-5',
     title: 'Work Portfolio Balance Analytics',
-    category: 'scrumban',
+    framework: 'scrumban',
+    phase: 'Continuous Delivery',
+    canonicalPhase: 5,
     description: 'Generate comprehensive work type analytics that reveal the true health of your delivery portfolio. Track feature vs maintenance ratios, identify capacity drift, surface hidden taxes on productivity, and drive data-informed allocation decisions.',
     template: `Act as an elite Scrumban metrics analyst and portfolio balance strategist. Generate a comprehensive Work Portfolio Balance Report for {{team_name}} covering {{period}}—providing deep insights into how capacity is actually being consumed, identifying trends and risks, and recommending data-driven adjustments.
 
@@ -25130,10 +25201,9 @@ Provide complete Work Portfolio Balance Report including:
       { name: 'assessment', description: 'Overall health status', example: 'YELLOW - unplanned trending up, action needed', required: true },
       { name: 'recommendation', description: 'Primary action recommendation', example: 'Investigate and address root cause of unplanned work increase', required: true },
     ],
-    frameworks: ['Scrumban', 'Kanban', 'Portfolio Management', 'Capacity Planning', 'Metrics'],
     tier: 'premium',
     estimatedTimeSaved: '2 hours',
-    tags: ['balance', 'metrics', 'reporting', 'portfolio', 'analytics', 'capacity', 'trends'],
+    tags: ['balance', 'metrics', 'reporting', 'portfolio', 'analytics', 'capacity', 'trends', 'Scrumban', 'Kanban', 'Portfolio Management', 'Capacity Planning', 'Metrics'],
   },
 
   // ============================================================================
@@ -25142,7 +25212,9 @@ Provide complete Work Portfolio Balance Report including:
   {
     id: 'sixsigma-1',
     title: 'DMAIC Project Charter Mastery',
-    category: 'six-sigma',
+    framework: 'six-sigma',
+    phase: 'Define',
+    canonicalPhase: 1,
     description: 'Create a bulletproof Six Sigma project charter that defines the problem with surgical precision, quantifies the business impact, and sets measurable goals. Master the Define phase with proper Y=f(X) thinking, SMART goals, and stakeholder alignment.',
     template: `Act as an elite Six Sigma Black Belt and DMAIC methodology expert. Create a comprehensive project charter for {{project_name}} that precisely defines the problem, builds an irrefutable business case, and sets the foundation for a successful improvement project.
 
@@ -25455,15 +25527,16 @@ Provide complete DMAIC Project Charter including:
       { name: 'target', description: 'Target performance', example: '1.0%', required: true },
       { name: 'timeline', description: 'Project duration', example: '4 months (16 weeks)', required: true },
     ],
-    frameworks: ['Six Sigma', 'DMAIC', 'Lean Six Sigma', 'Quality Management'],
     tier: 'premium',
     estimatedTimeSaved: '3 hours',
-    tags: ['dmaic', 'define', 'charter', 'project-initiation', 'copq', 'smart-goals'],
+    tags: ['dmaic', 'define', 'charter', 'project-initiation', 'copq', 'smart-goals', 'Six Sigma', 'DMAIC', 'Lean Six Sigma', 'Quality Management'],
   },
   {
     id: 'sixsigma-2',
     title: 'Measure Phase Data Collection Mastery',
-    category: 'six-sigma',
+    framework: 'six-sigma',
+    phase: 'Define',
+    canonicalPhase: 1,
     description: 'Design a rigorous data collection plan that ensures measurement system validity, proper sampling, and statistically sound baseline establishment. Master operational definitions, Gage R&R, and stratification strategies.',
     template: `Act as an elite Six Sigma Black Belt specializing in Measure phase execution. Design a comprehensive data collection plan for {{metric_name}} that ensures you gather valid, reliable, and sufficient data to establish a true process baseline and enable root cause analysis.
 
@@ -25757,15 +25830,16 @@ Provide complete Measure phase data collection plan including:
       { name: 'form', description: 'Data collection form', example: 'Excel template with Order ID, Order Date, Ship Date, Duration, Product Category, Warehouse', required: true },
       { name: 'msa', description: 'MSA requirements', example: 'Validate system timestamps against manual log for 30 orders; expect <5% variance', required: false },
     ],
-    frameworks: ['Six Sigma', 'DMAIC', 'Statistical Analysis', 'Measurement System Analysis'],
     tier: 'free',
     estimatedTimeSaved: '2 hours',
-    tags: ['measure', 'data-collection', 'sampling', 'msa', 'gage-rr', 'baseline'],
+    tags: ['measure', 'data-collection', 'sampling', 'msa', 'gage-rr', 'baseline', 'Six Sigma', 'DMAIC', 'Statistical Analysis', 'Measurement System Analysis'],
   },
   {
     id: 'sixsigma-3',
     title: 'Process Capability Analysis Mastery',
-    category: 'six-sigma',
+    framework: 'six-sigma',
+    phase: 'Measure',
+    canonicalPhase: 2,
     description: 'Master process capability analysis with Cp, Cpk, Pp, Ppk, and sigma level calculations. Understand the difference between capability and performance, interpret results for decision-making, and drive process improvement actions.',
     template: `Act as an elite Six Sigma Black Belt and statistical process control expert. Perform a comprehensive process capability analysis for {{process_name}} that quantifies how well the process meets specifications and identifies opportunities for improvement.
 
@@ -26023,15 +26097,16 @@ Provide complete process capability analysis including:
       { name: 'sigma', description: 'Calculated sigma level', example: '4.0', required: true },
       { name: 'interpretation', description: 'Interpretation of results', example: 'Process is capable (Cpk=1.33) but slightly off-center toward USL; recommend mean adjustment', required: true },
     ],
-    frameworks: ['Six Sigma', 'SPC', 'Statistical Analysis', 'Quality Management'],
     tier: 'premium',
     estimatedTimeSaved: '1.5 hours',
-    tags: ['capability', 'cpk', 'statistics', 'spc', 'sigma-level', 'process-analysis'],
+    tags: ['capability', 'cpk', 'statistics', 'spc', 'sigma-level', 'process-analysis', 'Six Sigma', 'SPC', 'Statistical Analysis', 'Quality Management'],
   },
   {
     id: 'sixsigma-4',
     title: 'Fishbone Root Cause Analysis Mastery',
-    category: 'six-sigma',
+    framework: 'six-sigma',
+    phase: 'Measure',
+    canonicalPhase: 2,
     description: 'Master the Ishikawa/Fishbone diagram for systematic root cause brainstorming. Use the 6M framework to comprehensively explore all potential cause categories, then prioritize the vital few for data-driven validation.',
     template: `Act as an elite Six Sigma Black Belt and root cause analysis expert. Facilitate a comprehensive Fishbone (Ishikawa) diagram session for {{effect}} that systematically explores all potential causes using the 6M framework and prioritizes the most likely root causes for validation.
 
@@ -26308,15 +26383,16 @@ Provide complete Fishbone analysis including:
       { name: 'environment', description: 'Environmental potential causes', example: 'Temperature swings in warehouse, Lighting poor in picking area, Dust accumulation', required: true },
       { name: 'top_causes', description: 'Priority causes to validate', example: 'Training gaps on new system (Man), Scanner calibration (Machine), No verification checkpoint (Method)', required: true },
     ],
-    frameworks: ['Six Sigma', 'Root Cause Analysis', 'Ishikawa', 'Quality Tools'],
     tier: 'free',
     estimatedTimeSaved: '1.5 hours',
-    tags: ['fishbone', 'ishikawa', 'brainstorming', 'root-cause', '6m', '5-whys'],
+    tags: ['fishbone', 'ishikawa', 'brainstorming', 'root-cause', '6m', '5-whys', 'Six Sigma', 'Root Cause Analysis', 'Ishikawa', 'Quality Tools'],
   },
   {
     id: 'sixsigma-5',
     title: 'Statistical Process Control Chart Mastery',
-    category: 'six-sigma',
+    framework: 'six-sigma',
+    phase: 'Analyze',
+    canonicalPhase: 2,
     description: 'Master the design and implementation of control charts for real-time process monitoring, including chart selection, control limit calculation, Western Electric rules, and reaction planning for sustained process stability.',
     template: `Act as an elite Six Sigma Black Belt and Statistical Process Control (SPC) specialist with deep expertise in control chart design, implementation, and interpretation. Help me establish a comprehensive SPC system for {{metric_name}} in {{process_name}}.
 
@@ -26653,15 +26729,16 @@ Produce a complete Control Chart Specification including:
       { name: 'containment_action', description: 'Immediate containment steps', example: 'Quarantine last batch, notify supervisor', required: true },
       { name: 'correction_actions', description: 'Corrective actions for causes', example: 'Retrain operators, recalibrate equipment', required: true },
     ],
-    frameworks: ['Six Sigma', 'Statistical Process Control', 'Quality Management', 'Manufacturing Excellence'],
     tier: 'premium',
     estimatedTimeSaved: '2 hours',
-    tags: ['control-chart', 'spc', 'monitoring', 'x-bar-r', 'western-electric', 'process-stability', 'real-time-monitoring'],
+    tags: ['control-chart', 'spc', 'monitoring', 'x-bar-r', 'western-electric', 'process-stability', 'real-time-monitoring', 'Six Sigma', 'Statistical Process Control', 'Quality Management', 'Manufacturing Excellence'],
   },
   {
     id: 'sixsigma-6',
     title: 'FMEA (Failure Mode Effects Analysis) Mastery',
-    category: 'six-sigma',
+    framework: 'six-sigma',
+    phase: 'Analyze',
+    canonicalPhase: 2,
     description: 'Master the FMEA methodology for proactive risk identification and prioritization, including severity/occurrence/detection scoring, RPN calculation, action prioritization strategies, and comprehensive failure prevention planning.',
     template: `Act as an elite Six Sigma Black Belt and FMEA specialist with deep expertise in risk analysis, failure prevention, and quality engineering. Help me conduct a comprehensive FMEA for {{process_name}} in {{organization}}.
 
@@ -27065,10 +27142,9 @@ Produce a complete FMEA document including:
       { name: 'in_scope', description: 'What is in scope', example: 'Invoice receipt through payment posting', required: true },
       { name: 'out_scope', description: 'What is out of scope', example: 'Vendor master setup, bank reconciliation', required: true },
     ],
-    frameworks: ['Six Sigma', 'AIAG FMEA', 'VDA FMEA', 'Risk Management', 'Quality Engineering'],
     tier: 'premium',
     estimatedTimeSaved: '3 hours',
-    tags: ['fmea', 'risk-analysis', 'prevention', 'rpn', 'severity', 'occurrence', 'detection', 'failure-mode', 'proactive-quality'],
+    tags: ['fmea', 'risk-analysis', 'prevention', 'rpn', 'severity', 'occurrence', 'detection', 'failure-mode', 'proactive-quality', 'Six Sigma', 'AIAG FMEA', 'VDA FMEA', 'Risk Management', 'Quality Engineering'],
   },
 
   // ============================================================================
@@ -27077,7 +27153,9 @@ Produce a complete FMEA document including:
   {
     id: 'cobit-1',
     title: 'IT Governance Maturity Assessment Mastery',
-    category: 'cobit',
+    framework: 'cobit',
+    phase: 'Evaluate',
+    canonicalPhase: 1,
     description: 'Master comprehensive IT governance assessment using COBIT 2019 framework, including capability level evaluation across all governance components, gap analysis, and transformation roadmap development.',
     template: `Act as an elite IT Governance specialist and COBIT 2019 certified assessor with deep expertise in enterprise IT governance, capability assessment, and digital transformation. Help me conduct a comprehensive IT governance assessment for {{organization}}.
 
@@ -27482,15 +27560,16 @@ Produce a complete IT Governance Assessment Report including:
       { name: 'it_issues', description: 'Current IT pain points', example: 'Security incidents, Project overruns, Shadow IT', required: true },
       { name: 'compliance_reqs', description: 'Regulatory requirements', example: 'SOX, GDPR, PCI-DSS, HIPAA', required: true },
     ],
-    frameworks: ['COBIT 2019', 'IT Governance', 'ISACA', 'Enterprise Governance', 'Digital Transformation'],
     tier: 'premium',
     estimatedTimeSaved: '4 hours',
-    tags: ['governance', 'assessment', 'maturity', 'cobit-2019', 'capability', 'gap-analysis', 'roadmap'],
+    tags: ['governance', 'assessment', 'maturity', 'cobit-2019', 'capability', 'gap-analysis', 'roadmap', 'COBIT 2019', 'IT Governance', 'ISACA', 'Enterprise Governance', 'Digital Transformation'],
   },
   {
     id: 'cobit-2',
     title: 'IT Control Objectives Documentation Mastery',
-    category: 'cobit',
+    framework: 'cobit',
+    phase: 'Direct',
+    canonicalPhase: 2,
     description: 'Master the documentation of IT control objectives aligned to COBIT framework, including control design, testing procedures, evidence requirements, and control effectiveness assessment for audit-ready governance.',
     template: `Act as an elite IT Controls specialist and internal audit expert with deep expertise in COBIT control frameworks, SOX compliance, and IT general controls. Help me document comprehensive control objectives for {{process_name}} in {{organization}}.
 
@@ -27811,15 +27890,16 @@ Produce a complete Control Documentation Package including:
       { name: 'risk_addressed', description: 'Risk mitigated by control', example: 'Unauthorized changes causing system outages or security vulnerabilities', required: true },
       { name: 'control_owner', description: 'Control owner name', example: 'Change Manager - John Smith', required: true },
     ],
-    frameworks: ['COBIT 2019', 'SOX', 'IT General Controls', 'Internal Audit', 'Control Documentation'],
     tier: 'free',
     estimatedTimeSaved: '2 hours',
-    tags: ['controls', 'objectives', 'documentation', 'sox', 'audit-ready', 'itgc', 'control-design'],
+    tags: ['controls', 'objectives', 'documentation', 'sox', 'audit-ready', 'itgc', 'control-design', 'COBIT 2019', 'SOX', 'IT General Controls', 'Internal Audit', 'Control Documentation'],
   },
   {
     id: 'cobit-3',
     title: 'RACI Matrix Design Mastery for IT Governance',
-    category: 'cobit',
+    framework: 'cobit',
+    phase: 'Direct',
+    canonicalPhase: 2,
     description: 'Master the design of comprehensive RACI matrices for IT governance processes, including role identification, accountability mapping, conflict detection, and governance structure optimization aligned to COBIT practices.',
     template: `Act as an elite IT Governance specialist and organizational design expert with deep expertise in RACI frameworks, COBIT role structures, and accountability mapping. Help me design a comprehensive RACI matrix for {{process_name}} in {{organization}}.
 
@@ -28151,15 +28231,16 @@ Produce a complete RACI Documentation Package including:
       { name: 'process_start', description: 'Process start trigger', example: 'Incident reported via any channel', required: true },
       { name: 'process_end', description: 'Process end state', example: 'Incident resolved and closed with user confirmation', required: true },
     ],
-    frameworks: ['COBIT 2019', 'RACI', 'IT Governance', 'Organizational Design', 'Process Management'],
     tier: 'free',
     estimatedTimeSaved: '1.5 hours',
-    tags: ['raci', 'roles', 'responsibilities', 'accountability', 'governance-structure', 'sod', 'escalation'],
+    tags: ['raci', 'roles', 'responsibilities', 'accountability', 'governance-structure', 'sod', 'escalation', 'COBIT 2019', 'RACI', 'IT Governance', 'Organizational Design', 'Process Management'],
   },
   {
     id: 'cobit-4',
     title: 'IT Risk Register and Assessment Mastery',
-    category: 'cobit',
+    framework: 'cobit',
+    phase: 'Monitor',
+    canonicalPhase: 4,
     description: 'Master comprehensive IT risk identification, assessment, and treatment using COBIT APO12 practices, including risk scenarios, impact analysis, treatment strategies, and residual risk monitoring aligned to enterprise risk appetite.',
     template: `Act as an elite IT Risk Management specialist with deep expertise in COBIT APO12 (Manage Risk), ISO 31000, and enterprise risk management. Help me develop a comprehensive IT Risk Register for {{organization}} with risk {{risk_title}}.
 
@@ -28507,15 +28588,16 @@ Produce a complete IT Risk Register entry including:
       { name: 'impact_score', description: 'Impact rating 1-5', example: '5', required: true },
       { name: 'treatment_strategy', description: 'Selected treatment', example: 'Mitigate', required: true },
     ],
-    frameworks: ['COBIT 2019', 'ISO 31000', 'NIST RMF', 'Enterprise Risk Management', 'IT Risk Management'],
     tier: 'premium',
     estimatedTimeSaved: '2.5 hours',
-    tags: ['risk-register', 'it-risk', 'assessment', 'apo12', 'risk-treatment', 'kri', 'residual-risk'],
+    tags: ['risk-register', 'it-risk', 'assessment', 'apo12', 'risk-treatment', 'kri', 'residual-risk', 'COBIT 2019', 'ISO 31000', 'NIST RMF', 'Enterprise Risk Management', 'IT Risk Management'],
   },
   {
     id: 'cobit-5',
     title: 'IT Balanced Scorecard Design Mastery',
-    category: 'cobit',
+    framework: 'cobit',
+    phase: 'Implement',
+    canonicalPhase: 3,
     description: 'Master the design and implementation of a comprehensive IT Balanced Scorecard aligned to COBIT goals cascade, including strategic objectives, KPIs, targets, initiatives, and executive dashboard design for holistic IT performance measurement.',
     template: `Act as an elite IT Performance Management specialist with deep expertise in Balanced Scorecard methodology, COBIT goals cascade, and IT value measurement. Help me design a comprehensive IT Balanced Scorecard for {{organization}} for {{reporting_period}}.
 
@@ -28805,15 +28887,16 @@ Produce a complete IT Balanced Scorecard including:
       { name: 'priority_3', description: 'Strategic priority 3', example: 'Improve IT service delivery', required: true },
       { name: 'overall_health', description: 'Overall scorecard health', example: 'Amber - 12 of 16 metrics on target', required: true },
     ],
-    frameworks: ['COBIT 2019', 'Balanced Scorecard', 'IT Performance Management', 'Strategy Execution', 'KPI Design'],
     tier: 'premium',
     estimatedTimeSaved: '3 hours',
-    tags: ['bsc', 'kpis', 'performance', 'strategy-map', 'it-value', 'executive-dashboard', 'goals-cascade'],
+    tags: ['bsc', 'kpis', 'performance', 'strategy-map', 'it-value', 'executive-dashboard', 'goals-cascade', 'COBIT 2019', 'Balanced Scorecard', 'IT Performance Management', 'Strategy Execution', 'KPI Design'],
   },
   {
     id: 'cobit-6',
     title: 'IT Audit Findings Response and Remediation Mastery',
-    category: 'cobit',
+    framework: 'cobit',
+    phase: 'Assure',
+    canonicalPhase: 5,
     description: 'Master the management response to IT audit findings including root cause analysis, remediation planning, evidence gathering, validation procedures, and sustainable control improvement aligned to COBIT MEA practices.',
     template: `Act as an elite IT Audit Response specialist with deep expertise in COBIT MEA (Monitor, Evaluate, Assess), internal controls remediation, and audit liaison. Help me develop a comprehensive management response to audit finding {{finding_id}} for {{organization}}.
 
@@ -29161,9 +29244,8 @@ Produce a complete Audit Finding Response Package including:
       { name: 'target_date', description: 'Target remediation date', example: 'March 31, 2025', required: true },
       { name: 'finding_owner', description: 'Finding owner', example: 'IAM Manager - Bob Wilson', required: true },
     ],
-    frameworks: ['COBIT 2019', 'Internal Audit', 'SOX Compliance', 'MEA', 'Control Remediation'],
     tier: 'free',
     estimatedTimeSaved: '2 hours',
-    tags: ['audit', 'findings', 'remediation', 'management-response', 'root-cause', 'corrective-action', 'validation'],
+    tags: ['audit', 'findings', 'remediation', 'management-response', 'root-cause', 'corrective-action', 'validation', 'COBIT 2019', 'Internal Audit', 'SOX Compliance', 'MEA', 'Control Remediation'],
   },
 ];

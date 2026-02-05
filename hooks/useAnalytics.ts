@@ -5,11 +5,11 @@ import { useCallback } from "react";
 // Analytics event types for tracking user behavior
 export type AnalyticsEvent =
   | { type: "page_view"; page: string }
-  | { type: "prompt_view"; promptId: string; promptTitle: string; category: string; tier: "free" | "premium" }
+  | { type: "prompt_view"; promptId: string; promptTitle: string; framework: string; tier: "free" | "premium" }
   | { type: "prompt_copy"; promptId: string; promptTitle: string }
   | { type: "prompt_export"; promptId: string; promptTitle: string; format: "excel" | "markdown" }
   | { type: "search"; query: string; resultsCount: number }
-  | { type: "category_filter"; category: string }
+  | { type: "framework_filter"; framework: string }
   | { type: "premium_unlock_attempt"; success: boolean }
   | { type: "favorite_toggle"; promptId: string; action: "add" | "remove" }
   | { type: "filter_mode_change"; mode: "all" | "favorites" | "recent" };
@@ -104,8 +104,8 @@ export function useAnalytics(config: Partial<AnalyticsConfig> = {}) {
 
   // Convenience methods for common events
   const trackPromptView = useCallback(
-    (promptId: string, promptTitle: string, category: string, tier: "free" | "premium") => {
-      track({ type: "prompt_view", promptId, promptTitle, category, tier });
+    (promptId: string, promptTitle: string, framework: string, tier: "free" | "premium") => {
+      track({ type: "prompt_view", promptId, promptTitle, framework, tier });
     },
     [track]
   );
@@ -131,9 +131,9 @@ export function useAnalytics(config: Partial<AnalyticsConfig> = {}) {
     [track]
   );
 
-  const trackCategoryFilter = useCallback(
-    (category: string) => {
-      track({ type: "category_filter", category });
+  const trackFrameworkFilter = useCallback(
+    (framework: string) => {
+      track({ type: "framework_filter", framework });
     },
     [track]
   );
@@ -177,7 +177,7 @@ export function useAnalytics(config: Partial<AnalyticsConfig> = {}) {
     trackPromptCopy,
     trackPromptExport,
     trackSearch,
-    trackCategoryFilter,
+    trackFrameworkFilter,
     trackPremiumUnlock,
     trackFavoriteToggle,
     trackFilterModeChange,

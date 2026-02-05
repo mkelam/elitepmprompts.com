@@ -61,11 +61,16 @@ export function PromptList({
             }}
             aria-label={`${prompt.title}${isPremiumLocked ? " - Premium locked, click to unlock" : ""}${isFavorite ? " - Favorited" : ""}`}
           >
-            {/* Top Row: Category + Status Badges */}
+            {/* Top Row: Framework + Phase + Status Badges */}
             <div className="flex items-center justify-between gap-2 mb-2">
-              <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-white/5 text-white/50 uppercase tracking-wide">
-                {prompt.category === "safe" ? "SAFe" : prompt.category}
-              </span>
+              <div className="flex items-center gap-1.5">
+                <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-white/5 text-white/50 uppercase tracking-wide">
+                  {prompt.framework === "safe" ? "SAFe" : prompt.framework}
+                </span>
+                <span className="text-[10px] px-1.5 py-0.5 rounded bg-nexus-cyan/10 text-nexus-cyan/60">
+                  {prompt.phase}
+                </span>
+              </div>
               <div className="flex items-center gap-1">
                 {/* Favorite Indicator */}
                 {isFavorite && !isPremiumLocked && (
@@ -98,18 +103,18 @@ export function PromptList({
               }
             </p>
 
-            {/* Footer: Time saved + Framework tags */}
+            {/* Footer: Time saved + Tags */}
             <div className="flex items-center justify-between gap-2 pt-2 border-t border-white/5">
               <span className="text-[10px] text-white/40">{prompt.estimatedTimeSaved}</span>
-              {!isPremiumLocked && prompt.frameworks.length > 0 && (
+              {!isPremiumLocked && prompt.tags.length > 0 && (
                 <div className="flex gap-1 overflow-hidden">
-                  {prompt.frameworks.slice(0, 2).map(fw => (
-                    <span key={fw} className="text-[9px] px-1 py-0.5 rounded bg-nexus-cyan/10 text-nexus-cyan/70 truncate max-w-[60px]">
-                      {fw}
+                  {prompt.tags.slice(0, 2).map(tag => (
+                    <span key={tag} className="text-[9px] px-1 py-0.5 rounded bg-white/5 text-white/40 truncate max-w-[60px]">
+                      {tag}
                     </span>
                   ))}
-                  {prompt.frameworks.length > 2 && (
-                    <span className="text-[9px] text-white/30">+{prompt.frameworks.length - 2}</span>
+                  {prompt.tags.length > 2 && (
+                    <span className="text-[9px] text-white/30">+{prompt.tags.length - 2}</span>
                   )}
                 </div>
               )}

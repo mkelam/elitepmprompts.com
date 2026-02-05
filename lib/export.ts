@@ -9,8 +9,8 @@ export function exportToMarkdown(prompt: Prompt, variables: Record<string, strin
   });
 
   const markdownContent = `# ${prompt.title}\n\n` +
-                          `**Category:** ${prompt.category}\n` +
-                          `**Frameworks:** ${prompt.frameworks.join(", ")}\n` +
+                          `**Framework:** ${prompt.framework}\n` +
+                          `**Tags:** ${prompt.tags.join(", ")}\n` +
                           `**Description:** ${prompt.description}\n\n` +
                           `---\n\n` +
                           `${filledTemplate}`;
@@ -23,9 +23,9 @@ export function exportToExcel(prompt: Prompt, variables: Record<string, string>)
   // 1. Create a Key-Value pair for metadata
   const metadata = [
     ["Prompt Title", prompt.title],
-    ["Category", prompt.category],
+    ["Framework", prompt.framework],
     ["Description", prompt.description],
-    ["Frameworks", prompt.frameworks.join(", ")],
+    ["Tags", prompt.tags.join(", ")],
     ["Exported At", new Date().toLocaleString()],
     ["", ""], // Spacer
     ["VARIABLE", "USER INPUT"], // Header
@@ -60,11 +60,11 @@ export function exportLibraryToJSON(prompts: Prompt[]) {
     prompts: prompts.map(p => ({
       id: p.id,
       title: p.title,
-      category: p.category,
+      category: p.framework,
       description: p.description,
       template: p.template,
       variables: p.variables,
-      frameworks: p.frameworks,
+      frameworks: p.tags,
       estimatedTimeSaved: p.estimatedTimeSaved,
       tier: p.tier,
       tags: p.tags,
@@ -82,10 +82,10 @@ export function exportLibraryToExcel(prompts: Prompt[]) {
   // Create main prompts sheet
   const promptsData = prompts.map(p => ({
     "Title": p.title,
-    "Category": p.category,
+    "Framework": p.framework,
     "Tier": p.tier,
     "Description": p.description,
-    "Frameworks": p.frameworks.join(", "),
+    "Tags": p.tags.join(", "),
     "Time Saved": p.estimatedTimeSaved,
     "Template": p.template,
     "Variables": p.variables.map(v => v.name).join(", "),
@@ -96,10 +96,10 @@ export function exportLibraryToExcel(prompts: Prompt[]) {
   // Set column widths for better readability
   ws['!cols'] = [
     { wch: 30 },  // Title
-    { wch: 15 },  // Category
+    { wch: 15 },  // Framework
     { wch: 10 },  // Tier
     { wch: 50 },  // Description
-    { wch: 30 },  // Frameworks
+    { wch: 30 },  // Tags
     { wch: 12 },  // Time Saved
     { wch: 80 },  // Template
     { wch: 30 },  // Variables
@@ -110,17 +110,17 @@ export function exportLibraryToExcel(prompts: Prompt[]) {
   XLSX.utils.book_append_sheet(wb, ws, "All Prompts");
 
   // Create summary sheet
-  const categories = Array.from(new Set(prompts.map(p => p.category)));
-  const summaryData: Array<{ Category: string; "Total Prompts": number; Free: number; Premium: number }> = categories.map(cat => ({
-    "Category": cat,
-    "Total Prompts": prompts.filter(p => p.category === cat).length,
-    "Free": prompts.filter(p => p.category === cat && p.tier === "free").length,
-    "Premium": prompts.filter(p => p.category === cat && p.tier === "premium").length,
+  const categories = Array.from(new Set(prompts.map(p => p.framework)));
+  const summaryData: Array<{ Framework: string; "Total Prompts": number; Free: number; Premium: number }> = categories.map(cat => ({
+    "Framework": cat,
+    "Total Prompts": prompts.filter(p => p.framework === cat).length,
+    "Free": prompts.filter(p => p.framework === cat && p.tier === "free").length,
+    "Premium": prompts.filter(p => p.framework === cat && p.tier === "premium").length,
   }));
 
   // Add totals row
   summaryData.push({
-    "Category": "TOTAL",
+    "Framework": "TOTAL",
     "Total Prompts": prompts.length,
     "Free": prompts.filter(p => p.tier === "free").length,
     "Premium": prompts.filter(p => p.tier === "premium").length,
@@ -140,7 +140,7 @@ export function exportLibraryToExcel(prompts: Prompt[]) {
 
 // Export entire prompt library to interactive HTML
 export function exportLibraryToHTML(prompts: Prompt[]) {
-  const categories = Array.from(new Set(prompts.map(p => p.category)));
+  const categories = Array.from(new Set(prompts.map(p => p.framework)));
   const promptsJSON = JSON.stringify(prompts);
 
   const htmlContent = `<!DOCTYPE html>
@@ -572,7 +572,7 @@ export function exportLibraryToHTML(prompts: Prompt[]) {
         <p id="modal-desc"></p>
       </div>
       <div class="modal-section">
-        <p class="modal-section-title">Frameworks</p>
+        <p class="modal-section-title">Tags</p>
         <div id="modal-frameworks" class="card-frameworks"></div>
       </div>
 
@@ -621,7 +621,7 @@ export function exportLibraryToHTML(prompts: Prompt[]) {
       let filtered = prompts;
 
       if (currentFilter !== 'all') {
-        filtered = filtered.filter(p => p.category === currentFilter);
+        filtered = filtered.filter(p => p.framework === currentFilter);
       }
 
       if (searchQuery) {
@@ -629,8 +629,8 @@ export function exportLibraryToHTML(prompts: Prompt[]) {
         filtered = filtered.filter(p =>
           p.title.toLowerCase().includes(q) ||
           p.description.toLowerCase().includes(q) ||
-          p.frameworks.some(f => f.toLowerCase().includes(q)) ||
-          p.category.toLowerCase().includes(q)
+          p.tags.some(f => f.toLowerCase().includes(q)) ||
+          p.framework.toLowerCase().includes(q)
         );
       }
 
@@ -647,11 +647,11 @@ export function exportLibraryToHTML(prompts: Prompt[]) {
             <span class="card-title">\${p.title}</span>
             <span class="badge badge-\${p.tier}">\${p.tier}</span>
           </div>
-          <p class="card-category">\${p.category}</p>
+          <p class="card-category">\${p.framework}</p>
           <p class="card-desc">\${p.description.substring(0, 120)}\${p.description.length > 120 ? '...' : ''}</p>
           <div class="card-frameworks">
-            \${p.frameworks.slice(0, 3).map(f => \`<span class="framework-tag">\${f}</span>\`).join('')}
-            \${p.frameworks.length > 3 ? \`<span class="framework-tag">+\${p.frameworks.length - 3}</span>\` : ''}
+            \${p.tags.slice(0, 3).map(f => \`<span class="framework-tag">\${f}</span>\`).join('')}
+            \${p.tags.length > 3 ? \`<span class="framework-tag">+\${p.tags.length - 3}</span>\` : ''}
           </div>
         </div>
       \`).join('');
@@ -668,9 +668,9 @@ export function exportLibraryToHTML(prompts: Prompt[]) {
       });
 
       document.getElementById('modal-title').textContent = selectedPrompt.title;
-      document.getElementById('modal-category').textContent = selectedPrompt.category;
+      document.getElementById('modal-category').textContent = selectedPrompt.framework;
       document.getElementById('modal-desc').textContent = selectedPrompt.description;
-      document.getElementById('modal-frameworks').innerHTML = selectedPrompt.frameworks
+      document.getElementById('modal-frameworks').innerHTML = selectedPrompt.tags
         .map(f => \`<span class="framework-tag">\${f}</span>\`).join('');
 
       // Render variable input fields

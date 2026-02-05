@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Fuse from "fuse.js";
-import { Prompt, PromptCategory } from "@/lib/types";
-import { GlassButton } from "@/app/components/ui/GlassButton";
+import { Prompt, Framework } from "@/lib/types";
 import { Search, ChevronDown, X } from "lucide-react";
+import { getFrameworkPhases } from "@/data/framework-phases";
 
 interface PromptSearchProps {
   prompts: Prompt[];
@@ -13,18 +13,36 @@ interface PromptSearchProps {
 
 export function PromptSearch({ prompts, onFilter }: PromptSearchProps) {
   const [query, setQuery] = useState("");
-  const [activeCategory, setActiveCategory] = useState<PromptCategory | "all">("all");
-  const [showAllCategories, setShowAllCategories] = useState(false);
+  const [activeFramework, setActiveFramework] = useState<Framework | "all">("all");
+  const [activePhase, setActivePhase] = useState<string | "all">("all");
+  const [showAllFrameworks, setShowAllFrameworks] = useState(false);
+
+  // Get phases for the selected framework
+  const frameworkPhases = useMemo(() => {
+    if (activeFramework === "all") return [];
+    const frameworkDef = getFrameworkPhases(activeFramework);
+    return frameworkDef?.phases || [];
+  }, [activeFramework]);
+
+  // Reset phase when framework changes
+  useEffect(() => {
+    setActivePhase("all");
+  }, [activeFramework]);
 
   useEffect(() => {
     let result = prompts;
 
-    // 1. Filter by Category
-    if (activeCategory !== "all") {
-      result = result.filter((p) => p.category === activeCategory);
+    // 1. Filter by Framework
+    if (activeFramework !== "all") {
+      result = result.filter((p) => p.framework === activeFramework);
     }
 
-    // 2. Filter by Search Query
+    // 2. Filter by Phase
+    if (activePhase !== "all") {
+      result = result.filter((p) => p.phase === activePhase);
+    }
+
+    // 3. Filter by Search Query
     if (query.trim()) {
       const fuse = new Fuse(result, {
         keys: [
@@ -38,32 +56,31 @@ export function PromptSearch({ prompts, onFilter }: PromptSearchProps) {
     }
 
     onFilter(result);
-  }, [query, activeCategory, prompts, onFilter]);
+  }, [query, activeFramework, activePhase, prompts, onFilter]);
 
-  // Primary categories (most popular) - shown by default
-  const primaryCategories: (PromptCategory | "all")[] = [
+  // Primary frameworks (most popular) - shown by default
+  const primaryFrameworks: (Framework | "all")[] = [
     "all",
+    "pmbok",
     "agile",
     "scrum",
     "kanban",
     "hybrid",
-    "waterfall",
   ];
 
-  // Secondary categories - shown in overflow
-  const secondaryCategories: PromptCategory[] = [
+  // Secondary frameworks - shown in overflow
+  const secondaryFrameworks: Framework[] = [
     "safe",
     "lean",
     "scrumban",
     "prince2",
     "six-sigma",
-    "pmbok",
     "itil",
     "cobit",
   ];
 
-  // Check if active category is in secondary list
-  const activeInSecondary = secondaryCategories.includes(activeCategory as PromptCategory);
+  // Check if active framework is in secondary list
+  const activeInSecondary = secondaryFrameworks.includes(activeFramework as Framework);
 
   return (
     <div className="space-y-3" role="search" aria-label="Search prompts">
@@ -87,42 +104,42 @@ export function PromptSearch({ prompts, onFilter }: PromptSearchProps) {
         </span>
       </div>
 
-      {/* Category Filters - Collapsible */}
+      {/* Framework Filters - Collapsible */}
       <div className="space-y-2">
         <div
           className="flex flex-wrap items-center gap-1.5"
           role="group"
-          aria-label="Filter by category"
+          aria-label="Filter by framework"
         >
-          {/* Primary Categories - Always visible */}
-          {primaryCategories.map((cat) => (
+          {/* Primary Frameworks - Always visible */}
+          {primaryFrameworks.map((fw) => (
             <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
+              key={fw}
+              onClick={() => setActiveFramework(fw)}
               className={`px-2.5 py-1 rounded-md text-xs font-medium transition-all capitalize ${
-                activeCategory === cat
+                activeFramework === fw
                   ? "bg-nexus-cyan/20 text-nexus-cyan border border-nexus-cyan/30"
                   : "bg-white/5 text-white/60 hover:text-white/80 hover:bg-white/10 border border-transparent"
               }`}
-              aria-pressed={activeCategory === cat}
-              aria-label={`Filter by ${cat === "all" ? "all categories" : cat.replace("-", " ")}`}
+              aria-pressed={activeFramework === fw}
+              aria-label={`Filter by ${fw === "all" ? "all frameworks" : fw.replace("-", " ")}`}
             >
-              {cat === "safe" ? "SAFe" : cat.replace("-", " ")}
+              {fw === "safe" ? "SAFe" : fw.replace("-", " ")}
             </button>
           ))}
 
-          {/* Active Secondary Category (if any) - Show inline when not expanded */}
-          {activeInSecondary && !showAllCategories && (
+          {/* Active Secondary Framework (if any) - Show inline when not expanded */}
+          {activeInSecondary && !showAllFrameworks && (
             <button
               className="px-2.5 py-1 rounded-md text-xs font-medium bg-nexus-cyan/20 text-nexus-cyan border border-nexus-cyan/30 capitalize flex items-center gap-1"
-              onClick={() => setShowAllCategories(true)}
+              onClick={() => setShowAllFrameworks(true)}
             >
-              {activeCategory.replace("-", " ")}
+              {activeFramework === "safe" ? "SAFe" : activeFramework.replace("-", " ")}
               <X
                 className="w-3 h-3 hover:text-white"
                 onClick={(e) => {
                   e.stopPropagation();
-                  setActiveCategory("all");
+                  setActiveFramework("all");
                 }}
               />
             </button>
@@ -130,43 +147,82 @@ export function PromptSearch({ prompts, onFilter }: PromptSearchProps) {
 
           {/* More Button */}
           <button
-            onClick={() => setShowAllCategories(!showAllCategories)}
+            onClick={() => setShowAllFrameworks(!showAllFrameworks)}
             className={`px-2.5 py-1 rounded-md text-xs font-medium transition-all flex items-center gap-1 ${
-              showAllCategories || activeInSecondary
+              showAllFrameworks || activeInSecondary
                 ? "bg-white/10 text-white/80"
                 : "bg-white/5 text-white/50 hover:text-white/70 hover:bg-white/10"
             }`}
-            aria-expanded={showAllCategories}
-            aria-label={showAllCategories ? "Show fewer categories" : "Show more categories"}
+            aria-expanded={showAllFrameworks}
+            aria-label={showAllFrameworks ? "Show fewer frameworks" : "Show more frameworks"}
           >
-            +{secondaryCategories.length}
-            <ChevronDown className={`w-3 h-3 transition-transform ${showAllCategories ? "rotate-180" : ""}`} />
+            +{secondaryFrameworks.length}
+            <ChevronDown className={`w-3 h-3 transition-transform ${showAllFrameworks ? "rotate-180" : ""}`} />
           </button>
         </div>
 
-        {/* Expanded Secondary Categories */}
-        {showAllCategories && (
+        {/* Expanded Secondary Frameworks */}
+        {showAllFrameworks && (
           <div
             className="flex flex-wrap gap-1.5 pt-1 border-t border-white/10 animate-in slide-in-from-top-2 duration-200"
             role="group"
-            aria-label="Additional category filters"
+            aria-label="Additional framework filters"
           >
-            {secondaryCategories.map((cat) => (
+            {secondaryFrameworks.map((fw) => (
               <button
-                key={cat}
+                key={fw}
                 onClick={() => {
-                  setActiveCategory(cat);
-                  setShowAllCategories(false);
+                  setActiveFramework(fw);
+                  setShowAllFrameworks(false);
                 }}
                 className={`px-2.5 py-1 rounded-md text-xs font-medium transition-all capitalize ${
-                  activeCategory === cat
+                  activeFramework === fw
                     ? "bg-nexus-cyan/20 text-nexus-cyan border border-nexus-cyan/30"
                     : "bg-white/5 text-white/60 hover:text-white/80 hover:bg-white/10 border border-transparent"
                 }`}
-                aria-pressed={activeCategory === cat}
-                aria-label={`Filter by ${cat.replace("-", " ")}`}
+                aria-pressed={activeFramework === fw}
+                aria-label={`Filter by ${fw.replace("-", " ")}`}
               >
-                {cat.replace("-", " ")}
+                {fw === "safe" ? "SAFe" : fw.replace("-", " ")}
+              </button>
+            ))}
+          </div>
+        )}
+
+        {/* Phase Filters - Show when a framework is selected */}
+        {activeFramework !== "all" && frameworkPhases.length > 0 && (
+          <div
+            className="flex flex-wrap gap-1.5 pt-2 mt-2 border-t border-white/10 animate-in slide-in-from-top-2 duration-200"
+            role="group"
+            aria-label={`Filter by ${activeFramework} phases`}
+          >
+            <span className="text-[10px] text-white/40 uppercase tracking-wider mr-1 self-center">
+              Phases:
+            </span>
+            <button
+              onClick={() => setActivePhase("all")}
+              className={`px-2 py-0.5 rounded text-[11px] font-medium transition-all ${
+                activePhase === "all"
+                  ? "bg-purple-500/20 text-purple-300 border border-purple-500/30"
+                  : "bg-white/5 text-white/50 hover:text-white/70 hover:bg-white/10 border border-transparent"
+              }`}
+              aria-pressed={activePhase === "all"}
+            >
+              All
+            </button>
+            {frameworkPhases.map((phase) => (
+              <button
+                key={phase.name}
+                onClick={() => setActivePhase(phase.name)}
+                className={`px-2 py-0.5 rounded text-[11px] font-medium transition-all ${
+                  activePhase === phase.name
+                    ? "bg-purple-500/20 text-purple-300 border border-purple-500/30"
+                    : "bg-white/5 text-white/50 hover:text-white/70 hover:bg-white/10 border border-transparent"
+                }`}
+                aria-pressed={activePhase === phase.name}
+                title={phase.description}
+              >
+                {phase.name}
               </button>
             ))}
           </div>

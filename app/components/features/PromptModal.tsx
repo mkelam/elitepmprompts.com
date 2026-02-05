@@ -102,9 +102,12 @@ export function PromptModal({ prompt, onClose, isFavorite, onToggleFavorite }: P
       >
         {/* Header with Close Button */}
         <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 flex-wrap">
             <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-200 uppercase tracking-wider">
-              {prompt.category}
+              {prompt.framework === "safe" ? "SAFe" : prompt.framework}
+            </span>
+            <span className="text-xs px-2 py-0.5 rounded-full bg-nexus-cyan/20 text-nexus-cyan">
+              {prompt.phase}
             </span>
             <span className="text-xs text-white/50">
               {prompt.estimatedTimeSaved} saved
@@ -156,17 +159,22 @@ export function PromptModal({ prompt, onClose, isFavorite, onToggleFavorite }: P
               </h2>
               <p className="text-white/70 mt-2 text-sm sm:text-base">{prompt.description}</p>
 
-              {/* Frameworks */}
-              {prompt.frameworks.length > 0 && (
+              {/* Tags */}
+              {prompt.tags.length > 0 && (
                 <div className="flex flex-wrap gap-2 mt-3">
-                  {prompt.frameworks.map((fw) => (
+                  {prompt.tags.slice(0, 8).map((tag) => (
                     <span
-                      key={fw}
-                      className="text-xs px-2 py-1 rounded bg-blue-500/10 text-blue-300 border border-blue-500/20"
+                      key={tag}
+                      className="text-xs px-2 py-1 rounded bg-white/5 text-white/60 border border-white/10"
                     >
-                      {fw}
+                      {tag}
                     </span>
                   ))}
+                  {prompt.tags.length > 8 && (
+                    <span className="text-xs px-2 py-1 text-white/40">
+                      +{prompt.tags.length - 8} more
+                    </span>
+                  )}
                 </div>
               )}
             </div>
