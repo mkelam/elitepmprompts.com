@@ -1034,7 +1034,7 @@ QUALITY INDICATORS
     id: 'leg-1',
     title: 'COBOL to Java/Python Logic Analyzer',
     framework: 'hybrid',
-    phase: 'Planning',
+    phase: 'Adaptive Planning',
     canonicalPhase: 2,
     description: 'Transform cryptic mainframe code into crystal-clear modern specifications with complete data flow mapping, edge case identification, and migration-ready pseudo-code.',
     template: `You are a Legacy Modernization Architect with 25+ years translating COBOL/mainframe systems to modern platforms. Your analysis must bridge the knowledge gap between retiring mainframe experts and modern development teams.
@@ -1325,8 +1325,8 @@ QUALITY INDICATORS FOR THIS ANALYSIS
     id: 'leg-2',
     title: 'Legacy System Risk Assessment',
     framework: 'hybrid',
-    phase: 'Planning',
-    canonicalPhase: 2,
+    phase: 'Discovery',
+    canonicalPhase: 1,
     description: 'Conduct comprehensive technical debt analysis with quantified business impact, knowledge attrition modeling, and strategic modernization roadmap prioritization.',
     template: `You are a Chief Technology Risk Officer specializing in legacy system assessment for Fortune 500 enterprises. Your analysis must quantify technical debt in business terms that executives can act upon, while providing engineers with specific remediation priorities.
 
@@ -7172,8 +7172,8 @@ QUALITY INDICATORS FOR UAT SIGN-OFF
     id: 'leg-3',
     title: 'JCL (Job Control Language) Description',
     framework: 'hybrid',
-    phase: 'Monitoring & Controlling',
-    canonicalPhase: 4,
+    phase: 'Iterative Delivery',
+    canonicalPhase: 3,
     description: 'Transform cryptic batch job streams into comprehensive operational documentation with data flow diagrams, error handling maps, and modern CI/CD integration patterns.',
     template: `You are a Mainframe Batch Operations Architect with deep expertise in z/OS JCL, job scheduling, and batch modernization. Your documentation must enable modern DevOps engineers to understand, maintain, and eventually modernize critical batch workflows.
 
@@ -7487,8 +7487,8 @@ QUALITY INDICATORS FOR THIS DOCUMENTATION
     id: 'leg-4',
     title: 'Data Field Mapping (EBCDIC to ASCII)',
     framework: 'hybrid',
-    phase: 'Monitoring & Controlling',
-    canonicalPhase: 4,
+    phase: 'Iterative Delivery',
+    canonicalPhase: 3,
     description: 'Generate comprehensive data transformation specifications with encoding conversion rules, packed decimal handling, null semantics, and ETL pipeline code generation.',
     template: `You are a Data Migration Architect specializing in mainframe-to-modern data transformations. Your mapping specification must be precise enough to generate working ETL code while being understandable to both legacy and modern data engineers.
 
@@ -7837,7 +7837,7 @@ QUALITY INDICATORS
     id: 'leg-5',
     title: 'Legacy API Wrapper Design',
     framework: 'hybrid',
-    phase: 'Initiating',
+    phase: 'Discovery',
     canonicalPhase: 1,
     description: 'Design production-grade RESTful API facades with circuit breakers, connection pooling, protocol translation, error mapping, and observability for mainframe integration.',
     template: `You are an Enterprise Integration Architect specializing in legacy system modernization. Design a robust API wrapper that shields modern consumers from mainframe complexity while ensuring reliability, security, and observability.
@@ -8321,7 +8321,7 @@ QUALITY INDICATORS
     id: 'leg-6',
     title: 'Legacy Test Case Generator',
     framework: 'hybrid',
-    phase: 'Closing',
+    phase: 'Transition & Closeout',
     canonicalPhase: 5,
     description: 'Generate comprehensive test suites for green-screen applications with boundary analysis, screen navigation validation, field-level testing, and automated test script generation.',
     template: `You are a Mainframe QA Architect with expertise in 3270 terminal testing, CICS transaction validation, and legacy system quality assurance. Generate comprehensive test cases that cover functional, boundary, and negative scenarios for green-screen applications.
@@ -15744,7 +15744,7 @@ QUALITY INDICATORS
     id: 'risk-1',
     title: 'Business Continuity Plan (BCP) Trigger',
     framework: 'itil',
-    phase: 'Planning',
+    phase: 'Plan',
     canonicalPhase: 2,
     description: 'Generate a comprehensive BCP activation protocol that provides clear decision criteria for disaster declaration, structured command hierarchy, immediate response actions, and recovery coordination across technical and business functions.',
     template: `You are a Business Continuity and Disaster Recovery specialist with deep expertise in ITIL v4 Service Continuity Management, ISO 22301, and crisis management. Your BCP activation protocols don't just list actions—they provide clear decision frameworks that enable rapid, confident disaster declaration and coordinated response under extreme pressure.
@@ -16070,7 +16070,7 @@ QUALITY INDICATORS FOR BCP ACTIVATION
     id: 'risk-2',
     title: 'Crisis Communications Press Release',
     framework: 'itil',
-    phase: 'Planning',
+    phase: 'Plan',
     canonicalPhase: 2,
     description: 'Generate comprehensive crisis communications that balance transparency with legal prudence, demonstrate empathy while maintaining authority, and provide stakeholders with accurate information through a carefully sequenced multi-channel communication strategy.',
     template: `You are a Crisis Communications Specialist with deep expertise in reputation management, regulatory disclosure requirements, and stakeholder communication during high-pressure events. Your crisis communications don't just inform—they maintain trust, demonstrate accountability, manage expectations, and protect organizational reputation while ensuring legal and regulatory compliance.
@@ -29247,5 +29247,422 @@ Produce a complete Audit Finding Response Package including:
     tier: 'free',
     estimatedTimeSaved: '2 hours',
     tags: ['audit', 'findings', 'remediation', 'management-response', 'root-cause', 'corrective-action', 'validation', 'COBIT 2019', 'Internal Audit', 'SOX Compliance', 'MEA', 'Control Remediation'],
+  },
+
+  // ============================================================================
+  // MISSING PHASE PROMPTS - PHASE COVERAGE COMPLETION
+  // ============================================================================
+
+  // PMBOK - Closing Phase
+  {
+    id: 'pmbok-close-1',
+    title: 'Project Closeout & Lessons Learned Mastery',
+    framework: 'pmbok',
+    phase: 'Closing',
+    canonicalPhase: 5,
+    description: 'Generate comprehensive project closeout documentation with formal acceptance, lessons learned capture, knowledge transfer, and administrative closure aligned to PMBOK 7th Edition.',
+    template: `You are a PMP-certified Project Closeout Specialist with 20+ years experience formally closing complex programs. Your closeout documentation ensures knowledge preservation, stakeholder satisfaction verification, and complete administrative closure.
+
+PROJECT IDENTIFICATION:
+Project Name: {{project_name}}
+Project Manager: {{project_manager}}
+Closeout Date: {{closeout_date}}
+Original Budget: {{original_budget}}
+Final Cost: {{final_cost}}
+
+Generate comprehensive documentation covering:
+1. DELIVERABLE VERIFICATION & ACCEPTANCE - Complete acceptance matrix with sign-off tracking
+2. PERFORMANCE ANALYSIS - Scope, schedule, cost, and quality performance with variance explanations
+3. LESSONS LEARNED CAPTURE - What went well, What could improve, Unexpected discoveries
+4. KNOWLEDGE TRANSFER & TRANSITION - Handoff requirements, training completed, support transition
+5. ADMINISTRATIVE CLOSURE - Financial closure, contract closure, resource release, asset disposition
+6. FORMAL SIGN-OFF - Certification statements for PM, Sponsor, PMO, and Finance`,
+    variables: [
+      { name: 'project_name', description: 'Name of the project being closed', example: 'ERP Implementation Phase 2', required: true },
+      { name: 'project_manager', description: 'Project manager name', example: 'Sarah Chen, PMP', required: true },
+      { name: 'closeout_date', description: 'Formal closeout date', example: 'February 28, 2025', required: true },
+      { name: 'original_budget', description: 'Original approved budget', example: '$2,500,000', required: true },
+      { name: 'final_cost', description: 'Final actual cost', example: '$2,380,000', required: true },
+    ],
+    tier: 'premium',
+    estimatedTimeSaved: '4 hours',
+    tags: ['closeout', 'lessons-learned', 'acceptance', 'knowledge-transfer', 'administrative-closure', 'pmbok', 'PMBOK 7th Edition', 'PMI Standard'],
+  },
+
+  // PRINCE2 - Starting Up Phase
+  {
+    id: 'prince2-su-1',
+    title: 'PRINCE2 Project Mandate & Brief Generator',
+    framework: 'prince2',
+    phase: 'Starting Up',
+    canonicalPhase: 1,
+    description: 'Generate comprehensive PRINCE2 Starting Up documentation including Project Mandate assessment, outline Business Case, and Project Brief with appointed team roles.',
+    template: `You are a PRINCE2 Practitioner and Portfolio Director. Generate rigorous Starting Up (SU) documentation that determines project viability and establishes foundations for successful initiation.
+
+PROJECT MANDATE:
+Mandate Source: {{mandate_source}}
+Business Need: {{business_need}}
+Expected Outcomes: {{expected_outcomes}}
+Constraints: {{constraints}}
+
+Generate documentation for all Starting Up activities:
+SU1: APPOINT EXECUTIVE AND PROJECT MANAGER - Recommend appointments with justification
+SU2: CAPTURE PREVIOUS LESSONS - Review lessons log from similar projects
+SU3: DESIGN PROJECT MANAGEMENT TEAM - Define Project Board, Assurance, Support roles
+SU4: PREPARE OUTLINE BUSINESS CASE - Reasons, options, benefits, dis-benefits, costs, risks
+SU5: SELECT PROJECT APPROACH AND ASSEMBLE PROJECT BRIEF - Delivery approach, project definition
+SU6: PLAN INITIATION STAGE - Activities, resources, and deliverables`,
+    variables: [
+      { name: 'mandate_source', description: 'Source of the project mandate', example: 'Corporate Strategy Committee', required: true },
+      { name: 'business_need', description: 'The business need driving the project', example: 'Replace legacy CRM to improve customer retention', required: true },
+      { name: 'expected_outcomes', description: 'Expected project outcomes', example: '20% improvement in customer satisfaction', required: true },
+      { name: 'constraints', description: 'Known constraints', example: 'Budget cap of 500K, go-live before Q4', required: true },
+    ],
+    tier: 'premium',
+    estimatedTimeSaved: '5 hours',
+    tags: ['prince2', 'starting-up', 'project-mandate', 'project-brief', 'business-case', 'AXELOS', 'PRINCE2 7th Edition'],
+  },
+
+  // PRINCE2 - Initiating Phase
+  {
+    id: 'prince2-init-1',
+    title: 'PRINCE2 Project Initiation Documentation (PID)',
+    framework: 'prince2',
+    phase: 'Initiating',
+    canonicalPhase: 1,
+    description: 'Generate comprehensive PRINCE2 Project Initiation Documentation with all management strategies, refined Business Case, and Project Plan.',
+    template: `You are a PRINCE2 Practitioner Expert specializing in project initiation. Generate complete PID documentation that establishes solid foundations for controlled delivery.
+
+PROJECT: {{project_name}}
+VERSION: {{version}}
+DATE: {{date}}
+
+Generate complete PID with:
+1. PROJECT DEFINITION - Background, objectives, scope, constraints, assumptions
+2. BUSINESS CASE (Refined) - Reasons, options, benefits, dis-benefits, costs, investment appraisal
+3. PROJECT MANAGEMENT TEAM STRUCTURE - Organization chart with all roles
+4. QUALITY MANAGEMENT STRATEGY - Standards, responsibilities, methods, records
+5. RISK MANAGEMENT STRATEGY - Tolerance, categories, probability/impact scales, response types
+6. COMMUNICATION MANAGEMENT STRATEGY - Stakeholder analysis, communication methods
+7. CONFIGURATION MANAGEMENT STRATEGY - Items, naming conventions, baselining, change control
+8. PROJECT PLAN - Stages, tolerances, project controls
+9. TAILORING - PRINCE2 tailoring decisions with justification`,
+    variables: [
+      { name: 'project_name', description: 'Official project name', example: 'Customer Portal Modernization', required: true },
+      { name: 'version', description: 'Document version', example: '1.0', required: true },
+      { name: 'date', description: 'Document date', example: 'February 5, 2025', required: true },
+    ],
+    tier: 'premium',
+    estimatedTimeSaved: '6 hours',
+    tags: ['prince2', 'pid', 'initiation', 'management-strategies', 'business-case', 'AXELOS', 'PRINCE2 7th Edition'],
+  },
+
+  // PRINCE2 - Stage Planning Phase
+  {
+    id: 'prince2-sp-1',
+    title: 'PRINCE2 Stage Plan Generator',
+    framework: 'prince2',
+    phase: 'Stage Planning',
+    canonicalPhase: 2,
+    description: 'Generate detailed PRINCE2 Stage Plans with product breakdown, activity scheduling, resource allocation, and stage tolerances.',
+    template: `You are a PRINCE2 Practitioner specializing in stage planning. Generate comprehensive Stage Plans for Project Board authorization.
+
+PROJECT: {{project_name}}
+STAGE: {{stage_name}}
+STAGE NUMBER: {{stage_number}}
+
+Generate complete Stage Plan with:
+1. PLAN DESCRIPTION - Stage purpose, objectives, approach
+2. PRODUCT BREAKDOWN STRUCTURE - Products with descriptions and quality criteria
+3. PRODUCT FLOW DIAGRAM - Dependencies between products
+4. ACTIVITY SCHEDULE - Activities, milestones, Gantt chart with critical path
+5. RESOURCE PLAN - Requirements, loading, conflicts/constraints
+6. STAGE BUDGET - Categories including risk and change budgets
+7. STAGE TOLERANCES - Time, cost, scope, quality, risk with escalation triggers
+8. CONTROLS AND REPORTING - Checkpoint meetings, highlight reports, quality reviews
+9. RISKS FOR THIS STAGE - Stage-specific risks and risk budget allocation`,
+    variables: [
+      { name: 'project_name', description: 'Project name', example: 'Digital Transformation Program', required: true },
+      { name: 'stage_name', description: 'Name of this stage', example: 'Design and Build', required: true },
+      { name: 'stage_number', description: 'Stage sequence number', example: '2 of 4', required: true },
+    ],
+    tier: 'premium',
+    estimatedTimeSaved: '4 hours',
+    tags: ['prince2', 'stage-plan', 'product-breakdown', 'scheduling', 'tolerances', 'AXELOS', 'PRINCE2 7th Edition'],
+  },
+
+  // Agile - Iteration Execution Phase
+  {
+    id: 'agile-exec-1',
+    title: 'Iteration Execution Tracker & Daily Standup Optimizer',
+    framework: 'agile',
+    phase: 'Iteration Execution',
+    canonicalPhase: 3,
+    description: 'Generate comprehensive iteration tracking with impediment management, daily standup optimization, and real-time progress visualization.',
+    template: `You are an Agile Coach and Delivery Lead. Generate comprehensive tracking and coordination tools that maximize team productivity.
+
+ITERATION IDENTITY:
+Team: {{team_name}}
+Iteration: {{iteration_name}}
+Duration: {{iteration_dates}}
+Goal: {{iteration_goal}}
+
+Generate execution tracking for:
+1. DAILY STANDUP INTELLIGENCE - Walk the Board structure, health check indicators
+2. WORK IN PROGRESS DASHBOARD - Backlog status, WIP limits, burndown, velocity
+3. IMPEDIMENT MANAGEMENT - Active blockers, escalation path, patterns
+4. COLLABORATION & SWARMING - Triggers, pairing schedule, knowledge sharing
+5. QUALITY CHECKPOINTS - Definition of Done tracking, technical debt, code review queue
+6. STAKEHOLDER COMMUNICATION - Status summary with health indicator
+7. ITERATION HEALTH ASSESSMENT - Team health pulse, anti-patterns, course corrections`,
+    variables: [
+      { name: 'team_name', description: 'Agile team name', example: 'Platform Tigers', required: true },
+      { name: 'iteration_name', description: 'Iteration identifier', example: 'Sprint 14', required: true },
+      { name: 'iteration_dates', description: 'Start and end dates', example: 'Feb 3-14, 2025', required: true },
+      { name: 'iteration_goal', description: 'Iteration goal statement', example: 'Complete user authentication flow', required: true },
+    ],
+    tier: 'premium',
+    estimatedTimeSaved: '2 hours',
+    tags: ['agile', 'iteration', 'standup', 'execution', 'impediments', 'tracking', 'Agile Alliance', 'Flow Optimization'],
+  },
+
+  // Scrum - Release Phase
+  {
+    id: 'scrum-rel-1',
+    title: 'Scrum Release Planning & Deployment Coordinator',
+    framework: 'scrum',
+    phase: 'Release',
+    canonicalPhase: 5,
+    description: 'Generate comprehensive release planning with deployment coordination, stakeholder communication, and rollback procedures.',
+    template: `You are a Scrum Master and Release Manager. Generate release documentation ensuring smooth deployments and clear communication.
+
+RELEASE IDENTITY:
+Product: {{product_name}}
+Release Version: {{release_version}}
+Release Date: {{release_date}}
+Product Owner: {{product_owner}}
+
+Generate comprehensive release package:
+1. RELEASE SCOPE - Sprints included, increment contents, DoD verification
+2. RELEASE VALUE SUMMARY - Business value, user outcomes, metrics improvement
+3. STAKEHOLDER COMMUNICATION - Announcement template, schedule by audience
+4. DEPLOYMENT PLAN - Strategy, sequence with timing, environment readiness
+5. RISK MITIGATION & ROLLBACK - Risks, automatic rollback triggers, procedure
+6. POST-RELEASE MONITORING - Dashboard, metrics to watch, support escalation, hypercare
+7. RELEASE CHECKLIST & SIGN-OFF - Pre-release checklist, authorization signatures`,
+    variables: [
+      { name: 'product_name', description: 'Product being released', example: 'CustomerHub Platform', required: true },
+      { name: 'release_version', description: 'Release version number', example: '3.2.0', required: true },
+      { name: 'release_date', description: 'Planned release date', example: 'February 15, 2025', required: true },
+      { name: 'product_owner', description: 'Product Owner name', example: 'Maria Santos', required: true },
+    ],
+    tier: 'premium',
+    estimatedTimeSaved: '4 hours',
+    tags: ['scrum', 'release', 'deployment', 'rollback', 'stakeholder-communication', 'Scrum Guide', 'DevOps'],
+  },
+
+  // Kanban - Delivery Point Phase
+  {
+    id: 'kanban-dp-1',
+    title: 'Kanban Delivery Point Excellence System',
+    framework: 'kanban',
+    phase: 'Delivery Point',
+    canonicalPhase: 5,
+    description: 'Generate comprehensive delivery point management with completion criteria, customer handoff protocols, and delivery metrics.',
+    template: `You are a Kanban Coach and Delivery Excellence specialist. Generate delivery point documentation ensuring consistent quality and smooth handoffs.
+
+SERVICE CONTEXT:
+Service/Team: {{service_name}}
+Delivery Class: {{delivery_class}}
+Analysis Period: {{analysis_period}}
+
+Generate delivery excellence documentation:
+1. DELIVERY POINT DEFINITION - Definition of Done with functional, quality, documentation, operational criteria
+2. CUSTOMER HANDOFF PROTOCOL - Checklist, notification template, acceptance tracking
+3. DELIVERY METRICS DASHBOARD - Throughput, delivery rate by class, lead time distribution
+4. DELIVERY QUALITY ANALYSIS - Escaped defects, categorization, customer satisfaction
+5. DELIVERY POINT OPTIMIZATION - State assessment, waste identification, experiments
+6. REPORTING & GOVERNANCE - Delivery report template for stakeholders`,
+    variables: [
+      { name: 'service_name', description: 'Service or team name', example: 'Platform Engineering Team', required: true },
+      { name: 'delivery_class', description: 'Primary class of service', example: 'Standard Service Requests', required: true },
+      { name: 'analysis_period', description: 'Reporting period', example: 'January 2025', required: true },
+    ],
+    tier: 'premium',
+    estimatedTimeSaved: '3 hours',
+    tags: ['kanban', 'delivery', 'completion', 'handoff', 'metrics', 'Kanban University', 'Flow Metrics'],
+  },
+
+  // SAFe - Release on Demand Phase
+  {
+    id: 'safe-rod-1',
+    title: 'SAFe Release on Demand Orchestrator',
+    framework: 'safe',
+    phase: 'Release on Demand',
+    canonicalPhase: 5,
+    description: 'Generate comprehensive Release on Demand documentation with feature toggles, deployment pipelines, and value stream coordination.',
+    template: `You are a SAFe Program Consultant (SPC) and Release Train Engineer. Generate Release on Demand documentation enabling value delivery whenever business needs it.
+
+RELEASE CONTEXT:
+Agile Release Train: {{art_name}}
+Solution: {{solution_name}}
+Release Window: {{release_window}}
+RTE: {{rte_name}}
+
+Generate release orchestration documentation:
+1. RELEASE GOVERNANCE - Authority matrix, criteria, release types
+2. CONTINUOUS DELIVERY PIPELINE - Stages, quality gates, health metrics (DORA)
+3. FEATURE TOGGLE MANAGEMENT - Active toggles, categories, governance policies
+4. RELEASE READINESS - Features ready, dependency map, infrastructure readiness
+5. RELEASE EXECUTION RUNBOOK - Pre-release, execution, post-release sequences
+6. RELEASE METRICS & LEARNING - Frequency, value delivered, retrospective insights
+7. SOLUTION COORDINATION - Cross-ART dependencies, solution release coordination`,
+    variables: [
+      { name: 'art_name', description: 'Agile Release Train name', example: 'Customer Experience ART', required: true },
+      { name: 'solution_name', description: 'Solution being released', example: 'Digital Banking Platform', required: true },
+      { name: 'release_window', description: 'Release timing', example: 'PI 2025.1 - February Release', required: true },
+      { name: 'rte_name', description: 'Release Train Engineer', example: 'Alex Thompson', required: true },
+    ],
+    tier: 'premium',
+    estimatedTimeSaved: '4 hours',
+    tags: ['safe', 'release', 'continuous-delivery', 'feature-toggles', 'devops', 'SAFe 6.0', 'Scaled Agile'],
+  },
+
+  // Lean - Establish Pull Phase
+  {
+    id: 'lean-pull-1',
+    title: 'Lean Pull System Design & Implementation',
+    framework: 'lean',
+    phase: 'Establish Pull',
+    canonicalPhase: 4,
+    description: 'Generate comprehensive pull system documentation with kanban sizing, replenishment signals, and demand-driven inventory management.',
+    template: `You are a Lean Sensei and Operations Excellence consultant. Generate pull system documentation that eliminates overproduction and creates demand-driven flow.
+
+PROCESS CONTEXT:
+Value Stream: {{value_stream}}
+Process Area: {{process_area}}
+Takt Time: {{takt_time}} minutes/unit
+
+Generate pull system design:
+1. DEMAND ANALYSIS - Customer demand pattern, takt time calculation, variability assessment
+2. PULL SYSTEM TYPE SELECTION - Supermarket, Sequential, Mixed, CONWIP with decision criteria
+3. KANBAN SIZING - Calculation formula, sizing table, kanban types
+4. SUPERMARKET DESIGN - Location, layout with min/max zones, visual management, replenishment rules
+5. PULL SIGNALS & HEIJUNKA - Signal mechanism, load leveling schedule
+6. IMPLEMENTATION PLAN - Preparation, Pilot, Expand phases with timeline
+7. PULL SYSTEM METRICS - KPIs (inventory turns, WIP, lead time, OTD, stockouts), audit checklist`,
+    variables: [
+      { name: 'value_stream', description: 'Value stream name', example: 'Order-to-Delivery', required: true },
+      { name: 'process_area', description: 'Process area implementing pull', example: 'Assembly Line 3', required: true },
+      { name: 'takt_time', description: 'Calculated takt time', example: '4.5', required: true },
+    ],
+    tier: 'premium',
+    estimatedTimeSaved: '5 hours',
+    tags: ['lean', 'pull-system', 'kanban', 'heijunka', 'supermarket', 'Lean Enterprise Institute', 'TPS', 'Just-in-Time'],
+  },
+
+  // Six Sigma - Improve Phase
+  {
+    id: 'sixsigma-imp-1',
+    title: 'Six Sigma Improve Phase Solution Design',
+    framework: 'six-sigma',
+    phase: 'Improve',
+    canonicalPhase: 3,
+    description: 'Generate comprehensive DMAIC Improve phase documentation with solution generation, pilot design, and implementation planning.',
+    template: `You are a Six Sigma Master Black Belt specializing in process improvement. Generate Improve phase documentation transforming root causes into implemented solutions.
+
+PROJECT CONTEXT:
+Project: {{project_name}}
+Problem Statement: {{problem_statement}}
+Root Causes: {{root_causes}}
+Improvement Target: {{improvement_target}}
+
+Generate Improve phase deliverables:
+1. SOLUTION GENERATION - Brainstorming results, solution categories, benchmarking
+2. SOLUTION EVALUATION & SELECTION - Evaluation matrix, Pugh matrix comparison
+3. SOLUTION DESIGN - Specification, process changes, DFSS elements, solution FMEA
+4. PILOT DESIGN - Scope, success criteria, execution plan, data collection, risks
+5. PILOT RESULTS & ANALYSIS - Summary, statistical validation (hypothesis testing), learnings
+6. FULL IMPLEMENTATION PLAN - Scope, phases, change management, training, resources
+7. IMPROVE PHASE GATE REVIEW - Checklist and approval signatures`,
+    variables: [
+      { name: 'project_name', description: 'Six Sigma project name', example: 'Reduce Order Processing Defects', required: true },
+      { name: 'problem_statement', description: 'Problem being solved', example: '15% of orders have data entry errors', required: true },
+      { name: 'root_causes', description: 'Root causes from Analyze', example: 'Manual entry, unclear requirements, no validation', required: true },
+      { name: 'improvement_target', description: 'Target improvement', example: 'Reduce defect rate from 15% to less than 3%', required: true },
+    ],
+    tier: 'premium',
+    estimatedTimeSaved: '5 hours',
+    tags: ['six-sigma', 'dmaic', 'improve', 'solution-design', 'pilot', 'ASQ', 'DFSS', 'Poka-Yoke'],
+  },
+
+  // Six Sigma - Control Phase
+  {
+    id: 'sixsigma-ctrl-1',
+    title: 'Six Sigma Control Phase Sustainability System',
+    framework: 'six-sigma',
+    phase: 'Control',
+    canonicalPhase: 4,
+    description: 'Generate comprehensive DMAIC Control phase documentation with control plans, SPC implementation, and sustainability mechanisms.',
+    template: `You are a Six Sigma Master Black Belt specializing in process control. Generate Control phase documentation ensuring improvements are maintained.
+
+PROJECT CONTEXT:
+Project: {{project_name}}
+Improvement Implemented: {{improvement_summary}}
+Achieved Results: {{achieved_results}}
+Control Phase Start: {{control_start_date}}
+
+Generate Control phase deliverables:
+1. CONTROL PLAN - Process control plan matrix with CTQs, specifications, methods, reaction plans
+2. STATISTICAL PROCESS CONTROL - Chart selection, control limits, out-of-control rules
+3. RESPONSE PLAN - Out-of-control protocol, escalation matrix, root cause documentation
+4. STANDARD OPERATING PROCEDURES - Updated SOPs, procedure template, training verification
+5. PROCESS AUDIT SYSTEM - Schedule, checklist, findings tracking
+6. SUSTAINABILITY DASHBOARD - Control metrics, capability monitoring, financial impact
+7. TRANSITION & HANDOVER - Knowledge transfer, process owner accountability, closure sign-off`,
+    variables: [
+      { name: 'project_name', description: 'Six Sigma project name', example: 'Reduce Order Processing Defects', required: true },
+      { name: 'improvement_summary', description: 'What was implemented', example: 'Automated validation, error-proofed forms', required: true },
+      { name: 'achieved_results', description: 'Results from improvement', example: 'Defect rate reduced from 15% to 2.3%', required: true },
+      { name: 'control_start_date', description: 'Control phase start', example: 'February 1, 2025', required: true },
+    ],
+    tier: 'premium',
+    estimatedTimeSaved: '4 hours',
+    tags: ['six-sigma', 'dmaic', 'control', 'spc', 'sustainability', 'ASQ', 'Control Charts', 'Process Capability'],
+  },
+
+  // Hybrid - Governance Phase
+  {
+    id: 'hybrid-gov-1',
+    title: 'Hybrid Governance Framework & Decision Rights',
+    framework: 'hybrid',
+    phase: 'Governance',
+    canonicalPhase: 4,
+    description: 'Generate comprehensive hybrid governance documentation with decision rights, compliance checkpoints, and adaptive oversight.',
+    template: `You are a Governance Expert specializing in hybrid methodologies. Generate governance documentation balancing agile flexibility with enterprise accountability.
+
+PROJECT CONTEXT:
+Project: {{project_name}}
+Methodology Mix: {{methodology_mix}}
+Compliance Requirements: {{compliance_requirements}}
+Governance Level: {{governance_level}}
+
+Generate hybrid governance framework:
+1. GOVERNANCE STRUCTURE - Bodies, philosophy, decision rights matrix (RACI)
+2. COMPLIANCE CHECKPOINTS - Regulatory requirements, stage gate criteria, continuous verification
+3. REPORTING & TRANSPARENCY - Cadence, status indicators (RAG criteria)
+4. CHANGE GOVERNANCE - Categories, change request process, change log
+5. RISK & ISSUE GOVERNANCE - Tolerance by category, escalation path, resolution timelines
+6. AUDIT & ASSURANCE - Readiness, evidence management, assurance activities
+7. GOVERNANCE REVIEW & ADAPTATION - Effectiveness metrics, retrospective, adaptations`,
+    variables: [
+      { name: 'project_name', description: 'Project name', example: 'Enterprise Platform Migration', required: true },
+      { name: 'methodology_mix', description: 'Hybrid methodology approach', example: 'Agile delivery with PRINCE2 gates', required: true },
+      { name: 'compliance_requirements', description: 'Key compliance needs', example: 'SOX, GDPR, Internal audit', required: true },
+      { name: 'governance_level', description: 'Governance intensity', example: 'High (regulated industry)', required: true },
+    ],
+    tier: 'premium',
+    estimatedTimeSaved: '4 hours',
+    tags: ['hybrid', 'governance', 'compliance', 'decision-rights', 'oversight', 'PMI Agile Practice Guide', 'Stage Gates'],
   },
 ];
