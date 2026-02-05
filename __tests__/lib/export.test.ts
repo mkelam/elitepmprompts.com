@@ -23,17 +23,18 @@ import * as XLSX from 'xlsx';
 const mockPrompt: Prompt = {
   id: 'test-prompt-1',
   title: 'Test SWOT Analysis',
-  category: 'strategy',
+  framework: 'pmbok',
+  phase: 'Planning',
+  canonicalPhase: 2,
   description: 'A test SWOT analysis prompt',
   template: 'Analyze {{company_name}} using SWOT framework for {{industry}} industry.',
   variables: [
     { name: 'company_name', example: 'Acme Corp', description: 'Company name', required: true },
     { name: 'industry', example: 'Technology', description: 'Industry sector', required: false },
   ],
-  frameworks: ['SWOT', 'Strategic Planning'],
   estimatedTimeSaved: '30 min',
   tier: 'free',
-  tags: [],
+  tags: ['SWOT', 'Strategic Planning'],
 };
 
 describe('exportToMarkdown', () => {
@@ -92,7 +93,7 @@ describe('exportToExcel', () => {
     expect(XLSX.utils.book_append_sheet).toHaveBeenCalledWith(
       expect.anything(),
       expect.anything(),
-      'BizPrompt Export'
+      'PM_Nexus Export'
     );
     expect(XLSX.writeFile).toHaveBeenCalledWith(
       expect.anything(),
@@ -109,9 +110,9 @@ describe('exportToExcel', () => {
 
     // Check metadata structure
     expect(metadataCall[0]).toEqual(['Prompt Title', 'Test SWOT Analysis']);
-    expect(metadataCall[1]).toEqual(['Category', 'strategy']);
+    expect(metadataCall[1]).toEqual(['Framework', 'pmbok']);
     expect(metadataCall[2]).toEqual(['Description', 'A test SWOT analysis prompt']);
-    expect(metadataCall[3]).toEqual(['Frameworks', 'SWOT, Strategic Planning']);
+    expect(metadataCall[3]).toEqual(['Tags', 'SWOT, Strategic Planning']);
   });
 
   it('should handle empty variables', () => {

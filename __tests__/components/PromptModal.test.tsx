@@ -34,15 +34,16 @@ const mockPrompt: Prompt = {
   title: 'SWOT Analysis Template',
   description: 'Comprehensive strategic analysis framework',
   template: 'Analyze {{company_name}} in the {{industry}} industry using SWOT framework.',
-  category: 'strategy',
+  framework: 'pmbok',
+  phase: 'Planning',
+  canonicalPhase: 2,
   tier: 'free',
   estimatedTimeSaved: '30 min',
-  frameworks: ['SWOT', 'Strategic Planning'],
   variables: [
     { name: 'company_name', example: 'Acme Corp', description: 'Target company name', required: true },
     { name: 'industry', example: 'Technology', description: 'Industry sector', required: false },
   ],
-  tags: ['strategy', 'analysis'],
+  tags: ['strategy', 'SWOT', 'Strategic Planning'],
 };
 
 const premiumPrompt: Prompt = {
@@ -80,7 +81,7 @@ describe('PromptModal', () => {
       expect(screen.getByText('Comprehensive strategic analysis framework')).toBeInTheDocument();
     });
 
-    it('should render category badge', () => {
+    it('should render framework badge', () => {
       render(
         <PromptModal
           prompt={mockPrompt}
@@ -90,7 +91,7 @@ describe('PromptModal', () => {
         />
       );
 
-      expect(screen.getByText('strategy')).toBeInTheDocument();
+      expect(screen.getByText('pmbok')).toBeInTheDocument();
     });
 
     it('should render premium badge for premium prompts', () => {
@@ -119,7 +120,7 @@ describe('PromptModal', () => {
       expect(screen.getByText('30 min saved')).toBeInTheDocument();
     });
 
-    it('should render frameworks', () => {
+    it('should render tags', () => {
       render(
         <PromptModal
           prompt={mockPrompt}
@@ -129,8 +130,8 @@ describe('PromptModal', () => {
         />
       );
 
+      expect(screen.getByText('strategy')).toBeInTheDocument();
       expect(screen.getByText('SWOT')).toBeInTheDocument();
-      expect(screen.getByText('Strategic Planning')).toBeInTheDocument();
     });
 
     it('should render variable inputs', () => {

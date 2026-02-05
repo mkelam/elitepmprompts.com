@@ -21,7 +21,7 @@ describe('useRecentlyViewed', () => {
         { id: 'prompt-1', viewedAt: 1000 },
         { id: 'prompt-2', viewedAt: 2000 },
       ];
-      localStorage.setItem('bizprompt_recently_viewed', JSON.stringify(storedItems));
+      localStorage.setItem('pmnexus_recently_viewed', JSON.stringify(storedItems));
 
       const { result } = renderHook(() => useRecentlyViewed());
 
@@ -32,7 +32,7 @@ describe('useRecentlyViewed', () => {
 
     it('should handle invalid JSON in localStorage gracefully', () => {
       const consoleSpy = jest.spyOn(console, 'error').mockImplementation();
-      localStorage.setItem('bizprompt_recently_viewed', 'invalid-json');
+      localStorage.setItem('pmnexus_recently_viewed', 'invalid-json');
 
       const { result } = renderHook(() => useRecentlyViewed());
 
@@ -58,7 +58,7 @@ describe('useRecentlyViewed', () => {
         { id: 'prompt-1', viewedAt: 1000 },
         { id: 'prompt-2', viewedAt: 2000 },
       ];
-      localStorage.setItem('bizprompt_recently_viewed', JSON.stringify(storedItems));
+      localStorage.setItem('pmnexus_recently_viewed', JSON.stringify(storedItems));
 
       const { result } = renderHook(() => useRecentlyViewed());
 
@@ -110,7 +110,7 @@ describe('useRecentlyViewed', () => {
         { id: 'prompt-1', viewedAt: 1000 },
         { id: 'prompt-2', viewedAt: 2000 },
       ];
-      localStorage.setItem('bizprompt_recently_viewed', JSON.stringify(storedItems));
+      localStorage.setItem('pmnexus_recently_viewed', JSON.stringify(storedItems));
 
       const { result } = renderHook(() => useRecentlyViewed());
 
@@ -134,7 +134,7 @@ describe('useRecentlyViewed', () => {
         result.current.addToRecent('prompt-1');
       });
 
-      const saved = localStorage.getItem('bizprompt_recently_viewed');
+      const saved = localStorage.getItem('pmnexus_recently_viewed');
       const savedData = JSON.parse(saved!);
       expect(savedData[0].id).toBe('prompt-1');
       expect(savedData[0].viewedAt).toBeDefined();

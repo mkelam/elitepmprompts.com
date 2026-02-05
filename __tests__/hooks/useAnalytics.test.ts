@@ -15,7 +15,7 @@ describe('useAnalytics', () => {
         result.current.track({ type: 'page_view', page: '/home' });
       });
 
-      const queue = localStorage.getItem('bizprompt_analytics_queue');
+      const queue = localStorage.getItem('pmnexus_analytics_queue');
       const events = JSON.parse(queue!);
       expect(events).toHaveLength(1);
       expect(events[0].type).toBe('page_view');
@@ -29,7 +29,7 @@ describe('useAnalytics', () => {
         result.current.track({ type: 'page_view', page: '/home' });
       });
 
-      const queue = localStorage.getItem('bizprompt_analytics_queue');
+      const queue = localStorage.getItem('pmnexus_analytics_queue');
       expect(queue).toBeNull();
     });
 
@@ -59,7 +59,7 @@ describe('useAnalytics', () => {
         }
       });
 
-      const queue = localStorage.getItem('bizprompt_analytics_queue');
+      const queue = localStorage.getItem('pmnexus_analytics_queue');
       const events = JSON.parse(queue!);
       expect(events).toHaveLength(100);
       // Should keep most recent events
@@ -73,16 +73,16 @@ describe('useAnalytics', () => {
       const { result } = renderHook(() => useAnalytics());
 
       act(() => {
-        result.current.trackPromptView('prompt-1', 'SWOT Analysis', 'strategy', 'free');
+        result.current.trackPromptView('prompt-1', 'SWOT Analysis', 'pmbok', 'free');
       });
 
-      const queue = localStorage.getItem('bizprompt_analytics_queue');
+      const queue = localStorage.getItem('pmnexus_analytics_queue');
       const events = JSON.parse(queue!);
       expect(events[0]).toEqual({
         type: 'prompt_view',
         promptId: 'prompt-1',
         promptTitle: 'SWOT Analysis',
-        category: 'strategy',
+        framework: 'pmbok',
         tier: 'free',
       });
     });
@@ -91,10 +91,10 @@ describe('useAnalytics', () => {
       const { result } = renderHook(() => useAnalytics());
 
       act(() => {
-        result.current.trackPromptView('prompt-2', 'BCG Matrix', 'strategy', 'premium');
+        result.current.trackPromptView('prompt-2', 'BCG Matrix', 'agile', 'premium');
       });
 
-      const queue = localStorage.getItem('bizprompt_analytics_queue');
+      const queue = localStorage.getItem('pmnexus_analytics_queue');
       const events = JSON.parse(queue!);
       expect(events[0].tier).toBe('premium');
     });
@@ -108,7 +108,7 @@ describe('useAnalytics', () => {
         result.current.trackPromptCopy('prompt-1', 'SWOT Analysis');
       });
 
-      const queue = localStorage.getItem('bizprompt_analytics_queue');
+      const queue = localStorage.getItem('pmnexus_analytics_queue');
       const events = JSON.parse(queue!);
       expect(events[0]).toEqual({
         type: 'prompt_copy',
@@ -126,7 +126,7 @@ describe('useAnalytics', () => {
         result.current.trackPromptExport('prompt-1', 'SWOT Analysis', 'excel');
       });
 
-      const queue = localStorage.getItem('bizprompt_analytics_queue');
+      const queue = localStorage.getItem('pmnexus_analytics_queue');
       const events = JSON.parse(queue!);
       expect(events[0]).toEqual({
         type: 'prompt_export',
@@ -143,7 +143,7 @@ describe('useAnalytics', () => {
         result.current.trackPromptExport('prompt-1', 'SWOT Analysis', 'markdown');
       });
 
-      const queue = localStorage.getItem('bizprompt_analytics_queue');
+      const queue = localStorage.getItem('pmnexus_analytics_queue');
       const events = JSON.parse(queue!);
       expect(events[0].format).toBe('markdown');
     });
@@ -157,7 +157,7 @@ describe('useAnalytics', () => {
         result.current.trackSearch('SWOT', 5);
       });
 
-      const queue = localStorage.getItem('bizprompt_analytics_queue');
+      const queue = localStorage.getItem('pmnexus_analytics_queue');
       const events = JSON.parse(queue!);
       expect(events[0]).toEqual({
         type: 'search',
@@ -167,19 +167,19 @@ describe('useAnalytics', () => {
     });
   });
 
-  describe('trackCategoryFilter', () => {
-    it('should track category filter', () => {
+  describe('trackFrameworkFilter', () => {
+    it('should track framework filter', () => {
       const { result } = renderHook(() => useAnalytics());
 
       act(() => {
-        result.current.trackCategoryFilter('strategy');
+        result.current.trackFrameworkFilter('pmbok');
       });
 
-      const queue = localStorage.getItem('bizprompt_analytics_queue');
+      const queue = localStorage.getItem('pmnexus_analytics_queue');
       const events = JSON.parse(queue!);
       expect(events[0]).toEqual({
-        type: 'category_filter',
-        category: 'strategy',
+        type: 'framework_filter',
+        framework: 'pmbok',
       });
     });
   });
@@ -192,7 +192,7 @@ describe('useAnalytics', () => {
         result.current.trackPremiumUnlock(true);
       });
 
-      const queue = localStorage.getItem('bizprompt_analytics_queue');
+      const queue = localStorage.getItem('pmnexus_analytics_queue');
       const events = JSON.parse(queue!);
       expect(events[0]).toEqual({
         type: 'premium_unlock_attempt',
@@ -207,7 +207,7 @@ describe('useAnalytics', () => {
         result.current.trackPremiumUnlock(false);
       });
 
-      const queue = localStorage.getItem('bizprompt_analytics_queue');
+      const queue = localStorage.getItem('pmnexus_analytics_queue');
       const events = JSON.parse(queue!);
       expect(events[0].success).toBe(false);
     });
@@ -221,7 +221,7 @@ describe('useAnalytics', () => {
         result.current.trackFavoriteToggle('prompt-1', 'add');
       });
 
-      const queue = localStorage.getItem('bizprompt_analytics_queue');
+      const queue = localStorage.getItem('pmnexus_analytics_queue');
       const events = JSON.parse(queue!);
       expect(events[0]).toEqual({
         type: 'favorite_toggle',
@@ -237,7 +237,7 @@ describe('useAnalytics', () => {
         result.current.trackFavoriteToggle('prompt-1', 'remove');
       });
 
-      const queue = localStorage.getItem('bizprompt_analytics_queue');
+      const queue = localStorage.getItem('pmnexus_analytics_queue');
       const events = JSON.parse(queue!);
       expect(events[0].action).toBe('remove');
     });
@@ -251,7 +251,7 @@ describe('useAnalytics', () => {
         result.current.trackFilterModeChange('favorites');
       });
 
-      const queue = localStorage.getItem('bizprompt_analytics_queue');
+      const queue = localStorage.getItem('pmnexus_analytics_queue');
       const events = JSON.parse(queue!);
       expect(events[0]).toEqual({
         type: 'filter_mode_change',
@@ -268,7 +268,7 @@ describe('useAnalytics', () => {
         result.current.trackFilterModeChange('recent');
       });
 
-      const queue = localStorage.getItem('bizprompt_analytics_queue');
+      const queue = localStorage.getItem('pmnexus_analytics_queue');
       const events = JSON.parse(queue!);
       expect(events.map((e: { mode: string }) => e.mode)).toEqual(['all', 'favorites', 'recent']);
     });
@@ -279,8 +279,8 @@ describe('useAnalytics', () => {
       const { result } = renderHook(() => useAnalytics());
 
       act(() => {
-        result.current.trackPromptView('p1', 'Title1', 'cat', 'free');
-        result.current.trackPromptView('p2', 'Title2', 'cat', 'free');
+        result.current.trackPromptView('p1', 'Title1', 'pmbok', 'free');
+        result.current.trackPromptView('p2', 'Title2', 'agile', 'free');
         result.current.trackPromptCopy('p1', 'Title1');
         result.current.trackPromptExport('p1', 'Title1', 'excel');
         result.current.trackSearch('query', 5);

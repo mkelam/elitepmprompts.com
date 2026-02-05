@@ -16,7 +16,7 @@ describe('useFavorites', () => {
     });
 
     it('should load favorites from localStorage if available', () => {
-      localStorage.setItem('bizprompt_favorites', JSON.stringify(['prompt-1', 'prompt-2']));
+      localStorage.setItem('pmnexus_favorites', JSON.stringify(['prompt-1', 'prompt-2']));
 
       const { result } = renderHook(() => useFavorites());
 
@@ -26,7 +26,7 @@ describe('useFavorites', () => {
 
     it('should handle invalid JSON in localStorage gracefully', () => {
       const consoleSpy = jest.spyOn(console, 'error').mockImplementation();
-      localStorage.setItem('bizprompt_favorites', 'invalid-json');
+      localStorage.setItem('pmnexus_favorites', 'invalid-json');
 
       const { result } = renderHook(() => useFavorites());
 
@@ -62,7 +62,7 @@ describe('useFavorites', () => {
 
   describe('removeFavorite', () => {
     it('should remove a prompt from favorites', () => {
-      localStorage.setItem('bizprompt_favorites', JSON.stringify(['prompt-1', 'prompt-2']));
+      localStorage.setItem('pmnexus_favorites', JSON.stringify(['prompt-1', 'prompt-2']));
 
       const { result } = renderHook(() => useFavorites());
 
@@ -98,7 +98,7 @@ describe('useFavorites', () => {
     });
 
     it('should remove favorite if already present', () => {
-      localStorage.setItem('bizprompt_favorites', JSON.stringify(['prompt-1']));
+      localStorage.setItem('pmnexus_favorites', JSON.stringify(['prompt-1']));
 
       const { result } = renderHook(() => useFavorites());
 
@@ -112,7 +112,7 @@ describe('useFavorites', () => {
 
   describe('isFavorite', () => {
     it('should return true for favorited prompts', () => {
-      localStorage.setItem('bizprompt_favorites', JSON.stringify(['prompt-1']));
+      localStorage.setItem('pmnexus_favorites', JSON.stringify(['prompt-1']));
 
       const { result } = renderHook(() => useFavorites());
 
@@ -128,7 +128,7 @@ describe('useFavorites', () => {
 
   describe('clearAllFavorites', () => {
     it('should clear all favorites', () => {
-      localStorage.setItem('bizprompt_favorites', JSON.stringify(['prompt-1', 'prompt-2', 'prompt-3']));
+      localStorage.setItem('pmnexus_favorites', JSON.stringify(['prompt-1', 'prompt-2', 'prompt-3']));
 
       const { result } = renderHook(() => useFavorites());
 
@@ -151,7 +151,7 @@ describe('useFavorites', () => {
         result.current.addFavorite('prompt-1');
       });
 
-      const saved = localStorage.getItem('bizprompt_favorites');
+      const saved = localStorage.getItem('pmnexus_favorites');
       expect(JSON.parse(saved!)).toEqual(['prompt-1']);
     });
   });

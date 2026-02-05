@@ -7,50 +7,54 @@ const mockPrompts: Prompt[] = [
   {
     id: '1',
     title: 'SWOT Analysis',
-    category: 'strategy',
+    framework: 'pmbok',
+    phase: 'Planning',
+    canonicalPhase: 2,
     description: 'Strategic planning framework',
     template: 'Analyze {{company}} strengths, weaknesses, opportunities, threats',
     variables: [{ name: 'company', example: 'Acme Corp', description: 'Company name', required: true }],
-    frameworks: ['SWOT'],
     estimatedTimeSaved: '30 min',
     tier: 'free',
-    tags: [],
+    tags: ['SWOT', 'strategy'],
   },
   {
     id: '2',
     title: 'Project Charter',
-    category: 'project-management',
+    framework: 'pmbok',
+    phase: 'Initiating',
+    canonicalPhase: 1,
     description: 'Project initialization document',
     template: 'Create a project charter for {{project_name}}',
     variables: [{ name: 'project_name', example: 'New Website', description: 'Project name', required: true }],
-    frameworks: ['PMI'],
     estimatedTimeSaved: '45 min',
     tier: 'free',
-    tags: [],
+    tags: ['PMI', 'charter'],
   },
   {
     id: '3',
     title: 'Balanced Scorecard',
-    category: 'strategy',
+    framework: 'agile',
+    phase: 'Review & Retrospective',
+    canonicalPhase: 4,
     description: 'Performance management framework',
     template: 'Build a balanced scorecard for {{department}}',
     variables: [{ name: 'department', example: 'Sales', description: 'Department', required: true }],
-    frameworks: ['BSC'],
     estimatedTimeSaved: '1 hour',
     tier: 'premium',
-    tags: [],
+    tags: ['BSC', 'metrics'],
   },
   {
     id: '4',
     title: 'Process Mapping',
-    category: 'operations',
+    framework: 'lean',
+    phase: 'Map Value Stream',
+    canonicalPhase: 2,
     description: 'Visualize business processes',
     template: 'Map the {{process_name}} process',
     variables: [{ name: 'process_name', example: 'Order fulfillment', description: 'Process name', required: true }],
-    frameworks: ['BPMN'],
     estimatedTimeSaved: '2 hours',
     tier: 'free',
-    tags: [],
+    tags: ['BPMN', 'process'],
   },
 ];
 
@@ -66,23 +70,22 @@ describe('PromptSearch', () => {
       render(<PromptSearch prompts={mockPrompts} onFilter={mockOnFilter} />);
 
       expect(screen.getByRole('searchbox')).toBeInTheDocument();
-      expect(screen.getByPlaceholderText(/search for a prompt/i)).toBeInTheDocument();
+      expect(screen.getByPlaceholderText(/search prompts/i)).toBeInTheDocument();
     });
 
-    it('should render category filter buttons', () => {
+    it('should render framework filter buttons', () => {
       render(<PromptSearch prompts={mockPrompts} onFilter={mockOnFilter} />);
 
       expect(screen.getByText('all')).toBeInTheDocument();
-      expect(screen.getByText('strategy')).toBeInTheDocument();
-      expect(screen.getByText('project management')).toBeInTheDocument();
-      expect(screen.getByText('operations')).toBeInTheDocument();
+      expect(screen.getByText('pmbok')).toBeInTheDocument();
+      expect(screen.getByText('agile')).toBeInTheDocument();
     });
 
     it('should have proper ARIA attributes for accessibility', () => {
       render(<PromptSearch prompts={mockPrompts} onFilter={mockOnFilter} />);
 
       expect(screen.getByRole('search')).toHaveAttribute('aria-label', 'Search prompts');
-      expect(screen.getByRole('group')).toHaveAttribute('aria-label', 'Filter by category');
+      expect(screen.getByRole('group')).toHaveAttribute('aria-label', 'Filter by framework');
     });
   });
 
@@ -118,25 +121,25 @@ describe('PromptSearch', () => {
     });
   });
 
-  describe('category filtering', () => {
-    it('should filter by category when category button is clicked', async () => {
+  describe('framework filtering', () => {
+    it('should filter by framework when framework button is clicked', async () => {
       render(<PromptSearch prompts={mockPrompts} onFilter={mockOnFilter} />);
 
-      const strategyButton = screen.getByText('strategy');
-      fireEvent.click(strategyButton);
+      const pmbokButton = screen.getByText('pmbok');
+      fireEvent.click(pmbokButton);
 
       await waitFor(() => {
         const lastCall = mockOnFilter.mock.calls.slice(-1)[0][0];
-        expect(lastCall.every((p: Prompt) => p.category === 'strategy')).toBe(true);
-        expect(lastCall.length).toBe(2); // SWOT and Balanced Scorecard
+        expect(lastCall.every((p: Prompt) => p.framework === 'pmbok')).toBe(true);
+        expect(lastCall.length).toBe(2); // SWOT and Project Charter
       });
     });
 
-    it('should show all prompts when "all" category is selected', async () => {
+    it('should show all prompts when "all" framework is selected', async () => {
       render(<PromptSearch prompts={mockPrompts} onFilter={mockOnFilter} />);
 
-      // First click strategy
-      fireEvent.click(screen.getByText('strategy'));
+      // First click pmbok
+      fireEvent.click(screen.getByText('pmbok'));
 
       // Then click all
       fireEvent.click(screen.getByText('all'));
@@ -147,34 +150,34 @@ describe('PromptSearch', () => {
       });
     });
 
-    it('should apply aria-pressed attribute to active category', () => {
+    it('should apply aria-pressed attribute to active framework', () => {
       render(<PromptSearch prompts={mockPrompts} onFilter={mockOnFilter} />);
 
       const allButton = screen.getByText('all');
       expect(allButton).toHaveAttribute('aria-pressed', 'true');
 
-      fireEvent.click(screen.getByText('strategy'));
+      fireEvent.click(screen.getByText('pmbok'));
 
-      expect(screen.getByText('strategy')).toHaveAttribute('aria-pressed', 'true');
+      expect(screen.getByText('pmbok')).toHaveAttribute('aria-pressed', 'true');
       expect(allButton).toHaveAttribute('aria-pressed', 'false');
     });
   });
 
-  describe('combined search and category filtering', () => {
-    it('should combine search query and category filter', async () => {
+  describe('combined search and framework filtering', () => {
+    it('should combine search query and framework filter', async () => {
       render(<PromptSearch prompts={mockPrompts} onFilter={mockOnFilter} />);
 
-      // Select strategy category
-      fireEvent.click(screen.getByText('strategy'));
+      // Select pmbok framework
+      fireEvent.click(screen.getByText('pmbok'));
 
-      // Search for "scorecard"
+      // Search for "charter"
       const searchInput = screen.getByRole('searchbox');
-      fireEvent.change(searchInput, { target: { value: 'scorecard' } });
+      fireEvent.change(searchInput, { target: { value: 'charter' } });
 
       await waitFor(() => {
         const lastCall = mockOnFilter.mock.calls.slice(-1)[0][0];
         expect(lastCall.length).toBe(1);
-        expect(lastCall[0].title).toBe('Balanced Scorecard');
+        expect(lastCall[0].title).toBe('Project Charter');
       });
     });
   });

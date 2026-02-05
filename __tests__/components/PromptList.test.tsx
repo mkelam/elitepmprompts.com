@@ -8,12 +8,13 @@ const createMockPrompt = (overrides: Partial<Prompt> = {}): Prompt => ({
   title: 'SWOT Analysis',
   description: 'Strategic planning framework for competitive analysis',
   template: 'Analyze {{company}} using SWOT',
-  category: 'strategy',
+  framework: 'pmbok',
+  phase: 'Planning',
+  canonicalPhase: 2,
   tier: 'free',
   estimatedTimeSaved: '30 min',
-  frameworks: ['SWOT', 'McKinsey'],
   variables: [{ name: 'company', example: 'Acme', description: 'Company name', required: true }],
-  tags: ['strategy'],
+  tags: ['strategy', 'SWOT', 'McKinsey'],
   ...overrides,
 });
 
@@ -64,7 +65,7 @@ describe('PromptList', () => {
       expect(screen.getByText('Premium BCG Matrix')).toBeInTheDocument();
     });
 
-    it('should render category badge for each prompt', () => {
+    it('should render framework badge for each prompt', () => {
       render(
         <PromptList
           prompts={mockPrompts}
@@ -75,8 +76,8 @@ describe('PromptList', () => {
         />
       );
 
-      const categoryBadges = screen.getAllByText('strategy');
-      expect(categoryBadges).toHaveLength(3);
+      const frameworkBadges = screen.getAllByText('pmbok');
+      expect(frameworkBadges).toHaveLength(3);
     });
 
     it('should render estimated time saved', () => {
@@ -157,7 +158,7 @@ describe('PromptList', () => {
       expect(screen.getAllByText(/strategic planning framework/i)).toHaveLength(2);
     });
 
-    it('should show frameworks for free prompts', () => {
+    it('should show tags for free prompts', () => {
       render(
         <PromptList
           prompts={mockPrompts}
@@ -168,13 +169,13 @@ describe('PromptList', () => {
         />
       );
 
-      const swotTags = screen.getAllByText('SWOT');
-      expect(swotTags.length).toBeGreaterThanOrEqual(2);
+      const strategyTags = screen.getAllByText('strategy');
+      expect(strategyTags.length).toBeGreaterThanOrEqual(2);
     });
   });
 
   describe('premium prompts (locked)', () => {
-    it('should show lock badge for premium prompts when not unlocked', () => {
+    it('should show lock icon for premium prompts when not unlocked', () => {
       render(
         <PromptList
           prompts={mockPrompts}
@@ -185,7 +186,9 @@ describe('PromptList', () => {
         />
       );
 
-      expect(screen.getByText('PREMIUM')).toBeInTheDocument();
+      const premiumCard = screen.getByText('Premium BCG Matrix').closest('[role="listitem"]');
+      const lockIcon = premiumCard?.querySelector('.lucide-lock');
+      expect(lockIcon).toBeInTheDocument();
     });
 
     it('should call onUnlockClick when premium prompt clicked while locked', () => {
@@ -206,7 +209,7 @@ describe('PromptList', () => {
       expect(mockOnSelect).not.toHaveBeenCalled();
     });
 
-    it('should show unlock prompt instead of description for locked premium', () => {
+    it('should show premium content message for locked premium', () => {
       render(
         <PromptList
           prompts={mockPrompts}
@@ -217,21 +220,7 @@ describe('PromptList', () => {
         />
       );
 
-      expect(screen.getByText(/unlock premium to access this enterprise-grade prompt/i)).toBeInTheDocument();
-    });
-
-    it('should show click to unlock text for locked premium', () => {
-      render(
-        <PromptList
-          prompts={mockPrompts}
-          onSelect={mockOnSelect}
-          isUnlocked={false}
-          onUnlockClick={mockOnUnlockClick}
-          favorites={[]}
-        />
-      );
-
-      expect(screen.getByText(/click to unlock premium access/i)).toBeInTheDocument();
+      expect(screen.getByText(/premium content - unlock to access/i)).toBeInTheDocument();
     });
   });
 
@@ -254,7 +243,7 @@ describe('PromptList', () => {
       expect(mockOnUnlockClick).not.toHaveBeenCalled();
     });
 
-    it('should show crown badge for unlocked premium prompts', () => {
+    it('should show crown icon for unlocked premium prompts', () => {
       render(
         <PromptList
           prompts={mockPrompts}
@@ -265,8 +254,9 @@ describe('PromptList', () => {
         />
       );
 
-      // Should show PREMIUM text (but with crown icon, not lock)
-      expect(screen.getByText('PREMIUM')).toBeInTheDocument();
+      const premiumCard = screen.getByText('Premium BCG Matrix').closest('[role="listitem"]');
+      const crownIcon = premiumCard?.querySelector('.lucide-crown');
+      expect(crownIcon).toBeInTheDocument();
     });
 
     it('should show description for unlocked premium prompts', () => {

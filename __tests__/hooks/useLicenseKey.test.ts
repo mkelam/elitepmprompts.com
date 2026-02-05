@@ -22,7 +22,7 @@ describe('useLicenseKey', () => {
     });
 
     it('should load unlock state from localStorage if previously unlocked', () => {
-      localStorage.setItem('bizprompt_license_unlocked', 'true');
+      localStorage.setItem('pmnexus_license_unlocked', 'true');
 
       const { result } = renderHook(() => useLicenseKey());
 
@@ -31,16 +31,16 @@ describe('useLicenseKey', () => {
   });
 
   describe('validateKey', () => {
-    it('should return true for valid license key BIZPROMPT-PRO-2024', () => {
+    it('should return true for valid license key PMNEXUS-PRO-2024', () => {
       const { result } = renderHook(() => useLicenseKey());
 
-      expect(result.current.validateKey('BIZPROMPT-PRO-2024')).toBe(true);
+      expect(result.current.validateKey('PMNEXUS-PRO-2024')).toBe(true);
     });
 
-    it('should return true for valid license key BIZPROMPT-PREMIUM-VIP', () => {
+    it('should return true for valid license key PMNEXUS-PREMIUM-VIP', () => {
       const { result } = renderHook(() => useLicenseKey());
 
-      expect(result.current.validateKey('BIZPROMPT-PREMIUM-VIP')).toBe(true);
+      expect(result.current.validateKey('PMNEXUS-PREMIUM-VIP')).toBe(true);
     });
 
     it('should return true for valid license key ENTERPRISE-UNLOCK-KEY', () => {
@@ -52,14 +52,14 @@ describe('useLicenseKey', () => {
     it('should be case insensitive', () => {
       const { result } = renderHook(() => useLicenseKey());
 
-      expect(result.current.validateKey('bizprompt-pro-2024')).toBe(true);
-      expect(result.current.validateKey('BizPrompt-Pro-2024')).toBe(true);
+      expect(result.current.validateKey('pmnexus-pro-2024')).toBe(true);
+      expect(result.current.validateKey('PmNexus-Pro-2024')).toBe(true);
     });
 
     it('should handle whitespace in keys', () => {
       const { result } = renderHook(() => useLicenseKey());
 
-      expect(result.current.validateKey('  BIZPROMPT-PRO-2024  ')).toBe(true);
+      expect(result.current.validateKey('  PMNEXUS-PRO-2024  ')).toBe(true);
     });
 
     it('should return false for invalid license key', () => {
@@ -77,12 +77,12 @@ describe('useLicenseKey', () => {
 
       let success: boolean;
       act(() => {
-        success = result.current.unlock('BIZPROMPT-PRO-2024');
+        success = result.current.unlock('PMNEXUS-PRO-2024');
       });
 
       expect(success!).toBe(true);
       expect(result.current.isUnlocked).toBe(true);
-      expect(localStorage.getItem('bizprompt_license_unlocked')).toBe('true');
+      expect(localStorage.getItem('pmnexus_license_unlocked')).toBe('true');
     });
 
     it('should not unlock with invalid key', () => {
@@ -95,13 +95,13 @@ describe('useLicenseKey', () => {
 
       expect(success!).toBe(false);
       expect(result.current.isUnlocked).toBe(false);
-      expect(localStorage.getItem('bizprompt_license_unlocked')).toBeNull();
+      expect(localStorage.getItem('pmnexus_license_unlocked')).toBeNull();
     });
   });
 
   describe('lock', () => {
     it('should lock and remove from localStorage', () => {
-      localStorage.setItem('bizprompt_license_unlocked', 'true');
+      localStorage.setItem('pmnexus_license_unlocked', 'true');
       const { result } = renderHook(() => useLicenseKey());
 
       expect(result.current.isUnlocked).toBe(true);
@@ -111,7 +111,7 @@ describe('useLicenseKey', () => {
       });
 
       expect(result.current.isUnlocked).toBe(false);
-      expect(localStorage.getItem('bizprompt_license_unlocked')).toBeNull();
+      expect(localStorage.getItem('pmnexus_license_unlocked')).toBeNull();
     });
   });
 });

@@ -29261,7 +29261,11 @@ Produce a complete Audit Finding Response Package including:
     phase: 'Closing',
     canonicalPhase: 5,
     description: 'Generate comprehensive project closeout documentation with formal acceptance, lessons learned capture, knowledge transfer, and administrative closure aligned to PMBOK 7th Edition.',
-    template: `You are a PMP-certified Project Closeout Specialist with 20+ years experience formally closing complex programs. Your closeout documentation ensures knowledge preservation, stakeholder satisfaction verification, and complete administrative closure.
+    template: `You are a PMP-certified Project Closeout Specialist with 20+ years experience formally closing complex programs across multiple industries. Your closeout documentation ensures knowledge preservation, stakeholder satisfaction verification, and complete administrative closure that protects organizational assets and enables future project success.
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 1: PROJECT CLOSEOUT CONTEXT & CLASSIFICATION
+═══════════════════════════════════════════════════════════════════════════════
 
 PROJECT IDENTIFICATION:
 Project Name: {{project_name}}
@@ -29270,13 +29274,557 @@ Closeout Date: {{closeout_date}}
 Original Budget: {{original_budget}}
 Final Cost: {{final_cost}}
 
-Generate comprehensive documentation covering:
-1. DELIVERABLE VERIFICATION & ACCEPTANCE - Complete acceptance matrix with sign-off tracking
-2. PERFORMANCE ANALYSIS - Scope, schedule, cost, and quality performance with variance explanations
-3. LESSONS LEARNED CAPTURE - What went well, What could improve, Unexpected discoveries
-4. KNOWLEDGE TRANSFER & TRANSITION - Handoff requirements, training completed, support transition
-5. ADMINISTRATIVE CLOSURE - Financial closure, contract closure, resource release, asset disposition
-6. FORMAL SIGN-OFF - Certification statements for PM, Sponsor, PMO, and Finance`,
+CLOSEOUT TYPE CLASSIFICATION
+| Type | Trigger | Documentation Level | Stakeholder Involvement |
+|------|---------|---------------------|------------------------|
+| Successful Completion | All deliverables accepted | Full closeout package | Celebration + formal sign-off |
+| Phase Completion | Phase gate achieved | Phase closeout + lessons learned | Phase stakeholders |
+| Early Termination | Business decision | Abbreviated closeout + transition | Executive sign-off required |
+| Project Cancellation | Viability lost | Cancellation report + salvage | Executive + Finance |
+| Merger/Absorption | Org restructure | Transfer documentation | Receiving entity |
+
+This Closeout Type: [Classify based on context]
+
+PMBOK 7TH EDITION ALIGNMENT
+Project Performance Domains Addressed in Closeout:
+□ Stakeholder - Final satisfaction verification
+□ Team - Resource release and recognition
+□ Development Approach - Retrospective on methodology
+□ Planning - Variance analysis and lessons
+□ Project Work - Deliverable verification
+□ Delivery - Value realization baseline
+□ Measurement - Final metrics and KPIs
+□ Uncertainty - Risk closure and residual risk transfer
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 2: DELIVERABLE VERIFICATION & ACCEPTANCE
+═══════════════════════════════════════════════════════════════════════════════
+
+DELIVERABLE ACCEPTANCE MATRIX
+| Deliverable ID | Description | Acceptance Criteria | Status | Accepted By | Date | Notes |
+|----------------|-------------|---------------------|--------|-------------|------|-------|
+| DEL-001 | [Primary deliverable] | [Specific criteria] | [Accepted/Conditional/Pending] | [Name, Title] | [Date] | [Conditions if any] |
+| DEL-002 | | | | | | |
+| DEL-003 | | | | | | |
+| DEL-004 | | | | | | |
+| DEL-005 | | | | | | |
+
+ACCEPTANCE CRITERIA VERIFICATION
+For each deliverable, verify against original requirements:
+
+FUNCTIONAL REQUIREMENTS CHECK
+□ All functional requirements from scope baseline tested
+□ User acceptance testing (UAT) completed and signed off
+□ Integration testing with dependent systems completed
+□ Performance requirements met (response time, throughput, etc.)
+□ Security requirements verified
+
+QUALITY REQUIREMENTS CHECK
+□ Quality metrics achieved vs. Quality Management Plan targets
+□ Defect density within acceptable thresholds
+□ Technical debt documented and accepted or remediated
+□ Code review / document review completion verified
+□ Regulatory/compliance requirements satisfied
+
+SCOPE VERIFICATION AGAINST WBS
+| WBS Element | Planned Deliverable | Actual Deliverable | Variance | Accepted |
+|-------------|--------------------|--------------------|----------|----------|
+| 1.1 | [Description] | [What was delivered] | [+/-/None] | [Y/N] |
+| 1.2 | | | | |
+| 1.3 | | | | |
+
+CONDITIONAL ACCEPTANCE LOG
+| Deliverable | Condition | Remediation Plan | Due Date | Responsible | Status |
+|-------------|-----------|------------------|----------|-------------|--------|
+| [ID] | [What must be fixed] | [How it will be fixed] | [Date] | [Name] | [Open/Closed] |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 3: PROJECT PERFORMANCE ANALYSIS
+═══════════════════════════════════════════════════════════════════════════════
+
+TRIPLE CONSTRAINT PERFORMANCE SUMMARY
+
+SCOPE PERFORMANCE
+---
+Original Scope Baseline: [Summary of approved scope]
+Final Scope Delivered: [What was actually delivered]
+Scope Changes Approved: [Count and summary]
+Scope Variance Analysis:
+- Added Scope: [Items added via change control]
+- Removed Scope: [Items descoped]
+- Net Scope Change: [+X% / -X% / On target]
+- Root Cause: [Why scope changed]
+---
+
+SCHEDULE PERFORMANCE
+---
+Original Duration: [X months/weeks]
+Actual Duration: [X months/weeks]
+Schedule Variance (SV): [X days/weeks early/late]
+Schedule Performance Index (SPI): [Value - 1.0 = on schedule]
+
+MILESTONE ANALYSIS
+| Milestone | Baseline Date | Actual Date | Variance | Reason |
+|-----------|--------------|-------------|----------|--------|
+| Project Start | [Date] | [Date] | [Days] | |
+| [Key Milestone 1] | [Date] | [Date] | [Days] | [Root cause if late] |
+| [Key Milestone 2] | [Date] | [Date] | [Days] | |
+| Project End | [Date] | [Date] | [Days] | |
+
+Critical Path Analysis:
+- Original critical path: [Activities]
+- Actual critical path: [What drove the schedule]
+- Path convergence issues: [If applicable]
+---
+
+COST PERFORMANCE
+---
+Original Budget (BAC): {{original_budget}}
+Final Cost (EAC): {{final_cost}}
+Cost Variance (CV): [Budget - Actual = $X over/under]
+Cost Performance Index (CPI): [Value - 1.0 = on budget]
+
+COST BREAKDOWN ANALYSIS
+| Category | Budget | Actual | Variance | % Variance | Explanation |
+|----------|--------|--------|----------|------------|-------------|
+| Labor - Internal | $_____ | $_____ | $_____ | ___% | |
+| Labor - External | $_____ | $_____ | $_____ | ___% | |
+| Hardware/Equipment | $_____ | $_____ | $_____ | ___% | |
+| Software/Licenses | $_____ | $_____ | $_____ | ___% | |
+| Travel | $_____ | $_____ | $_____ | ___% | |
+| Training | $_____ | $_____ | $_____ | ___% | |
+| Contingency Used | $_____ | $_____ | $_____ | ___% | |
+| TOTAL | $_____ | $_____ | $_____ | ___% | |
+
+Management Reserve Usage: [Amount used, for what]
+---
+
+QUALITY PERFORMANCE
+---
+Quality Metrics Summary:
+| Metric | Target | Actual | Status |
+|--------|--------|--------|--------|
+| Defect Density | [Target] | [Actual] | [Met/Not Met] |
+| Customer Satisfaction | [Target %] | [Actual %] | |
+| First-Time Quality | [Target %] | [Actual %] | |
+| Rework Percentage | [Target %] | [Actual %] | |
+| Requirements Traceability | 100% | [Actual %] | |
+
+Major Quality Issues Encountered:
+1. [Issue] - [Resolution] - [Impact]
+2. [Issue] - [Resolution] - [Impact]
+---
+
+EARNED VALUE SUMMARY
+---
+At Completion:
+- Budget at Completion (BAC): {{original_budget}}
+- Estimate at Completion (EAC): {{final_cost}}
+- Variance at Completion (VAC): [BAC - EAC]
+- To Complete Performance Index (TCPI): [N/A - project complete]
+
+Final Performance Indices:
+- CPI: [Value] - [Interpretation]
+- SPI: [Value] - [Interpretation]
+- Combined Index (CPI × SPI): [Value]
+---
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 4: LESSONS LEARNED CAPTURE
+═══════════════════════════════════════════════════════════════════════════════
+
+LESSONS LEARNED COLLECTION METHODOLOGY
+□ Team retrospective session conducted
+□ Individual interviews completed
+□ Stakeholder feedback collected
+□ Metrics data analyzed
+□ Issue and risk logs reviewed
+□ Change request log analyzed
+
+WHAT WENT WELL (Preserve and Repeat)
+| Category | Success | Contributing Factors | Recommendation |
+|----------|---------|---------------------|----------------|
+| Planning | [Success description] | [Why it worked] | [How to replicate] |
+| Execution | | | |
+| Team | | | |
+| Stakeholder Mgmt | | | |
+| Risk Management | | | |
+| Quality | | | |
+| Communication | | | |
+| Vendor/Procurement | | | |
+
+WHAT COULD IMPROVE (Learn and Change)
+| Category | Challenge | Root Cause | Recommendation | Priority |
+|----------|-----------|------------|----------------|----------|
+| Planning | [Challenge description] | [Why it happened] | [Specific improvement] | [H/M/L] |
+| Execution | | | | |
+| Team | | | | |
+| Stakeholder Mgmt | | | | |
+| Risk Management | | | | |
+| Quality | | | | |
+| Communication | | | | |
+| Vendor/Procurement | | | | |
+
+UNEXPECTED DISCOVERIES (New Knowledge)
+| Discovery | Context | Potential Application | Knowledge Owner |
+|-----------|---------|----------------------|-----------------|
+| [What was learned] | [Situation where discovered] | [How future projects can benefit] | [Who owns this knowledge] |
+
+PROCESS IMPROVEMENT RECOMMENDATIONS
+---
+Based on lessons learned, recommend these changes to organizational processes:
+
+1. [Process/Template/Standard]:
+   - Current State: [How it works now]
+   - Recommended Change: [Specific improvement]
+   - Expected Benefit: [Why this matters]
+   - PMO Action Required: [What PMO should do]
+
+2. [Process/Template/Standard]:
+   - Current State:
+   - Recommended Change:
+   - Expected Benefit:
+   - PMO Action Required:
+---
+
+LESSONS LEARNED REPOSITORY UPDATE
+□ Lessons entered into organizational lessons learned database
+□ Tags/categories assigned for searchability
+□ Similar past projects linked for context
+□ Knowledge artifacts attached (templates, examples, etc.)
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 5: KNOWLEDGE TRANSFER & TRANSITION
+═══════════════════════════════════════════════════════════════════════════════
+
+OPERATIONS HANDOFF CHECKLIST
+
+DOCUMENTATION TRANSFER
+| Document | Location | Recipient | Transfer Date | Confirmed |
+|----------|----------|-----------|---------------|-----------|
+| Technical Architecture | [Path/System] | [Name, Role] | [Date] | □ |
+| User Manuals | [Path/System] | [Name, Role] | [Date] | □ |
+| Admin Guides | [Path/System] | [Name, Role] | [Date] | □ |
+| API Documentation | [Path/System] | [Name, Role] | [Date] | □ |
+| Configuration Docs | [Path/System] | [Name, Role] | [Date] | □ |
+| Troubleshooting Guide | [Path/System] | [Name, Role] | [Date] | □ |
+| Runbooks | [Path/System] | [Name, Role] | [Date] | □ |
+
+TRAINING COMPLETED
+| Training Topic | Audience | Trainer | Date | Attendees | Materials Location |
+|----------------|----------|---------|------|-----------|-------------------|
+| System Overview | Operations | [Name] | [Date] | [Count] | [Path] |
+| Administration | IT Admins | [Name] | [Date] | [Count] | [Path] |
+| End User Training | Users | [Name] | [Date] | [Count] | [Path] |
+| Support Procedures | Help Desk | [Name] | [Date] | [Count] | [Path] |
+
+SUPPORT TRANSITION
+---
+Warranty Period: [Start Date] to [End Date]
+Warranty Coverage: [What is covered]
+Warranty Contacts: [Names and contact info]
+
+Support Escalation Path:
+Level 1: [Team/Contact] - [Scope] - [SLA]
+Level 2: [Team/Contact] - [Scope] - [SLA]
+Level 3: [Team/Contact] - [Scope] - [SLA]
+
+Ongoing Support Model:
+□ Internal team (specify): ________________
+□ Vendor support contract (specify): ________________
+□ Managed service provider (specify): ________________
+
+Support Contract Details:
+- Contract Number: [Number]
+- Vendor: [Name]
+- Coverage: [Scope]
+- Expiration: [Date]
+- Renewal Contact: [Name, Email]
+---
+
+OUTSTANDING ITEMS TRANSFER
+| Item | Description | Receiving Owner | Due Date | Priority |
+|------|-------------|-----------------|----------|----------|
+| [Punch list item] | [Description] | [Name, Team] | [Date] | [H/M/L] |
+| [Enhancement request] | [Description] | [Name, Team] | [Date] | [H/M/L] |
+| [Known issue] | [Description] | [Name, Team] | [Date] | [H/M/L] |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 6: RISK CLOSURE & RESIDUAL RISK TRANSFER
+═══════════════════════════════════════════════════════════════════════════════
+
+RISK REGISTER FINAL STATUS
+| Risk ID | Description | Final Status | Resolution | Transferred To |
+|---------|-------------|--------------|------------|----------------|
+| R-001 | [Risk description] | Closed - Did not occur | N/A | N/A |
+| R-002 | [Risk description] | Closed - Mitigated | [How mitigated] | N/A |
+| R-003 | [Risk description] | Occurred - Resolved | [Resolution] | N/A |
+| R-004 | [Risk description] | Residual - Transferred | N/A | [Operations team] |
+
+RESIDUAL RISKS TRANSFERRED TO OPERATIONS
+---
+The following risks remain active and are transferred to operational ownership:
+
+Risk: [Description]
+Probability: [H/M/L]
+Impact: [H/M/L]
+Current Controls: [What is in place]
+Recommended Actions: [What operations should do]
+Owner: [Name in receiving organization]
+Monitoring Frequency: [How often to review]
+
+[Repeat for each residual risk]
+---
+
+RISK MANAGEMENT EFFECTIVENESS ANALYSIS
+| Metric | Value | Assessment |
+|--------|-------|------------|
+| Risks Identified | [Count] | |
+| Risks Occurred | [Count] | [% occurrence rate] |
+| Risks Mitigated Successfully | [Count] | |
+| Risks Requiring Contingency | [Count] | |
+| Contingency Budget Used | $_____ | [% of allocation] |
+| Unidentified Risks (Issues) | [Count] | [Indicates planning effectiveness] |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 7: CONTRACT & PROCUREMENT CLOSURE
+═══════════════════════════════════════════════════════════════════════════════
+
+CONTRACT CLOSURE CHECKLIST
+| Contract/PO | Vendor | Value | Final Payment | Close Date | Issues |
+|-------------|--------|-------|---------------|------------|--------|
+| [Number] | [Name] | $_____ | $_____ | [Date] | [Any disputes] |
+| [Number] | [Name] | $_____ | $_____ | [Date] | |
+| [Number] | [Name] | $_____ | $_____ | [Date] | |
+
+FOR EACH CONTRACT:
+□ All deliverables received and accepted
+□ All invoices received and processed
+□ Final payment issued (less any retention)
+□ Warranty documentation received
+□ Vendor performance evaluation completed
+□ Contract formally closed in procurement system
+□ Lessons learned captured for vendor
+
+VENDOR PERFORMANCE SUMMARY
+| Vendor | Contract Value | Performance Rating | Would Use Again | Notes |
+|--------|---------------|-------------------|-----------------|-------|
+| [Name] | $_____ | [1-5 stars] | [Yes/No/Conditional] | [Key feedback] |
+
+OUTSTANDING PROCUREMENT ITEMS
+| Item | Vendor | Issue | Resolution Plan | Owner | Due Date |
+|------|--------|-------|-----------------|-------|----------|
+| [Item] | [Name] | [What is outstanding] | [How to resolve] | [Name] | [Date] |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 8: FINANCIAL CLOSURE
+═══════════════════════════════════════════════════════════════════════════════
+
+FINAL FINANCIAL RECONCILIATION
+
+BUDGET TO ACTUAL RECONCILIATION
+---
+Original Approved Budget: {{original_budget}}
+Approved Change Orders: $________
+Revised Budget (BAC): $________
+Actual Expenditures: {{final_cost}}
+Final Variance: $________ (____%)
+
+Variance Explanation:
+[Detailed explanation of significant variances]
+---
+
+OUTSTANDING FINANCIAL ITEMS
+| Item | Type | Amount | Status | Action Required | Due Date |
+|------|------|--------|--------|-----------------|----------|
+| [Description] | Invoice | $_____ | Pending | [Action] | [Date] |
+| [Description] | Accrual | $_____ | To Clear | [Action] | [Date] |
+| [Description] | Retention | $_____ | Held | [Action] | [Date] |
+
+CAPITAL ASSET DISPOSITION
+| Asset | Description | Original Cost | Disposition | Receiving Dept | Asset Tag |
+|-------|-------------|---------------|-------------|----------------|-----------|
+| [Type] | [Description] | $_____ | Transfer to Operations | [Dept] | [Tag #] |
+| [Type] | [Description] | $_____ | Return to Vendor | N/A | [Tag #] |
+| [Type] | [Description] | $_____ | Retire/Dispose | N/A | [Tag #] |
+
+PROJECT COST ACCOUNT CLOSURE
+□ All charges posted and reconciled
+□ Accruals reversed or cleared
+□ Prepaid expenses recognized
+□ Capital assets transferred to fixed asset register
+□ Cost account closed to new charges
+□ Final cost report generated
+□ Finance sign-off obtained
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 9: RESOURCE RELEASE & RECOGNITION
+═══════════════════════════════════════════════════════════════════════════════
+
+TEAM MEMBER RELEASE PLAN
+| Name | Role | Release Date | Next Assignment | Knowledge Transfer Complete | Manager Notified |
+|------|------|--------------|-----------------|----------------------------|------------------|
+| [Name] | [Role] | [Date] | [Project/Pool] | □ | □ |
+| [Name] | [Role] | [Date] | [Project/Pool] | □ | □ |
+| [Name] | [Role] | [Date] | [Project/Pool] | □ | □ |
+
+CONTRACTOR OFFBOARDING
+| Name/Firm | Role | End Date | Final Deliverables | Access Revoked | Final Invoice |
+|-----------|------|----------|-------------------|----------------|---------------|
+| [Name] | [Role] | [Date] | □ | □ | □ |
+
+TEAM RECOGNITION
+---
+Project Team Accomplishments:
+[Summary of what the team achieved]
+
+Recognition Actions Taken:
+□ Team celebration event: [Date, Type]
+□ Individual recognition letters sent
+□ Performance review input provided to functional managers
+□ Spot bonuses/awards processed (if applicable)
+□ LinkedIn recommendations offered
+
+Outstanding Contributors:
+| Name | Role | Contribution | Recognition |
+|------|------|--------------|-------------|
+| [Name] | [Role] | [Specific achievement] | [How recognized] |
+---
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 10: FINAL CLOSEOUT REPORT
+═══════════════════════════════════════════════════════════════════════════════
+
+PROJECT CLOSEOUT REPORT
+
+EXECUTIVE SUMMARY
+---
+Project: {{project_name}}
+Project Manager: {{project_manager}}
+Closeout Date: {{closeout_date}}
+
+Project Outcome: [Successful / Successful with exceptions / Partially successful / Terminated]
+
+Key Results:
+• [Primary achievement 1]
+• [Primary achievement 2]
+• [Primary achievement 3]
+
+Final Performance:
+• Scope: [On target / +X% / -X%]
+• Schedule: [On time / X days early / X days late]
+• Cost: [On budget / $X under / $X over]
+• Quality: [Metrics met / X of Y metrics achieved]
+---
+
+PROJECT SCORECARD
+| Dimension | Weight | Target | Actual | Score | Weighted |
+|-----------|--------|--------|--------|-------|----------|
+| Scope Delivery | 25% | 100% | ___% | [1-5] | [Calc] |
+| Schedule Performance | 25% | SPI ≥ 1.0 | [SPI] | [1-5] | [Calc] |
+| Cost Performance | 25% | CPI ≥ 1.0 | [CPI] | [1-5] | [Calc] |
+| Quality/Customer Sat | 15% | [Target] | [Actual] | [1-5] | [Calc] |
+| Team/Stakeholder | 10% | [Target] | [Actual] | [1-5] | [Calc] |
+| OVERALL SCORE | 100% | | | | [Total] |
+
+TOP LESSONS LEARNED
+1. [Key lesson 1 - one sentence]
+2. [Key lesson 2 - one sentence]
+3. [Key lesson 3 - one sentence]
+
+OPEN ITEMS TRANSFERRED
+[Summary of items transferred to operations with owners]
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 11: FORMAL SIGN-OFF & APPROVAL
+═══════════════════════════════════════════════════════════════════════════════
+
+PROJECT CLOSURE CERTIFICATION
+
+I certify that the above project has been completed and all closeout activities have been performed in accordance with organizational standards and the Project Management Plan.
+
+PROJECT MANAGER CERTIFICATION
+---
+I certify that:
+□ All contracted deliverables have been completed or formally accepted with conditions
+□ All project documentation has been archived appropriately
+□ All lessons learned have been captured and submitted
+□ All financial reconciliation has been completed
+□ All resources have been released
+□ All contracts have been closed
+□ Knowledge transfer to operations is complete
+
+Signature: _________________________ Date: _________
+Name: {{project_manager}}
+Title: Project Manager
+---
+
+SPONSOR/BUSINESS OWNER CERTIFICATION
+---
+I certify that:
+□ All business requirements have been met or formally waived
+□ The delivered solution meets the intended business need
+□ Appropriate support arrangements are in place
+□ The organization is prepared to realize the expected benefits
+
+Signature: _________________________ Date: _________
+Name: [Sponsor Name]
+Title: [Sponsor Title]
+---
+
+PMO CERTIFICATION
+---
+I certify that:
+□ Project closeout documentation is complete and archived
+□ Lessons learned have been added to organizational repository
+□ Project metrics have been captured for portfolio reporting
+□ Project status has been updated to "Closed" in PPM system
+
+Signature: _________________________ Date: _________
+Name: [PMO Representative Name]
+Title: [PMO Title]
+---
+
+FINANCE CERTIFICATION
+---
+I certify that:
+□ All project expenditures have been recorded and reconciled
+□ All vendor payments have been processed
+□ Project cost accounts have been closed
+□ Capital assets have been properly transferred
+
+Signature: _________________________ Date: _________
+Name: [Finance Representative Name]
+Title: [Finance Title]
+---
+
+───────────────────────────────────────────────────────────────────────────────
+ANTI-PATTERNS TO AVOID
+───────────────────────────────────────────────────────────────────────────────
+✗ Skipping formal acceptance because "everyone knows it is done"
+✗ Failing to capture lessons learned while memories are fresh
+✗ Releasing resources before knowledge transfer is complete
+✗ Leaving contracts open without formal closure
+✗ Incomplete financial reconciliation leading to audit issues
+✗ Not transferring residual risks to operations
+✗ Forgetting to update organizational process assets
+✗ Skipping team recognition in the rush to close
+✗ Closing project without verifying support arrangements
+✗ Assuming conditional acceptances will "work themselves out"
+
+───────────────────────────────────────────────────────────────────────────────
+QUALITY INDICATORS FOR CLOSEOUT
+───────────────────────────────────────────────────────────────────────────────
+□ All deliverables formally accepted with documented sign-off
+□ Performance analysis includes root cause for significant variances
+□ Lessons learned captured within 2 weeks of project end
+□ All financial items reconciled and cost accounts closed
+□ All contracts formally closed with vendor evaluations
+□ Knowledge transfer verified by receiving organization
+□ Team members released with recognition
+□ Residual risks documented and transferred with owners
+□ Final report distributed to all stakeholders
+□ All sign-offs obtained within 30 days of project end`,
     variables: [
       { name: 'project_name', description: 'Name of the project being closed', example: 'ERP Implementation Phase 2', required: true },
       { name: 'project_manager', description: 'Project manager name', example: 'Sarah Chen, PMP', required: true },
@@ -29285,8 +29833,8 @@ Generate comprehensive documentation covering:
       { name: 'final_cost', description: 'Final actual cost', example: '$2,380,000', required: true },
     ],
     tier: 'premium',
-    estimatedTimeSaved: '4 hours',
-    tags: ['closeout', 'lessons-learned', 'acceptance', 'knowledge-transfer', 'administrative-closure', 'pmbok', 'PMBOK 7th Edition', 'PMI Standard'],
+    estimatedTimeSaved: '6 hours',
+    tags: ['closeout', 'lessons-learned', 'acceptance', 'knowledge-transfer', 'administrative-closure', 'pmbok', 'PMBOK 7th Edition', 'PMI Standard', 'Earned Value', 'Contract Closure'],
   },
 
   // PRINCE2 - Starting Up Phase
@@ -29297,21 +29845,601 @@ Generate comprehensive documentation covering:
     phase: 'Starting Up',
     canonicalPhase: 1,
     description: 'Generate comprehensive PRINCE2 Starting Up documentation including Project Mandate assessment, outline Business Case, and Project Brief with appointed team roles.',
-    template: `You are a PRINCE2 Practitioner and Portfolio Director. Generate rigorous Starting Up (SU) documentation that determines project viability and establishes foundations for successful initiation.
+    template: `You are a PRINCE2 Practitioner and Portfolio Director with 15+ years experience in controlled project environments. You specialize in the critical Starting Up process that determines whether projects deserve investment in detailed planning. Your documentation ensures projects either get the right foundations or are stopped before wasting organizational resources.
 
-PROJECT MANDATE:
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 1: PROJECT MANDATE ASSESSMENT
+═══════════════════════════════════════════════════════════════════════════════
+
+PROJECT MANDATE CONTEXT:
 Mandate Source: {{mandate_source}}
 Business Need: {{business_need}}
 Expected Outcomes: {{expected_outcomes}}
 Constraints: {{constraints}}
 
-Generate documentation for all Starting Up activities:
-SU1: APPOINT EXECUTIVE AND PROJECT MANAGER - Recommend appointments with justification
-SU2: CAPTURE PREVIOUS LESSONS - Review lessons log from similar projects
-SU3: DESIGN PROJECT MANAGEMENT TEAM - Define Project Board, Assurance, Support roles
-SU4: PREPARE OUTLINE BUSINESS CASE - Reasons, options, benefits, dis-benefits, costs, risks
-SU5: SELECT PROJECT APPROACH AND ASSEMBLE PROJECT BRIEF - Delivery approach, project definition
-SU6: PLAN INITIATION STAGE - Activities, resources, and deliverables`,
+MANDATE COMPLETENESS CHECK
+A valid Project Mandate should contain sufficient information to trigger Starting Up:
+| Element | Present | Source | Completeness | Action if Missing |
+|---------|---------|--------|--------------|-------------------|
+| Business justification | □ Yes □ No | [Where documented] | [Adequate/Needs work] | [Who to contact] |
+| High-level scope | □ Yes □ No | | | |
+| Expected benefits | □ Yes □ No | | | |
+| Known constraints | □ Yes □ No | | | |
+| Sponsoring authority | □ Yes □ No | | | |
+| Urgency/Priority | □ Yes □ No | | | |
+
+MANDATE SOURCE ANALYSIS
+---
+Origin: {{mandate_source}}
+Authority Level: [Corporate/Programme/Operational]
+Strategic Alignment: [Which corporate objective this supports]
+Trigger Type:
+□ Regulatory/Compliance requirement
+□ Strategic initiative
+□ Operational improvement
+□ Technology enablement
+□ Customer requirement
+□ Risk mitigation
+□ Other: ____________
+
+Pre-existing Commitments:
+- Budget allocation: [Approved/Pending/None]
+- Timeline expectations: [Fixed date/Flexible/TBD]
+- Resource commitments: [Named/Pool/TBD]
+---
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 2: SU1 - APPOINT EXECUTIVE AND PROJECT MANAGER
+═══════════════════════════════════════════════════════════════════════════════
+
+EXECUTIVE APPOINTMENT
+
+CANDIDATE ASSESSMENT
+| Candidate | Role/Position | Business Authority | Availability | Recommendation |
+|-----------|--------------|-------------------|--------------|----------------|
+| [Name 1] | [Current role] | [Decision authority] | [% available] | [Recommended/Alternative] |
+| [Name 2] | [Current role] | [Decision authority] | [% available] | [Recommended/Alternative] |
+
+EXECUTIVE REQUIREMENTS CHECKLIST
+The Executive must:
+□ Be accountable for the Business Case throughout the project
+□ Have authority to commit business resources
+□ Have authority to make key business decisions
+□ Be able to secure funding and ongoing support
+□ Chair the Project Board
+□ Be a single individual (not a committee)
+
+RECOMMENDED EXECUTIVE APPOINTMENT
+---
+Name: [Recommended name]
+Current Position: [Title and organization]
+Justification:
+- Business authority: [Why they have authority to commit resources]
+- Accountability: [Why they can own the Business Case]
+- Availability: [Estimated % of time, how to manage conflicts]
+- Alternative if unavailable: [Backup name and rationale]
+---
+
+PROJECT MANAGER APPOINTMENT
+
+CANDIDATE ASSESSMENT
+| Candidate | PM Experience | Domain Experience | Availability | Recommendation |
+|-----------|--------------|-------------------|--------------|----------------|
+| [Name 1] | [Years/certifications] | [Relevant experience] | [% available] | [Recommended/Alternative] |
+| [Name 2] | [Years/certifications] | [Relevant experience] | [% available] | [Recommended/Alternative] |
+
+PROJECT MANAGER REQUIREMENTS CHECKLIST
+The Project Manager must:
+□ Have authority to run the project on a day-to-day basis
+□ Have PRINCE2 knowledge/certification (or equivalent)
+□ Have experience with similar project types
+□ Be able to devote sufficient time to this project
+□ Have appropriate stakeholder management skills
+□ Report to the Project Board
+
+RECOMMENDED PROJECT MANAGER APPOINTMENT
+---
+Name: [Recommended name]
+Current Position: [Title and organization]
+PRINCE2 Certification: [Foundation/Practitioner/None - plan to address]
+Relevant Experience: [Similar projects managed]
+Justification:
+- Technical competence: [Why they can manage this type of project]
+- Availability: [Dedicated/Shared - if shared, % allocation]
+- Backup PM: [Name and handover plan if needed]
+---
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 3: SU2 - CAPTURE PREVIOUS LESSONS
+═══════════════════════════════════════════════════════════════════════════════
+
+LESSONS LEARNED RESEARCH
+
+SIMILAR PROJECTS IDENTIFIED
+| Project Name | Completion Date | Similarity | Key Lessons | Source |
+|--------------|-----------------|------------|-------------|--------|
+| [Project 1] | [Date] | [High/Medium/Low] | [Summary of relevant lessons] | [Lessons log location] |
+| [Project 2] | [Date] | [High/Medium/Low] | [Summary of relevant lessons] | [Lessons log location] |
+| [Project 3] | [Date] | [High/Medium/Low] | [Summary of relevant lessons] | [Lessons log location] |
+
+LESSONS CATEGORIES REVIEWED
+□ Similar business domain projects
+□ Similar technology projects
+□ Projects with same key stakeholders
+□ Projects of similar scale/complexity
+□ Projects with similar constraints
+□ External industry lessons (benchmarking)
+
+KEY LESSONS TO APPLY
+---
+Lesson 1: [Description from previous project]
+Application: [How this will be applied to this project]
+Action: [Specific action to incorporate this lesson]
+
+Lesson 2: [Description from previous project]
+Application: [How this will be applied to this project]
+Action: [Specific action to incorporate this lesson]
+
+Lesson 3: [Description from previous project]
+Application: [How this will be applied to this project]
+Action: [Specific action to incorporate this lesson]
+---
+
+LESSONS LOG INITIALIZATION
+| Lesson ID | Source | Category | Lesson | Recommendation | Status |
+|-----------|--------|----------|--------|----------------|--------|
+| LL-001 | [Project X] | Planning | [Lesson description] | [How to apply] | To implement |
+| LL-002 | [Project Y] | Stakeholders | [Lesson description] | [How to apply] | To implement |
+| LL-003 | [Interview] | Risk | [Lesson description] | [How to apply] | To implement |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 4: SU3 - DESIGN PROJECT MANAGEMENT TEAM
+═══════════════════════════════════════════════════════════════════════════════
+
+PROJECT BOARD STRUCTURE
+
+PROJECT BOARD COMPOSITION
+---
+EXECUTIVE (Business perspective - accountable)
+Name: [As appointed above]
+Responsibilities:
+- Owns the Business Case
+- Chairs Project Board meetings
+- Commits business resources
+- Makes escalated decisions
+- Ensures project remains viable
+
+SENIOR USER(S) (User perspective - benefits realization)
+| Name | Representing | Responsibilities | Decision Authority |
+|------|--------------|------------------|-------------------|
+| [Name 1] | [User community/dept] | [Specific responsibilities] | [What they can decide] |
+| [Name 2] | [User community/dept] | [Specific responsibilities] | [What they can decide] |
+
+Senior User responsibilities:
+- Specify user requirements
+- Commit user resources
+- Ensure user interests are protected
+- Confirm delivered products meet requirements
+- Realize benefits post-project
+
+SENIOR SUPPLIER(S) (Supplier perspective - delivery capability)
+| Name | Representing | Responsibilities | Decision Authority |
+|------|--------------|------------------|-------------------|
+| [Name 1] | [Supplier org/team] | [Specific responsibilities] | [What they can decide] |
+| [Name 2] | [Supplier org/team] | [Specific responsibilities] | [What they can decide] |
+
+Senior Supplier responsibilities:
+- Commit supplier resources
+- Provide supplier expertise
+- Ensure delivery is achievable
+- Resolve supplier-side issues
+---
+
+PROJECT ASSURANCE ROLES
+---
+Business Assurance:
+Assigned to: [Name or "Executive performing directly"]
+Focus: Business Case viability, benefits tracking, business change readiness
+
+User Assurance:
+Assigned to: [Name or "Senior User performing directly"]
+Focus: User requirements, UAT quality, operational readiness
+
+Supplier Assurance:
+Assigned to: [Name or "Senior Supplier performing directly"]
+Focus: Technical quality, delivery standards, supplier performance
+---
+
+PROJECT SUPPORT
+| Function | Assigned To | Scope | Hours/Week |
+|----------|-------------|-------|------------|
+| Configuration Management | [Name/Team] | [What they manage] | [Hours] |
+| Planning/Scheduling | [Name/Team] | [What they manage] | [Hours] |
+| Document Control | [Name/Team] | [What they manage] | [Hours] |
+| Risk/Issue Admin | [Name/Team] | [What they manage] | [Hours] |
+| Financial Tracking | [Name/Team] | [What they manage] | [Hours] |
+
+ORGANIZATION CHART
+---
+                    ┌─────────────────┐
+                    │   CORPORATE/    │
+                    │   PROGRAMME     │
+                    └────────┬────────┘
+                             │ Directs
+                    ┌────────▼────────┐
+                    │  PROJECT BOARD  │
+                    │                 │
+                    │ Executive: [N]  │
+                    │ Sr User: [N]    │
+                    │ Sr Supplier:[N] │
+                    └────────┬────────┘
+                             │
+        ┌────────────────────┼────────────────────┐
+        │                    │                    │
+┌───────▼───────┐   ┌────────▼────────┐   ┌──────▼──────┐
+│   PROJECT     │   │    PROJECT      │   │   PROJECT   │
+│   ASSURANCE   │   │    MANAGER      │   │   SUPPORT   │
+│               │   │                 │   │             │
+│ Bus:[Name]    │   │    [Name]       │   │ [Name/Team] │
+│ User:[Name]   │   │                 │   │             │
+│ Supp:[Name]   │   │                 │   │             │
+└───────────────┘   └────────┬────────┘   └─────────────┘
+                             │
+                    ┌────────▼────────┐
+                    │  TEAM MANAGER   │
+                    │    (If used)    │
+                    │    [Name]       │
+                    └─────────────────┘
+---
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 5: SU4 - PREPARE OUTLINE BUSINESS CASE
+═══════════════════════════════════════════════════════════════════════════════
+
+OUTLINE BUSINESS CASE
+
+EXECUTIVE SUMMARY
+---
+Project: [Project Name]
+Prepared by: [PM Name]
+Date: [Date]
+Version: Outline (to be refined in Initiation)
+---
+
+REASONS
+---
+Business Problem/Opportunity:
+{{business_need}}
+
+Strategic Alignment:
+[Which corporate/programme objectives this supports]
+
+Consequences of Inaction:
+[What happens if we do not proceed]
+
+Driving Force:
+[Why now - regulatory deadline, market window, technology EOL, etc.]
+---
+
+OPTIONS ANALYSIS
+| Option | Description | Pros | Cons | Estimated Cost | Recommended |
+|--------|-------------|------|------|----------------|-------------|
+| 0. Do Nothing | Maintain status quo | No investment | [Consequences] | $0 + [ongoing costs] | □ |
+| 1. Do Minimum | [Bare minimum scope] | [Advantages] | [Limitations] | $[Estimate] | □ |
+| 2. Do Something | [Recommended approach] | [Advantages] | [Trade-offs] | $[Estimate] | ☑ |
+| 3. Do Maximum | [Full scope/gold-plated] | [Advantages] | [Risks] | $[Estimate] | □ |
+
+RECOMMENDED OPTION JUSTIFICATION
+---
+Option [X] is recommended because:
+1. [Reason 1 - strategic fit]
+2. [Reason 2 - cost/benefit balance]
+3. [Reason 3 - risk profile]
+---
+
+EXPECTED BENEFITS
+| Benefit | Type | Measurement | Target | Timing | Owner |
+|---------|------|-------------|--------|--------|-------|
+| [Benefit 1] | [Financial/Quantifiable/Qualitative] | [How measured] | [Target value] | [When realized] | [Who owns] |
+| [Benefit 2] | | | | | |
+| [Benefit 3] | | | | | |
+
+Expected Outcomes: {{expected_outcomes}}
+
+EXPECTED DIS-BENEFITS
+| Dis-benefit | Description | Mitigation | Acceptable? |
+|-------------|-------------|------------|-------------|
+| [Dis-benefit 1] | [What negative impact] | [How to mitigate] | [Yes/No/Conditional] |
+| [Dis-benefit 2] | | | |
+
+OUTLINE COSTS
+| Cost Category | Estimate Range | Confidence | Assumptions |
+|---------------|----------------|------------|-------------|
+| Development/Implementation | $[Low] - $[High] | [H/M/L] | [Key assumptions] |
+| Hardware/Software | $[Low] - $[High] | [H/M/L] | |
+| External Resources | $[Low] - $[High] | [H/M/L] | |
+| Internal Resources | $[Low] - $[High] | [H/M/L] | |
+| Change/Training | $[Low] - $[High] | [H/M/L] | |
+| Ongoing Operations | $[Low] - $[High] /year | [H/M/L] | |
+| Contingency | [X%] of above | | |
+| TOTAL (Capital) | $[Low] - $[High] | [H/M/L] | |
+| TOTAL (Operating/year) | $[Low] - $[High] | [H/M/L] | |
+
+OUTLINE TIMESCALE
+---
+Estimated Duration: [X months]
+Target Start (Initiation): [Date]
+Target End: [Date]
+Key Constraints: {{constraints}}
+---
+
+MAJOR RISKS
+| Risk | Probability | Impact | Proximity | Response Strategy |
+|------|-------------|--------|-----------|-------------------|
+| [Risk 1] | [H/M/L] | [H/M/L] | [When it might occur] | [Avoid/Reduce/Transfer/Accept] |
+| [Risk 2] | [H/M/L] | [H/M/L] | | |
+| [Risk 3] | [H/M/L] | [H/M/L] | | |
+
+OUTLINE INVESTMENT APPRAISAL
+---
+Note: To be refined with accurate figures in Initiation Stage
+
+Indicative Metrics (Order of Magnitude):
+- Total Investment: $[Estimate range]
+- Total Benefits (5-year): $[Estimate range]
+- Payback Period: [X-Y months]
+- NPV @ [X%]: $[Estimate if calculable]
+
+Recommendation: [Proceed to Initiation / Do Not Proceed / Conditional]
+---
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 6: SU5 - SELECT PROJECT APPROACH & ASSEMBLE PROJECT BRIEF
+═══════════════════════════════════════════════════════════════════════════════
+
+PROJECT APPROACH SELECTION
+
+DELIVERY APPROACH OPTIONS
+| Approach | Description | Suitability for This Project | Recommendation |
+|----------|-------------|------------------------------|----------------|
+| Linear/Waterfall | Sequential phases, upfront planning | [High/Medium/Low - why] | □ |
+| Iterative | Multiple passes, progressive refinement | [High/Medium/Low - why] | □ |
+| Incremental | Phased delivery of functionality | [High/Medium/Low - why] | □ |
+| Agile | Adaptive, time-boxed iterations | [High/Medium/Low - why] | □ |
+| Hybrid | Combined approach | [High/Medium/Low - why] | □ |
+
+APPROACH SELECTION CRITERIA
+| Factor | Assessment | Implication |
+|--------|------------|-------------|
+| Requirements Stability | [Fixed/Evolving/Unknown] | [Approach implication] |
+| Solution Complexity | [High/Medium/Low] | [Approach implication] |
+| Stakeholder Availability | [High/Limited/Variable] | [Approach implication] |
+| Team Experience | [Experienced/Mixed/New] | [Approach implication] |
+| Regulatory Constraints | [Heavy/Moderate/Light] | [Approach implication] |
+| Time Criticality | [Fixed deadline/Flexible] | [Approach implication] |
+
+SELECTED APPROACH
+---
+Primary Approach: [Selected approach]
+Justification: [Why this approach fits the project context]
+
+PRINCE2 Tailoring for Selected Approach:
+- Stages: [How stages will be structured]
+- Products: [Key products and their format]
+- Controls: [Reporting frequency, tolerance management]
+- Roles: [Any role combinations or adaptations]
+---
+
+PROJECT BRIEF
+
+PROJECT DEFINITION
+---
+Project Name: [Official project name]
+Project Mandate Reference: [Source document reference]
+Project Manager: [Name, as appointed]
+Executive: [Name, as appointed]
+Prepared: [Date]
+Version: 1.0
+---
+
+BACKGROUND
+[Why this project has been initiated - context from mandate]
+
+PROJECT OBJECTIVES
+| Objective | Measure | Target |
+|-----------|---------|--------|
+| [Objective 1] | [How measured] | [Specific target] |
+| [Objective 2] | [How measured] | [Specific target] |
+| [Objective 3] | [How measured] | [Specific target] |
+
+PROJECT SCOPE
+---
+In Scope:
+• [Scope item 1]
+• [Scope item 2]
+• [Scope item 3]
+
+Out of Scope (Exclusions):
+• [Exclusion 1]
+• [Exclusion 2]
+
+Interfaces:
+• [Interface 1 - with what system/project/organization]
+• [Interface 2]
+---
+
+OUTLINE DELIVERABLES
+| Deliverable | Description | Quality Expectations |
+|-------------|-------------|---------------------|
+| [Deliverable 1] | [What it is] | [Key quality criteria] |
+| [Deliverable 2] | [What it is] | [Key quality criteria] |
+| [Deliverable 3] | [What it is] | [Key quality criteria] |
+
+CONSTRAINTS AND ASSUMPTIONS
+---
+Constraints: {{constraints}}
+• [Additional constraint 1]
+• [Additional constraint 2]
+
+Assumptions:
+• [Assumption 1]
+• [Assumption 2]
+• [Assumption 3]
+---
+
+PROJECT TOLERANCES (Outline)
+| Dimension | Tolerance | Escalation |
+|-----------|-----------|------------|
+| Time | ±[X] weeks | Escalate to Project Board |
+| Cost | ±[X]% or $[X] | Escalate to Project Board |
+| Scope | [Defined changes allowed] | Escalate to Project Board |
+| Quality | [Minimum quality threshold] | Escalate to Project Board |
+| Benefits | ±[X]% of target | Escalate to Project Board |
+| Risk | [Risk tolerance description] | Escalate to Project Board |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 7: SU6 - PLAN THE INITIATION STAGE
+═══════════════════════════════════════════════════════════════════════════════
+
+INITIATION STAGE PLAN
+
+STAGE OBJECTIVES
+1. Refine the Business Case with accurate cost/benefit analysis
+2. Develop the Project Initiation Documentation (PID)
+3. Create all management strategies (Quality, Risk, Communication, Configuration)
+4. Develop the Project Plan for all subsequent stages
+5. Establish project controls and reporting mechanisms
+
+INITIATION STAGE PRODUCTS
+| Product | Description | Owner | Quality Review |
+|---------|-------------|-------|----------------|
+| Project Initiation Documentation | Complete PID including all strategies | PM | Project Board |
+| Detailed Business Case | Refined from outline with investment appraisal | Executive | Project Board |
+| Project Plan | Full project plan with stages, milestones | PM | Project Board |
+| Quality Management Strategy | Quality approach, standards, responsibilities | PM | Project Assurance |
+| Risk Management Strategy | Risk approach, categories, responses | PM | Project Assurance |
+| Communication Management Strategy | Stakeholder analysis, communication plan | PM | Project Assurance |
+| Configuration Management Strategy | Configuration items, baselines, change control | PM | Project Assurance |
+| Benefits Management Approach | Benefits map, measurement, realization plan | Executive | Project Board |
+| Stage Plan (next stage) | Detailed plan for first delivery stage | PM | Project Board |
+
+INITIATION STAGE SCHEDULE
+| Activity | Duration | Start | End | Resource | Dependency |
+|----------|----------|-------|-----|----------|------------|
+| Refine Business Case | [X days] | [Date] | [Date] | Executive, PM | - |
+| Develop Quality Mgmt Strategy | [X days] | [Date] | [Date] | PM | - |
+| Develop Risk Mgmt Strategy | [X days] | [Date] | [Date] | PM | - |
+| Develop Comm Mgmt Strategy | [X days] | [Date] | [Date] | PM | - |
+| Develop Config Mgmt Strategy | [X days] | [Date] | [Date] | PM, Project Support | - |
+| Create Project Plan | [X days] | [Date] | [Date] | PM | Strategies complete |
+| Develop Stage Plan (Stage 2) | [X days] | [Date] | [Date] | PM | Project Plan |
+| Compile PID | [X days] | [Date] | [Date] | PM | All above |
+| Quality Review PID | [X days] | [Date] | [Date] | Project Board | PID complete |
+| Authorize Project (Gate) | [X days] | [Date] | [Date] | Project Board | PID approved |
+
+INITIATION STAGE RESOURCES
+| Resource | Role | Effort (days) | Cost |
+|----------|------|---------------|------|
+| Project Manager | Lead initiation | [X days] | $[X] |
+| Executive | Business Case, decisions | [X days] | [Internal] |
+| Business Analyst | Requirements refinement | [X days] | $[X] |
+| Technical Architect | Technical approach | [X days] | $[X] |
+| Project Support | Admin, documentation | [X days] | $[X] |
+| TOTAL | | [X days] | $[X] |
+
+INITIATION STAGE COST
+| Category | Amount | Notes |
+|----------|--------|-------|
+| Internal labor | $[X] | [X] days @ $[rate] |
+| External labor | $[X] | [X] days @ $[rate] |
+| Other costs | $[X] | [Specify] |
+| Contingency (10%) | $[X] | |
+| TOTAL Initiation Stage | $[X] | |
+
+INITIATION STAGE RISKS
+| Risk | Mitigation | Owner |
+|------|------------|-------|
+| Key stakeholder unavailable | Schedule workshops early, document decisions | PM |
+| Requirements unclear | Multiple workshops, prototyping if needed | PM, BA |
+| Business Case not approved | Early Executive engagement, options analysis | Executive |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 8: REQUEST TO INITIATE
+═══════════════════════════════════════════════════════════════════════════════
+
+AUTHORIZATION REQUEST
+
+STARTING UP SUMMARY
+---
+Project: [Project Name]
+Mandate Source: {{mandate_source}}
+Executive: [Name appointed]
+Project Manager: [Name appointed]
+---
+
+VIABILITY ASSESSMENT
+| Criterion | Assessment | Evidence |
+|-----------|------------|----------|
+| Business justification exists | [Pass/Concern/Fail] | [Reference to Outline Business Case] |
+| Executive and PM appointed | [Pass/Concern/Fail] | [Appointments made above] |
+| Project Board can be assembled | [Pass/Concern/Fail] | [Team design complete] |
+| Lessons from previous projects captured | [Pass/Concern/Fail] | [Lessons log started] |
+| Project approach selected | [Pass/Concern/Fail] | [Approach documented] |
+| Project Brief complete | [Pass/Concern/Fail] | [Brief assembled] |
+| Initiation Stage can be planned | [Pass/Concern/Fail] | [Stage plan complete] |
+
+RECOMMENDATION TO CORPORATE/PROGRAMME MANAGEMENT
+---
+Based on the Starting Up work completed, the recommendation is:
+
+☑ PROCEED TO INITIATION
+The project appears viable. Authorize the Initiation Stage to develop full Project Initiation Documentation.
+
+□ DO NOT PROCEED
+The project should not continue because: [Reasons]
+
+□ DEFER
+The project should be deferred until: [Conditions met]
+---
+
+AUTHORIZATION SIGNATURES
+
+Request Prepared By:
+Project Manager: _________________________ Date: _________
+
+Recommended By:
+Executive (designate): _________________________ Date: _________
+
+Authorization to Proceed to Initiation:
+Corporate/Programme Authority: _________________________ Date: _________
+
+───────────────────────────────────────────────────────────────────────────────
+ANTI-PATTERNS TO AVOID
+───────────────────────────────────────────────────────────────────────────────
+✗ Skipping Starting Up and jumping directly into planning
+✗ Appointing Executive/PM without verifying authority and availability
+✗ Ignoring lessons from previous similar projects
+✗ Creating Project Board in name only without real commitment
+✗ Producing an Outline Business Case without genuine options analysis
+✗ Selecting delivery approach based on preference rather than fit
+✗ Underestimating the Initiation Stage effort and resources
+✗ Treating Starting Up as a formality rather than genuine viability check
+✗ Not capturing constraints that will drive project decisions
+✗ Proceeding when clear warning signs suggest the project should not continue
+
+───────────────────────────────────────────────────────────────────────────────
+QUALITY INDICATORS FOR STARTING UP
+───────────────────────────────────────────────────────────────────────────────
+□ Project Mandate received and assessed for completeness
+□ Executive and Project Manager formally appointed with acceptance
+□ Lessons from at least 3 similar projects reviewed and logged
+□ Project Board structure designed with named individuals
+□ Outline Business Case includes genuine Do Nothing analysis
+□ At least 3 options analyzed with clear recommendation rationale
+□ Delivery approach selected with documented justification
+□ Project Brief complete with clear scope and exclusions
+□ Initiation Stage planned with realistic effort and timeline
+□ Clear recommendation made (proceed/defer/stop) with evidence`,
     variables: [
       { name: 'mandate_source', description: 'Source of the project mandate', example: 'Corporate Strategy Committee', required: true },
       { name: 'business_need', description: 'The business need driving the project', example: 'Replace legacy CRM to improve customer retention', required: true },
@@ -29319,8 +30447,8 @@ SU6: PLAN INITIATION STAGE - Activities, resources, and deliverables`,
       { name: 'constraints', description: 'Known constraints', example: 'Budget cap of 500K, go-live before Q4', required: true },
     ],
     tier: 'premium',
-    estimatedTimeSaved: '5 hours',
-    tags: ['prince2', 'starting-up', 'project-mandate', 'project-brief', 'business-case', 'AXELOS', 'PRINCE2 7th Edition'],
+    estimatedTimeSaved: '6 hours',
+    tags: ['prince2', 'starting-up', 'project-mandate', 'project-brief', 'business-case', 'AXELOS', 'PRINCE2 7th Edition', 'Project Board', 'Lessons Learned'],
   },
 
   // PRINCE2 - Initiating Phase
@@ -29331,30 +30459,753 @@ SU6: PLAN INITIATION STAGE - Activities, resources, and deliverables`,
     phase: 'Initiating',
     canonicalPhase: 1,
     description: 'Generate comprehensive PRINCE2 Project Initiation Documentation with all management strategies, refined Business Case, and Project Plan.',
-    template: `You are a PRINCE2 Practitioner Expert specializing in project initiation. Generate complete PID documentation that establishes solid foundations for controlled delivery.
+    template: `You are a PRINCE2 Practitioner Expert with 20+ years experience establishing project foundations in complex organizational environments. You specialize in creating Project Initiation Documentation that serves as the definitive reference for project governance, ensuring all stakeholders have a shared understanding of what the project will deliver, how it will be managed, and why it represents a sound investment.
 
-PROJECT: {{project_name}}
-VERSION: {{version}}
-DATE: {{date}}
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 1: PID DOCUMENT CONTROL
+═══════════════════════════════════════════════════════════════════════════════
 
-Generate complete PID with:
-1. PROJECT DEFINITION - Background, objectives, scope, constraints, assumptions
-2. BUSINESS CASE (Refined) - Reasons, options, benefits, dis-benefits, costs, investment appraisal
-3. PROJECT MANAGEMENT TEAM STRUCTURE - Organization chart with all roles
-4. QUALITY MANAGEMENT STRATEGY - Standards, responsibilities, methods, records
-5. RISK MANAGEMENT STRATEGY - Tolerance, categories, probability/impact scales, response types
-6. COMMUNICATION MANAGEMENT STRATEGY - Stakeholder analysis, communication methods
-7. CONFIGURATION MANAGEMENT STRATEGY - Items, naming conventions, baselining, change control
-8. PROJECT PLAN - Stages, tolerances, project controls
-9. TAILORING - PRINCE2 tailoring decisions with justification`,
+PROJECT INITIATION DOCUMENTATION (PID)
+
+DOCUMENT INFORMATION
+---
+Project: {{project_name}}
+Document Version: {{version}}
+Document Date: {{date}}
+Status: [Draft/For Review/Approved/Baselined]
+
+Author: [Project Manager Name]
+Owner: Project Board
+Classification: [Internal/Confidential/Restricted]
+---
+
+VERSION HISTORY
+| Version | Date | Author | Changes | Approved By |
+|---------|------|--------|---------|-------------|
+| 0.1 | [Date] | [Name] | Initial draft | - |
+| 0.2 | [Date] | [Name] | Incorporated review feedback | - |
+| {{version}} | {{date}} | [Name] | Approved for baseline | Project Board |
+
+DISTRIBUTION LIST
+| Name | Role | Distribution |
+|------|------|--------------|
+| [Name] | Executive | Review & Approve |
+| [Name] | Senior User | Review & Approve |
+| [Name] | Senior Supplier | Review & Approve |
+| [Name] | Project Manager | Author & Maintain |
+| [Name] | Project Assurance | Review |
+| [Name] | Team Manager(s) | Information |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 2: PROJECT DEFINITION
+═══════════════════════════════════════════════════════════════════════════════
+
+BACKGROUND
+---
+[Context for why this project exists - from Project Brief, expanded with additional detail from Initiation Stage work]
+
+Business Context:
+[Organizational situation driving this project]
+
+Trigger:
+[Specific event or decision that initiated this project]
+
+Related Initiatives:
+[Other projects/programmes this project relates to]
+---
+
+PROJECT OBJECTIVES
+| ID | Objective | Success Criteria | Measurement Method | Target |
+|----|-----------|------------------|-------------------|--------|
+| OBJ-01 | [Primary objective] | [How we know it's achieved] | [How measured] | [Specific target] |
+| OBJ-02 | [Secondary objective] | [How we know it's achieved] | [How measured] | [Specific target] |
+| OBJ-03 | [Additional objective] | [How we know it's achieved] | [How measured] | [Specific target] |
+
+PROJECT SCOPE
+---
+IN SCOPE:
+Products/Deliverables to be delivered:
+• [Product 1] - [Brief description]
+• [Product 2] - [Brief description]
+• [Product 3] - [Brief description]
+• [Product 4] - [Brief description]
+
+Activities included:
+• [Activity category 1]
+• [Activity category 2]
+• [Activity category 3]
+
+OUT OF SCOPE (Exclusions):
+• [Explicit exclusion 1] - [Why excluded]
+• [Explicit exclusion 2] - [Why excluded]
+• [Explicit exclusion 3] - [Why excluded]
+
+INTERFACES:
+| Interface | Type | Description | Owner | Agreement Status |
+|-----------|------|-------------|-------|------------------|
+| [System/Project] | [Data/Process/Dependency] | [What the interface involves] | [Who manages it] | [Agreed/Pending] |
+---
+
+CONSTRAINTS
+| Constraint | Source | Impact | Management Approach |
+|------------|--------|--------|---------------------|
+| [Budget constraint] | [Corporate policy] | [How it limits options] | [How we'll work within it] |
+| [Timeline constraint] | [Business requirement] | [How it limits options] | [How we'll work within it] |
+| [Resource constraint] | [Organizational] | [How it limits options] | [How we'll work within it] |
+| [Technical constraint] | [Architecture standards] | [How it limits options] | [How we'll work within it] |
+| [Regulatory constraint] | [Compliance requirement] | [How it limits options] | [How we'll work within it] |
+
+ASSUMPTIONS
+| ID | Assumption | Consequence if False | Validation Plan |
+|----|------------|---------------------|-----------------|
+| A-01 | [Assumption statement] | [Impact on project] | [How/when we'll verify] |
+| A-02 | [Assumption statement] | [Impact on project] | [How/when we'll verify] |
+| A-03 | [Assumption statement] | [Impact on project] | [How/when we'll verify] |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 3: BUSINESS CASE (Refined)
+═══════════════════════════════════════════════════════════════════════════════
+
+BUSINESS CASE
+
+EXECUTIVE SUMMARY
+---
+Investment Request: $[Total]
+Expected Return: $[Value] over [X] years
+Payback Period: [X] months
+Recommendation: [Approve/Conditional Approve/Reject]
+---
+
+REASONS
+---
+Business Problem/Opportunity:
+[Detailed description of the business need - refined from Outline Business Case]
+
+Strategic Alignment:
+| Strategy/Objective | How This Project Supports |
+|--------------------|---------------------------|
+| [Corporate strategy 1] | [Specific contribution] |
+| [Corporate strategy 2] | [Specific contribution] |
+
+Consequences of Inaction:
+• [Consequence 1] - [Quantified impact]
+• [Consequence 2] - [Quantified impact]
+• [Consequence 3] - [Quantified impact]
+---
+
+OPTIONS (Refined Analysis)
+| Option | Description | Total Cost | Net Benefit | Risk | Recommendation |
+|--------|-------------|------------|-------------|------|----------------|
+| 0. Do Nothing | Status quo | $[Ongoing cost] | -$[Lost opportunity] | [Ongoing risks] | ✗ Not recommended |
+| 1. Do Minimum | [Description] | $[Cost] | $[Benefit] | [Risk level] | □ |
+| 2. Recommended | [Description] | $[Cost] | $[Benefit] | [Risk level] | ☑ Selected |
+| 3. Do Maximum | [Description] | $[Cost] | $[Benefit] | [Risk level] | □ |
+
+SELECTED OPTION RATIONALE
+[Detailed justification for the recommended option, addressing cost/benefit balance, risk profile, and strategic fit]
+
+EXPECTED BENEFITS
+| ID | Benefit | Category | Measure | Baseline | Target | Owner | Timing |
+|----|---------|----------|---------|----------|--------|-------|--------|
+| B-01 | [Benefit description] | [Financial/Quantifiable/Qualitative] | [KPI] | [Current] | [Future] | [Name] | [When] |
+| B-02 | [Benefit description] | | | | | | |
+| B-03 | [Benefit description] | | | | | | |
+
+BENEFIT REALIZATION SCHEDULE
+| Benefit | Y1 | Y2 | Y3 | Y4 | Y5 | Total |
+|---------|-----|-----|-----|-----|-----|-------|
+| B-01 | $[X] | $[X] | $[X] | $[X] | $[X] | $[X] |
+| B-02 | $[X] | $[X] | $[X] | $[X] | $[X] | $[X] |
+| TOTAL Benefits | $[X] | $[X] | $[X] | $[X] | $[X] | $[X] |
+
+EXPECTED DIS-BENEFITS
+| Dis-benefit | Impact | Mitigation | Residual Impact | Acceptable |
+|-------------|--------|------------|-----------------|------------|
+| [Dis-benefit 1] | [Description] | [Mitigation approach] | [Remaining impact] | [Yes/No] |
+
+COSTS
+| Category | Y0 (Project) | Y1 | Y2 | Y3 | Y4 | Y5 | Total |
+|----------|--------------|-----|-----|-----|-----|-----|-------|
+| Development | $[X] | - | - | - | - | - | $[X] |
+| Hardware/Infrastructure | $[X] | $[X] | $[X] | $[X] | $[X] | $[X] | $[X] |
+| Software/Licenses | $[X] | $[X] | $[X] | $[X] | $[X] | $[X] | $[X] |
+| External Services | $[X] | $[X] | $[X] | $[X] | $[X] | $[X] | $[X] |
+| Internal Resources | $[X] | - | - | - | - | - | $[X] |
+| Training/Change | $[X] | $[X] | - | - | - | - | $[X] |
+| Ongoing Operations | - | $[X] | $[X] | $[X] | $[X] | $[X] | $[X] |
+| Contingency | $[X] | - | - | - | - | - | $[X] |
+| TOTAL Costs | $[X] | $[X] | $[X] | $[X] | $[X] | $[X] | $[X] |
+
+INVESTMENT APPRAISAL
+---
+Financial Analysis (5-year horizon):
+
+| Metric | Value | Interpretation |
+|--------|-------|----------------|
+| Total Investment | $[X] | Project + 5-year operations |
+| Total Benefits | $[X] | 5-year benefit realization |
+| Net Benefit | $[X] | Benefits minus costs |
+| Payback Period | [X] months | Time to recover investment |
+| ROI | [X]% | Return on investment |
+| NPV @ [X]% | $[X] | Net present value |
+| IRR | [X]% | Internal rate of return |
+
+Sensitivity Analysis:
+| Scenario | NPV | Recommendation |
+|----------|-----|----------------|
+| Base Case | $[X] | Proceed |
+| Benefits -20% | $[X] | [Still viable?] |
+| Costs +20% | $[X] | [Still viable?] |
+| 6-month delay | $[X] | [Still viable?] |
+---
+
+MAJOR RISKS TO BUSINESS CASE
+| Risk | Probability | Impact | Mitigation | Residual |
+|------|-------------|--------|------------|----------|
+| Benefits not achieved | [H/M/L] | [H/M/L] | [Strategy] | [H/M/L] |
+| Costs exceed budget | [H/M/L] | [H/M/L] | [Strategy] | [H/M/L] |
+| Timeline overrun | [H/M/L] | [H/M/L] | [Strategy] | [H/M/L] |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 4: PROJECT MANAGEMENT TEAM STRUCTURE
+═══════════════════════════════════════════════════════════════════════════════
+
+PROJECT ORGANIZATION
+
+ORGANIZATION STRUCTURE
+---
+                         ┌─────────────────────┐
+                         │ CORPORATE/PROGRAMME │
+                         │    MANAGEMENT       │
+                         └──────────┬──────────┘
+                                    │
+                         ┌──────────▼──────────┐
+                         │    PROJECT BOARD    │
+                         │                     │
+                         │ Executive: [Name]   │
+                         │ Senior User: [Name] │
+                         │ Sr Supplier: [Name] │
+                         └──────────┬──────────┘
+                                    │
+     ┌──────────────────────────────┼──────────────────────────────┐
+     │                              │                              │
+┌────▼─────┐                ┌───────▼───────┐               ┌──────▼──────┐
+│ PROJECT  │                │    PROJECT    │               │   PROJECT   │
+│ASSURANCE │                │    MANAGER    │               │   SUPPORT   │
+│          │                │               │               │             │
+│[Name(s)] │                │   [Name]      │               │  [Name(s)]  │
+└──────────┘                └───────┬───────┘               └─────────────┘
+                                    │
+                    ┌───────────────┼───────────────┐
+                    │               │               │
+             ┌──────▼──────┐ ┌──────▼──────┐ ┌─────▼──────┐
+             │    TEAM     │ │    TEAM     │ │    TEAM    │
+             │  MANAGER 1  │ │  MANAGER 2  │ │  MANAGER 3 │
+             │             │ │             │ │            │
+             │   [Name]    │ │   [Name]    │ │   [Name]   │
+             └─────────────┘ └─────────────┘ └────────────┘
+---
+
+ROLE DESCRIPTIONS AND APPOINTMENTS
+
+PROJECT BOARD
+| Role | Name | Organization | Key Responsibilities | Time Commitment |
+|------|------|--------------|---------------------|-----------------|
+| Executive | [Name] | [Org] | Business Case owner, decision authority, resource commitment | [X hours/month] |
+| Senior User | [Name] | [Org] | User requirements, benefits realization, user resource commitment | [X hours/month] |
+| Senior Supplier | [Name] | [Org] | Solution delivery, supplier resources, technical decisions | [X hours/month] |
+
+PROJECT ASSURANCE
+| Focus | Name | Independence | Responsibilities |
+|-------|------|--------------|------------------|
+| Business | [Name or "Executive direct"] | [How independent] | Business Case viability, benefits tracking |
+| User | [Name or "Senior User direct"] | [How independent] | User requirements quality, UAT oversight |
+| Supplier | [Name or "Senior Supplier direct"] | [How independent] | Technical quality, delivery standards |
+
+PROJECT MANAGER
+---
+Name: [Name]
+Organization: [Org]
+Responsibilities:
+• Day-to-day project management
+• Stage and exception planning
+• Issue and risk escalation to Project Board
+• Progress reporting
+• Change control administration
+• Quality assurance coordination
+Authority Limits: [What PM can decide without escalation]
+---
+
+PROJECT SUPPORT
+| Function | Name/Team | Responsibilities |
+|----------|-----------|------------------|
+| Configuration Management | [Name] | Maintain configuration records, version control |
+| Planning Support | [Name] | Maintain project schedules, resource tracking |
+| Risk/Issue Admin | [Name] | Maintain registers, support analysis |
+| Quality Admin | [Name] | Quality records, review scheduling |
+| Financial Tracking | [Name] | Budget tracking, forecast updates |
+
+TEAM MANAGERS (if applicable)
+| Team | Manager | Team Composition | Work Packages |
+|------|---------|------------------|---------------|
+| [Team 1] | [Name] | [X people, skills] | [Scope of work] |
+| [Team 2] | [Name] | [X people, skills] | [Scope of work] |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 5: QUALITY MANAGEMENT STRATEGY
+═══════════════════════════════════════════════════════════════════════════════
+
+QUALITY MANAGEMENT STRATEGY
+
+QUALITY APPROACH
+---
+This project will ensure fitness for purpose through:
+1. Clear quality criteria for all products
+2. Defined quality methods (reviews, testing)
+3. Quality responsibilities at all levels
+4. Quality records for audit and learning
+---
+
+QUALITY STANDARDS
+| Standard | Version | Applicability | Compliance Level |
+|----------|---------|---------------|------------------|
+| [Corporate QMS] | [Version] | All project products | Mandatory |
+| [Industry standard] | [Version] | [Specific products] | Mandatory |
+| [Technical standard] | [Version] | [Specific products] | Recommended |
+
+QUALITY RESPONSIBILITIES
+| Role | Quality Responsibilities |
+|------|-------------------------|
+| Executive | Overall accountability for product quality |
+| Senior User | Acceptance of user-facing products |
+| Senior Supplier | Technical quality assurance |
+| Project Manager | Quality planning, coordination, records |
+| Project Assurance | Independent quality verification |
+| Team Managers | Team-level quality control |
+
+QUALITY METHODS
+| Product Type | Quality Method | Timing | Participants | Records |
+|--------------|----------------|--------|--------------|---------|
+| Requirements | Formal review | Before baseline | Users, BA, Tech Lead | Review record |
+| Design | Technical review | Before build | Architect, Tech Lead, Developer | Review record |
+| Code/Configuration | Peer review | Before test | Developers | Code review tool |
+| Test artifacts | Walkthrough | Before execution | QA, Test Lead | Checklist |
+| User-facing products | UAT | Before release | User representatives | UAT sign-off |
+| Documentation | Editorial review | Before distribution | Author, Reviewer | Version control |
+
+QUALITY CRITERIA TEMPLATE
+For each product, quality criteria will specify:
+• Purpose: What the product is for
+• Composition: What it contains
+• Format: How it is structured/presented
+• Quality Criteria: Measurable standards it must meet
+• Quality Method: How it will be verified
+• Quality Tolerance: Acceptable deviation from criteria
+
+QUALITY REGISTER
+A Quality Register will be maintained to track:
+• Product identifier
+• Quality reviews planned/completed
+• Review outcomes
+• Follow-up actions
+• Sign-off status
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 6: RISK MANAGEMENT STRATEGY
+═══════════════════════════════════════════════════════════════════════════════
+
+RISK MANAGEMENT STRATEGY
+
+RISK MANAGEMENT APPROACH
+---
+Risks will be actively managed throughout the project through:
+1. Regular identification in team meetings and reviews
+2. Assessment using defined probability/impact scales
+3. Response planning for all significant risks
+4. Monitoring and escalation as appropriate
+---
+
+RISK TOLERANCE
+| Dimension | Tolerance | Escalation Trigger |
+|-----------|-----------|-------------------|
+| Cost | ±[X]% of stage budget | Forecast breach of tolerance |
+| Time | ±[X] days per stage | Forecast breach of tolerance |
+| Scope | [Defined flexibility] | Change affecting baseline |
+| Quality | [Minimum standards] | Quality criteria not achievable |
+| Benefits | ±[X]% of target | Benefits at risk |
+
+RISK CATEGORIES
+| Category | Description | Example Risks |
+|----------|-------------|---------------|
+| Strategic | Alignment with business objectives | Strategy change, competing priorities |
+| Commercial | Contracts, suppliers, market | Vendor failure, price increases |
+| Financial | Budget, funding, ROI | Cost overrun, benefits shortfall |
+| Technical | Technology, architecture | Integration failure, performance |
+| Operational | BAU impact, transition | User adoption, support readiness |
+| Organizational | Resources, structure, culture | Key person loss, change resistance |
+| External | Regulatory, economic, environmental | Compliance changes, market shifts |
+
+PROBABILITY SCALE
+| Level | Score | Definition | Likelihood |
+|-------|-------|------------|------------|
+| Very Low | 1 | Rare, exceptional circumstances | < 10% |
+| Low | 2 | Unlikely but possible | 10-25% |
+| Medium | 3 | Fairly likely to occur | 25-50% |
+| High | 4 | More likely than not | 50-75% |
+| Very High | 5 | Almost certain | > 75% |
+
+IMPACT SCALE
+| Level | Score | Cost Impact | Time Impact | Quality Impact |
+|-------|-------|-------------|-------------|----------------|
+| Very Low | 1 | < $[X] | < [X] days | Minor inconvenience |
+| Low | 2 | $[X]-$[X] | [X]-[X] days | Workaround available |
+| Medium | 3 | $[X]-$[X] | [X]-[X] days | Some objectives compromised |
+| High | 4 | $[X]-$[X] | [X]-[X] days | Major objective at risk |
+| Very High | 5 | > $[X] | > [X] days | Project viability threatened |
+
+RISK MATRIX
+| Probability / Impact | Very Low (1) | Low (2) | Medium (3) | High (4) | Very High (5) |
+|---------------------|--------------|---------|------------|----------|---------------|
+| Very High (5) | 5 | 10 | 15 | 20 | 25 |
+| High (4) | 4 | 8 | 12 | 16 | 20 |
+| Medium (3) | 3 | 6 | 9 | 12 | 15 |
+| Low (2) | 2 | 4 | 6 | 8 | 10 |
+| Very Low (1) | 1 | 2 | 3 | 4 | 5 |
+
+Risk Thresholds:
+• 1-4: Accept (monitor only)
+• 5-9: Manage (active response planning)
+• 10-14: Escalate (Project Manager to Project Board awareness)
+• 15+: Critical (Immediate Project Board action required)
+
+RISK RESPONSE TYPES
+| Response | Description | When to Use |
+|----------|-------------|-------------|
+| Avoid | Eliminate the risk entirely | High impact, can change approach |
+| Reduce | Decrease probability or impact | Most common, controllable risks |
+| Transfer | Move risk to third party | Financial/contractual risks |
+| Share | Partner to manage together | Joint ventures, shared outcomes |
+| Accept | Acknowledge and monitor | Low risks, unavoidable risks |
+| Prepare Contingency | Plan for if risk occurs | Significant risks that may occur |
+
+RISK BUDGET
+---
+Risk Budget Allocation: $[X] ([X]% of project budget)
+Authority to use: Project Manager up to $[X], Project Board above
+Purpose: Fund risk responses and contingency actions
+Tracking: Reported in Highlight Reports
+---
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 7: COMMUNICATION MANAGEMENT STRATEGY
+═══════════════════════════════════════════════════════════════════════════════
+
+COMMUNICATION MANAGEMENT STRATEGY
+
+STAKEHOLDER ANALYSIS
+| Stakeholder | Interest | Influence | Current Attitude | Desired Attitude | Strategy |
+|-------------|----------|-----------|------------------|------------------|----------|
+| [Stakeholder 1] | [What they care about] | [H/M/L] | [Supportive/Neutral/Resistant] | [Target] | [Engagement approach] |
+| [Stakeholder 2] | | | | | |
+| [Stakeholder 3] | | | | | |
+| [Stakeholder 4] | | | | | |
+
+COMMUNICATION METHODS
+| Method | Purpose | Frequency | Audience | Owner | Format |
+|--------|---------|-----------|----------|-------|--------|
+| Highlight Report | Progress update | [Weekly/Fortnightly] | Project Board | PM | Standard template |
+| Checkpoint Report | Team progress | [Weekly] | PM | Team Manager | Standard template |
+| Project Board Meeting | Decisions, escalations | [Monthly/As needed] | Project Board | PM | Agenda + papers |
+| Team Meetings | Coordination | [Daily/Weekly] | Team | Team Manager | Informal |
+| Stakeholder Newsletter | Awareness | [Monthly] | All stakeholders | PM | Email/Intranet |
+| End Stage Report | Stage review | End of each stage | Project Board | PM | Standard template |
+| Exception Report | Issue escalation | As needed | Project Board | PM | Standard template |
+
+COMMUNICATION CALENDAR
+| Report/Event | Jan | Feb | Mar | Apr | May | Jun | Jul | Aug |
+|--------------|-----|-----|-----|-----|-----|-----|-----|-----|
+| Highlight Report | W | W | W | W | W | W | W | W |
+| Project Board | ● | ● | ● | ● | ● | ● | ● | ● |
+| End Stage Report | | ★ | | ★ | | | ★ | |
+
+Legend: W = Weekly, ● = Monthly, ★ = End Stage
+
+ESCALATION PATH
+---
+Level 1: Team Manager → Project Manager (operational issues)
+Level 2: Project Manager → Project Board (tolerance/policy issues)
+Level 3: Project Board → Corporate/Programme (strategic issues)
+
+Escalation Criteria:
+• Forecast breach of stage tolerances
+• Issues requiring policy decision
+• Risks above defined threshold
+• Resource conflicts
+---
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 8: CONFIGURATION MANAGEMENT STRATEGY
+═══════════════════════════════════════════════════════════════════════════════
+
+CONFIGURATION MANAGEMENT STRATEGY
+
+CONFIGURATION MANAGEMENT APPROACH
+---
+All project products will be under configuration control to ensure:
+1. Correct versions are used and referenced
+2. Changes are controlled and traceable
+3. Products can be recovered if needed
+4. Audit trail exists for compliance
+---
+
+CONFIGURATION ITEMS
+| Item Type | Examples | Naming Convention | Storage Location |
+|-----------|----------|-------------------|------------------|
+| Management Products | PID, Plans, Reports | [PRJ]-[TYPE]-[VERSION] | [Location] |
+| Specialist Products | Requirements, Designs | [PRJ]-[PROD]-[VERSION] | [Location] |
+| Technical Products | Code, Configurations | [Standard convention] | [Repository] |
+| External Products | Vendor deliverables | [Vendor convention] | [Location] |
+
+NAMING CONVENTION
+---
+Format: [Project Code]-[Product Type]-[Product Name]-V[Major].[Minor]
+
+Example: CUST-REQ-UserRequirements-V1.2
+
+Version numbering:
+• Major version: Significant change (requires re-approval)
+• Minor version: Editorial/clarification changes
+---
+
+BASELINE MANAGEMENT
+| Baseline | Contents | Timing | Approval |
+|----------|----------|--------|----------|
+| Project Baseline | PID, Project Plan | Project authorization | Project Board |
+| Stage Baseline | Stage Plan, updated PID | Stage authorization | Project Board |
+| Product Baseline | Completed products | Product approval | As per quality plan |
+| Release Baseline | Release package | Release approval | Project Board |
+
+CHANGE CONTROL
+---
+Change Authority:
+• Project Board: Changes affecting project baseline
+• Project Manager: Changes within stage tolerances
+• Team Manager: Minor product changes (no baseline impact)
+
+Change Control Process:
+1. Issue/Change Request raised
+2. Impact assessment completed
+3. Decision by appropriate authority
+4. Implementation (if approved)
+5. Configuration records updated
+---
+
+CONFIGURATION RECORDS
+| Record | Content | Maintained By | Location |
+|--------|---------|---------------|----------|
+| Product Status Account | All products with status | Project Support | [System] |
+| Issue Register | Changes, problems, questions | PM/Project Support | [System] |
+| Configuration Item Records | Detail for each item | Project Support | [System] |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 9: PROJECT PLAN
+═══════════════════════════════════════════════════════════════════════════════
+
+PROJECT PLAN
+
+PLAN OVERVIEW
+---
+Project Duration: [X] months
+Start Date: [Date]
+End Date: [Date]
+Number of Stages: [X] management stages
+---
+
+STAGE STRUCTURE
+| Stage | Name | Duration | Start | End | Key Products |
+|-------|------|----------|-------|-----|--------------|
+| 1 | Initiation | [X] weeks | [Date] | [Date] | PID, Business Case, Plans |
+| 2 | [Stage name] | [X] weeks | [Date] | [Date] | [Key deliverables] |
+| 3 | [Stage name] | [X] weeks | [Date] | [Date] | [Key deliverables] |
+| 4 | [Stage name] | [X] weeks | [Date] | [Date] | [Key deliverables] |
+| 5 | Closure | [X] weeks | [Date] | [Date] | Closure documentation |
+
+MILESTONE SCHEDULE
+| Milestone | Date | Description | Success Criteria |
+|-----------|------|-------------|------------------|
+| Project Authorized | [Date] | PID approved | Project Board sign-off |
+| [Milestone 1] | [Date] | [Description] | [Criteria] |
+| [Milestone 2] | [Date] | [Description] | [Criteria] |
+| [Milestone 3] | [Date] | [Description] | [Criteria] |
+| Project Closed | [Date] | Formal closure | Acceptance, handover complete |
+
+PRODUCT FLOW DIAGRAM
+---
+[High-level representation of major products and dependencies]
+
+Stage 2: [Name]              Stage 3: [Name]              Stage 4: [Name]
+┌──────────┐                 ┌──────────┐                 ┌──────────┐
+│Product A │────────────────▶│Product C │────────────────▶│Product E │
+└──────────┘                 └──────────┘                 └──────────┘
+      │                            │                            │
+      ▼                            ▼                            ▼
+┌──────────┐                 ┌──────────┐                 ┌──────────┐
+│Product B │────────────────▶│Product D │────────────────▶│Product F │
+└──────────┘                 └──────────┘                 └──────────┘
+---
+
+RESOURCE SUMMARY
+| Resource Type | Stage 1 | Stage 2 | Stage 3 | Stage 4 | Stage 5 | Total |
+|---------------|---------|---------|---------|---------|---------|-------|
+| Project Manager | [FTE] | [FTE] | [FTE] | [FTE] | [FTE] | [FTE-months] |
+| Business Analyst | [FTE] | [FTE] | [FTE] | [FTE] | [FTE] | [FTE-months] |
+| Developer | [FTE] | [FTE] | [FTE] | [FTE] | [FTE] | [FTE-months] |
+| Tester | [FTE] | [FTE] | [FTE] | [FTE] | [FTE] | [FTE-months] |
+| [Other role] | [FTE] | [FTE] | [FTE] | [FTE] | [FTE] | [FTE-months] |
+
+BUDGET SUMMARY
+| Category | Stage 1 | Stage 2 | Stage 3 | Stage 4 | Stage 5 | Total |
+|----------|---------|---------|---------|---------|---------|-------|
+| Internal Labor | $[X] | $[X] | $[X] | $[X] | $[X] | $[X] |
+| External Labor | $[X] | $[X] | $[X] | $[X] | $[X] | $[X] |
+| Hardware/Software | $[X] | $[X] | $[X] | $[X] | $[X] | $[X] |
+| Other Costs | $[X] | $[X] | $[X] | $[X] | $[X] | $[X] |
+| Contingency | $[X] | $[X] | $[X] | $[X] | $[X] | $[X] |
+| TOTAL | $[X] | $[X] | $[X] | $[X] | $[X] | $[X] |
+
+PROJECT TOLERANCES
+| Dimension | Project Tolerance | Stage Tolerance | Escalation |
+|-----------|------------------|-----------------|------------|
+| Time | ±[X] weeks | ±[X] days | PM → Project Board |
+| Cost | ±$[X] or [X]% | ±$[X] or [X]% | PM → Project Board |
+| Scope | [Defined changes] | [Defined changes] | PM → Project Board |
+| Quality | [Minimum standards] | [Minimum standards] | PM → Project Board |
+| Benefits | ±[X]% | N/A | Executive → Corporate |
+| Risk | [Risk threshold] | [Risk threshold] | PM → Project Board |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 10: PRINCE2 TAILORING
+═══════════════════════════════════════════════════════════════════════════════
+
+TAILORING DECISIONS
+
+PRINCIPLES TAILORING
+| Principle | Application | Tailoring Rationale |
+|-----------|-------------|---------------------|
+| Continued Business Justification | Business Case reviewed at each stage end | Standard application |
+| Learn from Experience | Lessons captured at start and throughout | Standard application |
+| Defined Roles and Responsibilities | [Any combinations] | [Rationale] |
+| Manage by Stages | [Number of stages, duration] | [Rationale for stage structure] |
+| Manage by Exception | [Tolerance levels defined above] | [Rationale for tolerance levels] |
+| Focus on Products | Product-based planning used | Standard application |
+| Tailor to Suit the Project | [This section documents tailoring] | N/A |
+
+PROCESS TAILORING
+| Process | Tailoring Decision | Rationale |
+|---------|-------------------|-----------|
+| Starting Up | [Standard/Modified] | [Why] |
+| Initiating | [Standard/Modified] | [Why] |
+| Directing | [Board meeting frequency] | [Why this frequency] |
+| Controlling a Stage | [Checkpoint frequency] | [Why this frequency] |
+| Managing Product Delivery | [Team Manager usage] | [Why yes/no] |
+| Managing Stage Boundaries | [End Stage Report format] | [Why] |
+| Closing | [Standard/Modified] | [Why] |
+
+THEME TAILORING
+| Theme | Tailoring Decision | Rationale |
+|-------|-------------------|-----------|
+| Business Case | [Review frequency] | [Why] |
+| Organization | [Role combinations] | [Who combines what, why] |
+| Quality | [Standards, methods] | [Why these choices] |
+| Plans | [Planning tool, format] | [Why] |
+| Risk | [Scales, thresholds] | [Why these levels] |
+| Change | [Change authority levels] | [Why] |
+| Progress | [Reporting frequency] | [Why] |
+
+PRODUCT TAILORING
+| PRINCE2 Product | Tailored Format | Combined With | Rationale |
+|-----------------|-----------------|---------------|-----------|
+| PID | [This document] | All strategies | Single control document |
+| Highlight Report | [Template reference] | N/A | [Why this format] |
+| End Stage Report | [Template reference] | N/A | [Why this format] |
+| Exception Report | [Template reference] | N/A | [Why this format] |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 11: PID APPROVAL
+═══════════════════════════════════════════════════════════════════════════════
+
+PID APPROVAL RECORD
+
+This Project Initiation Documentation represents the agreement between the Project Board and the Project Manager on what the project will deliver, how it will be managed, and the basis for measuring success.
+
+APPROVAL CHECKLIST
+| Section | Complete | Reviewed |
+|---------|----------|----------|
+| Project Definition | □ | □ |
+| Business Case | □ | □ |
+| Project Management Team Structure | □ | □ |
+| Quality Management Strategy | □ | □ |
+| Risk Management Strategy | □ | □ |
+| Communication Management Strategy | □ | □ |
+| Configuration Management Strategy | □ | □ |
+| Project Plan | □ | □ |
+| Tailoring | □ | □ |
+
+APPROVAL SIGNATURES
+
+By signing below, the Project Board authorizes:
+1. The project to proceed as defined in this PID
+2. The Project Manager to manage within the defined tolerances
+3. The resources and budget as specified in the Project Plan
+4. The management approaches defined in the strategies
+
+Executive:
+Name: _________________________ Signature: _________________________ Date: _________
+
+Senior User:
+Name: _________________________ Signature: _________________________ Date: _________
+
+Senior Supplier:
+Name: _________________________ Signature: _________________________ Date: _________
+
+Project Manager (Acknowledgment):
+Name: _________________________ Signature: _________________________ Date: _________
+
+───────────────────────────────────────────────────────────────────────────────
+ANTI-PATTERNS TO AVOID
+───────────────────────────────────────────────────────────────────────────────
+✗ Creating PID as a checkbox exercise without real engagement
+✗ Copying templates without tailoring to project context
+✗ Defining tolerances without understanding what they mean in practice
+✗ Creating strategies that nobody will actually follow
+✗ Naming roles without confirming availability and commitment
+✗ Approving PID without reading and understanding it
+✗ Treating PID as static rather than living document
+✗ Over-engineering small projects with full documentation
+✗ Under-documenting large projects leaving gaps
+✗ Failing to baseline PID so changes can be tracked
+
+───────────────────────────────────────────────────────────────────────────────
+QUALITY INDICATORS FOR PID
+───────────────────────────────────────────────────────────────────────────────
+□ Project definition is clear with unambiguous scope boundaries
+□ Business Case is complete with quantified investment appraisal
+□ All Project Board roles are appointed with named individuals
+□ Quality criteria are measurable, not just descriptive
+□ Risk scales and tolerances are appropriate for project size
+□ Communication plan covers all identified stakeholders
+□ Configuration management is practical and will be followed
+□ Project Plan has realistic resource and budget estimates
+□ Tailoring decisions are justified, not just stated
+□ All strategies are integrated and consistent with each other`,
     variables: [
       { name: 'project_name', description: 'Official project name', example: 'Customer Portal Modernization', required: true },
       { name: 'version', description: 'Document version', example: '1.0', required: true },
       { name: 'date', description: 'Document date', example: 'February 5, 2025', required: true },
     ],
     tier: 'premium',
-    estimatedTimeSaved: '6 hours',
-    tags: ['prince2', 'pid', 'initiation', 'management-strategies', 'business-case', 'AXELOS', 'PRINCE2 7th Edition'],
+    estimatedTimeSaved: '8 hours',
+    tags: ['prince2', 'pid', 'initiation', 'management-strategies', 'business-case', 'AXELOS', 'PRINCE2 7th Edition', 'Quality Strategy', 'Risk Strategy'],
   },
 
   // PRINCE2 - Stage Planning Phase
@@ -29365,30 +31216,496 @@ Generate complete PID with:
     phase: 'Stage Planning',
     canonicalPhase: 2,
     description: 'Generate detailed PRINCE2 Stage Plans with product breakdown, activity scheduling, resource allocation, and stage tolerances.',
-    template: `You are a PRINCE2 Practitioner specializing in stage planning. Generate comprehensive Stage Plans for Project Board authorization.
+    template: `You are a PRINCE2 Practitioner Expert specializing in product-based planning and stage management. Your Stage Plans provide the detailed roadmap that enables Project Managers to deliver within tolerances while giving the Project Board confidence that appropriate controls are in place.
 
-PROJECT: {{project_name}}
-STAGE: {{stage_name}}
-STAGE NUMBER: {{stage_number}}
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 1: STAGE PLAN CONTEXT
+═══════════════════════════════════════════════════════════════════════════════
 
-Generate complete Stage Plan with:
-1. PLAN DESCRIPTION - Stage purpose, objectives, approach
-2. PRODUCT BREAKDOWN STRUCTURE - Products with descriptions and quality criteria
-3. PRODUCT FLOW DIAGRAM - Dependencies between products
-4. ACTIVITY SCHEDULE - Activities, milestones, Gantt chart with critical path
-5. RESOURCE PLAN - Requirements, loading, conflicts/constraints
-6. STAGE BUDGET - Categories including risk and change budgets
-7. STAGE TOLERANCES - Time, cost, scope, quality, risk with escalation triggers
-8. CONTROLS AND REPORTING - Checkpoint meetings, highlight reports, quality reviews
-9. RISKS FOR THIS STAGE - Stage-specific risks and risk budget allocation`,
+STAGE IDENTIFICATION
+---
+Project: {{project_name}}
+Stage Name: {{stage_name}}
+Stage Number: {{stage_number}}
+Plan Author: [Project Manager name]
+Plan Date: [Date]
+Plan Version: [Version]
+Plan Status: [Draft/For Approval/Approved/Baseline]
+---
+
+STAGE CONTEXT
+---
+Previous Stage: [Name and outcome - completed/current]
+Following Stage: [Name - planned/TBD]
+Stage Purpose: [Why this stage exists in the project structure]
+
+Link to Project Plan:
+- This stage delivers: [Products from Project Plan]
+- Stage duration: [X weeks] of [Total project duration]
+- Stage budget: $[X] of $[Total project budget]
+---
+
+PLANNING PREREQUISITES
+□ End Stage Report from previous stage reviewed (if applicable)
+□ Lessons from previous stage incorporated
+□ Project Plan reviewed for stage boundaries
+□ Business Case still valid
+□ Project Board authorization to plan this stage
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 2: STAGE OBJECTIVES AND APPROACH
+═══════════════════════════════════════════════════════════════════════════════
+
+STAGE OBJECTIVES
+| ID | Objective | Success Criteria | Priority |
+|----|-----------|------------------|----------|
+| SO-01 | [Primary stage objective] | [Measurable criteria] | Must Have |
+| SO-02 | [Secondary objective] | [Measurable criteria] | Must Have |
+| SO-03 | [Additional objective] | [Measurable criteria] | Should Have |
+| SO-04 | [Optional objective] | [Measurable criteria] | Could Have |
+
+DELIVERY APPROACH FOR THIS STAGE
+---
+Approach: [Waterfall/Iterative/Agile/Hybrid within stage]
+Rationale: [Why this approach for this stage]
+
+Key Characteristics:
+• [Characteristic 1 - e.g., sequential design-build-test]
+• [Characteristic 2 - e.g., iterative user feedback loops]
+• [Characteristic 3 - e.g., phased deployment]
+
+Major Dependencies:
+• [Dependency 1] - [Source] - [Impact if not met]
+• [Dependency 2] - [Source] - [Impact if not met]
+---
+
+STAGE BOUNDARIES
+---
+Stage Start Trigger: [Authorization from Project Board]
+Stage End Criteria:
+□ All mandatory products completed and approved
+□ Stage objectives achieved or formally descoped
+□ End Stage Report prepared
+□ Next Stage Plan prepared (if applicable)
+□ Updated Business Case reviewed
+□ Project Board authorization to proceed or close
+---
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 3: PRODUCT BREAKDOWN STRUCTURE
+═══════════════════════════════════════════════════════════════════════════════
+
+PRODUCT HIERARCHY
+---
+Stage: {{stage_name}}
+├── [Product Group 1]
+│   ├── Product 1.1: [Name]
+│   ├── Product 1.2: [Name]
+│   └── Product 1.3: [Name]
+├── [Product Group 2]
+│   ├── Product 2.1: [Name]
+│   ├── Product 2.2: [Name]
+│   └── Product 2.3: [Name]
+├── [Product Group 3]
+│   ├── Product 3.1: [Name]
+│   └── Product 3.2: [Name]
+└── [Management Products]
+    ├── Checkpoint Reports
+    ├── Highlight Reports
+    └── End Stage Report
+---
+
+PRODUCT DESCRIPTIONS
+
+PRODUCT: [Product 1.1 Name]
+---
+Identifier: [PRJ]-[STG]-[PROD]-001
+Purpose: [What this product is for]
+Composition:
+• [Component 1]
+• [Component 2]
+• [Component 3]
+Derivation: [Source information/inputs]
+Format and Presentation: [How it should be delivered]
+Development Skills Required: [Skills needed to create]
+Quality Criteria:
+• [Criterion 1 - measurable]
+• [Criterion 2 - measurable]
+• [Criterion 3 - measurable]
+Quality Tolerance: [Acceptable deviation from criteria]
+Quality Method: [How quality will be checked]
+Quality Responsibilities:
+- Producer: [Role/name]
+- Reviewer: [Role/name]
+- Approver: [Role/name]
+---
+
+[Repeat Product Description template for each product]
+
+PRODUCT CHECKLIST
+| Product ID | Product Name | Type | Priority | Producer | Approver |
+|------------|--------------|------|----------|----------|----------|
+| [ID] | [Name] | [Specialist/Management] | [M/S/C] | [Role] | [Role] |
+| [ID] | [Name] | | | | |
+| [ID] | [Name] | | | | |
+| [ID] | [Name] | | | | |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 4: PRODUCT FLOW DIAGRAM
+═══════════════════════════════════════════════════════════════════════════════
+
+PRODUCT DEPENDENCIES
+---
+[External Inputs]          [Stage Products]                    [Stage Outputs]
+
+┌─────────────┐           ┌─────────────┐
+│  Previous   │──────────▶│  Product    │
+│   Stage     │           │    1.1      │──────┐
+│  Products   │           └─────────────┘      │
+└─────────────┘                  │             │
+                                 ▼             │
+┌─────────────┐           ┌─────────────┐      │         ┌─────────────┐
+│  External   │──────────▶│  Product    │──────┼────────▶│   Next      │
+│   Input     │           │    1.2      │      │         │   Stage     │
+└─────────────┘           └─────────────┘      │         │   Input     │
+                                 │             │         └─────────────┘
+                                 ▼             │
+                          ┌─────────────┐      │
+                          │  Product    │──────┘
+                          │    2.1      │
+                          └─────────────┘
+---
+
+DEPENDENCY MATRIX
+| Product | Depends On | Enables | Critical Path? |
+|---------|------------|---------|----------------|
+| 1.1 | [Previous stage output] | 1.2, 2.1 | Yes |
+| 1.2 | 1.1, External input | 2.1 | Yes |
+| 2.1 | 1.1, 1.2 | Next stage | Yes |
+| 1.3 | 1.1 | 2.2 | No |
+
+EXTERNAL DEPENDENCIES
+| Dependency | Source | Required By | Status | Risk if Delayed |
+|------------|--------|-------------|--------|-----------------|
+| [Input 1] | [External project/team] | [Date] | [Confirmed/At Risk] | [Impact] |
+| [Input 2] | [Vendor] | [Date] | [Confirmed/At Risk] | [Impact] |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 5: ACTIVITY SCHEDULE
+═══════════════════════════════════════════════════════════════════════════════
+
+ACTIVITIES DERIVED FROM PRODUCTS
+| Activity ID | Activity | Product(s) | Effort | Duration | Dependencies |
+|-------------|----------|------------|--------|----------|--------------|
+| A-001 | [Activity name] | [Product ID] | [X days] | [X days] | - |
+| A-002 | [Activity name] | [Product ID] | [X days] | [X days] | A-001 |
+| A-003 | [Activity name] | [Product ID] | [X days] | [X days] | A-001 |
+| A-004 | [Activity name] | [Product ID] | [X days] | [X days] | A-002, A-003 |
+| A-005 | [Activity name] | [Product ID] | [X days] | [X days] | A-004 |
+
+Note: Effort = work time; Duration = calendar time (accounts for part-time resources)
+
+SCHEDULE SUMMARY (GANTT REPRESENTATION)
+---
+Week:        1    2    3    4    5    6    7    8    9    10
+Activity
+A-001       ████
+A-002            ████████
+A-003            ████
+A-004                    ████████████
+A-005                                    ████████
+QA Review                       ▲              ▲         ▲
+Stage Gate                                              ★
+
+Legend: ████ = Work period, ▲ = Quality Review, ★ = Stage End
+---
+
+MILESTONES
+| Milestone | Date | Description | Success Criteria | Owner |
+|-----------|------|-------------|------------------|-------|
+| Stage Start | [Date] | Stage authorized to begin | PB authorization | PM |
+| [Milestone 1] | [Date] | [Description] | [Criteria] | [Owner] |
+| [Milestone 2] | [Date] | [Description] | [Criteria] | [Owner] |
+| [Milestone 3] | [Date] | [Description] | [Criteria] | [Owner] |
+| Stage End | [Date] | All products delivered | PB authorization to close | PM |
+
+CRITICAL PATH ANALYSIS
+---
+Critical Path: A-001 → A-002 → A-004 → A-005
+Critical Path Duration: [X] days
+Float on non-critical activities:
+- A-003: [X] days float
+- [Activity]: [X] days float
+
+Impact of Critical Path Delay:
+- 1-day delay: [Impact on stage end]
+- 1-week delay: [Impact, potential tolerance breach]
+---
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 6: RESOURCE PLAN
+═══════════════════════════════════════════════════════════════════════════════
+
+RESOURCE REQUIREMENTS
+| Role | Name/TBD | Skills Required | Start | End | Allocation | Source |
+|------|----------|-----------------|-------|-----|------------|--------|
+| [Role 1] | [Name] | [Key skills] | [Date] | [Date] | [X%] | [Internal/External] |
+| [Role 2] | [Name] | [Key skills] | [Date] | [Date] | [X%] | [Internal/External] |
+| [Role 3] | [TBD] | [Key skills] | [Date] | [Date] | [X%] | [To be hired] |
+| [Role 4] | [Name] | [Key skills] | [Date] | [Date] | [X%] | [Internal/External] |
+
+RESOURCE LOADING
+---
+Week:           1    2    3    4    5    6    7    8    9    10
+Resource
+[Name 1]       100% 100% 100%  50%  50%  50%  50% 100% 100% 100%
+[Name 2]        50% 100% 100% 100% 100% 100%  50%  50%  25%   -
+[Name 3]         -    -   50%  50% 100% 100% 100% 100% 100%  50%
+[Name 4]        25%  25%  25%  25%  25%  25%  25%  25%  25%  25%
+---
+
+RESOURCE CONFLICTS AND CONSTRAINTS
+| Resource | Conflict/Constraint | Impact | Resolution |
+|----------|---------------------|--------|------------|
+| [Name 1] | Annual leave Week 5 | [Impact on schedule] | [How resolved] |
+| [Name 2] | Shared with Project X | [Availability risk] | [Escalate/mitigate] |
+| [Role 3] | Not yet recruited | [Start date at risk] | [Contingency plan] |
+
+RESOURCE ASSUMPTIONS
+• [Assumption 1 about resource availability]
+• [Assumption 2 about skill levels]
+• [Assumption 3 about external resources]
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 7: STAGE BUDGET
+═══════════════════════════════════════════════════════════════════════════════
+
+STAGE COST BREAKDOWN
+| Category | Budget | Basis of Estimate | Confidence |
+|----------|--------|-------------------|------------|
+| Internal Labor | $[X] | [X] days @ $[rate] | [H/M/L] |
+| External Labor | $[X] | [X] days @ $[rate] | [H/M/L] |
+| Hardware | $[X] | [Itemized list] | [H/M/L] |
+| Software/Licenses | $[X] | [Itemized list] | [H/M/L] |
+| Environment/Infrastructure | $[X] | [Description] | [H/M/L] |
+| Travel/Expenses | $[X] | [Estimated trips] | [H/M/L] |
+| Training | $[X] | [Courses/materials] | [H/M/L] |
+| Other | $[X] | [Description] | [H/M/L] |
+| **Subtotal** | $[X] | | |
+| Risk Budget | $[X] | [X]% of subtotal | |
+| Change Budget | $[X] | [X]% of subtotal | |
+| **TOTAL Stage Budget** | $[X] | | |
+
+BUDGET PHASING
+| Category | Month 1 | Month 2 | Month 3 | Total |
+|----------|---------|---------|---------|-------|
+| Labor | $[X] | $[X] | $[X] | $[X] |
+| Non-Labor | $[X] | $[X] | $[X] | $[X] |
+| Risk/Change | $[X] | $[X] | $[X] | $[X] |
+| Total | $[X] | $[X] | $[X] | $[X] |
+
+BUDGET ASSUMPTIONS
+• [Assumption 1 about rates]
+• [Assumption 2 about timing]
+• [Assumption 3 about scope]
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 8: STAGE TOLERANCES
+═══════════════════════════════════════════════════════════════════════════════
+
+TOLERANCE DEFINITION
+| Dimension | Stage Tolerance | Escalation Trigger | Response |
+|-----------|-----------------|-------------------|----------|
+| Time | ±[X] days | Forecast breach | Exception Report to PB |
+| Cost | ±$[X] or [X]% | Forecast breach | Exception Report to PB |
+| Scope | [Defined changes] | Beyond defined changes | Exception Report to PB |
+| Quality | [Minimum standards] | Standards not achievable | Exception Report to PB |
+| Risk | [Threat/opportunity threshold] | New risk above threshold | Exception Report to PB |
+| Benefits | [If stage affects benefits] | Benefits at risk | Escalate to Executive |
+
+TOLERANCE MONITORING
+---
+Tolerance Status will be reported in each Highlight Report:
+
+Time Tolerance:
+- Baseline end date: [Date]
+- Current forecast: [Date]
+- Variance: [Days]
+- Status: [Green/Amber/Red]
+
+Cost Tolerance:
+- Stage budget: $[X]
+- Committed: $[X]
+- Forecast: $[X]
+- Variance: $[X]
+- Status: [Green/Amber/Red]
+
+Tolerance RAG Definitions:
+- Green: Within tolerance, no action required
+- Amber: Approaching tolerance, increased monitoring
+- Red: At or beyond tolerance, exception process triggered
+---
+
+EXCEPTION PROCESS
+1. PM identifies forecast tolerance breach
+2. PM prepares Exception Report with options
+3. PM presents to Project Board
+4. Project Board decides:
+   a. Grant exception (new tolerance)
+   b. Approve revised plan (Exception Plan)
+   c. Premature close of stage/project
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 9: CONTROLS AND REPORTING
+═══════════════════════════════════════════════════════════════════════════════
+
+CHECKPOINT MEETINGS
+| Meeting | Frequency | Attendees | Agenda | Output |
+|---------|-----------|-----------|--------|--------|
+| Team Checkpoint | [Daily/Weekly] | PM, Team | Progress, issues, plans | Checkpoint Report |
+| Technical Review | [Weekly/As needed] | Technical team | Technical issues, quality | Review notes |
+| Stakeholder Update | [Fortnightly] | PM, Key stakeholders | Status, upcoming activities | Meeting notes |
+
+CHECKPOINT REPORT CONTENT
+---
+Checkpoint Report for: [Date]
+Team: [Team name]
+Team Manager: [Name]
+
+Progress This Period:
+• [Work completed]
+• [Products delivered]
+
+Planned Next Period:
+• [Work planned]
+• [Products to be delivered]
+
+Issues and Escalations:
+• [Issue 1] - [Status] - [Action required]
+
+Quality Activities:
+• [Reviews completed]
+• [Reviews planned]
+---
+
+HIGHLIGHT REPORT SCHEDULE
+| Report # | Period Covered | Due Date | Key Content Focus |
+|----------|----------------|----------|-------------------|
+| 1 | Week 1-2 | [Date] | Stage start, team mobilization |
+| 2 | Week 3-4 | [Date] | [Key activities this period] |
+| 3 | Week 5-6 | [Date] | [Key activities this period] |
+| 4 | Week 7-8 | [Date] | [Key activities this period] |
+| 5 | Week 9-10 | [Date] | Stage completion, hand-off |
+
+QUALITY REVIEWS
+| Product | Review Type | Planned Date | Reviewers | Chair |
+|---------|-------------|--------------|-----------|-------|
+| [Product 1.1] | [Formal/Informal] | [Date] | [Names] | [Name] |
+| [Product 1.2] | [Formal/Informal] | [Date] | [Names] | [Name] |
+| [Product 2.1] | [Formal/Informal] | [Date] | [Names] | [Name] |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 10: STAGE RISKS
+═══════════════════════════════════════════════════════════════════════════════
+
+STAGE-SPECIFIC RISKS
+| Risk ID | Risk | Prob | Impact | Score | Response | Owner | Actions |
+|---------|------|------|--------|-------|----------|-------|---------|
+| SR-01 | [Risk description] | [H/M/L] | [H/M/L] | [Score] | [Reduce] | [Name] | [Action] |
+| SR-02 | [Risk description] | [H/M/L] | [H/M/L] | [Score] | [Avoid] | [Name] | [Action] |
+| SR-03 | [Risk description] | [H/M/L] | [H/M/L] | [Score] | [Transfer] | [Name] | [Action] |
+| SR-04 | [Risk description] | [H/M/L] | [H/M/L] | [Score] | [Accept] | [Name] | [Monitor] |
+
+RISK BUDGET ALLOCATION
+---
+Total Risk Budget: $[X]
+
+Allocated to specific risks:
+- SR-01: $[X] for [specific response action]
+- SR-02: $[X] for [specific response action]
+
+Unallocated contingency: $[X]
+
+Risk Budget Authority:
+- PM can approve up to $[X] per risk response
+- Above $[X] requires Project Board approval
+---
+
+OPPORTUNITIES
+| Opp ID | Opportunity | Prob | Impact | Response | Owner |
+|--------|-------------|------|--------|----------|-------|
+| SO-01 | [Opportunity description] | [H/M/L] | [H/M/L] | [Exploit/Enhance] | [Name] |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 11: STAGE PLAN APPROVAL
+═══════════════════════════════════════════════════════════════════════════════
+
+PLAN SUMMARY
+---
+Stage: {{stage_name}} ({{stage_number}})
+Duration: [X] weeks ([Start date] to [End date])
+Budget: $[X]
+Key Products: [X] specialist products, [X] management products
+Resources: [X] FTEs peak, [X] FTE-months total
+Critical Risks: [Count] risks above threshold
+---
+
+APPROVAL REQUEST
+This Stage Plan requests Project Board authorization to:
+1. Proceed with Stage {{stage_number}}: {{stage_name}}
+2. Utilize the allocated budget of $[X]
+3. Deliver the products defined in this plan
+4. Operate within the tolerances specified
+5. Proceed to the following stage upon successful completion
+
+APPROVAL SIGNATURES
+
+Plan Prepared By:
+Project Manager: _________________________ Date: _________
+
+Plan Approved By (Project Board):
+
+Executive: _________________________ Date: _________
+
+Senior User: _________________________ Date: _________
+
+Senior Supplier: _________________________ Date: _________
+
+───────────────────────────────────────────────────────────────────────────────
+ANTI-PATTERNS TO AVOID
+───────────────────────────────────────────────────────────────────────────────
+✗ Planning activities without first defining products (activity-based vs product-based)
+✗ Missing product descriptions leading to unclear deliverables
+✗ Ignoring dependencies causing schedule conflicts
+✗ Setting tolerances without understanding implications
+✗ Forgetting to allocate risk budget
+✗ Not identifying critical path leaving schedule vulnerable
+✗ Resource planning without confirming availability
+✗ Copying previous stage plan without tailoring
+✗ Over-optimistic duration estimates without contingency
+✗ Planning without lessons learned from previous stages
+
+───────────────────────────────────────────────────────────────────────────────
+QUALITY INDICATORS FOR STAGE PLAN
+───────────────────────────────────────────────────────────────────────────────
+□ All products have complete Product Descriptions with quality criteria
+□ Product dependencies are identified and shown in Product Flow
+□ Activities are derived from products (not created independently)
+□ Critical path is identified and schedule has appropriate float
+□ Resources are named (not just roles) with confirmed availability
+□ Budget includes risk and change budget allocations
+□ Tolerances are appropriate for stage size and risk
+□ Checkpoint and reporting cadence matches stage duration
+□ Stage-specific risks are identified with costed responses
+□ Plan is approved by full Project Board before stage start`,
     variables: [
       { name: 'project_name', description: 'Project name', example: 'Digital Transformation Program', required: true },
       { name: 'stage_name', description: 'Name of this stage', example: 'Design and Build', required: true },
       { name: 'stage_number', description: 'Stage sequence number', example: '2 of 4', required: true },
     ],
     tier: 'premium',
-    estimatedTimeSaved: '4 hours',
-    tags: ['prince2', 'stage-plan', 'product-breakdown', 'scheduling', 'tolerances', 'AXELOS', 'PRINCE2 7th Edition'],
+    estimatedTimeSaved: '5 hours',
+    tags: ['prince2', 'stage-plan', 'product-breakdown', 'scheduling', 'tolerances', 'AXELOS', 'PRINCE2 7th Edition', 'Product-Based Planning', 'Critical Path'],
   },
 
   // Agile - Iteration Execution Phase
@@ -29399,22 +31716,432 @@ Generate complete Stage Plan with:
     phase: 'Iteration Execution',
     canonicalPhase: 3,
     description: 'Generate comprehensive iteration tracking with impediment management, daily standup optimization, and real-time progress visualization.',
-    template: `You are an Agile Coach and Delivery Lead. Generate comprehensive tracking and coordination tools that maximize team productivity.
+    template: `You are an Agile Coach and Delivery Lead with 15+ years experience optimizing team execution across diverse domains. Your iteration tracking systems have consistently helped teams achieve 20-30% throughput improvements while maintaining sustainable pace and high quality.
 
-ITERATION IDENTITY:
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 1: ITERATION CONTEXT & SETUP
+═══════════════════════════════════════════════════════════════════════════════
+
+ITERATION IDENTITY
+---
 Team: {{team_name}}
 Iteration: {{iteration_name}}
 Duration: {{iteration_dates}}
+Working Days: [X days]
+Team Capacity: [X story points / hours]
 Goal: {{iteration_goal}}
+---
 
-Generate execution tracking for:
-1. DAILY STANDUP INTELLIGENCE - Walk the Board structure, health check indicators
-2. WORK IN PROGRESS DASHBOARD - Backlog status, WIP limits, burndown, velocity
-3. IMPEDIMENT MANAGEMENT - Active blockers, escalation path, patterns
-4. COLLABORATION & SWARMING - Triggers, pairing schedule, knowledge sharing
-5. QUALITY CHECKPOINTS - Definition of Done tracking, technical debt, code review queue
-6. STAKEHOLDER COMMUNICATION - Status summary with health indicator
-7. ITERATION HEALTH ASSESSMENT - Team health pulse, anti-patterns, course corrections`,
+ITERATION GOAL VALIDATION
+| Criterion | Assessment | Notes |
+|-----------|------------|-------|
+| Specific | [Yes/No] | [Is goal clearly defined?] |
+| Measurable | [Yes/No] | [How will we know it's achieved?] |
+| Achievable | [Yes/No] | [Within team capacity?] |
+| Relevant | [Yes/No] | [Aligned with product/sprint vision?] |
+| Time-bound | [Yes/No] | [Within iteration timeframe?] |
+
+TEAM COMPOSITION THIS ITERATION
+| Member | Role | Availability | Notes |
+|--------|------|--------------|-------|
+| [Name 1] | [Developer/QA/etc.] | [100%/80%/etc.] | [PTO, training, etc.] |
+| [Name 2] | | | |
+| [Name 3] | | | |
+| [Name 4] | | | |
+
+CAPACITY CALCULATION
+---
+Ideal Days: [Team size] × [Working days] = [X] ideal days
+Availability Factor: [Account for meetings, overhead] = [X]%
+Effective Capacity: [X] ideal days × [X]% = [X] effective days
+Velocity-Based: [Historical velocity] = [X] story points
+Planned Commitment: [X] story points ([X]% of capacity)
+---
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 2: DAILY STANDUP INTELLIGENCE
+═══════════════════════════════════════════════════════════════════════════════
+
+STANDUP STRUCTURE: WALK THE BOARD
+---
+Time: [Time] ([X] minutes max)
+Format: Focus on work items, not people
+Facilitator: [Rotating/Scrum Master]
+
+Walk the Board Flow (Right to Left):
+1. DONE column → Celebrate completions, verify DoD
+2. IN REVIEW → Unblock reviews, identify aging items
+3. IN PROGRESS → Surface blockers, identify swarming needs
+4. TO DO → Pull readiness, priority clarification
+5. BLOCKED → Immediate escalation and resolution planning
+---
+
+DAILY STANDUP TEMPLATE
+---
+Date: [Date] | Day [X] of [Y]
+
+ITERATION GOAL CHECK: [On Track / At Risk / Off Track]
+
+BOARD WALK:
+DONE (since yesterday):
+• [Item ID] - [Title] - Completed by [Name]
+
+IN REVIEW:
+• [Item ID] - [Title] - Waiting for [X] days - Reviewer: [Name]
+  ⚠️ [Flag if > 1 day]
+
+IN PROGRESS:
+• [Item ID] - [Title] - [Name] - [Status/Notes]
+  🚧 Blocker: [If any]
+
+BLOCKED:
+• [Item ID] - [Title] - Blocked by: [Reason]
+  → Action: [What will unblock] - Owner: [Name] - ETA: [When]
+
+TODAY'S FOCUS:
+• [Priority 1]
+• [Priority 2]
+
+TEAM ANNOUNCEMENTS:
+• [Any relevant info]
+
+PARKING LOT (Discuss after standup):
+• [Topic] - [Who needs to be involved]
+---
+
+STANDUP HEALTH INDICATORS
+| Indicator | Target | Today | Trend |
+|-----------|--------|-------|-------|
+| Duration | <15 min | [X] min | [↑/↓/→] |
+| Attendance | 100% | [X]% | |
+| Items Blocked | 0 | [X] | |
+| Items in Review >1 day | 0 | [X] | |
+| Action items from yesterday resolved | 100% | [X]% | |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 3: WORK IN PROGRESS DASHBOARD
+═══════════════════════════════════════════════════════════════════════════════
+
+ITERATION BACKLOG STATUS
+| ID | Title | Type | Points | Status | Assignee | Days in Status |
+|----|-------|------|--------|--------|----------|----------------|
+| [ID] | [Title] | [Story/Bug/Task] | [X] | [To Do/In Progress/etc.] | [Name] | [X] |
+
+COLUMN SUMMARY
+| Column | Count | WIP Limit | Status | Points |
+|--------|-------|-----------|--------|--------|
+| To Do | [X] | - | - | [X] |
+| In Progress | [X] | [Limit] | [OK/Over] | [X] |
+| In Review | [X] | [Limit] | [OK/Over] | [X] |
+| Done | [X] | - | - | [X] |
+| TOTAL | [X] | | | [X] |
+
+WIP LIMIT ENFORCEMENT
+---
+Development WIP Limit: [X] items per developer
+Review WIP Limit: [X] items total
+Current State: [Within limits / Exceeding by X]
+
+When WIP Exceeded:
+1. Stop starting new work
+2. Focus on completing in-progress items
+3. Swarm on blocked items
+4. Pair to reduce review queue
+---
+
+BURNDOWN CHART DATA
+| Day | Planned Remaining | Actual Remaining | Ideal Line |
+|-----|-------------------|------------------|------------|
+| 1 | [X] | [X] | [X] |
+| 2 | [X] | [X] | [X] |
+| 3 | [X] | [X] | [X] |
+| ... | | | |
+
+BURNDOWN ANALYSIS
+---
+Planned Velocity: [X] points/day
+Actual Velocity (to date): [X] points/day
+Projected Completion: [X] points by iteration end
+Gap: [X] points [above/below] plan
+
+Burndown Pattern: [Healthy / Front-loaded / Back-loaded / Flat / Concerning]
+Recommended Action: [None needed / Swarm / Reduce scope / Escalate]
+---
+
+VELOCITY TRACKING
+| Iteration | Committed | Completed | Velocity | Notes |
+|-----------|-----------|-----------|----------|-------|
+| [N-2] | [X] | [X] | [X] | |
+| [N-1] | [X] | [X] | [X] | |
+| Current | [X] | [X] (projected) | [X] | |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 4: IMPEDIMENT MANAGEMENT
+═══════════════════════════════════════════════════════════════════════════════
+
+ACTIVE IMPEDIMENTS
+| ID | Impediment | Raised | Impact | Owner | Status | Target Resolution |
+|----|------------|--------|--------|-------|--------|-------------------|
+| IMP-001 | [Description] | [Date] | [H/M/L] | [Name] | [Active/Resolved] | [Date] |
+| IMP-002 | | | | | | |
+
+IMPEDIMENT DETAIL: IMP-001
+---
+Description: [Detailed description of the blocker]
+Affected Work Items: [List of blocked items]
+Impact Assessment:
+- Story Points Blocked: [X]
+- Team Members Affected: [Names]
+- Iteration Goal Impact: [How it affects the goal]
+
+Root Cause: [Why this impediment exists]
+Resolution Plan:
+1. [Action 1] - [Owner] - [Date]
+2. [Action 2] - [Owner] - [Date]
+
+Escalation Status: [Not escalated / Escalated to X on Date]
+---
+
+ESCALATION PATH
+---
+Level 1: Team self-resolution (0-4 hours)
+Level 2: Scrum Master intervention (4-24 hours)
+Level 3: Product Owner/Management escalation (24-48 hours)
+Level 4: Executive escalation (>48 hours)
+
+Current Escalation Triggers:
+- Any impediment blocking >2 team members
+- Any impediment lasting >24 hours
+- Any impediment threatening iteration goal
+---
+
+IMPEDIMENT PATTERNS (Last 5 Iterations)
+| Category | Count | Examples | Systemic Issue? |
+|----------|-------|----------|-----------------|
+| Environment | [X] | [Examples] | [Yes/No] |
+| Dependencies | [X] | [Examples] | [Yes/No] |
+| Requirements | [X] | [Examples] | [Yes/No] |
+| Technical | [X] | [Examples] | [Yes/No] |
+| Process | [X] | [Examples] | [Yes/No] |
+
+Systemic Issues to Address:
+• [Issue 1] - [Proposed solution] - [Owner]
+• [Issue 2] - [Proposed solution] - [Owner]
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 5: COLLABORATION & SWARMING
+═══════════════════════════════════════════════════════════════════════════════
+
+SWARMING TRIGGERS
+---
+Trigger swarming when:
+□ Work item in progress > [X] days (50% of iteration)
+□ Work item blocked and no individual resolution path
+□ Burndown shows concerning pattern
+□ Team member overwhelmed with WIP
+□ Critical path item at risk
+---
+
+CURRENT SWARMING OPPORTUNITIES
+| Item | Current Owner | Days Active | Recommended Swarming | Participants |
+|------|---------------|-------------|---------------------|--------------|
+| [ID] | [Name] | [X] | [Yes/No] | [Suggested names] |
+
+PAIRING SCHEDULE
+| Day | Pair | Focus | Outcome |
+|-----|------|-------|---------|
+| Monday | [Name A + Name B] | [Item ID or skill transfer] | |
+| Tuesday | [Name C + Name D] | [Item ID or skill transfer] | |
+| ... | | | |
+
+KNOWLEDGE SHARING THIS ITERATION
+| Topic | Owner | Format | Scheduled | Attendees |
+|-------|-------|--------|-----------|-----------|
+| [Topic 1] | [Name] | [Demo/Walkthrough/Doc] | [Date/Time] | [Team/Optional] |
+| [Topic 2] | | | | |
+
+COLLABORATION METRICS
+| Metric | Target | Actual | Notes |
+|--------|--------|--------|-------|
+| Pairing sessions/week | [X] | [X] | |
+| Knowledge shares/iteration | [X] | [X] | |
+| Code reviews completed same day | [X]% | [X]% | |
+| Cross-functional collaboration | [X] instances | [X] | |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 6: QUALITY CHECKPOINTS
+═══════════════════════════════════════════════════════════════════════════════
+
+DEFINITION OF DONE TRACKING
+| Criterion | Required | Items Meeting | Items Not Meeting |
+|-----------|----------|---------------|-------------------|
+| Code complete | ☑ | [List] | [List] |
+| Unit tests passing | ☑ | [List] | [List] |
+| Code reviewed | ☑ | [List] | [List] |
+| Integration tests passing | ☑ | [List] | [List] |
+| Documentation updated | ☑ | [List] | [List] |
+| Acceptance criteria met | ☑ | [List] | [List] |
+| No critical bugs | ☑ | [List] | [List] |
+| Deployed to staging | ☑ | [List] | [List] |
+
+TECHNICAL DEBT TRACKING
+| Item | Type | Severity | Estimated Effort | Planned Iteration |
+|------|------|----------|------------------|-------------------|
+| [Debt 1] | [Code/Test/Infra/Doc] | [H/M/L] | [X] hours | [This/Next/Backlog] |
+| [Debt 2] | | | | |
+
+Technical Debt Budget This Iteration: [X]% of capacity = [X] points
+Technical Debt Addressed: [X] points
+
+CODE REVIEW QUEUE
+| PR/MR | Author | Reviewer | Submitted | Age | Priority |
+|-------|--------|----------|-----------|-----|----------|
+| [ID] | [Name] | [Name] | [Date/Time] | [X hours] | [Critical/Normal] |
+
+Review SLA: [X] hours for normal, [X] hours for critical
+Items Exceeding SLA: [Count]
+
+QUALITY METRICS
+| Metric | Target | This Iteration | Trend |
+|--------|--------|----------------|-------|
+| Defect escape rate | <[X]% | [X]% | [↑/↓/→] |
+| Test coverage | >[X]% | [X]% | |
+| Build success rate | >[X]% | [X]% | |
+| Automated test pass rate | >[X]% | [X]% | |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 7: STAKEHOLDER COMMUNICATION
+═══════════════════════════════════════════════════════════════════════════════
+
+ITERATION STATUS SUMMARY (For Stakeholders)
+---
+Team: {{team_name}}
+Iteration: {{iteration_name}} ({{iteration_dates}})
+Report Date: [Date]
+
+OVERALL STATUS: [🟢 On Track / 🟡 At Risk / 🔴 Off Track]
+
+ITERATION GOAL: {{iteration_goal}}
+Goal Progress: [X]% complete
+
+KEY ACCOMPLISHMENTS (This Period):
+• [Accomplishment 1]
+• [Accomplishment 2]
+• [Accomplishment 3]
+
+PLANNED (Next Period):
+• [Planned item 1]
+• [Planned item 2]
+
+RISKS & BLOCKERS:
+• [Risk/Blocker 1] - [Mitigation/Status]
+• [Risk/Blocker 2] - [Mitigation/Status]
+
+METRICS SNAPSHOT:
+| Metric | Status |
+|--------|--------|
+| Velocity | [X]/[X] points ([X]% of plan) |
+| Items Complete | [X]/[X] |
+| Blockers | [X] active |
+---
+
+STAKEHOLDER COMMUNICATION SCHEDULE
+| Stakeholder | Frequency | Format | Next Update |
+|-------------|-----------|--------|-------------|
+| Product Owner | Daily | Standup | [Date] |
+| Stakeholders | [Weekly/Bi-weekly] | Email/Demo | [Date] |
+| Leadership | [Weekly/Monthly] | Summary report | [Date] |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 8: ITERATION HEALTH ASSESSMENT
+═══════════════════════════════════════════════════════════════════════════════
+
+DAILY HEALTH CHECK
+---
+Date: [Date]
+
+□ Standup completed on time
+□ All blockers have owners and resolution plans
+□ WIP limits respected
+□ Burndown on track (±10% of ideal)
+□ No items aging beyond threshold
+□ Team energy/morale positive
+
+Overall Health Score: [X]/10
+---
+
+TEAM HEALTH PULSE
+| Dimension | Score (1-5) | Trend | Notes |
+|-----------|-------------|-------|-------|
+| Clarity (Do we know what to do?) | [X] | [↑/↓/→] | |
+| Confidence (Can we do it?) | [X] | | |
+| Collaboration (Are we working well together?) | [X] | | |
+| Pace (Is pace sustainable?) | [X] | | |
+| Fun (Are we enjoying the work?) | [X] | | |
+
+ANTI-PATTERN DETECTION
+| Anti-Pattern | Detected? | Evidence | Remediation |
+|--------------|-----------|----------|-------------|
+| Scope creep | [Yes/No] | [Specific changes] | [Action] |
+| Hero culture | [Yes/No] | [One person overloaded] | [Redistribute] |
+| Goldplating | [Yes/No] | [Over-engineering] | [Focus on DoD] |
+| Late integration | [Yes/No] | [Items not integrating] | [Earlier integration] |
+| Zombie items | [Yes/No] | [Items not moving] | [Swarm or descope] |
+| WIP explosion | [Yes/No] | [Too much in progress] | [Enforce limits] |
+
+COURSE CORRECTIONS
+| Issue | Identified | Action | Owner | Status |
+|-------|------------|--------|-------|--------|
+| [Issue 1] | [Date] | [Specific action] | [Name] | [In Progress/Done] |
+| [Issue 2] | | | | |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 9: END OF DAY CHECKLIST
+═══════════════════════════════════════════════════════════════════════════════
+
+DAILY CLOSE CHECKLIST
+□ Board updated with accurate status
+□ All time logged (if applicable)
+□ Blockers documented and escalated appropriately
+□ Tomorrow's priorities clear
+□ Any critical communications sent
+□ Technical artifacts (code, tests) committed
+
+ITERATION CLOSE PREPARATION (Last 2 Days)
+□ All items targeting completion are in final stages
+□ Demo prepared for iteration review
+□ Incomplete items identified with carryover plan
+□ Retrospective scheduled and agenda prepared
+□ Metrics compiled for review
+□ Stakeholder communication drafted
+
+───────────────────────────────────────────────────────────────────────────────
+ANTI-PATTERNS TO AVOID
+───────────────────────────────────────────────────────────────────────────────
+✗ Treating standup as status reporting instead of coordination
+✗ Ignoring WIP limits leading to context switching waste
+✗ Letting blockers age without escalation
+✗ Working in silos instead of collaborating
+✗ Skipping quality steps to "go faster"
+✗ Not updating the board in real-time
+✗ Waiting until end of iteration to surface problems
+✗ Over-committing capacity without buffer
+✗ Focusing on individual productivity over team flow
+✗ Not celebrating completions and wins
+
+───────────────────────────────────────────────────────────────────────────────
+QUALITY INDICATORS FOR ITERATION EXECUTION
+───────────────────────────────────────────────────────────────────────────────
+□ Daily standup completes in <15 minutes focused on flow
+□ WIP limits respected with explicit exceptions only
+□ Blockers resolved within 24 hours or escalated
+□ Burndown shows steady progress toward goal
+□ Team collaborates through pairing and swarming
+□ Definition of Done consistently applied
+□ Stakeholders informed with appropriate frequency
+□ Course corrections happen early, not at iteration end
+□ Team health metrics monitored and addressed
+□ Iteration goal remains focus throughout`,
     variables: [
       { name: 'team_name', description: 'Agile team name', example: 'Platform Tigers', required: true },
       { name: 'iteration_name', description: 'Iteration identifier', example: 'Sprint 14', required: true },
@@ -29422,178 +32149,3310 @@ Generate execution tracking for:
       { name: 'iteration_goal', description: 'Iteration goal statement', example: 'Complete user authentication flow', required: true },
     ],
     tier: 'premium',
-    estimatedTimeSaved: '2 hours',
-    tags: ['agile', 'iteration', 'standup', 'execution', 'impediments', 'tracking', 'Agile Alliance', 'Flow Optimization'],
+    estimatedTimeSaved: '3 hours',
+    tags: ['agile', 'iteration', 'standup', 'execution', 'impediments', 'tracking', 'Agile Alliance', 'Flow Optimization', 'WIP Limits', 'Swarming'],
   },
 
   // Scrum - Release Phase
   {
     id: 'scrum-rel-1',
-    title: 'Scrum Release Planning & Deployment Coordinator',
+    title: 'Scrum Release Planning & Deployment Mastery',
     framework: 'scrum',
     phase: 'Release',
     canonicalPhase: 5,
-    description: 'Generate comprehensive release planning with deployment coordination, stakeholder communication, and rollback procedures.',
-    template: `You are a Scrum Master and Release Manager. Generate release documentation ensuring smooth deployments and clear communication.
+    description: 'Generate comprehensive release planning with deployment coordination, stakeholder communication, rollback procedures, and post-release monitoring aligned with Scrum Guide 2020 and DevOps best practices.',
+    template: `You are an expert Scrum Master with Release Train Engineering expertise and DevOps mastery. Your role is to orchestrate flawless product releases that deliver maximum value to users while maintaining system stability. Generate comprehensive release documentation based on the Scrum Guide 2020 increment delivery principles and modern continuous delivery practices.
 
-RELEASE IDENTITY:
-Product: {{product_name}}
-Release Version: {{release_version}}
-Release Date: {{release_date}}
-Product Owner: {{product_owner}}
+═══════════════════════════════════════════════════════════════════════════════
+RELEASE IDENTITY & CONTEXT
+═══════════════════════════════════════════════════════════════════════════════
 
-Generate comprehensive release package:
-1. RELEASE SCOPE - Sprints included, increment contents, DoD verification
-2. RELEASE VALUE SUMMARY - Business value, user outcomes, metrics improvement
-3. STAKEHOLDER COMMUNICATION - Announcement template, schedule by audience
-4. DEPLOYMENT PLAN - Strategy, sequence with timing, environment readiness
-5. RISK MITIGATION & ROLLBACK - Risks, automatic rollback triggers, procedure
-6. POST-RELEASE MONITORING - Dashboard, metrics to watch, support escalation, hypercare
-7. RELEASE CHECKLIST & SIGN-OFF - Pre-release checklist, authorization signatures`,
+**Product Information:**
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Product Name:        {{product_name}}                                       │
+│ Release Version:     {{release_version}}                                    │
+│ Release Date:        {{release_date}}                                       │
+│ Product Owner:       {{product_owner}}                                      │
+│ Scrum Master:        {{scrum_master}}                                       │
+│ Development Team:    {{dev_team_size}} members                              │
+│ Release Type:        {{release_type}}                                       │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+**Release Classification:**
+□ Major Release (X.0.0) - Significant new features, potential breaking changes
+□ Minor Release (x.X.0) - New features, backward compatible
+□ Patch Release (x.x.X) - Bug fixes, security updates, no new features
+□ Hotfix Release - Emergency production fix
+□ Feature Release - Single feature deployment (feature flag controlled)
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 1: RELEASE SCOPE DEFINITION
+═══════════════════════════════════════════════════════════════════════════════
+
+**Sprint Inclusion Analysis:**
+
+| Sprint | Dates | Sprint Goal | Items Completed | DoD Status |
+|--------|-------|-------------|-----------------|------------|
+| Sprint N-3 | [dates] | [goal] | [X of Y PBIs] | ✓ Verified |
+| Sprint N-2 | [dates] | [goal] | [X of Y PBIs] | ✓ Verified |
+| Sprint N-1 | [dates] | [goal] | [X of Y PBIs] | ✓ Verified |
+| Sprint N | [dates] | [goal] | [X of Y PBIs] | ✓ Verified |
+
+**Product Backlog Items Included:**
+
+| PBI ID | Title | Type | Story Points | Sprint | DoD Verified |
+|--------|-------|------|--------------|--------|--------------|
+| [ID] | [title] | Feature | [pts] | [sprint] | □ Yes □ No |
+| [ID] | [title] | Enhancement | [pts] | [sprint] | □ Yes □ No |
+| [ID] | [title] | Bug Fix | [pts] | [sprint] | □ Yes □ No |
+| [ID] | [title] | Tech Debt | [pts] | [sprint] | □ Yes □ No |
+| [ID] | [title] | Security | [pts] | [sprint] | □ Yes □ No |
+
+**Definition of Done Verification Matrix:**
+
+| DoD Criterion | Verification Method | Status | Verified By |
+|---------------|---------------------|--------|-------------|
+| Code complete & peer reviewed | PR approval records | □ Pass □ Fail | |
+| Unit tests written & passing | CI pipeline results | □ Pass □ Fail | |
+| Integration tests passing | Integration test suite | □ Pass □ Fail | |
+| Acceptance criteria met | PO acceptance | □ Pass □ Fail | |
+| Documentation updated | Doc review checklist | □ Pass □ Fail | |
+| No critical defects open | Bug tracker query | □ Pass □ Fail | |
+| Performance benchmarks met | Performance test results | □ Pass □ Fail | |
+| Security scan passed | Security tool report | □ Pass □ Fail | |
+| Accessibility compliant | A11y audit results | □ Pass □ Fail | |
+| Deployed to staging | Deployment logs | □ Pass □ Fail | |
+
+**Exclusions & Deferrals:**
+
+| PBI ID | Title | Reason for Exclusion | Target Release | Impact Assessment |
+|--------|-------|---------------------|----------------|-------------------|
+| [ID] | [title] | [DoD not met/Scope creep/etc.] | [version] | [impact] |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 2: RELEASE VALUE SUMMARY
+═══════════════════════════════════════════════════════════════════════════════
+
+**Business Value Delivered:**
+
+| Value Category | Description | Quantified Impact | Measurement Method |
+|----------------|-------------|-------------------|-------------------|
+| Revenue Impact | [description] | [estimate] | [method] |
+| Cost Reduction | [description] | [estimate] | [method] |
+| User Satisfaction | [description] | [estimate] | [method] |
+| Operational Efficiency | [description] | [estimate] | [method] |
+| Risk Reduction | [description] | [estimate] | [method] |
+| Compliance | [description] | [estimate] | [method] |
+
+**User Outcomes & Benefits:**
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ PRIMARY USER SEGMENT: [segment name]                                        │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Pain Point Addressed: [description]                                         │
+│ Solution Delivered: [description]                                           │
+│ Expected Behavior Change: [description]                                     │
+│ Success Metric: [metric] | Target: [value] | Baseline: [value]              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ SECONDARY USER SEGMENT: [segment name]                                      │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Pain Point Addressed: [description]                                         │
+│ Solution Delivered: [description]                                           │
+│ Expected Behavior Change: [description]                                     │
+│ Success Metric: [metric] | Target: [value] | Baseline: [value]              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+**Key Performance Indicators (KPIs) Expected Impact:**
+
+| KPI | Pre-Release Baseline | Expected Post-Release | Measurement Window |
+|-----|---------------------|----------------------|-------------------|
+| [KPI 1] | [value] | [target] | [timeframe] |
+| [KPI 2] | [value] | [target] | [timeframe] |
+| [KPI 3] | [value] | [target] | [timeframe] |
+| [KPI 4] | [value] | [target] | [timeframe] |
+
+**Feature Highlight Summary (for Release Notes):**
+
+1. **[Feature Name]** - [One-line benefit statement]
+   - Key capability: [description]
+   - User impact: [description]
+   - How to access: [navigation/URL]
+
+2. **[Feature Name]** - [One-line benefit statement]
+   - Key capability: [description]
+   - User impact: [description]
+   - How to access: [navigation/URL]
+
+3. **[Feature Name]** - [One-line benefit statement]
+   - Key capability: [description]
+   - User impact: [description]
+   - How to access: [navigation/URL]
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 3: STAKEHOLDER COMMUNICATION PLAN
+═══════════════════════════════════════════════════════════════════════════════
+
+**Stakeholder Communication Matrix:**
+
+| Stakeholder Group | Communication Type | Timing | Channel | Owner | Template |
+|-------------------|-------------------|--------|---------|-------|----------|
+| Executive Leadership | Release Summary | T-3 days | Email | PO | EXEC-01 |
+| Product Management | Full Release Brief | T-5 days | Meeting | PO | PM-01 |
+| Customer Success | Feature Enablement | T-7 days | Training | SM | CS-01 |
+| Support Team | Support Readiness | T-5 days | Workshop | SM | SUP-01 |
+| Sales Team | Sales Enablement | T-7 days | Presentation | PO | SALES-01 |
+| Marketing | GTM Coordination | T-10 days | Meeting | PO | MKT-01 |
+| End Users | Release Announcement | T+0 | In-app/Email | PO | USER-01 |
+| External Partners | Integration Notice | T-14 days | Email | PO | PART-01 |
+
+**Release Announcement Template (End Users):**
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ SUBJECT: {{product_name}} {{release_version}} - What's New                  │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│ We're excited to announce {{product_name}} {{release_version}}!             │
+│                                                                             │
+│ 🎯 HIGHLIGHTS                                                               │
+│ • [Feature 1]: [brief description]                                          │
+│ • [Feature 2]: [brief description]                                          │
+│ • [Feature 3]: [brief description]                                          │
+│                                                                             │
+│ 🔧 IMPROVEMENTS                                                             │
+│ • [Improvement 1]                                                           │
+│ • [Improvement 2]                                                           │
+│                                                                             │
+│ 🐛 BUG FIXES                                                                │
+│ • [Fix 1]                                                                   │
+│ • [Fix 2]                                                                   │
+│                                                                             │
+│ 📚 Learn More: [Documentation Link]                                         │
+│ 💬 Questions? [Support Link]                                                │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+**Internal Release Brief Template (Technical Teams):**
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ RELEASE BRIEF: {{product_name}} {{release_version}}                         │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ Release Date: {{release_date}}                                              │
+│ Release Manager: [name]                                                     │
+│ Technical Lead: [name]                                                      │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ TECHNICAL CHANGES:                                                          │
+│ • Database migrations: [Yes/No] - [details]                                 │
+│ • API changes: [Breaking/Non-breaking/None] - [details]                     │
+│ • Configuration changes: [Yes/No] - [details]                               │
+│ • Infrastructure changes: [Yes/No] - [details]                              │
+│ • Third-party dependencies: [Updated/Added/Removed] - [details]             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ KNOWN ISSUES:                                                               │
+│ • [Issue ID]: [description] - [workaround]                                  │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ SUPPORT ESCALATION:                                                         │
+│ • L1: [team/contact]                                                        │
+│ • L2: [team/contact]                                                        │
+│ • L3 (Engineering): [team/contact]                                          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 4: DEPLOYMENT STRATEGY & PLAN
+═══════════════════════════════════════════════════════════════════════════════
+
+**Deployment Strategy Selection:**
+
+| Strategy | Description | Use When | This Release |
+|----------|-------------|----------|--------------|
+| Big Bang | All users at once | Low risk, small changes | □ Selected |
+| Rolling | Gradual server-by-server | Infrastructure updates | □ Selected |
+| Blue-Green | Parallel environments | Zero-downtime required | □ Selected |
+| Canary | Small % first, then expand | High risk, new features | □ Selected |
+| Feature Flags | Controlled feature exposure | Gradual rollout needed | □ Selected |
+| Ring-based | Internal → Beta → General | Enterprise with VIPs | □ Selected |
+
+**Deployment Ring Plan (if applicable):**
+
+| Ring | Population | Percentage | Timeline | Success Criteria | Go/No-Go |
+|------|------------|------------|----------|-----------------|----------|
+| Ring 0 | Internal team | 0.1% | T+0h | No P1 issues | □ |
+| Ring 1 | Beta users | 1% | T+4h | <0.1% error rate | □ |
+| Ring 2 | Early adopters | 10% | T+24h | KPIs stable | □ |
+| Ring 3 | General (50%) | 50% | T+48h | Full monitoring green | □ |
+| Ring 4 | Full rollout | 100% | T+72h | All criteria met | □ |
+
+**Deployment Sequence & Timeline:**
+
+| Step | Activity | Owner | Start Time | Duration | Dependencies | Status |
+|------|----------|-------|------------|----------|--------------|--------|
+| 1 | Code freeze | Dev Lead | T-24h | - | All PRs merged | □ |
+| 2 | Final build creation | DevOps | T-12h | 30 min | Code freeze | □ |
+| 3 | Staging deployment | DevOps | T-10h | 1 hour | Build ready | □ |
+| 4 | Staging smoke tests | QA | T-9h | 2 hours | Staging deployed | □ |
+| 5 | Staging regression | QA | T-7h | 4 hours | Smoke passed | □ |
+| 6 | Go/No-Go decision | Release Mgr | T-2h | 30 min | All tests pass | □ |
+| 7 | Production backup | DevOps | T-1h | 30 min | Go decision | □ |
+| 8 | DB migrations | DevOps | T-30m | 15 min | Backup complete | □ |
+| 9 | Application deployment | DevOps | T-0 | 30 min | Migrations done | □ |
+| 10 | Smoke tests (prod) | QA | T+30m | 30 min | Deployment done | □ |
+| 11 | Monitoring verification | DevOps | T+1h | 30 min | Smoke passed | □ |
+| 12 | Release announcement | PO | T+2h | - | All verified | □ |
+
+**Environment Readiness Checklist:**
+
+| Environment | Status | Last Validated | Validator | Notes |
+|-------------|--------|---------------|-----------|-------|
+| Development | □ Ready □ Issues | [date/time] | [name] | |
+| QA/Test | □ Ready □ Issues | [date/time] | [name] | |
+| Staging | □ Ready □ Issues | [date/time] | [name] | |
+| Pre-Production | □ Ready □ Issues | [date/time] | [name] | |
+| Production | □ Ready □ Issues | [date/time] | [name] | |
+| DR/Failover | □ Ready □ Issues | [date/time] | [name] | |
+
+**Infrastructure Requirements:**
+
+| Resource | Current Capacity | Required | Action Needed | Status |
+|----------|-----------------|----------|---------------|--------|
+| CPU | [current] | [required] | [scale up/none] | □ Ready |
+| Memory | [current] | [required] | [scale up/none] | □ Ready |
+| Storage | [current] | [required] | [provision/none] | □ Ready |
+| Network Bandwidth | [current] | [required] | [upgrade/none] | □ Ready |
+| Database Connections | [current] | [required] | [increase/none] | □ Ready |
+| Cache Size | [current] | [required] | [expand/none] | □ Ready |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 5: FEATURE FLAG MANAGEMENT
+═══════════════════════════════════════════════════════════════════════════════
+
+**Feature Flag Inventory:**
+
+| Flag Name | Description | Default State | Rollout % | Kill Switch | Owner |
+|-----------|-------------|---------------|-----------|-------------|-------|
+| [flag_name_1] | [description] | OFF | 0% → 100% | □ Enabled | [name] |
+| [flag_name_2] | [description] | ON | 100% | □ Enabled | [name] |
+| [flag_name_3] | [description] | OFF | Gradual | □ Enabled | [name] |
+
+**Feature Flag Rollout Schedule:**
+
+| Flag | Day 1 | Day 2 | Day 3 | Day 7 | Day 14 | Cleanup Date |
+|------|-------|-------|-------|-------|--------|--------------|
+| [flag_1] | 1% | 5% | 25% | 50% | 100% | [date] |
+| [flag_2] | 100% | 100% | 100% | 100% | 100% | [date] |
+| [flag_3] | 0% | 1% | 10% | 50% | 100% | [date] |
+
+**Feature Flag Kill Switch Triggers:**
+
+| Flag | Trigger Condition | Auto/Manual | Notification | Recovery Action |
+|------|-------------------|-------------|--------------|-----------------|
+| [flag_1] | Error rate > 5% | Automatic | PagerDuty | Disable flag |
+| [flag_2] | Latency > 2000ms | Manual | Slack alert | Disable + investigate |
+| [flag_3] | User complaints > 10 | Manual | Email | Disable + hotfix |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 6: RISK ASSESSMENT & MITIGATION
+═══════════════════════════════════════════════════════════════════════════════
+
+**Release Risk Register:**
+
+| Risk ID | Description | Probability | Impact | Risk Score | Mitigation Strategy | Owner |
+|---------|-------------|-------------|--------|------------|---------------------|-------|
+| R-001 | Database migration failure | Medium | High | 12 | Pre-tested scripts, backup ready | DevOps |
+| R-002 | Performance degradation | Low | High | 8 | Load testing, auto-scaling | DevOps |
+| R-003 | Integration failures | Medium | Medium | 9 | Contract testing, staging validation | Dev Lead |
+| R-004 | User adoption resistance | Medium | Medium | 9 | Training, documentation, support | PO |
+| R-005 | Security vulnerability | Low | Critical | 10 | Security scan, penetration test | Security |
+| R-006 | Third-party service outage | Low | High | 8 | Fallback mechanisms, circuit breakers | Dev Lead |
+
+**Risk Probability Scale:**
+- Very Low (1): <10% chance
+- Low (2): 10-25% chance
+- Medium (3): 25-50% chance
+- High (4): 50-75% chance
+- Very High (5): >75% chance
+
+**Risk Impact Scale:**
+- Minimal (1): Cosmetic issues only
+- Low (2): Minor functionality affected
+- Medium (3): Major feature impacted
+- High (4): System degradation
+- Critical (5): System outage
+
+**Contingency Plans:**
+
+| Risk ID | Contingency Action | Trigger | Decision Maker | Communication |
+|---------|-------------------|---------|----------------|---------------|
+| R-001 | Restore from backup | Migration fails | DevOps Lead | Stakeholder email |
+| R-002 | Scale up resources | Response time > SLA | DevOps Lead | Status page update |
+| R-003 | Disable integration | Error rate > 5% | Dev Lead | Partner notification |
+| R-004 | Extend hypercare | NPS drop > 10 pts | PO | User communication |
+| R-005 | Emergency patch | Vulnerability confirmed | Security Lead | Security advisory |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 7: ROLLBACK STRATEGY & PROCEDURES
+═══════════════════════════════════════════════════════════════════════════════
+
+**Automatic Rollback Triggers:**
+
+| Trigger | Threshold | Monitoring Source | Auto-Rollback | Notification |
+|---------|-----------|-------------------|---------------|--------------|
+| Error Rate | > 5% for 5 min | Application APM | □ Yes □ No | PagerDuty P1 |
+| Response Time (p95) | > 3000ms for 10 min | APM/Metrics | □ Yes □ No | PagerDuty P2 |
+| Failed Health Checks | > 3 consecutive | Load Balancer | □ Yes □ No | Slack #ops |
+| Database Errors | > 1% for 5 min | DB Monitoring | □ Yes □ No | PagerDuty P1 |
+| Memory Usage | > 95% for 5 min | Infrastructure | □ Yes □ No | Slack #ops |
+| Customer-Reported P1s | > 3 in 1 hour | Support System | □ No (Manual) | Email to team |
+
+**Manual Rollback Decision Matrix:**
+
+| Severity | Impact | Time Since Deploy | Decision | Approver |
+|----------|--------|-------------------|----------|----------|
+| P1 - Critical | Production down | Any | Immediate rollback | On-call engineer |
+| P1 - Critical | Data corruption | Any | Immediate rollback + investigation | DevOps Lead |
+| P2 - High | Feature broken | < 2 hours | Rollback | Release Manager |
+| P2 - High | Feature broken | > 2 hours | Hotfix preferred | Dev Lead + PO |
+| P3 - Medium | Degraded experience | Any | Hotfix preferred | Dev Lead |
+| P4 - Low | Minor issue | Any | Next release fix | PO |
+
+**Rollback Procedure:**
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ ROLLBACK PROCEDURE - {{product_name}} {{release_version}}                   │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│ STEP 1: DECISION & COMMUNICATION (5 min)                                    │
+│ □ Confirm rollback decision with Release Manager                            │
+│ □ Notify stakeholders via Slack #release-{{release_version}}                │
+│ □ Update status page to "Investigating"                                     │
+│                                                                             │
+│ STEP 2: TRAFFIC MANAGEMENT (2 min)                                          │
+│ □ Enable maintenance mode (if applicable)                                   │
+│ □ Stop new deployments                                                      │
+│ □ Drain active connections (if zero-downtime)                               │
+│                                                                             │
+│ STEP 3: APPLICATION ROLLBACK (10 min)                                       │
+│ □ Identify previous stable version: [version]                               │
+│ □ Execute rollback command: [command]                                       │
+│ □ Verify deployment status                                                  │
+│ □ Confirm all instances running previous version                            │
+│                                                                             │
+│ STEP 4: DATABASE ROLLBACK (if applicable) (15 min)                          │
+│ □ Identify rollback script: [script name]                                   │
+│ □ Take point-in-time backup                                                 │
+│ □ Execute rollback migration                                                │
+│ □ Verify data integrity                                                     │
+│                                                                             │
+│ STEP 5: VERIFICATION (10 min)                                               │
+│ □ Run smoke tests                                                           │
+│ □ Verify critical user flows                                                │
+│ □ Check error rates returning to baseline                                   │
+│ □ Confirm performance metrics normalized                                    │
+│                                                                             │
+│ STEP 6: COMMUNICATION & FOLLOW-UP (ongoing)                                 │
+│ □ Update status page to "Resolved"                                          │
+│ □ Send stakeholder notification                                             │
+│ □ Schedule post-incident review                                             │
+│ □ Create incident ticket for tracking                                       │
+│                                                                             │
+│ EMERGENCY CONTACTS:                                                         │
+│ • DevOps On-Call: [phone/pager]                                             │
+│ • Engineering Lead: [phone]                                                 │
+│ • Product Owner: [phone]                                                    │
+│ • Executive Escalation: [phone]                                             │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+**Rollback Validation Checklist:**
+
+| Validation | Expected Result | Actual Result | Status |
+|------------|-----------------|---------------|--------|
+| Application version | [previous version] | | □ Pass □ Fail |
+| Database schema version | [previous version] | | □ Pass □ Fail |
+| Critical API endpoints | 200 OK | | □ Pass □ Fail |
+| User authentication | Successful | | □ Pass □ Fail |
+| Core business flow | Working | | □ Pass □ Fail |
+| Error rate | < baseline + 1% | | □ Pass □ Fail |
+| Response time (p95) | < SLA | | □ Pass □ Fail |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 8: POST-RELEASE MONITORING
+═══════════════════════════════════════════════════════════════════════════════
+
+**Monitoring Dashboard Checklist:**
+
+| Dashboard | URL | Key Metrics | Alert Threshold | Owner |
+|-----------|-----|-------------|-----------------|-------|
+| Application Health | [URL] | Uptime, Error Rate | <99.9%, >1% | DevOps |
+| Performance | [URL] | p50, p95, p99 latency | >500ms, >1s, >3s | DevOps |
+| Business Metrics | [URL] | Conversions, Revenue | -10% from baseline | PO |
+| Infrastructure | [URL] | CPU, Memory, Disk | >80%, >90%, >85% | DevOps |
+| User Experience | [URL] | Page load, Core Web Vitals | LCP >2.5s | Dev Lead |
+| Error Tracking | [URL] | New errors, Error count | Any new, >100/min | Dev Lead |
+
+**Critical Metrics Watchlist (First 24 Hours):**
+
+| Metric | Baseline | Threshold | Current | Status | Trend |
+|--------|----------|-----------|---------|--------|-------|
+| Error Rate | [%] | +1% | | □ ✓ □ ⚠ □ ✗ | ↑ ↓ → |
+| Response Time (p95) | [ms] | +20% | | □ ✓ □ ⚠ □ ✗ | ↑ ↓ → |
+| Throughput (req/s) | [value] | -10% | | □ ✓ □ ⚠ □ ✗ | ↑ ↓ → |
+| Apdex Score | [value] | -0.1 | | □ ✓ □ ⚠ □ ✗ | ↑ ↓ → |
+| Conversion Rate | [%] | -5% | | □ ✓ □ ⚠ □ ✗ | ↑ ↓ → |
+| Active Users | [value] | -10% | | □ ✓ □ ⚠ □ ✗ | ↑ ↓ → |
+| Support Tickets | [value] | +50% | | □ ✓ □ ⚠ □ ✗ | ↑ ↓ → |
+
+**Monitoring Schedule:**
+
+| Timeframe | Frequency | Focus Areas | Responsible |
+|-----------|-----------|-------------|-------------|
+| 0-2 hours | Continuous | Critical errors, system health | On-call engineer |
+| 2-8 hours | Every 30 min | Performance, user feedback | DevOps + Support |
+| 8-24 hours | Every 2 hours | Business metrics, adoption | PO + DevOps |
+| 24-72 hours | Every 4 hours | Trends, edge cases | Dev Lead |
+| 72 hours - 1 week | Daily | Long-term stability, optimization | Scrum Team |
+
+**Support Escalation Matrix:**
+
+| Issue Type | L1 Support | L2 Support | L3 Engineering | Executive |
+|------------|------------|------------|----------------|-----------|
+| User confusion | Handle | - | - | - |
+| Known issue/workaround | Handle | - | - | - |
+| Bug confirmed | Document | Triage | Fix | - |
+| Data issue | Document | Investigate | Fix + Audit | Notify |
+| Security concern | Document | Escalate immediately | Respond | Notify |
+| System outage | Document | Escalate immediately | Respond | Immediate |
+
+**Hypercare Period Plan:**
+
+| Day | Coverage Hours | Team Members | Focus | Handoff Time |
+|-----|---------------|--------------|-------|--------------|
+| Day 0 (Release) | 24/7 | [names] | Critical issues | Every 4 hours |
+| Day 1 | 24/7 | [names] | Stability confirmation | Every 6 hours |
+| Day 2 | 18/6 | [names] | Edge case resolution | Every 8 hours |
+| Day 3-5 | 12/12 | [names] | Optimization | Every 12 hours |
+| Day 6-7 | Business hours | [names] | Transition to BAU | End of day |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 9: RELEASE VERIFICATION & TESTING
+═══════════════════════════════════════════════════════════════════════════════
+
+**Pre-Release Test Summary:**
+
+| Test Type | Tests Run | Passed | Failed | Pass Rate | Status |
+|-----------|-----------|--------|--------|-----------|--------|
+| Unit Tests | [#] | [#] | [#] | [%] | □ ✓ □ ✗ |
+| Integration Tests | [#] | [#] | [#] | [%] | □ ✓ □ ✗ |
+| E2E Tests | [#] | [#] | [#] | [%] | □ ✓ □ ✗ |
+| Performance Tests | [#] | [#] | [#] | [%] | □ ✓ □ ✗ |
+| Security Tests | [#] | [#] | [#] | [%] | □ ✓ □ ✗ |
+| Accessibility Tests | [#] | [#] | [#] | [%] | □ ✓ □ ✗ |
+| UAT | [#] | [#] | [#] | [%] | □ ✓ □ ✗ |
+
+**Production Smoke Test Checklist:**
+
+| Test Case | Expected Result | Actual Result | Status | Tester |
+|-----------|-----------------|---------------|--------|--------|
+| Application loads | Home page renders | | □ Pass □ Fail | |
+| User login | Successful authentication | | □ Pass □ Fail | |
+| Core feature 1: [name] | [expected] | | □ Pass □ Fail | |
+| Core feature 2: [name] | [expected] | | □ Pass □ Fail | |
+| Core feature 3: [name] | [expected] | | □ Pass □ Fail | |
+| API health endpoint | 200 OK, healthy | | □ Pass □ Fail | |
+| Database connectivity | Queries execute | | □ Pass □ Fail | |
+| Third-party integrations | Connected | | □ Pass □ Fail | |
+| Email/notifications | Sent and received | | □ Pass □ Fail | |
+| Payment processing | Test transaction | | □ Pass □ Fail | |
+
+**Regression Risk Areas:**
+
+| Area | Risk Level | Tests Required | Test Coverage | Status |
+|------|------------|----------------|---------------|--------|
+| [Area 1] | High | Full regression | [%] | □ Complete |
+| [Area 2] | Medium | Targeted tests | [%] | □ Complete |
+| [Area 3] | Low | Smoke tests | [%] | □ Complete |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 10: RELEASE CHECKLIST & SIGN-OFF
+═══════════════════════════════════════════════════════════════════════════════
+
+**Pre-Release Checklist:**
+
+DEVELOPMENT READINESS:
+□ All PBIs in release meet Definition of Done
+□ All code merged to release branch
+□ Code freeze in effect
+□ No open P1/P2 bugs for release items
+□ Technical documentation updated
+□ API documentation updated (if applicable)
+□ Database migration scripts tested
+
+QUALITY ASSURANCE:
+□ All test suites passing
+□ UAT sign-off obtained
+□ Performance test results acceptable
+□ Security scan completed - no critical findings
+□ Accessibility audit passed
+
+OPERATIONS READINESS:
+□ Deployment runbook reviewed
+□ Rollback procedure tested
+□ Monitoring dashboards configured
+□ Alerts configured and tested
+□ On-call schedule confirmed
+□ Infrastructure scaled appropriately
+
+STAKEHOLDER READINESS:
+□ Product Owner approval obtained
+□ Release notes prepared
+□ Customer communications ready
+□ Support team trained
+□ FAQ document prepared
+
+COMPLIANCE & GOVERNANCE:
+□ Change management ticket approved
+□ Security review completed
+□ Data privacy review (if applicable)
+□ Regulatory compliance verified (if applicable)
+
+**Go/No-Go Decision:**
+
+| Criterion | Status | Blocker? | Notes |
+|-----------|--------|----------|-------|
+| All tests passing | □ Go □ No-Go | □ Yes □ No | |
+| No P1/P2 bugs | □ Go □ No-Go | □ Yes □ No | |
+| PO approval | □ Go □ No-Go | □ Yes □ No | |
+| Infrastructure ready | □ Go □ No-Go | □ Yes □ No | |
+| Team available | □ Go □ No-Go | □ Yes □ No | |
+| Rollback tested | □ Go □ No-Go | □ Yes □ No | |
+| Communications ready | □ Go □ No-Go | □ Yes □ No | |
+
+**FINAL DECISION: □ GO  □ NO-GO**
+
+**Release Authorization Signatures:**
+
+| Role | Name | Signature | Date/Time |
+|------|------|-----------|-----------|
+| Product Owner | {{product_owner}} | _____________ | __________ |
+| Scrum Master | {{scrum_master}} | _____________ | __________ |
+| Development Lead | _____________ | _____________ | __________ |
+| QA Lead | _____________ | _____________ | __________ |
+| DevOps Lead | _____________ | _____________ | __________ |
+| Release Manager | _____________ | _____________ | __________ |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 11: POST-RELEASE REVIEW & RETROSPECTIVE
+═══════════════════════════════════════════════════════════════════════════════
+
+**Release Metrics Summary:**
+
+| Metric | Target | Actual | Status |
+|--------|--------|--------|--------|
+| Deployment success | First attempt | | □ Met □ Not Met |
+| Deployment duration | [target] min | | □ Met □ Not Met |
+| Rollbacks required | 0 | | □ Met □ Not Met |
+| P1 incidents (24h) | 0 | | □ Met □ Not Met |
+| User-reported issues | <10 | | □ Met □ Not Met |
+| Support ticket increase | <25% | | □ Met □ Not Met |
+
+**Release Retrospective Questions:**
+
+WHAT WENT WELL:
+1. [Success 1]
+2. [Success 2]
+3. [Success 3]
+
+WHAT COULD BE IMPROVED:
+1. [Improvement area 1]
+2. [Improvement area 2]
+3. [Improvement area 3]
+
+ACTION ITEMS FOR NEXT RELEASE:
+| Action | Owner | Due Date | Status |
+|--------|-------|----------|--------|
+| [Action 1] | [name] | [date] | □ Open |
+| [Action 2] | [name] | [date] | □ Open |
+| [Action 3] | [name] | [date] | □ Open |
+
+**Lessons Learned Log:**
+
+| Category | Learning | Impact | Recommendation |
+|----------|----------|--------|----------------|
+| Process | [learning] | [impact] | [recommendation] |
+| Technical | [learning] | [impact] | [recommendation] |
+| Communication | [learning] | [impact] | [recommendation] |
+| Testing | [learning] | [impact] | [recommendation] |
+
+───────────────────────────────────────────────────────────────────────────────
+ANTI-PATTERNS TO AVOID
+───────────────────────────────────────────────────────────────────────────────
+
+✗ Releasing on Fridays or before holidays without critical need
+✗ Skipping staging environment validation
+✗ Deploying without tested rollback procedures
+✗ Ignoring automated test failures
+✗ Insufficient monitoring during hypercare period
+✗ Poor stakeholder communication leaving users surprised
+✗ Deploying database changes without backup
+✗ Feature flags without cleanup schedule
+✗ Skipping security scans for "quick" releases
+✗ Releasing without Product Owner sign-off
+✗ Inadequate documentation for support teams
+✗ No defined success criteria for the release
+✗ Deploying during high-traffic periods without justification
+✗ Not having on-call coverage during release window
+
+───────────────────────────────────────────────────────────────────────────────
+QUALITY INDICATORS
+───────────────────────────────────────────────────────────────────────────────
+
+□ All Definition of Done criteria verified for every PBI
+□ Comprehensive stakeholder communication plan executed
+□ Deployment strategy appropriate for risk level
+□ Rollback procedure tested and documented
+□ Monitoring coverage for all critical paths
+□ Feature flags with defined rollout schedule
+□ Hypercare plan with clear escalation paths
+□ Post-release retrospective scheduled
+□ Zero P1 incidents in first 24 hours
+□ User adoption meeting expectations
+□ Business KPIs trending positively
+□ Support ticket volume within acceptable range`,
     variables: [
       { name: 'product_name', description: 'Product being released', example: 'CustomerHub Platform', required: true },
       { name: 'release_version', description: 'Release version number', example: '3.2.0', required: true },
       { name: 'release_date', description: 'Planned release date', example: 'February 15, 2025', required: true },
       { name: 'product_owner', description: 'Product Owner name', example: 'Maria Santos', required: true },
+      { name: 'scrum_master', description: 'Scrum Master name', example: 'James Chen', required: true },
+      { name: 'dev_team_size', description: 'Number of developers on the team', example: '7', required: false },
+      { name: 'release_type', description: 'Type of release (Major/Minor/Patch/Hotfix)', example: 'Minor', required: false },
     ],
     tier: 'premium',
-    estimatedTimeSaved: '4 hours',
-    tags: ['scrum', 'release', 'deployment', 'rollback', 'stakeholder-communication', 'Scrum Guide', 'DevOps'],
+    estimatedTimeSaved: '8 hours',
+    tags: ['scrum', 'release', 'deployment', 'rollback', 'stakeholder-communication', 'Scrum Guide', 'DevOps', 'feature-flags', 'monitoring', 'hypercare'],
   },
 
   // Kanban - Delivery Point Phase
   {
     id: 'kanban-dp-1',
-    title: 'Kanban Delivery Point Excellence System',
+    title: 'Kanban Delivery Point Excellence Mastery',
     framework: 'kanban',
     phase: 'Delivery Point',
     canonicalPhase: 5,
-    description: 'Generate comprehensive delivery point management with completion criteria, customer handoff protocols, and delivery metrics.',
-    template: `You are a Kanban Coach and Delivery Excellence specialist. Generate delivery point documentation ensuring consistent quality and smooth handoffs.
+    description: 'Generate comprehensive delivery point management with completion criteria, customer handoff protocols, delivery metrics, flow optimization, and continuous improvement aligned with Kanban University principles and David Anderson\'s Kanban Method.',
+    template: `You are an expert Kanban Coach with deep expertise in flow optimization and delivery excellence. Your role is to ensure work items exit the system with consistent quality, satisfied customers, and measurable value delivered. Generate comprehensive delivery point documentation based on Kanban University principles and David Anderson's Kanban Method.
 
-SERVICE CONTEXT:
-Service/Team: {{service_name}}
-Delivery Class: {{delivery_class}}
-Analysis Period: {{analysis_period}}
+═══════════════════════════════════════════════════════════════════════════════
+SERVICE DELIVERY CONTEXT
+═══════════════════════════════════════════════════════════════════════════════
 
-Generate delivery excellence documentation:
-1. DELIVERY POINT DEFINITION - Definition of Done with functional, quality, documentation, operational criteria
-2. CUSTOMER HANDOFF PROTOCOL - Checklist, notification template, acceptance tracking
-3. DELIVERY METRICS DASHBOARD - Throughput, delivery rate by class, lead time distribution
-4. DELIVERY QUALITY ANALYSIS - Escaped defects, categorization, customer satisfaction
-5. DELIVERY POINT OPTIMIZATION - State assessment, waste identification, experiments
-6. REPORTING & GOVERNANCE - Delivery report template for stakeholders`,
+**Service Identity:**
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Service/Team:        {{service_name}}                                       │
+│ Value Stream:        {{value_stream}}                                       │
+│ Primary Delivery Class: {{delivery_class}}                                  │
+│ Analysis Period:     {{analysis_period}}                                    │
+│ Service Level Manager: {{service_manager}}                                  │
+│ Delivery Rate Target: {{delivery_target}} items/week                        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+**Classes of Service Managed:**
+
+| Class | Definition | Target Lead Time | SLA | Priority |
+|-------|------------|------------------|-----|----------|
+| Expedite | Critical business impact | <24 hours | 99% | Highest |
+| Fixed Date | Regulatory/contractual deadline | Varies | 100% | Date-driven |
+| Standard | Normal business value | <10 days | 85% | Normal |
+| Intangible | Technical debt, improvements | <30 days | 70% | Background |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 1: DEFINITION OF DONE (DELIVERY POINT POLICIES)
+═══════════════════════════════════════════════════════════════════════════════
+
+**Explicit Policies for Delivery Point:**
+
+FUNCTIONAL COMPLETION CRITERIA:
+□ All acceptance criteria verified and documented
+□ Edge cases tested and behaving as expected
+□ Integration points validated with upstream/downstream systems
+□ Data migration/transformation completed (if applicable)
+□ Configuration settings reviewed and optimized
+□ Feature flags configured appropriately
+
+QUALITY ASSURANCE CRITERIA:
+□ No open defects of severity Critical or High
+□ All Medium severity defects triaged and accepted by stakeholder
+□ Code review completed and approved
+□ Automated tests passing (unit, integration, e2e)
+□ Manual testing completed per test plan
+□ Performance benchmarks met
+□ Security scan passed with no critical vulnerabilities
+□ Accessibility requirements verified (WCAG compliance level)
+
+DOCUMENTATION CRITERIA:
+□ User documentation updated
+□ Technical documentation current
+□ API documentation published (if applicable)
+□ Runbook/playbook updated for operations
+□ Release notes drafted
+□ Knowledge base articles created/updated
+
+OPERATIONAL READINESS CRITERIA:
+□ Monitoring and alerting configured
+□ Logging implemented and verified
+□ Backup/recovery procedures documented
+□ Support team briefed and trained
+□ Escalation paths defined
+□ Rollback procedure documented and tested
+
+**Delivery Point Checklist Matrix:**
+
+| Criterion | Standard | Fixed Date | Expedite | Intangible |
+|-----------|----------|------------|----------|------------|
+| Full testing | Required | Required | Risk-based | Required |
+| Documentation | Full | Full | Essential only | Full |
+| Code review | Required | Required | Pair programming OK | Required |
+| Security scan | Required | Required | Post-deploy OK | Required |
+| Performance test | Required | Required | Baseline only | Optional |
+| Stakeholder sign-off | Required | Required | Verbal OK | Optional |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 2: CUSTOMER HANDOFF PROTOCOL
+═══════════════════════════════════════════════════════════════════════════════
+
+**Pre-Handoff Verification:**
+
+| Verification Step | Responsible | Timing | Completion |
+|-------------------|-------------|--------|------------|
+| DoD checklist complete | Team Lead | D-1 | □ Done |
+| Stakeholder preview | Delivery Lead | D-1 | □ Done |
+| Support readiness confirmed | Support Lead | D-1 | □ Done |
+| Documentation published | Technical Writer | D-0 | □ Done |
+| Monitoring dashboards active | Operations | D-0 | □ Done |
+
+**Customer Notification Template:**
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ DELIVERY NOTIFICATION                                                        │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│ Work Item: [ID] - [Title]                                                   │
+│ Requested By: [Customer/Stakeholder]                                        │
+│ Delivery Date: [Date]                                                       │
+│ Class of Service: [Class]                                                   │
+│                                                                             │
+│ SUMMARY OF DELIVERED VALUE:                                                 │
+│ [2-3 sentence description of what was delivered and the benefit]            │
+│                                                                             │
+│ WHAT'S INCLUDED:                                                            │
+│ • [Feature/capability 1]                                                    │
+│ • [Feature/capability 2]                                                    │
+│ • [Feature/capability 3]                                                    │
+│                                                                             │
+│ HOW TO ACCESS:                                                              │
+│ [Instructions or link to access the delivered work]                         │
+│                                                                             │
+│ DOCUMENTATION:                                                              │
+│ • User Guide: [link]                                                        │
+│ • FAQ: [link]                                                               │
+│ • Support: [contact/link]                                                   │
+│                                                                             │
+│ KNOWN LIMITATIONS (if any):                                                 │
+│ • [Limitation 1 with workaround]                                            │
+│                                                                             │
+│ FEEDBACK:                                                                   │
+│ Please provide feedback within [X] days: [feedback link]                    │
+│                                                                             │
+│ Contact: [Delivery Lead] | [email] | [phone]                                │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+**Acceptance Tracking Matrix:**
+
+| Work Item | Delivered | Notified | Acknowledged | Accepted | Feedback |
+|-----------|-----------|----------|--------------|----------|----------|
+| [ID-001] | [date] | [date] | □ Yes □ No | □ Yes □ No | [score] |
+| [ID-002] | [date] | [date] | □ Yes □ No | □ Yes □ No | [score] |
+| [ID-003] | [date] | [date] | □ Yes □ No | □ Yes □ No | [score] |
+
+**Post-Delivery Support Protocol:**
+
+| Support Level | Response Time | Scope | Contact |
+|---------------|---------------|-------|---------|
+| Hypercare (Day 1-3) | <1 hour | Any issue | Delivery team direct |
+| Enhanced (Day 4-14) | <4 hours | Bugs, questions | Team + Support |
+| Standard (Day 15+) | Per SLA | Normal support | Support team |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 3: DELIVERY METRICS DASHBOARD
+═══════════════════════════════════════════════════════════════════════════════
+
+**Throughput Metrics:**
+
+| Metric | Period | Value | Trend | Target | Status |
+|--------|--------|-------|-------|--------|--------|
+| Total Delivered | This week | [#] | ↑ ↓ → | [#] | □ ✓ □ ⚠ □ ✗ |
+| Total Delivered | This month | [#] | ↑ ↓ → | [#] | □ ✓ □ ⚠ □ ✗ |
+| Avg Weekly Throughput | Last 4 weeks | [#] | ↑ ↓ → | [#] | □ ✓ □ ⚠ □ ✗ |
+| Throughput Std Dev | Last 4 weeks | [#] | ↑ ↓ → | <[#] | □ ✓ □ ⚠ □ ✗ |
+
+**Throughput by Class of Service:**
+
+| Class | Items Delivered | % of Total | Target % | SLA Met % |
+|-------|-----------------|------------|----------|-----------|
+| Expedite | [#] | [%] | <10% | [%] |
+| Fixed Date | [#] | [%] | [%] | [%] |
+| Standard | [#] | [%] | >60% | [%] |
+| Intangible | [#] | [%] | >15% | [%] |
+
+**Throughput Run Chart (Last 12 Weeks):**
+
+\`\`\`
+Items
+  │
+20│          *
+18│      *       *   *
+16│  *       *           *
+14│      *           *       *
+12│  ─────────────────────────── Target
+10│
+ 8│
+  └────────────────────────────────
+    W1 W2 W3 W4 W5 W6 W7 W8 W9 W10 W11 W12
+\`\`\`
+
+**Lead Time Distribution:**
+
+| Percentile | Lead Time | Target | Status |
+|------------|-----------|--------|--------|
+| 50th (Median) | [X] days | [target] | □ ✓ □ ✗ |
+| 70th | [X] days | [target] | □ ✓ □ ✗ |
+| 85th (SLA) | [X] days | [target] | □ ✓ □ ✗ |
+| 95th | [X] days | [target] | □ ✓ □ ✗ |
+
+**Lead Time Histogram:**
+
+\`\`\`
+Count
+  │
+ 8│    ████
+ 6│    ████ ████
+ 4│ ██ ████ ████ ████
+ 2│ ██ ████ ████ ████ ██
+  └─────────────────────────
+    1-3 4-6 7-9 10-12 13-15 16+ days
+\`\`\`
+
+**Cycle Time by Workflow Stage:**
+
+| Stage | Avg Cycle Time | Target | % of Lead Time | Bottleneck? |
+|-------|----------------|--------|----------------|-------------|
+| Analysis | [X] days | [target] | [%] | □ Yes □ No |
+| Development | [X] days | [target] | [%] | □ Yes □ No |
+| Testing | [X] days | [target] | [%] | □ Yes □ No |
+| Review | [X] days | [target] | [%] | □ Yes □ No |
+| Deployment | [X] days | [target] | [%] | □ Yes □ No |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 4: DELIVERY QUALITY ANALYSIS
+═══════════════════════════════════════════════════════════════════════════════
+
+**Escaped Defects Tracking:**
+
+| Period | Defects Found Post-Delivery | Critical | High | Medium | Low |
+|--------|------------------------------|----------|------|--------|-----|
+| This Week | [#] | [#] | [#] | [#] | [#] |
+| This Month | [#] | [#] | [#] | [#] | [#] |
+| Last Month | [#] | [#] | [#] | [#] | [#] |
+| Trend | ↑ ↓ → | | | | |
+
+**Defect Origin Analysis:**
+
+| Defect ID | Work Item | Severity | Root Cause Category | Escape Point | Corrective Action |
+|-----------|-----------|----------|---------------------|--------------|-------------------|
+| [DEF-001] | [WI-ID] | High | Requirements gap | Analysis | Update checklist |
+| [DEF-002] | [WI-ID] | Medium | Testing coverage | QA | Add test cases |
+| [DEF-003] | [WI-ID] | Low | Edge case | Development | Code review |
+
+**Root Cause Distribution:**
+
+| Category | Count | % | Trend | Action Required |
+|----------|-------|---|-------|-----------------|
+| Requirements gaps | [#] | [%] | ↑ ↓ → | [action] |
+| Testing coverage | [#] | [%] | ↑ ↓ → | [action] |
+| Integration issues | [#] | [%] | ↑ ↓ → | [action] |
+| Environment differences | [#] | [%] | ↑ ↓ → | [action] |
+| Human error | [#] | [%] | ↑ ↓ → | [action] |
+
+**Customer Satisfaction Metrics:**
+
+| Metric | Score | Target | Trend | Status |
+|--------|-------|--------|-------|--------|
+| CSAT (1-5 scale) | [X.X] | >4.2 | ↑ ↓ → | □ ✓ □ ⚠ □ ✗ |
+| NPS | [±X] | >40 | ↑ ↓ → | □ ✓ □ ⚠ □ ✗ |
+| First Time Right % | [%] | >95% | ↑ ↓ → | □ ✓ □ ⚠ □ ✗ |
+| Rework Rate | [%] | <5% | ↑ ↓ → | □ ✓ □ ⚠ □ ✗ |
+
+**Customer Feedback Summary:**
+
+| Feedback Theme | Frequency | Sentiment | Action Taken |
+|----------------|-----------|-----------|--------------|
+| [Theme 1] | [count] | Positive/Negative | [action] |
+| [Theme 2] | [count] | Positive/Negative | [action] |
+| [Theme 3] | [count] | Positive/Negative | [action] |
+
+**Quality Trend Analysis:**
+
+| Quality Indicator | 3 Months Ago | 2 Months Ago | Last Month | This Month | Trend |
+|-------------------|--------------|--------------|------------|------------|-------|
+| Escaped Defects | [#] | [#] | [#] | [#] | ↑ ↓ → |
+| Rework Items | [#] | [#] | [#] | [#] | ↑ ↓ → |
+| CSAT Score | [X.X] | [X.X] | [X.X] | [X.X] | ↑ ↓ → |
+| DoD Compliance | [%] | [%] | [%] | [%] | ↑ ↓ → |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 5: FLOW EFFICIENCY AT DELIVERY POINT
+═══════════════════════════════════════════════════════════════════════════════
+
+**Flow Efficiency Calculation:**
+
+| Metric | Value | Target | Status |
+|--------|-------|--------|--------|
+| Total Lead Time (avg) | [X] days | | |
+| Active Work Time (avg) | [X] days | | |
+| Wait Time (avg) | [X] days | | |
+| Flow Efficiency | [%] | >40% | □ ✓ □ ⚠ □ ✗ |
+
+*Flow Efficiency = (Active Work Time / Total Lead Time) × 100*
+
+**Wait Time Analysis at Delivery Point:**
+
+| Wait Category | Avg Duration | % of Wait | Root Cause | Improvement |
+|---------------|--------------|-----------|------------|-------------|
+| Waiting for review | [X] hours | [%] | Reviewer availability | [action] |
+| Waiting for testing | [X] hours | [%] | QA capacity | [action] |
+| Waiting for deployment | [X] hours | [%] | Release window | [action] |
+| Waiting for acceptance | [X] hours | [%] | Stakeholder response | [action] |
+| Blocked by dependency | [X] hours | [%] | External team | [action] |
+
+**Delivery Point Bottleneck Assessment:**
+
+| Stage | WIP | WIP Limit | Queue Size | Avg Age | Bottleneck Score |
+|-------|-----|-----------|------------|---------|------------------|
+| Ready for Test | [#] | [#] | [#] | [days] | [1-5] |
+| In Testing | [#] | [#] | [#] | [days] | [1-5] |
+| Ready for Review | [#] | [#] | [#] | [days] | [1-5] |
+| In Review | [#] | [#] | [#] | [days] | [1-5] |
+| Ready for Deploy | [#] | [#] | [#] | [days] | [1-5] |
+
+**Cumulative Flow Diagram Analysis:**
+
+\`\`\`
+Items
+  │    ┌─────────────── Done
+80│   ╱│
+  │  ╱ │
+60│ ╱  │───────────── Ready for Deploy
+  │╱   │
+40│    │───────────── In Test
+  │    │
+20│    │───────────── In Dev
+  │    │
+  └────┴────────────────────
+    T-4  T-3  T-2  T-1  Now  (weeks)
+\`\`\`
+
+**Observations:**
+- Band width indicates WIP at each stage
+- Narrowing bands = improving flow
+- Widening bands = accumulating WIP (investigate)
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 6: DELIVERY POINT OPTIMIZATION
+═══════════════════════════════════════════════════════════════════════════════
+
+**Current State Assessment:**
+
+| Dimension | Score (1-5) | Observations | Opportunity |
+|-----------|-------------|--------------|-------------|
+| DoD clarity | [X] | [observation] | [opportunity] |
+| Handoff efficiency | [X] | [observation] | [opportunity] |
+| Feedback loop speed | [X] | [observation] | [opportunity] |
+| Metric visibility | [X] | [observation] | [opportunity] |
+| Customer satisfaction | [X] | [observation] | [opportunity] |
+
+**Waste Identification (Muda Analysis):**
+
+| Waste Type | Examples Found | Impact | Priority | Elimination Strategy |
+|------------|----------------|--------|----------|---------------------|
+| Waiting | [description] | High/Med/Low | [1-5] | [strategy] |
+| Defects | [description] | High/Med/Low | [1-5] | [strategy] |
+| Over-processing | [description] | High/Med/Low | [1-5] | [strategy] |
+| Motion | [description] | High/Med/Low | [1-5] | [strategy] |
+| Handoffs | [description] | High/Med/Low | [1-5] | [strategy] |
+| Partially done | [description] | High/Med/Low | [1-5] | [strategy] |
+| Task switching | [description] | High/Med/Low | [1-5] | [strategy] |
+
+**Improvement Experiments:**
+
+| Experiment | Hypothesis | Metric | Baseline | Target | Duration | Status |
+|------------|------------|--------|----------|--------|----------|--------|
+| [Exp-001] | If we [change], then [outcome] | [metric] | [value] | [value] | [weeks] | □ Active □ Complete |
+| [Exp-002] | If we [change], then [outcome] | [metric] | [value] | [value] | [weeks] | □ Active □ Complete |
+| [Exp-003] | If we [change], then [outcome] | [metric] | [value] | [value] | [weeks] | □ Active □ Complete |
+
+**Completed Experiments Results:**
+
+| Experiment | Result | Impact | Decision |
+|------------|--------|--------|----------|
+| [Exp-A] | Success/Partial/Failed | +X% throughput | Adopt/Adapt/Abandon |
+| [Exp-B] | Success/Partial/Failed | -X days lead time | Adopt/Adapt/Abandon |
+
+**Kaizen Actions (Quick Wins):**
+
+| Action | Owner | Due Date | Expected Impact | Status |
+|--------|-------|----------|-----------------|--------|
+| [Action 1] | [name] | [date] | [impact] | □ Open □ Done |
+| [Action 2] | [name] | [date] | [impact] | □ Open □ Done |
+| [Action 3] | [name] | [date] | [impact] | □ Open □ Done |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 7: SERVICE LEVEL MANAGEMENT
+═══════════════════════════════════════════════════════════════════════════════
+
+**Service Level Expectations (SLEs):**
+
+| Class of Service | Lead Time SLE | Current Performance | Met % | Status |
+|------------------|---------------|---------------------|-------|--------|
+| Expedite | 85% within 24h | [actual] | [%] | □ ✓ □ ⚠ □ ✗ |
+| Fixed Date | 100% by date | [actual] | [%] | □ ✓ □ ⚠ □ ✗ |
+| Standard | 85% within 10 days | [actual] | [%] | □ ✓ □ ⚠ □ ✗ |
+| Intangible | 70% within 30 days | [actual] | [%] | □ ✓ □ ⚠ □ ✗ |
+
+**SLE Breach Analysis:**
+
+| Period | Total Items | Breaches | Breach % | Target | Status |
+|--------|-------------|----------|----------|--------|--------|
+| This Week | [#] | [#] | [%] | <15% | □ ✓ □ ✗ |
+| This Month | [#] | [#] | [%] | <15% | □ ✓ □ ✗ |
+| YTD | [#] | [#] | [%] | <15% | □ ✓ □ ✗ |
+
+**Breach Root Cause Analysis:**
+
+| Work Item | SLE | Actual | Breach Days | Root Cause | Preventive Action |
+|-----------|-----|--------|-------------|------------|-------------------|
+| [WI-001] | 10 days | 14 days | 4 | [cause] | [action] |
+| [WI-002] | 10 days | 12 days | 2 | [cause] | [action] |
+
+**Aging Work Item Alerts:**
+
+| Work Item | Age | SLE | Risk Level | Action Required | Owner |
+|-----------|-----|-----|------------|-----------------|-------|
+| [WI-001] | 8 days | 10 days | High | Expedite completion | [name] |
+| [WI-002] | 6 days | 10 days | Medium | Monitor closely | [name] |
+| [WI-003] | 25 days | 30 days | High | Stakeholder communication | [name] |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 8: REPORTING & GOVERNANCE
+═══════════════════════════════════════════════════════════════════════════════
+
+**Executive Delivery Summary:**
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ DELIVERY REPORT: {{service_name}}                                           │
+│ Period: {{analysis_period}}                                                 │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│ KEY METRICS                                                                 │
+│ ┌─────────────────┬─────────────────┬─────────────────┬─────────────────┐  │
+│ │ Throughput      │ Lead Time (85%) │ Quality         │ Customer Sat    │  │
+│ │ [#] items       │ [X] days        │ [%] first-time  │ [X.X] / 5       │  │
+│ │ [↑↓→] vs target │ [↑↓→] vs target │ [↑↓→] vs target │ [↑↓→] vs target │  │
+│ └─────────────────┴─────────────────┴─────────────────┴─────────────────┘  │
+│                                                                             │
+│ HIGHLIGHTS                                                                  │
+│ • [Key achievement 1]                                                       │
+│ • [Key achievement 2]                                                       │
+│ • [Key achievement 3]                                                       │
+│                                                                             │
+│ CHALLENGES                                                                  │
+│ • [Challenge 1] - [mitigation]                                              │
+│ • [Challenge 2] - [mitigation]                                              │
+│                                                                             │
+│ UPCOMING                                                                    │
+│ • [Planned delivery 1]                                                      │
+│ • [Planned delivery 2]                                                      │
+│                                                                             │
+│ ACTIONS REQUIRED                                                            │
+│ • [Action needing stakeholder input]                                        │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+**Delivery Governance Calendar:**
+
+| Meeting | Frequency | Participants | Focus | Output |
+|---------|-----------|--------------|-------|--------|
+| Delivery Review | Weekly | Team + Stakeholders | Metrics, issues | Actions |
+| Service Review | Monthly | Leadership | SLE performance | Strategy |
+| Ops Review | Bi-weekly | Team | Flow optimization | Experiments |
+| Customer Feedback | Monthly | Team + Customers | Satisfaction | Improvements |
+
+**Stakeholder Communication Matrix:**
+
+| Stakeholder | Information Need | Frequency | Format | Owner |
+|-------------|------------------|-----------|--------|-------|
+| Executive Sponsor | Summary metrics | Monthly | Dashboard | Service Mgr |
+| Department Heads | Delivery status | Weekly | Email | Delivery Lead |
+| Team Members | Detailed metrics | Daily | Board/Display | Team Lead |
+| Customers | Delivery updates | Per item | Notification | Delivery Lead |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 9: CONTINUOUS IMPROVEMENT CYCLE
+═══════════════════════════════════════════════════════════════════════════════
+
+**Improvement Backlog:**
+
+| ID | Improvement Idea | Category | Impact | Effort | Priority | Status |
+|----|------------------|----------|--------|--------|----------|--------|
+| [IMP-001] | [description] | Process | H/M/L | H/M/L | [1-5] | □ Backlog |
+| [IMP-002] | [description] | Quality | H/M/L | H/M/L | [1-5] | □ In Progress |
+| [IMP-003] | [description] | Speed | H/M/L | H/M/L | [1-5] | □ Complete |
+
+**PDCA Cycle Tracking:**
+
+| Improvement | Plan | Do | Check | Act | Cycle Status |
+|-------------|------|-----|-------|-----|--------------|
+| [IMP-001] | ✓ | ✓ | In Progress | - | Checking |
+| [IMP-002] | ✓ | In Progress | - | - | Doing |
+| [IMP-003] | ✓ | ✓ | ✓ | ✓ | Complete |
+
+**Lessons Learned Repository:**
+
+| Date | Topic | Learning | Impact | Applied To |
+|------|-------|----------|--------|------------|
+| [date] | [topic] | [what we learned] | [impact] | [where applied] |
+| [date] | [topic] | [what we learned] | [impact] | [where applied] |
+
+**Maturity Assessment:**
+
+| Capability | Level 1 | Level 2 | Level 3 | Level 4 | Level 5 |
+|------------|---------|---------|---------|---------|---------|
+| DoD Definition | □ Ad-hoc | □ Defined | □ Measured | □ Managed | □ Optimizing |
+| Metrics | □ Ad-hoc | □ Defined | □ Measured | □ Managed | □ Optimizing |
+| Customer Handoff | □ Ad-hoc | □ Defined | □ Measured | □ Managed | □ Optimizing |
+| Quality Assurance | □ Ad-hoc | □ Defined | □ Measured | □ Managed | □ Optimizing |
+| Continuous Improvement | □ Ad-hoc | □ Defined | □ Measured | □ Managed | □ Optimizing |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 10: DELIVERY EXCELLENCE SCORECARD
+═══════════════════════════════════════════════════════════════════════════════
+
+**Monthly Scorecard:**
+
+| Dimension | Weight | Score (1-10) | Weighted | Target | Status |
+|-----------|--------|--------------|----------|--------|--------|
+| Throughput | 25% | [X] | [X.XX] | >8 | □ ✓ □ ⚠ □ ✗ |
+| Predictability | 25% | [X] | [X.XX] | >8 | □ ✓ □ ⚠ □ ✗ |
+| Quality | 25% | [X] | [X.XX] | >8 | □ ✓ □ ⚠ □ ✗ |
+| Customer Satisfaction | 25% | [X] | [X.XX] | >8 | □ ✓ □ ⚠ □ ✗ |
+| **TOTAL SCORE** | 100% | | **[X.XX]** | >8 | |
+
+**Scoring Criteria:**
+
+| Dimension | Score 10 | Score 7 | Score 4 | Score 1 |
+|-----------|----------|---------|---------|---------|
+| Throughput | >110% of target | 90-110% of target | 70-90% of target | <70% of target |
+| Predictability | 85%+ SLE met | 75-85% SLE met | 60-75% SLE met | <60% SLE met |
+| Quality | <1% rework | 1-3% rework | 3-5% rework | >5% rework |
+| Customer Sat | CSAT >4.5 | CSAT 4.0-4.5 | CSAT 3.5-4.0 | CSAT <3.5 |
+
+**Trend Analysis:**
+
+| Month | Throughput | Predictability | Quality | CSAT | Overall |
+|-------|------------|----------------|---------|------|---------|
+| [M-3] | [X] | [X] | [X] | [X] | [X.XX] |
+| [M-2] | [X] | [X] | [X] | [X] | [X.XX] |
+| [M-1] | [X] | [X] | [X] | [X] | [X.XX] |
+| Current | [X] | [X] | [X] | [X] | [X.XX] |
+| Trend | ↑ ↓ → | ↑ ↓ → | ↑ ↓ → | ↑ ↓ → | ↑ ↓ → |
+
+───────────────────────────────────────────────────────────────────────────────
+ANTI-PATTERNS TO AVOID
+───────────────────────────────────────────────────────────────────────────────
+
+✗ Undefined or vague Definition of Done allowing inconsistent quality
+✗ Delivering work without customer notification or handoff
+✗ Ignoring escaped defects without root cause analysis
+✗ Measuring throughput without quality metrics balance
+✗ No feedback loop from customers post-delivery
+✗ SLE breaches without investigation or corrective action
+✗ Batching deliveries instead of continuous flow
+✗ Skipping DoD checklist under time pressure
+✗ No visibility of delivery metrics to stakeholders
+✗ Rework not tracked as a quality signal
+✗ Customer satisfaction measured but not acted upon
+✗ Improvement ideas collected but never implemented
+✗ Delivery point bottlenecks ignored
+✗ No aging work item alerts or escalation
+
+───────────────────────────────────────────────────────────────────────────────
+QUALITY INDICATORS
+───────────────────────────────────────────────────────────────────────────────
+
+□ Explicit Definition of Done with verifiable criteria
+□ Every delivery includes customer notification
+□ Acceptance tracking for all delivered items
+□ Escaped defects analyzed with corrective actions
+□ SLE performance visible and monitored
+□ Flow efficiency measured and improving
+□ Customer satisfaction regularly collected and acted upon
+□ Continuous improvement experiments active
+□ Delivery metrics visible to all stakeholders
+□ Aging items flagged and escalated proactively
+□ Waste systematically identified and eliminated
+□ Delivery excellence scorecard trending positively`,
     variables: [
       { name: 'service_name', description: 'Service or team name', example: 'Platform Engineering Team', required: true },
+      { name: 'value_stream', description: 'Value stream this service belongs to', example: 'Customer Onboarding', required: false },
       { name: 'delivery_class', description: 'Primary class of service', example: 'Standard Service Requests', required: true },
       { name: 'analysis_period', description: 'Reporting period', example: 'January 2025', required: true },
+      { name: 'service_manager', description: 'Service Level Manager name', example: 'Sarah Johnson', required: false },
+      { name: 'delivery_target', description: 'Target delivery rate per week', example: '15', required: false },
     ],
     tier: 'premium',
-    estimatedTimeSaved: '3 hours',
-    tags: ['kanban', 'delivery', 'completion', 'handoff', 'metrics', 'Kanban University', 'Flow Metrics'],
+    estimatedTimeSaved: '6 hours',
+    tags: ['kanban', 'delivery', 'completion', 'handoff', 'metrics', 'flow-efficiency', 'SLE', 'Kanban University', 'Flow Metrics', 'continuous-improvement'],
   },
 
   // SAFe - Release on Demand Phase
   {
     id: 'safe-rod-1',
-    title: 'SAFe Release on Demand Orchestrator',
+    title: 'SAFe Release on Demand Mastery',
     framework: 'safe',
     phase: 'Release on Demand',
     canonicalPhase: 5,
-    description: 'Generate comprehensive Release on Demand documentation with feature toggles, deployment pipelines, and value stream coordination.',
-    template: `You are a SAFe Program Consultant (SPC) and Release Train Engineer. Generate Release on Demand documentation enabling value delivery whenever business needs it.
+    description: 'Generate comprehensive Release on Demand documentation with feature toggles, deployment pipelines, value stream coordination, and DevOps excellence aligned with SAFe 6.0 Continuous Delivery Pipeline principles.',
+    template: `You are an expert SAFe Program Consultant (SPC) and Release Train Engineer with deep expertise in continuous delivery and DevOps transformation. Your role is to orchestrate seamless value delivery at enterprise scale, enabling the business to release when they need to—not when IT says they can. Generate comprehensive Release on Demand documentation based on SAFe 6.0 and modern DevOps principles.
 
-RELEASE CONTEXT:
-Agile Release Train: {{art_name}}
-Solution: {{solution_name}}
-Release Window: {{release_window}}
-RTE: {{rte_name}}
+═══════════════════════════════════════════════════════════════════════════════
+RELEASE ON DEMAND CONTEXT
+═══════════════════════════════════════════════════════════════════════════════
 
-Generate release orchestration documentation:
-1. RELEASE GOVERNANCE - Authority matrix, criteria, release types
-2. CONTINUOUS DELIVERY PIPELINE - Stages, quality gates, health metrics (DORA)
-3. FEATURE TOGGLE MANAGEMENT - Active toggles, categories, governance policies
-4. RELEASE READINESS - Features ready, dependency map, infrastructure readiness
-5. RELEASE EXECUTION RUNBOOK - Pre-release, execution, post-release sequences
-6. RELEASE METRICS & LEARNING - Frequency, value delivered, retrospective insights
-7. SOLUTION COORDINATION - Cross-ART dependencies, solution release coordination`,
+**ART & Solution Identity:**
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Agile Release Train:  {{art_name}}                                          │
+│ Solution:             {{solution_name}}                                     │
+│ Program Increment:    {{program_increment}}                                 │
+│ Release Window:       {{release_window}}                                    │
+│ Release Train Engineer: {{rte_name}}                                        │
+│ Solution Train Engineer: {{ste_name}}                                       │
+│ Business Owners:      {{business_owners}}                                   │
+│ Target Environment:   {{target_environment}}                                │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+**Release Strategy:**
+□ Continuous Deployment - Every commit to production
+□ Continuous Delivery - Always releasable, business decides when
+□ Release Train Release - End of PI release cadence
+□ Solution Release - Multi-ART coordinated release
+□ On-Demand - Business-triggered release
+
+**Value Stream Context:**
+
+| Value Stream | ART(s) Involved | Business Owner | Release Coordinator |
+|--------------|-----------------|----------------|---------------------|
+| {{value_stream}} | {{art_name}} | [name] | [name] |
+| [VS 2] | [ART(s)] | [name] | [name] |
+| [VS 3] | [ART(s)] | [name] | [name] |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 1: RELEASE GOVERNANCE & AUTHORITY
+═══════════════════════════════════════════════════════════════════════════════
+
+**Release Authority Matrix:**
+
+| Release Type | Decision Authority | Approval Required | Notification |
+|--------------|-------------------|-------------------|--------------|
+| Feature Toggle ON | Product Management | None | ART Sync |
+| Feature Toggle OFF | Engineering | PM notification | Slack #releases |
+| Standard Release | RTE + PM | Business Owner | Stakeholders |
+| Emergency Fix | On-call + RTE | Post-hoc review | All hands |
+| Solution Release | STE + Solution PM | Solution Board | Enterprise |
+| Breaking Change | Architecture + PM | Business Owners | All stakeholders |
+
+**Release Decision Criteria:**
+
+| Criterion | Must Have | Should Have | Weight |
+|-----------|-----------|-------------|--------|
+| All features meet DoD | ✓ | | Critical |
+| No P1/P2 defects open | ✓ | | Critical |
+| Performance benchmarks met | ✓ | | Critical |
+| Security scan passed | ✓ | | Critical |
+| Business value confirmed | ✓ | | Critical |
+| Documentation complete | | ✓ | High |
+| Support team trained | | ✓ | High |
+| Rollback tested | ✓ | | Critical |
+| Monitoring configured | ✓ | | Critical |
+| Stakeholders notified | | ✓ | Medium |
+
+**Release Types & SLAs:**
+
+| Release Type | Lead Time | Frequency | Approval Path | Risk Level |
+|--------------|-----------|-----------|---------------|------------|
+| Standard | 24-48 hours | Weekly | PM → RTE → BO | Low |
+| Expedited | 4-8 hours | As needed | RTE + PM verbal | Medium |
+| Emergency | <2 hours | Rare | On-call authority | High |
+| Planned Major | 1-2 weeks | Per PI | Full governance | Variable |
+| Feature Flag | Immediate | Continuous | PM only | Very Low |
+
+**Change Advisory Board (CAB) Integration:**
+
+| Change Type | CAB Review Required | Timing | Participants |
+|-------------|---------------------|--------|--------------|
+| Standard | No | N/A | N/A |
+| Normal | Yes | Weekly CAB | CAB members |
+| Emergency | Post-implementation | Next CAB | CAB + Incident team |
+| Major | Yes | Special session | CAB + Business Owners |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 2: CONTINUOUS DELIVERY PIPELINE
+═══════════════════════════════════════════════════════════════════════════════
+
+**Pipeline Architecture:**
+
+\`\`\`
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    CONTINUOUS DELIVERY PIPELINE                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  [DEVELOP] → [BUILD] → [TEST] → [STAGE] → [DEPLOY] → [RELEASE] → [OPERATE] │
+│      │          │         │        │         │          │           │       │
+│      ▼          ▼         ▼        ▼         ▼          ▼           ▼       │
+│   Commit     Compile   Auto     Pre-Prod  Deploy    Feature    Monitor    │
+│   Review     Package   Tests    Verify    Prod      Toggle     Observe    │
+│   Quality    Scan      UAT      Approve   Verify    Enable     Support    │
+│                                                                             │
+│  ◄─────── Continuous Integration ──────►◄──── Continuous Deployment ─────► │
+│  ◄────────────────────── Continuous Delivery ─────────────────────────────► │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+\`\`\`
+
+**Pipeline Stages Detail:**
+
+| Stage | Activities | Quality Gates | Duration | Automation % |
+|-------|------------|---------------|----------|--------------|
+| Develop | Code, review, commit | PR approval, lint | Variable | 60% |
+| Build | Compile, package, scan | Build success, no critical vulns | <10 min | 95% |
+| Test | Unit, integration, e2e | >80% coverage, all pass | <30 min | 90% |
+| Stage | Deploy staging, validate | Smoke tests pass | <15 min | 85% |
+| Deploy | Deploy production | Health checks pass | <15 min | 90% |
+| Release | Feature toggle, announce | Business approval | Variable | 70% |
+| Operate | Monitor, support | SLIs within SLOs | Continuous | 80% |
+
+**Quality Gates Specification:**
+
+| Gate | Location | Criteria | Auto/Manual | Blocker |
+|------|----------|----------|-------------|---------|
+| Code Quality | Build | SonarQube A rating | Auto | Yes |
+| Security Scan | Build | No critical/high vulns | Auto | Yes |
+| Unit Tests | Test | 100% pass, >80% coverage | Auto | Yes |
+| Integration Tests | Test | 100% pass | Auto | Yes |
+| Performance | Test | <200ms p95, >1000 RPS | Auto | Yes |
+| Accessibility | Test | WCAG 2.1 AA | Auto | No |
+| Staging Smoke | Stage | Core flows working | Auto | Yes |
+| UAT Sign-off | Stage | PO approval | Manual | Yes |
+| Production Smoke | Deploy | Health checks green | Auto | Yes |
+| Business Approval | Release | BO sign-off | Manual | Yes |
+
+**DORA Metrics Dashboard:**
+
+| Metric | Current | Target | Industry Elite | Status |
+|--------|---------|--------|----------------|--------|
+| Deployment Frequency | [X]/week | Daily | Multiple/day | □ ✓ □ ⚠ □ ✗ |
+| Lead Time for Changes | [X] days | <1 day | <1 hour | □ ✓ □ ⚠ □ ✗ |
+| Mean Time to Recovery | [X] hours | <1 hour | <1 hour | □ ✓ □ ⚠ □ ✗ |
+| Change Failure Rate | [X]% | <15% | 0-15% | □ ✓ □ ⚠ □ ✗ |
+
+**Pipeline Health Metrics:**
+
+| Metric | Last 7 Days | Trend | Target | Alert Threshold |
+|--------|-------------|-------|--------|-----------------|
+| Pipeline Success Rate | [%] | ↑ ↓ → | >95% | <90% |
+| Avg Pipeline Duration | [min] | ↑ ↓ → | <45 min | >60 min |
+| Test Flakiness Rate | [%] | ↑ ↓ → | <2% | >5% |
+| Queue Wait Time | [min] | ↑ ↓ → | <5 min | >15 min |
+| Rollback Rate | [%] | ↑ ↓ → | <5% | >10% |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 3: FEATURE TOGGLE MANAGEMENT
+═══════════════════════════════════════════════════════════════════════════════
+
+**Feature Toggle Inventory:**
+
+| Toggle Name | Type | Status | Rollout % | Owner | Created | Cleanup Date |
+|-------------|------|--------|-----------|-------|---------|--------------|
+| [toggle_1] | Release | Active | 100% | [PM] | [date] | [date] |
+| [toggle_2] | Experiment | Active | 25% | [PM] | [date] | [date] |
+| [toggle_3] | Ops | Active | 100% | [Eng] | [date] | Permanent |
+| [toggle_4] | Permission | Active | N/A | [PM] | [date] | Permanent |
+| [toggle_5] | Release | Inactive | 0% | [PM] | [date] | [date] |
+
+**Toggle Type Definitions:**
+
+| Type | Purpose | Lifespan | Owner | Example |
+|------|---------|----------|-------|---------|
+| Release | Hide incomplete features | Days-Weeks | PM | new_checkout_flow |
+| Experiment | A/B testing | Weeks-Months | PM/Data | pricing_experiment |
+| Ops | Circuit breaker, kill switch | Permanent | Eng | disable_external_api |
+| Permission | User/tenant features | Permanent | PM | enterprise_features |
+
+**Toggle Governance Policies:**
+
+□ All toggles must have an owner and cleanup date (except Ops/Permission)
+□ Release toggles must be removed within 30 days of full rollout
+□ Experiment toggles require data analysis before decision
+□ Ops toggles must have runbook documentation
+□ Permission toggles must be reviewed quarterly
+□ No toggle nesting beyond 2 levels
+□ Toggle naming convention: [type]_[feature]_[variant]
+
+**Toggle Rollout Schedule:**
+
+| Toggle | Week 1 | Week 2 | Week 3 | Week 4 | Full Release |
+|--------|--------|--------|--------|--------|--------------|
+| [toggle_1] | 1% internal | 5% beta | 25% | 100% | Remove toggle |
+| [toggle_2] | 50/50 split | 50/50 split | Analyze | Decision | Implement winner |
+| [toggle_3] | 100% | 100% | 100% | 100% | Permanent |
+
+**Toggle Kill Switch Procedures:**
+
+| Toggle | Kill Trigger | Auto/Manual | Impact | Recovery |
+|--------|--------------|-------------|--------|----------|
+| [toggle_1] | Error rate >5% | Auto | Feature disabled | Fix + re-enable |
+| [toggle_2] | Conversion drop >10% | Manual | Experiment ends | Revert to control |
+| [toggle_3] | External API failure | Auto | Graceful degradation | Monitor + re-enable |
+
+**Technical Debt: Toggle Cleanup Tracker:**
+
+| Toggle | Age | Status | Cleanup Blocker | Action Required | Due Date |
+|--------|-----|--------|-----------------|-----------------|----------|
+| [old_toggle_1] | 90 days | Overdue | None | Remove | Immediate |
+| [old_toggle_2] | 60 days | At risk | Dependent feature | Prioritize | [date] |
+| [old_toggle_3] | 45 days | On track | None | Schedule | [date] |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 4: RELEASE READINESS ASSESSMENT
+═══════════════════════════════════════════════════════════════════════════════
+
+**Features Ready for Release:**
+
+| Feature ID | Title | Team | Status | DoD | Toggle | Risk |
+|------------|-------|------|--------|-----|--------|------|
+| [F-001] | [title] | [team] | Ready | ✓ | [toggle] | Low |
+| [F-002] | [title] | [team] | Ready | ✓ | [toggle] | Medium |
+| [F-003] | [title] | [team] | At Risk | Partial | [toggle] | High |
+| [F-004] | [title] | [team] | Not Ready | ✗ | [toggle] | - |
+
+**Feature Readiness Criteria Matrix:**
+
+| Criterion | F-001 | F-002 | F-003 | F-004 |
+|-----------|-------|-------|-------|-------|
+| Code complete | ✓ | ✓ | ✓ | ✗ |
+| Tests passing | ✓ | ✓ | ✓ | ✗ |
+| Performance validated | ✓ | ✓ | ⚠ | - |
+| Security approved | ✓ | ✓ | ✓ | - |
+| Documentation ready | ✓ | ✓ | ✗ | - |
+| Support trained | ✓ | ⚠ | ✗ | - |
+| Toggle configured | ✓ | ✓ | ✓ | - |
+| Rollback tested | ✓ | ✓ | ✗ | - |
+
+**Dependency Map:**
+
+\`\`\`
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         RELEASE DEPENDENCY MAP                               │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│   ┌─────────┐                                                               │
+│   │ F-001   │──────────────┐                                                │
+│   │ Ready   │              │                                                │
+│   └─────────┘              │                                                │
+│                            ▼                                                │
+│   ┌─────────┐        ┌──────────┐        ┌─────────┐                       │
+│   │ F-002   │───────►│ API v2.0 │◄───────│ F-003   │                       │
+│   │ Ready   │        │ External │        │ At Risk │                       │
+│   └─────────┘        └──────────┘        └─────────┘                       │
+│                            │                   │                            │
+│                            ▼                   ▼                            │
+│                      ┌──────────┐        ┌─────────┐                       │
+│                      │ Database │        │ Payment │                       │
+│                      │ Migration│        │ Gateway │                       │
+│                      └──────────┘        └─────────┘                       │
+│                                                                             │
+│   Legend: ───► Hard dependency    - - -► Soft dependency                   │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+\`\`\`
+
+**Cross-ART Dependencies:**
+
+| Feature | Depends On | ART | Status | Risk | Mitigation |
+|---------|------------|-----|--------|------|------------|
+| [F-001] | [Capability X] | [Other ART] | On track | Low | N/A |
+| [F-002] | [Service Y] | [Platform ART] | At risk | Medium | Parallel dev |
+| [F-003] | [API Z] | [External] | Blocked | High | Escalate |
+
+**Infrastructure Readiness:**
+
+| Component | Required | Current | Gap | Action | Status |
+|-----------|----------|---------|-----|--------|--------|
+| Production servers | [X] | [X] | None | N/A | ✓ Ready |
+| Database capacity | [X] GB | [X] GB | [X] GB | Scale up | ⚠ In Progress |
+| CDN configuration | Updated | Current | Config | Apply | □ Pending |
+| Load balancer | [X] rules | [X] rules | None | N/A | ✓ Ready |
+| SSL certificates | Valid | Expires [date] | None | Monitor | ✓ Ready |
+
+**Environment Verification:**
+
+| Environment | Version | Config Sync | Data Sync | Status |
+|-------------|---------|-------------|-----------|--------|
+| Development | [version] | ✓ | N/A | ✓ |
+| QA | [version] | ✓ | Masked | ✓ |
+| Staging | [version] | ✓ | Subset | ✓ |
+| Pre-Production | [version] | ✓ | Full clone | ✓ |
+| Production | [current] | Baseline | Production | Target |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 5: RELEASE EXECUTION RUNBOOK
+═══════════════════════════════════════════════════════════════════════════════
+
+**Pre-Release Sequence (T-24h to T-0):**
+
+| Step | Time | Activity | Owner | Verification | Status |
+|------|------|----------|-------|--------------|--------|
+| 1 | T-24h | Announce release window | RTE | Email sent | □ |
+| 2 | T-24h | Code freeze | Dev Lead | Branch locked | □ |
+| 3 | T-12h | Final build | DevOps | Build green | □ |
+| 4 | T-10h | Deploy to staging | DevOps | Deployed | □ |
+| 5 | T-8h | Full regression | QA Lead | All pass | □ |
+| 6 | T-4h | UAT sign-off | Product | Signed | □ |
+| 7 | T-2h | Go/No-Go meeting | RTE | Decision made | □ |
+| 8 | T-1h | Production backup | DevOps | Backup verified | □ |
+| 9 | T-30m | Notify stakeholders | RTE | Notified | □ |
+| 10 | T-15m | Enter maintenance window | DevOps | Active | □ |
+
+**Release Execution Sequence (T-0):**
+
+| Step | Activity | Owner | Duration | Verification | Rollback Point |
+|------|----------|-------|----------|--------------|----------------|
+| 1 | Start deployment | DevOps | - | Pipeline started | - |
+| 2 | Database migrations | DevOps | ~10 min | Migrations complete | DB-SNAP-001 |
+| 3 | Deploy services | DevOps | ~15 min | All services healthy | PRE-DEPLOY |
+| 4 | Run smoke tests | Auto | ~5 min | All pass | - |
+| 5 | Update load balancer | DevOps | ~2 min | Traffic flowing | LB-CONFIG-OLD |
+| 6 | Enable feature toggles | PM | ~1 min | Features visible | Toggle OFF |
+| 7 | Verify monitoring | DevOps | ~5 min | Dashboards green | - |
+| 8 | Production sign-off | RTE | ~5 min | Signed off | - |
+
+**Post-Release Sequence (T+0 to T+72h):**
+
+| Step | Time | Activity | Owner | Verification |
+|------|------|----------|-------|--------------|
+| 1 | T+15m | Exit maintenance window | DevOps | Window closed |
+| 2 | T+30m | Send release notification | RTE | Notification sent |
+| 3 | T+1h | Monitor metrics (continuous) | DevOps | Baseline comparison |
+| 4 | T+2h | Customer feedback check | Support | No critical issues |
+| 5 | T+24h | First day metrics review | PM | KPIs trending |
+| 6 | T+48h | Hypercare review | Team | Issues addressed |
+| 7 | T+72h | Release retrospective | RTE | Learnings captured |
+
+**Communication Plan:**
+
+| When | What | To Whom | Channel | Owner |
+|------|------|---------|---------|-------|
+| T-24h | Release announcement | All stakeholders | Email | RTE |
+| T-2h | Go/No-Go decision | Leadership | Meeting | RTE |
+| T-30m | Maintenance start | Users | Status page | DevOps |
+| T+15m | Maintenance end | Users | Status page | DevOps |
+| T+30m | Release complete | Stakeholders | Email + Slack | RTE |
+| T+24h | Day 1 summary | Leadership | Report | PM |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 6: ROLLBACK STRATEGY
+═══════════════════════════════════════════════════════════════════════════════
+
+**Rollback Triggers:**
+
+| Trigger | Threshold | Detection | Auto/Manual | Severity |
+|---------|-----------|-----------|-------------|----------|
+| Error rate spike | >5% for 5 min | APM alert | Auto-hold | P1 |
+| Latency increase | >3x baseline | Metrics | Auto-hold | P1 |
+| Failed health checks | >3 consecutive | LB | Auto-rollback | P1 |
+| Business metric drop | >20% conversion | Analytics | Manual | P2 |
+| Customer complaints | >10 P1 tickets | Support | Manual | P2 |
+| Security incident | Any confirmed | Security | Immediate | P0 |
+
+**Rollback Decision Matrix:**
+
+| Scenario | Impact | Time Since Deploy | Action | Approver |
+|----------|--------|-------------------|--------|----------|
+| P0 - Security breach | Critical | Any | Immediate rollback | On-call |
+| P1 - System outage | Severe | <1 hour | Rollback | RTE |
+| P1 - System outage | Severe | >1 hour | Assess options | RTE + PM |
+| P2 - Feature broken | High | <4 hours | Rollback or hotfix | RTE |
+| P2 - Feature broken | High | >4 hours | Hotfix preferred | PM + Dev |
+| P3 - Minor issue | Medium | Any | Next release | PM |
+
+**Rollback Procedure:**
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ ROLLBACK PROCEDURE - {{art_name}}                                           │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│ STEP 1: DECISION (2 min)                                                    │
+│ □ Confirm severity warrants rollback                                        │
+│ □ Identify rollback point (version, snapshot)                               │
+│ □ Notify #release-{{program_increment}} channel                             │
+│                                                                             │
+│ STEP 2: COMMUNICATION (1 min)                                               │
+│ □ Update status page: "Investigating issue"                                 │
+│ □ Notify on-call chain                                                      │
+│                                                                             │
+│ STEP 3: TRAFFIC MANAGEMENT (2 min)                                          │
+│ □ Disable new feature toggles                                               │
+│ □ Route traffic away if needed                                              │
+│                                                                             │
+│ STEP 4: APPLICATION ROLLBACK (10 min)                                       │
+│ □ Execute: [rollback command/pipeline]                                      │
+│ □ Verify previous version deployed                                          │
+│ □ Confirm all instances healthy                                             │
+│                                                                             │
+│ STEP 5: DATABASE ROLLBACK (if needed) (15 min)                              │
+│ □ Execute rollback migration: [script]                                      │
+│ □ Verify data integrity                                                     │
+│ □ Note: Some changes may require data reconciliation                        │
+│                                                                             │
+│ STEP 6: VERIFICATION (5 min)                                                │
+│ □ Run smoke tests                                                           │
+│ □ Verify metrics returning to baseline                                      │
+│ □ Confirm user flows working                                                │
+│                                                                             │
+│ STEP 7: COMMUNICATION (ongoing)                                             │
+│ □ Update status page: "Issue resolved"                                      │
+│ □ Stakeholder notification                                                  │
+│ □ Schedule incident review                                                  │
+│                                                                             │
+│ CONTACTS:                                                                   │
+│ • RTE: {{rte_name}} - [phone]                                               │
+│ • DevOps On-Call: [pager]                                                   │
+│ • Engineering Lead: [phone]                                                 │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 7: POST-RELEASE MONITORING
+═══════════════════════════════════════════════════════════════════════════════
+
+**Real-Time Monitoring Dashboards:**
+
+| Dashboard | Purpose | Key Metrics | Owner | Alert Channel |
+|-----------|---------|-------------|-------|---------------|
+| Release Health | Overall status | Error rate, latency, throughput | DevOps | PagerDuty |
+| Business Metrics | Value delivery | Conversions, revenue, engagement | PM | Slack #metrics |
+| Infrastructure | Resource usage | CPU, memory, disk, network | DevOps | PagerDuty |
+| User Experience | Frontend perf | LCP, FID, CLS, errors | Frontend | Slack #frontend |
+| Feature Adoption | Toggle impact | Usage, funnel, retention | PM | Email |
+
+**Critical Metrics Watchlist (First 24h):**
+
+| Metric | Baseline | Threshold | Current | Status | Trend |
+|--------|----------|-----------|---------|--------|-------|
+| Error Rate | [%] | +2% | | □ ✓ □ ⚠ □ ✗ | ↑ ↓ → |
+| Response Time (p95) | [ms] | +50% | | □ ✓ □ ⚠ □ ✗ | ↑ ↓ → |
+| Throughput | [req/s] | -20% | | □ ✓ □ ⚠ □ ✗ | ↑ ↓ → |
+| CPU Utilization | [%] | 80% | | □ ✓ □ ⚠ □ ✗ | ↑ ↓ → |
+| Memory Usage | [%] | 85% | | □ ✓ □ ⚠ □ ✗ | ↑ ↓ → |
+| Database Connections | [#] | [max] | | □ ✓ □ ⚠ □ ✗ | ↑ ↓ → |
+| Feature Adoption | N/A | Target | | □ ✓ □ ⚠ □ ✗ | ↑ ↓ → |
+| Support Tickets | [#/day] | +100% | | □ ✓ □ ⚠ □ ✗ | ↑ ↓ → |
+
+**Monitoring Schedule:**
+
+| Timeframe | Frequency | Focus | Responsible | Escalation |
+|-----------|-----------|-------|-------------|------------|
+| T+0 to T+2h | Continuous | Critical systems | On-call | Immediate |
+| T+2h to T+8h | Every 30 min | Performance + errors | DevOps | 15 min delay |
+| T+8h to T+24h | Every 2 hours | Trends + adoption | RTE | 30 min delay |
+| T+24h to T+72h | Every 4 hours | Business metrics | PM | Daily report |
+| T+72h+ | Daily | Long-term stability | Team | Weekly review |
+
+**Incident Response Protocol:**
+
+| Severity | Response Time | Initial Actions | Escalation Path |
+|----------|---------------|-----------------|-----------------|
+| P0 - Critical | <5 min | Page all, rollback | VP Engineering |
+| P1 - High | <15 min | On-call + RTE | Engineering Manager |
+| P2 - Medium | <1 hour | On-call | Team Lead |
+| P3 - Low | <4 hours | Next business day | Product Owner |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 8: RELEASE METRICS & VALUE DELIVERY
+═══════════════════════════════════════════════════════════════════════════════
+
+**Release Metrics Summary:**
+
+| Metric | This Release | Previous | PI Average | Target |
+|--------|--------------|----------|------------|--------|
+| Features Released | [#] | [#] | [#] | [#] |
+| Lead Time | [days] | [days] | [days] | <[days] |
+| Cycle Time | [days] | [days] | [days] | <[days] |
+| Deployment Time | [min] | [min] | [min] | <[min] |
+| Rollback Count | [#] | [#] | [#] | 0 |
+| Incidents | [#] | [#] | [#] | 0 |
+
+**Business Value Delivered:**
+
+| Feature | Value Type | Quantified Impact | Measurement | Status |
+|---------|------------|-------------------|-------------|--------|
+| [F-001] | Revenue | +$[X]K/month | Transaction data | □ Tracking |
+| [F-002] | Cost savings | -[X] hours/week | Time tracking | □ Tracking |
+| [F-003] | Customer satisfaction | +[X] NPS points | Survey | □ Tracking |
+| [F-004] | Risk reduction | -[X]% incidents | Incident data | □ Tracking |
+
+**PI Objectives Completion:**
+
+| PI Objective | Features Included | Status | % Complete | Business Value |
+|--------------|-------------------|--------|------------|----------------|
+| [Objective 1] | F-001, F-002 | Achieved | 100% | $[X]K |
+| [Objective 2] | F-003 | Partial | 75% | $[X]K |
+| [Objective 3] | F-004, F-005 | At Risk | 50% | $[X]K |
+
+**Release Retrospective Insights:**
+
+WHAT WENT WELL:
+1. [Positive observation 1]
+2. [Positive observation 2]
+3. [Positive observation 3]
+
+WHAT COULD BE IMPROVED:
+1. [Area for improvement 1]
+2. [Area for improvement 2]
+3. [Area for improvement 3]
+
+ACTION ITEMS:
+| Action | Owner | Due Date | Priority |
+|--------|-------|----------|----------|
+| [Action 1] | [name] | [date] | High |
+| [Action 2] | [name] | [date] | Medium |
+| [Action 3] | [name] | [date] | Low |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 9: SOLUTION-LEVEL COORDINATION
+═══════════════════════════════════════════════════════════════════════════════
+
+**Multi-ART Release Coordination:**
+
+| ART | Release Status | Dependencies Resolved | Contact | Go/No-Go |
+|-----|---------------|----------------------|---------|----------|
+| {{art_name}} | Ready | ✓ All | {{rte_name}} | □ Go |
+| [ART 2] | Ready | ✓ All | [RTE] | □ Go |
+| [ART 3] | At Risk | ⚠ 1 pending | [RTE] | □ Conditional |
+| [ART 4] | Blocked | ✗ 2 blocked | [RTE] | □ No-Go |
+
+**Solution Release Train Sync:**
+
+| Sync Point | Timing | Participants | Decision Required |
+|------------|--------|--------------|-------------------|
+| Release Planning | PI Planning | All RTEs + STE | Release scope |
+| Integration Checkpoint | Weekly | RTEs + Architects | Integration status |
+| Go/No-Go | T-24h | RTEs + STE + PMs | Final decision |
+| Post-Release Sync | T+24h | RTEs + STE | Lessons learned |
+
+**Cross-ART Dependency Status:**
+
+| Dependency | Provider ART | Consumer ART | Status | Resolution Date |
+|------------|--------------|--------------|--------|-----------------|
+| [API v2] | [ART A] | {{art_name}} | Complete | [date] |
+| [Shared Service] | [Platform] | Multiple | In Progress | [date] |
+| [Data Migration] | [Data ART] | {{art_name}} | At Risk | [date] |
+
+**Solution Release Checklist:**
+
+□ All ART RTEs confirmed ready
+□ Solution-level integration tests passed
+□ Cross-ART dependencies resolved
+□ Solution Train Engineer approval
+□ Business Owners sign-off
+□ Enterprise Architecture review (if applicable)
+□ Compliance verification (if applicable)
+□ Solution-wide communication plan executed
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 10: DEVOPS EXCELLENCE & CONTINUOUS IMPROVEMENT
+═══════════════════════════════════════════════════════════════════════════════
+
+**DevOps Maturity Assessment:**
+
+| Capability | Level 1 | Level 2 | Level 3 | Level 4 | Level 5 |
+|------------|---------|---------|---------|---------|---------|
+| CI/CD Pipeline | □ Initial | □ Defined | □ Measured | □ Managed | □ Optimizing |
+| Automated Testing | □ Initial | □ Defined | □ Measured | □ Managed | □ Optimizing |
+| Infrastructure as Code | □ Initial | □ Defined | □ Measured | □ Managed | □ Optimizing |
+| Monitoring/Observability | □ Initial | □ Defined | □ Measured | □ Managed | □ Optimizing |
+| Feature Toggles | □ Initial | □ Defined | □ Measured | □ Managed | □ Optimizing |
+| Release Automation | □ Initial | □ Defined | □ Measured | □ Managed | □ Optimizing |
+
+**Continuous Improvement Backlog:**
+
+| ID | Improvement | Category | Impact | Effort | Priority | Status |
+|----|-------------|----------|--------|--------|----------|--------|
+| [IMP-001] | [description] | Pipeline | High | Medium | 1 | In Progress |
+| [IMP-002] | [description] | Testing | Medium | Low | 2 | Backlog |
+| [IMP-003] | [description] | Monitoring | High | High | 3 | Backlog |
+
+**Technical Debt Tracking:**
+
+| Item | Type | Impact | Sprint Allocated | Status |
+|------|------|--------|------------------|--------|
+| [TD-001] | Toggle cleanup | Medium | [Sprint X] | □ Scheduled |
+| [TD-002] | Pipeline optimization | High | [Sprint Y] | □ In Progress |
+| [TD-003] | Test coverage gap | Medium | [Sprint Z] | □ Backlog |
+
+**Relentless Improvement Goals:**
+
+| Goal | Current | Target | Deadline | Owner |
+|------|---------|--------|----------|-------|
+| Deployment frequency | [X]/week | Daily | [date] | DevOps |
+| Lead time | [X] days | <1 day | [date] | Team |
+| Change failure rate | [X]% | <5% | [date] | QA |
+| MTTR | [X] hours | <1 hour | [date] | DevOps |
+
+───────────────────────────────────────────────────────────────────────────────
+ANTI-PATTERNS TO AVOID
+───────────────────────────────────────────────────────────────────────────────
+
+✗ Release decisions driven by calendar rather than readiness
+✗ Manual deployment steps that should be automated
+✗ Feature toggles without cleanup schedule (toggle debt)
+✗ Skipping staging environment validation for "urgent" releases
+✗ No rollback procedure or untested rollback
+✗ Poor cross-ART coordination leading to integration failures
+✗ Insufficient monitoring during post-release period
+✗ Change Advisory Board as a bottleneck rather than enabler
+✗ "Big bang" releases instead of incremental delivery
+✗ Technical debt ignored in favor of new features
+✗ DORA metrics not visible or not acted upon
+✗ Security scanning bypassed for speed
+✗ Inadequate communication leaving stakeholders surprised
+✗ Post-release retrospectives skipped or not actioned
+
+───────────────────────────────────────────────────────────────────────────────
+QUALITY INDICATORS
+───────────────────────────────────────────────────────────────────────────────
+
+□ Release governance clear with appropriate authority levels
+□ Continuous delivery pipeline fully automated with quality gates
+□ Feature toggles managed with cleanup schedule enforced
+□ All dependencies mapped and resolved before release
+□ Rollback procedure tested and documented
+□ Post-release monitoring active with clear escalation paths
+□ DORA metrics tracked and trending toward elite performance
+□ Cross-ART coordination smooth with no last-minute surprises
+□ Business value quantified and tracked per release
+□ Retrospective insights actioned in following PIs
+□ DevOps maturity improving measurably
+□ Technical debt actively managed`,
     variables: [
       { name: 'art_name', description: 'Agile Release Train name', example: 'Customer Experience ART', required: true },
       { name: 'solution_name', description: 'Solution being released', example: 'Digital Banking Platform', required: true },
+      { name: 'program_increment', description: 'Current Program Increment', example: 'PI 2025.1', required: true },
       { name: 'release_window', description: 'Release timing', example: 'PI 2025.1 - February Release', required: true },
       { name: 'rte_name', description: 'Release Train Engineer', example: 'Alex Thompson', required: true },
+      { name: 'ste_name', description: 'Solution Train Engineer (if applicable)', example: 'Jordan Lee', required: false },
+      { name: 'business_owners', description: 'Business Owners names', example: 'Sarah Chen, Michael Roberts', required: false },
+      { name: 'target_environment', description: 'Target deployment environment', example: 'Production US-East', required: false },
+      { name: 'value_stream', description: 'Primary value stream', example: 'Customer Acquisition', required: false },
     ],
     tier: 'premium',
-    estimatedTimeSaved: '4 hours',
-    tags: ['safe', 'release', 'continuous-delivery', 'feature-toggles', 'devops', 'SAFe 6.0', 'Scaled Agile'],
+    estimatedTimeSaved: '8 hours',
+    tags: ['safe', 'release', 'continuous-delivery', 'feature-toggles', 'devops', 'SAFe 6.0', 'Scaled Agile', 'DORA', 'pipeline', 'multi-ART'],
   },
 
   // Lean - Establish Pull Phase
   {
     id: 'lean-pull-1',
-    title: 'Lean Pull System Design & Implementation',
+    title: 'Lean Pull System Design & Implementation Mastery',
     framework: 'lean',
     phase: 'Establish Pull',
     canonicalPhase: 4,
-    description: 'Generate comprehensive pull system documentation with kanban sizing, replenishment signals, and demand-driven inventory management.',
-    template: `You are a Lean Sensei and Operations Excellence consultant. Generate pull system documentation that eliminates overproduction and creates demand-driven flow.
+    description: 'Generate comprehensive pull system documentation with kanban sizing, replenishment signals, supermarket design, heijunka implementation, and demand-driven flow optimization aligned with Toyota Production System and Lean Enterprise Institute principles.',
+    template: `You are an expert Lean Sensei with deep experience in Toyota Production System implementation and operations excellence. Your role is to design pull systems that eliminate overproduction (the worst of the 7 wastes), synchronize production with customer demand, and create smooth, predictable flow. Generate comprehensive pull system documentation based on Lean Enterprise Institute principles and TPS methodology.
 
-PROCESS CONTEXT:
-Value Stream: {{value_stream}}
-Process Area: {{process_area}}
-Takt Time: {{takt_time}} minutes/unit
+═══════════════════════════════════════════════════════════════════════════════
+PULL SYSTEM CONTEXT
+═══════════════════════════════════════════════════════════════════════════════
 
-Generate pull system design:
-1. DEMAND ANALYSIS - Customer demand pattern, takt time calculation, variability assessment
-2. PULL SYSTEM TYPE SELECTION - Supermarket, Sequential, Mixed, CONWIP with decision criteria
-3. KANBAN SIZING - Calculation formula, sizing table, kanban types
-4. SUPERMARKET DESIGN - Location, layout with min/max zones, visual management, replenishment rules
-5. PULL SIGNALS & HEIJUNKA - Signal mechanism, load leveling schedule
-6. IMPLEMENTATION PLAN - Preparation, Pilot, Expand phases with timeline
-7. PULL SYSTEM METRICS - KPIs (inventory turns, WIP, lead time, OTD, stockouts), audit checklist`,
+**Value Stream Identity:**
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Value Stream:        {{value_stream}}                                       │
+│ Process Area:        {{process_area}}                                       │
+│ Takt Time:           {{takt_time}} minutes/unit                             │
+│ Value Stream Manager: {{vsm_name}}                                          │
+│ Lean Champion:       {{lean_champion}}                                      │
+│ Current State:       {{current_state}}                                      │
+│ Target Condition:    {{target_condition}}                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+**Pull System Transformation Goals:**
+□ Eliminate overproduction and reduce inventory
+□ Synchronize production with actual customer demand
+□ Create predictable, stable flow
+□ Enable quick response to demand changes
+□ Reduce lead time and improve delivery performance
+□ Make problems visible immediately
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 1: DEMAND ANALYSIS
+═══════════════════════════════════════════════════════════════════════════════
+
+**Customer Demand Pattern:**
+
+| Metric | Value | Unit | Source | Period |
+|--------|-------|------|--------|--------|
+| Average Daily Demand | [X] | units/day | [source] | Last 6 months |
+| Peak Daily Demand | [X] | units/day | [source] | Max observed |
+| Minimum Daily Demand | [X] | units/day | [source] | Min observed |
+| Standard Deviation | [X] | units | Calculated | σ |
+| Coefficient of Variation | [X]% | | Calculated | CV = σ/μ |
+
+**Demand Variability Assessment:**
+
+| Variability Level | CV Range | Assessment | Pull System Impact |
+|-------------------|----------|------------|-------------------|
+| Low | 0-20% | □ Stable demand | Standard kanban sizing |
+| Medium | 20-40% | □ Moderate variation | Add safety stock |
+| High | 40-60% | □ Significant variation | CONWIP consideration |
+| Very High | >60% | □ Highly variable | Mixed pull/MTO |
+
+**Demand Seasonality Analysis:**
+
+| Month | Avg Demand | Index | Classification |
+|-------|------------|-------|----------------|
+| January | [X] | [X.XX] | Low/Normal/High |
+| February | [X] | [X.XX] | Low/Normal/High |
+| March | [X] | [X.XX] | Low/Normal/High |
+| April | [X] | [X.XX] | Low/Normal/High |
+| May | [X] | [X.XX] | Low/Normal/High |
+| June | [X] | [X.XX] | Low/Normal/High |
+| July | [X] | [X.XX] | Low/Normal/High |
+| August | [X] | [X.XX] | Low/Normal/High |
+| September | [X] | [X.XX] | Low/Normal/High |
+| October | [X] | [X.XX] | Low/Normal/High |
+| November | [X] | [X.XX] | Low/Normal/High |
+| December | [X] | [X.XX] | Low/Normal/High |
+
+**Takt Time Calculation:**
+
+\`\`\`
+                    Available Production Time per Day
+Takt Time = ─────────────────────────────────────────────
+                    Customer Demand per Day
+
+             [X] minutes available
+           = ──────────────────────
+             [X] units demanded
+
+           = {{takt_time}} minutes/unit
+\`\`\`
+
+**Available Time Calculation:**
+
+| Component | Value | Unit |
+|-----------|-------|------|
+| Shift length | [X] | hours |
+| Number of shifts | [X] | shifts/day |
+| Breaks per shift | [X] | minutes |
+| Planned downtime | [X] | minutes |
+| **Net Available Time** | [X] | minutes/day |
+
+**Product Mix Analysis (if applicable):**
+
+| Product/Variant | % of Volume | Demand/Day | Individual Takt | Weighted Takt |
+|-----------------|-------------|------------|-----------------|---------------|
+| Product A | [%] | [X] | [X] min | [X] min |
+| Product B | [%] | [X] | [X] min | [X] min |
+| Product C | [%] | [X] | [X] min | [X] min |
+| **Total** | 100% | [X] | - | {{takt_time}} min |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 2: PULL SYSTEM TYPE SELECTION
+═══════════════════════════════════════════════════════════════════════════════
+
+**Pull System Decision Matrix:**
+
+| Factor | Supermarket | Sequential | CONWIP | Mixed |
+|--------|-------------|------------|--------|-------|
+| Product variety | High | Low | Medium | High |
+| Demand predictability | High | Very High | Medium | Variable |
+| Setup time | Long | Short | Medium | Variable |
+| Space constraints | High | Low | Medium | High |
+| Inventory investment | Higher | Lower | Medium | Optimized |
+| Complexity | Medium | Low | Low | Higher |
+
+**Pull System Type Assessment:**
+
+| Criteria | Weight | Supermarket | Sequential | CONWIP | Mixed |
+|----------|--------|-------------|------------|--------|-------|
+| Demand variability fit | 25% | [1-5] | [1-5] | [1-5] | [1-5] |
+| Product variety support | 20% | [1-5] | [1-5] | [1-5] | [1-5] |
+| Space availability | 15% | [1-5] | [1-5] | [1-5] | [1-5] |
+| Setup flexibility needed | 15% | [1-5] | [1-5] | [1-5] | [1-5] |
+| Implementation complexity | 15% | [1-5] | [1-5] | [1-5] | [1-5] |
+| Inventory target | 10% | [1-5] | [1-5] | [1-5] | [1-5] |
+| **Weighted Score** | 100% | [X.XX] | [X.XX] | [X.XX] | [X.XX] |
+
+**SELECTED PULL SYSTEM TYPE: □ Supermarket □ Sequential □ CONWIP □ Mixed**
+
+**Justification:**
+[Explanation of why the selected pull system type is optimal for this value stream]
+
+**Pull System Architecture:**
+
+\`\`\`
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         PULL SYSTEM FLOW DIAGRAM                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│   CUSTOMER    ◄────── SHIPPING ◄────── FINISHED GOODS                       │
+│   DEMAND                                SUPERMARKET                          │
+│      │                                      ▲                                │
+│      │                                      │ PULL                           │
+│      ▼                                      │ SIGNAL                         │
+│   HEIJUNKA    ─────────────────────►  FINAL ASSEMBLY                        │
+│   BOX                                       │                                │
+│      │                                      │ PULL                           │
+│      │                                      │ SIGNAL                         │
+│      ▼                                      ▼                                │
+│   PACEMAKER   ◄──────────────────────  COMPONENT                            │
+│   PROCESS                               SUPERMARKET                          │
+│      │                                      ▲                                │
+│      │                                      │ PULL                           │
+│      ▼                                      │ SIGNAL                         │
+│   UPSTREAM    ─────────────────────►  UPSTREAM                              │
+│   SIGNAL                              PROCESSES                              │
+│                                                                             │
+│   Legend: ────► Material Flow    ◄──── Information/Pull Signal              │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+\`\`\`
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 3: KANBAN SIZING & CALCULATION
+═══════════════════════════════════════════════════════════════════════════════
+
+**Kanban Calculation Formula:**
+
+\`\`\`
+                    (DD × LT × (1 + SS%))
+Number of Kanbans = ─────────────────────────
+                           Q
+
+Where:
+  DD = Daily Demand (units/day)
+  LT = Lead Time (days) = Replenishment Time + Transport Time
+  SS% = Safety Stock Factor (based on variability)
+  Q = Container Quantity (units/container)
+\`\`\`
+
+**Kanban Sizing Table:**
+
+| Part Number | Description | DD | LT (days) | SS% | Q | Kanbans | Total Inv |
+|-------------|-------------|----|-----------|----|---|---------|-----------|
+| [PN-001] | [desc] | [X] | [X] | [%] | [X] | [X] | [X] units |
+| [PN-002] | [desc] | [X] | [X] | [%] | [X] | [X] | [X] units |
+| [PN-003] | [desc] | [X] | [X] | [%] | [X] | [X] | [X] units |
+| [PN-004] | [desc] | [X] | [X] | [%] | [X] | [X] | [X] units |
+| [PN-005] | [desc] | [X] | [X] | [%] | [X] | [X] | [X] units |
+
+**Safety Stock Factor Guidelines:**
+
+| Demand CV | Supplier Reliability | Recommended SS% |
+|-----------|---------------------|-----------------|
+| Low (<20%) | High (>95%) | 5-10% |
+| Low (<20%) | Medium (85-95%) | 10-20% |
+| Medium (20-40%) | High (>95%) | 15-25% |
+| Medium (20-40%) | Medium (85-95%) | 20-30% |
+| High (>40%) | Any | 30-50% |
+
+**Container Quantity Optimization:**
+
+| Consideration | Guideline | Application |
+|---------------|-----------|-------------|
+| Ergonomics | Max weight per container | [X] kg |
+| Space | Fits standard rack/shelf | [dimensions] |
+| Frequency | Min 3-5 replenishments/shift | [X] containers |
+| Handling | Fits material handling equipment | [type] |
+| Cost | Balance inventory vs. handling | [analysis] |
+
+**Kanban Types Required:**
+
+| Kanban Type | Purpose | Quantity | Location |
+|-------------|---------|----------|----------|
+| Production Kanban | Signal to produce | [X] cards | Production board |
+| Withdrawal Kanban | Signal to move | [X] cards | Supermarket |
+| Supplier Kanban | Signal to supplier | [X] cards | Supplier board |
+| Signal Kanban | Batch production trigger | [X] triangles | Supermarket |
+| Express Kanban | Emergency/urgent | [X] cards | Reserve |
+
+**Kanban Card Design:**
+
+\`\`\`
+┌─────────────────────────────────────────────────────────────┐
+│ PRODUCTION KANBAN                    Card [X] of [Y]        │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│ Part Number: [PN-XXX]        Barcode: ▓▓▓▓▓▓▓▓▓▓▓          │
+│ Part Name: [Description]                                    │
+│                                                             │
+│ Quantity: [X] units          Container: [type]              │
+│                                                             │
+│ ┌─────────────────────────────────────────────────────────┐ │
+│ │ FROM: [Production Area]   TO: [Supermarket Location]   │ │
+│ └─────────────────────────────────────────────────────────┘ │
+│                                                             │
+│ Lead Time: [X] hours         Priority: □ Normal □ Express  │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+\`\`\`
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 4: SUPERMARKET DESIGN
+═══════════════════════════════════════════════════════════════════════════════
+
+**Supermarket Location Analysis:**
+
+| Factor | Weight | Location A | Location B | Location C |
+|--------|--------|------------|------------|------------|
+| Proximity to downstream | 25% | [1-5] | [1-5] | [1-5] |
+| Material flow efficiency | 20% | [1-5] | [1-5] | [1-5] |
+| Space availability | 20% | [1-5] | [1-5] | [1-5] |
+| Visibility for management | 15% | [1-5] | [1-5] | [1-5] |
+| Accessibility for replenishment | 20% | [1-5] | [1-5] | [1-5] |
+| **Total Score** | 100% | [X.XX] | [X.XX] | [X.XX] |
+
+**Selected Location:** [Location with justification]
+
+**Supermarket Layout Design:**
+
+\`\`\`
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         SUPERMARKET LAYOUT                                   │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│   ┌───────────────────────────────────────────────────────────────────┐    │
+│   │                    RACK 1 - HIGH RUNNERS (A Items)                │    │
+│   ├───────┬───────┬───────┬───────┬───────┬───────┬───────┬──────────┤    │
+│   │PN-001 │PN-002 │PN-003 │PN-004 │PN-005 │PN-006 │PN-007 │ PN-008   │    │
+│   │[qty]  │[qty]  │[qty]  │[qty]  │[qty]  │[qty]  │[qty]  │ [qty]    │    │
+│   └───────┴───────┴───────┴───────┴───────┴───────┴───────┴──────────┘    │
+│                                                                             │
+│   ┌───────────────────────────────────────────────────────────────────┐    │
+│   │                    RACK 2 - MEDIUM RUNNERS (B Items)              │    │
+│   ├───────┬───────┬───────┬───────┬───────┬───────┬───────┬──────────┤    │
+│   │PN-009 │PN-010 │PN-011 │PN-012 │PN-013 │PN-014 │PN-015 │ PN-016   │    │
+│   │[qty]  │[qty]  │[qty]  │[qty]  │[qty]  │[qty]  │[qty]  │ [qty]    │    │
+│   └───────┴───────┴───────┴───────┴───────┴───────┴───────┴──────────┘    │
+│                                                                             │
+│   ════════════════════ MAIN AISLE ═══════════════════════════════════      │
+│                                                                             │
+│   ┌────────────────────────────┐   ┌────────────────────────────┐          │
+│   │    KANBAN POST            │   │    INFORMATION BOARD        │          │
+│   │  ┌────────────────────┐   │   │  ┌────────────────────┐    │          │
+│   │  │ Production Cards   │   │   │  │ Supermarket Status │    │          │
+│   │  │ Withdrawal Cards   │   │   │  │ Replenishment Log  │    │          │
+│   │  │ Express Cards      │   │   │  │ Problem Board      │    │          │
+│   │  └────────────────────┘   │   │  └────────────────────┘    │          │
+│   └────────────────────────────┘   └────────────────────────────┘          │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+\`\`\`
+
+**Min/Max Inventory Levels:**
+
+| Part | Min (Red) | Reorder (Yellow) | Max (Green) | Current | Status |
+|------|-----------|------------------|-------------|---------|--------|
+| [PN-001] | [X] | [X] | [X] | [X] | □ G □ Y □ R |
+| [PN-002] | [X] | [X] | [X] | [X] | □ G □ Y □ R |
+| [PN-003] | [X] | [X] | [X] | [X] | □ G □ Y □ R |
+| [PN-004] | [X] | [X] | [X] | [X] | □ G □ Y □ R |
+| [PN-005] | [X] | [X] | [X] | [X] | □ G □ Y □ R |
+
+**Visual Management Standards:**
+
+| Element | Standard | Purpose |
+|---------|----------|---------|
+| Lane markings | Tape colors per zone | Identify stock levels |
+| Min level | Red line/tag | Trigger urgent action |
+| Reorder point | Yellow line/tag | Trigger replenishment |
+| Max level | Green line/tag | Prevent overstock |
+| Part labels | Standardized format | Easy identification |
+| FIFO indicators | Arrow direction | Ensure rotation |
+| Kanban post | Near lane exit | Visible card collection |
+
+**Replenishment Rules:**
+
+| Rule | Description | Responsible | Frequency |
+|------|-------------|-------------|-----------|
+| Trigger | Kanban card/signal appears | Material handler | Continuous |
+| Priority | Red zone items first | Material handler | Immediate |
+| Quantity | Exact kanban quantity | Supplier/Production | Per signal |
+| Location | FIFO placement | Material handler | Per delivery |
+| Verification | Count matches card | Material handler | Per delivery |
+| Card return | Return to kanban post | Consumer | After consumption |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 5: HEIJUNKA (PRODUCTION LEVELING)
+═══════════════════════════════════════════════════════════════════════════════
+
+**Heijunka Principles:**
+
+1. **Level production volume** - Consistent daily output
+2. **Level product mix** - Distribute variety evenly
+3. **Small lot sizes** - Approach "every product every day"
+4. **Pitch** - Fixed time intervals for withdrawal
+
+**Pitch Calculation:**
+
+\`\`\`
+Pitch = Takt Time × Pack Quantity
+
+      = {{takt_time}} min × [X] units
+
+      = [X] minutes
+\`\`\`
+
+**Heijunka Box Design:**
+
+\`\`\`
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                           HEIJUNKA BOX                                       │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│         │ 6:00 │ 6:30 │ 7:00 │ 7:30 │ 8:00 │ 8:30 │ 9:00 │ ... │           │
+│ ────────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼─────┤           │
+│ Prod A  │  A   │      │  A   │      │  A   │      │  A   │     │           │
+│ ────────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼─────┤           │
+│ Prod B  │      │  B   │      │  B   │      │  B   │      │     │           │
+│ ────────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼─────┤           │
+│ Prod C  │      │      │      │      │  C   │      │      │     │           │
+│ ────────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼─────┤           │
+│                                                                             │
+│ Each slot = 1 pitch ([X] minutes) = 1 kanban = [X] units                   │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+\`\`\`
+
+**Load Leveling Schedule:**
+
+| Time Slot | Product | Quantity | Kanban Card | Cumulative |
+|-----------|---------|----------|-------------|------------|
+| 06:00-06:30 | A | [X] | A-001 | [X] |
+| 06:30-07:00 | B | [X] | B-001 | [X] |
+| 07:00-07:30 | A | [X] | A-002 | [X] |
+| 07:30-08:00 | B | [X] | B-002 | [X] |
+| 08:00-08:30 | A | [X] | A-003 | [X] |
+| 08:30-09:00 | C | [X] | C-001 | [X] |
+| ... | ... | ... | ... | ... |
+
+**EPEI (Every Part Every Interval) Calculation:**
+
+| Product | Daily Demand | Lot Size | Setups/Day | EPEI |
+|---------|--------------|----------|------------|------|
+| A | [X] | [X] | [X] | Daily |
+| B | [X] | [X] | [X] | Daily |
+| C | [X] | [X] | [X] | 2 Days |
+| D | [X] | [X] | [X] | Weekly |
+
+**Target EPEI Improvement Path:**
+
+| Phase | Current EPEI | Target EPEI | Setup Reduction Needed |
+|-------|--------------|-------------|------------------------|
+| Phase 1 | Weekly | 3 Days | 50% |
+| Phase 2 | 3 Days | Daily | 67% |
+| Phase 3 | Daily | Every Shift | 67% |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 6: PULL SIGNAL MECHANISMS
+═══════════════════════════════════════════════════════════════════════════════
+
+**Signal Type Selection:**
+
+| Signal Type | Best For | Complexity | Cost | Selected |
+|-------------|----------|------------|------|----------|
+| Physical Kanban Cards | Low-medium volume | Low | Low | □ |
+| Kanban Squares | Adjacent processes | Very Low | Very Low | □ |
+| Two-Bin System | Small, cheap items | Very Low | Low | □ |
+| Electronic Kanban | High volume, ERP | High | High | □ |
+| Signal Kanban (Triangle) | Batch production | Medium | Low | □ |
+| CONWIP Cards | Whole system WIP | Low | Low | □ |
+
+**Signal Flow Mapping:**
+
+| From | To | Signal Type | Trigger | Response Time |
+|------|-----|-------------|---------|---------------|
+| Supermarket | Production | Production Kanban | Empty bin | <30 min |
+| Assembly | Supermarket | Withdrawal Kanban | Consumption | Immediate |
+| Receiving | Supplier | Supplier Kanban | Reorder point | Lead time |
+| Production | Material | Two-bin | First bin empty | <15 min |
+
+**Electronic Kanban Integration (if applicable):**
+
+| System | Integration Point | Signal Type | Frequency |
+|--------|-------------------|-------------|-----------|
+| ERP | MRP explosion | Planned orders | Daily |
+| WMS | Replenishment | Pick list | Real-time |
+| MES | Production schedule | Work orders | Per pitch |
+| Supplier Portal | PO release | EDI signal | Per kanban |
+
+**Signal Response Protocol:**
+
+| Signal State | Action Required | Responsible | Max Response Time |
+|--------------|-----------------|-------------|-------------------|
+| Green | No action | Monitor | N/A |
+| Yellow | Initiate replenishment | Material handler | 2 hours |
+| Red | Expedite, escalate | Team leader | 30 minutes |
+| Stockout | Stop line, problem solve | Supervisor | Immediate |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 7: IMPLEMENTATION PLAN
+═══════════════════════════════════════════════════════════════════════════════
+
+**Implementation Phases:**
+
+| Phase | Duration | Focus | Deliverables |
+|-------|----------|-------|--------------|
+| 1. Preparation | 2-4 weeks | Training, materials | Team readiness |
+| 2. Pilot | 4-6 weeks | Single area | Working pull system |
+| 3. Expansion | 8-12 weeks | Additional areas | Full implementation |
+| 4. Optimization | Ongoing | Continuous improvement | Sustained results |
+
+**Phase 1: Preparation Checklist:**
+
+□ Value stream analysis complete
+□ Kanban calculations finalized
+□ Supermarket locations identified
+□ Material handling equipment ready
+□ Kanban cards/signals designed and printed
+□ Visual management materials prepared
+□ Training curriculum developed
+□ Team members identified and trained
+□ Pilot area selected
+□ Success metrics defined
+□ Stakeholder buy-in secured
+
+**Phase 2: Pilot Implementation:**
+
+| Week | Activities | Milestones | Responsible |
+|------|------------|------------|-------------|
+| 1 | Setup supermarket, install visuals | Physical setup complete | Lean team |
+| 2 | Implement kanban cards, train operators | Team using cards | Team leader |
+| 3 | Monitor, adjust kanban quantities | First adjustments | Lean champion |
+| 4 | Measure initial results, problem solve | Baseline established | VSM |
+| 5 | Fine-tune replenishment, heijunka | Stable operation | Team |
+| 6 | Document standards, prepare expansion | SOPs finalized | Lean team |
+
+**Phase 3: Expansion Plan:**
+
+| Area | Start Week | Duration | Dependencies | Owner |
+|------|------------|----------|--------------|-------|
+| [Area 2] | Week 7 | 3 weeks | Pilot success | [name] |
+| [Area 3] | Week 10 | 3 weeks | Area 2 success | [name] |
+| [Area 4] | Week 13 | 3 weeks | Area 3 success | [name] |
+| [Suppliers] | Week 16 | 6 weeks | Internal stability | [name] |
+
+**Training Plan:**
+
+| Audience | Training Content | Duration | Method | Timing |
+|----------|------------------|----------|--------|--------|
+| Leadership | Pull system concepts, metrics | 2 hours | Workshop | Prep phase |
+| Team Leaders | Full kanban operation | 8 hours | Hands-on | Prep phase |
+| Operators | Card usage, visual management | 4 hours | On-the-job | Pilot start |
+| Material Handlers | Replenishment procedures | 4 hours | Simulation | Pilot start |
+| Support Functions | Overview, support role | 2 hours | Presentation | Week 2 |
+
+**Risk Assessment & Mitigation:**
+
+| Risk | Probability | Impact | Mitigation Strategy | Owner |
+|------|-------------|--------|---------------------|-------|
+| Resistance to change | Medium | High | Early engagement, quick wins | Lean champion |
+| Kanban card loss | High | Medium | Card accountability, backups | Team leader |
+| Supplier unreliability | Medium | High | Safety stock, supplier kaizen | Purchasing |
+| System complexity | Medium | Medium | Phased approach, simplicity | Lean team |
+| Demand volatility | Low | High | Flexible kanban quantities | VSM |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 8: PULL SYSTEM METRICS & KPIs
+═══════════════════════════════════════════════════════════════════════════════
+
+**Primary Pull System KPIs:**
+
+| KPI | Formula | Baseline | Target | Current | Status |
+|-----|---------|----------|--------|---------|--------|
+| Inventory Turns | COGS / Avg Inventory | [X] | [X] | [X] | □ ✓ □ ⚠ □ ✗ |
+| WIP Inventory | Count in-process | [X] units | [X] units | [X] | □ ✓ □ ⚠ □ ✗ |
+| Lead Time | Order to delivery | [X] days | [X] days | [X] | □ ✓ □ ⚠ □ ✗ |
+| On-Time Delivery | % on-time | [%] | [%] | [%] | □ ✓ □ ⚠ □ ✗ |
+| Stockout Rate | Stockouts / Total | [%] | <1% | [%] | □ ✓ □ ⚠ □ ✗ |
+| Overproduction | Units above demand | [X] | 0 | [X] | □ ✓ □ ⚠ □ ✗ |
+
+**Secondary Metrics:**
+
+| Metric | Description | Target | Current |
+|--------|-------------|--------|---------|
+| Kanban circulation time | Card return cycle | <[X] hours | [X] |
+| Supermarket accuracy | Physical vs. system | >99% | [%] |
+| Replenishment response | Signal to delivery | <[X] min | [X] |
+| Card loss rate | Missing cards/month | <1% | [%] |
+| Heijunka adherence | % on schedule | >95% | [%] |
+| FIFO compliance | Audit score | 100% | [%] |
+
+**Metrics Dashboard:**
+
+\`\`\`
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                     PULL SYSTEM PERFORMANCE DASHBOARD                        │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│   INVENTORY TURNS          LEAD TIME              ON-TIME DELIVERY          │
+│   ┌─────────────┐         ┌─────────────┐        ┌─────────────┐           │
+│   │             │         │             │        │             │           │
+│   │    [X]      │         │   [X] days  │        │    [X]%     │           │
+│   │   Target:X  │         │  Target:X   │        │  Target:X%  │           │
+│   │     ↑↓→     │         │     ↑↓→     │        │     ↑↓→     │           │
+│   └─────────────┘         └─────────────┘        └─────────────┘           │
+│                                                                             │
+│   WIP INVENTORY           STOCKOUT RATE          OVERPRODUCTION             │
+│   ┌─────────────┐         ┌─────────────┐        ┌─────────────┐           │
+│   │             │         │             │        │             │           │
+│   │  [X] units  │         │    [X]%     │        │  [X] units  │           │
+│   │  Target:X   │         │  Target:<1% │        │  Target:0   │           │
+│   │     ↑↓→     │         │     ↑↓→     │        │     ↑↓→     │           │
+│   └─────────────┘         └─────────────┘        └─────────────┘           │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+\`\`\`
+
+**Pull System Audit Checklist:**
+
+VISUAL MANAGEMENT:
+□ Min/Max levels clearly marked
+□ FIFO lanes properly indicated
+□ Kanban posts visible and organized
+□ Information board current
+
+KANBAN OPERATION:
+□ Correct number of kanbans in circulation
+□ Cards attached to containers
+□ Signal flow following rules
+□ No unauthorized production
+
+SUPERMARKET:
+□ Inventory within min/max
+□ Parts in correct locations
+□ FIFO being followed
+□ No expired/obsolete stock
+
+REPLENISHMENT:
+□ Response times within target
+□ Quantities correct
+□ Quality checks performed
+□ Documentation complete
+
+**Audit Schedule:**
+
+| Audit Type | Frequency | Auditor | Checklist | Actions |
+|------------|-----------|---------|-----------|---------|
+| Shift audit | Daily | Team leader | Quick 5-point | Immediate fix |
+| Weekly audit | Weekly | Supervisor | Full checklist | PDCA |
+| Monthly audit | Monthly | Lean champion | Comprehensive | Report to leadership |
+| Quarterly audit | Quarterly | VSM | System review | Strategic adjustments |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 9: PROBLEM SOLVING & CONTINUOUS IMPROVEMENT
+═══════════════════════════════════════════════════════════════════════════════
+
+**Common Pull System Problems:**
+
+| Problem | Symptoms | Root Cause | Countermeasure |
+|---------|----------|------------|----------------|
+| Stockouts | Empty lanes, expediting | Kanban sizing wrong | Recalculate, adjust |
+| Overproduction | Overflow areas | Unauthorized production | Training, discipline |
+| Lost kanbans | Cards missing | No accountability | Card tracking system |
+| Long replenishment | Yellow/Red zones | Capacity mismatch | Balance workload |
+| FIFO violations | Old stock remains | Training gap | Retrain, visual aids |
+| Heijunka deviation | Mix unbalanced | Setup issues | SMED kaizen |
+
+**PDCA Problem Solving Template:**
+
+PLAN:
+- Problem Statement: [describe the gap]
+- Target Condition: [measurable target]
+- Root Cause Analysis: [5 Why / Fishbone results]
+- Countermeasure: [proposed solution]
+
+DO:
+- Implementation steps: [action plan]
+- Timeline: [dates]
+- Resources: [people, materials]
+
+CHECK:
+- Measure results: [data collected]
+- Compare to target: [gap analysis]
+- Side effects: [unintended consequences]
+
+ACT:
+- Standardize: [if successful, update SOP]
+- Adjust: [if not successful, try again]
+- Share: [yokoten to other areas]
+
+**Kaizen Opportunities:**
+
+| Opportunity | Category | Impact | Effort | Priority |
+|-------------|----------|--------|--------|----------|
+| Reduce container size | Inventory | High | Medium | 1 |
+| SMED for setup reduction | Flexibility | High | High | 2 |
+| Supplier kanban | Lead time | Medium | High | 3 |
+| Electronic kanban | Efficiency | Medium | High | 4 |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 10: SUSTAINABILITY & GOVERNANCE
+═══════════════════════════════════════════════════════════════════════════════
+
+**Standard Work Documentation:**
+
+| Document | Purpose | Owner | Review Frequency |
+|----------|---------|-------|------------------|
+| Kanban Calculation Sheet | Sizing reference | Lean team | Quarterly |
+| Supermarket Layout | Location standard | Area owner | Monthly |
+| Replenishment Procedure | Material handling SOP | Team leader | Quarterly |
+| Heijunka Schedule | Production leveling | Planner | Weekly |
+| Audit Checklist | Compliance verification | Lean champion | Monthly |
+| Problem Solving A3 | Issue resolution | Problem owner | Per problem |
+
+**Governance Structure:**
+
+| Role | Responsibility | Authority | Reporting |
+|------|----------------|-----------|-----------|
+| Value Stream Manager | Overall system performance | Strategic decisions | Weekly to leadership |
+| Lean Champion | Technical guidance, training | Process changes | Weekly to VSM |
+| Team Leader | Daily operation, problem solving | Kanban adjustments | Daily to supervisor |
+| Material Handler | Replenishment execution | None | Per shift to team leader |
+| Planner | Heijunka scheduling | Schedule changes | Daily to VSM |
+
+**Change Management Process:**
+
+| Change Type | Examples | Approval | Documentation |
+|-------------|----------|----------|---------------|
+| Minor | Kanban quantity ±10% | Team leader | Log entry |
+| Moderate | New part number, location | Lean champion | Updated standard |
+| Major | System type change, expansion | VSM + Leadership | Full redesign |
+
+**Annual Review Cycle:**
+
+| Quarter | Focus | Activities | Deliverable |
+|---------|-------|------------|-------------|
+| Q1 | Demand review | Update demand data, recalculate | Revised kanban sizing |
+| Q2 | Layout optimization | Space utilization, flow | Updated layout |
+| Q3 | Supplier integration | Extend pull to suppliers | Supplier kanban |
+| Q4 | System audit | Comprehensive assessment | Improvement plan |
+
+───────────────────────────────────────────────────────────────────────────────
+ANTI-PATTERNS TO AVOID
+───────────────────────────────────────────────────────────────────────────────
+
+✗ Installing kanban without understanding demand patterns
+✗ Over-engineering the system with too many card types
+✗ Allowing production without kanban authorization
+✗ Ignoring visual management and letting it decay
+✗ Setting kanban quantities once and never adjusting
+✗ Treating kanban as a scheduling system (it's a signaling system)
+✗ Implementing pull without stable, capable processes
+✗ Skipping heijunka and batching production
+✗ No response protocol for stockouts or overstock
+✗ Lost kanbans without accountability system
+✗ Supermarket inventory not FIFO compliant
+✗ Electronic kanban without physical visual backup
+✗ Pull system only for internal operations (exclude suppliers)
+✗ No continuous improvement mechanism
+
+───────────────────────────────────────────────────────────────────────────────
+QUALITY INDICATORS
+───────────────────────────────────────────────────────────────────────────────
+
+□ Kanban quantities calculated with demand data, not guessed
+□ Supermarket visual management maintained daily
+□ Production only occurs with kanban authorization
+□ Replenishment response times within target
+□ FIFO strictly enforced in all storage areas
+□ Heijunka schedule adherence >95%
+□ Inventory turns improving quarter over quarter
+□ Lead time reduced and stabilized
+□ On-time delivery performance at target
+□ Stockout rate <1%
+□ Regular audits conducted with issues addressed
+□ Continuous improvement kaizens active
+□ Team fully trained and engaged in pull operation`,
     variables: [
       { name: 'value_stream', description: 'Value stream name', example: 'Order-to-Delivery', required: true },
       { name: 'process_area', description: 'Process area implementing pull', example: 'Assembly Line 3', required: true },
-      { name: 'takt_time', description: 'Calculated takt time', example: '4.5', required: true },
+      { name: 'takt_time', description: 'Calculated takt time in minutes', example: '4.5', required: true },
+      { name: 'vsm_name', description: 'Value Stream Manager name', example: 'Robert Chen', required: false },
+      { name: 'lean_champion', description: 'Lean Champion name', example: 'Maria Santos', required: false },
+      { name: 'current_state', description: 'Current state description', example: 'Push-based MRP scheduling', required: false },
+      { name: 'target_condition', description: 'Target future state', example: 'Full supermarket pull system', required: false },
     ],
     tier: 'premium',
-    estimatedTimeSaved: '5 hours',
-    tags: ['lean', 'pull-system', 'kanban', 'heijunka', 'supermarket', 'Lean Enterprise Institute', 'TPS', 'Just-in-Time'],
+    estimatedTimeSaved: '8 hours',
+    tags: ['lean', 'pull-system', 'kanban', 'heijunka', 'supermarket', 'FIFO', 'Lean Enterprise Institute', 'TPS', 'Just-in-Time', 'EPEI', 'takt-time'],
   },
 
   // Six Sigma - Improve Phase
   {
     id: 'sixsigma-imp-1',
-    title: 'Six Sigma Improve Phase Solution Design',
+    title: 'Six Sigma Improve Phase Solution Design Mastery',
     framework: 'six-sigma',
     phase: 'Improve',
     canonicalPhase: 3,
-    description: 'Generate comprehensive DMAIC Improve phase documentation with solution generation, pilot design, and implementation planning.',
-    template: `You are a Six Sigma Master Black Belt specializing in process improvement. Generate Improve phase documentation transforming root causes into implemented solutions.
+    description: 'Generate comprehensive DMAIC Improve phase documentation with solution generation, pilot design, DOE optimization, implementation planning, and change management aligned with ASQ Body of Knowledge and DFSS principles.',
+    template: `You are an expert Six Sigma Master Black Belt (MBB) with extensive experience transforming root causes into breakthrough solutions. Your role is to design and implement improvements that deliver statistically significant results and sustainable benefits. Generate comprehensive Improve phase documentation based on ASQ Six Sigma Body of Knowledge and Design for Six Sigma (DFSS) principles.
 
-PROJECT CONTEXT:
-Project: {{project_name}}
-Problem Statement: {{problem_statement}}
-Root Causes: {{root_causes}}
-Improvement Target: {{improvement_target}}
+═══════════════════════════════════════════════════════════════════════════════
+IMPROVE PHASE CONTEXT
+═══════════════════════════════════════════════════════════════════════════════
 
-Generate Improve phase deliverables:
-1. SOLUTION GENERATION - Brainstorming results, solution categories, benchmarking
-2. SOLUTION EVALUATION & SELECTION - Evaluation matrix, Pugh matrix comparison
-3. SOLUTION DESIGN - Specification, process changes, DFSS elements, solution FMEA
-4. PILOT DESIGN - Scope, success criteria, execution plan, data collection, risks
-5. PILOT RESULTS & ANALYSIS - Summary, statistical validation (hypothesis testing), learnings
-6. FULL IMPLEMENTATION PLAN - Scope, phases, change management, training, resources
-7. IMPROVE PHASE GATE REVIEW - Checklist and approval signatures`,
+**Project Identity:**
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ Project Name:          {{project_name}}                                     │
+│ Project Champion:      {{project_champion}}                                 │
+│ Black Belt:            {{black_belt}}                                       │
+│ Process Owner:         {{process_owner}}                                    │
+│ Improve Phase Start:   {{improve_start_date}}                               │
+│ Target Completion:     {{target_completion}}                                │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+**Problem Statement (from Define):**
+{{problem_statement}}
+
+**Confirmed Root Causes (from Analyze):**
+{{root_causes}}
+
+**Improvement Target:**
+{{improvement_target}}
+
+**Current vs. Target Performance:**
+
+| Metric | Baseline | Current | Target | Gap to Close |
+|--------|----------|---------|--------|--------------|
+| Primary CTQ (Y) | [value] | [value] | [value] | [value] |
+| Defect Rate | [%] | [%] | [%] | [%] |
+| Process Capability (Cpk) | [value] | [value] | [value] | [value] |
+| Sigma Level | [σ] | [σ] | [σ] | [σ] |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 1: SOLUTION GENERATION
+═══════════════════════════════════════════════════════════════════════════════
+
+**Root Cause to Solution Mapping:**
+
+| Root Cause | Category | Impact % | Potential Solutions |
+|------------|----------|----------|---------------------|
+| [RC-1] | [category] | [%] | Solution A, B, C |
+| [RC-2] | [category] | [%] | Solution D, E |
+| [RC-3] | [category] | [%] | Solution F, G, H |
+| [RC-4] | [category] | [%] | Solution I |
+
+**Brainstorming Results (by Solution Category):**
+
+PROCESS REDESIGN SOLUTIONS:
+□ [Solution 1] - [brief description]
+□ [Solution 2] - [brief description]
+□ [Solution 3] - [brief description]
+
+ERROR-PROOFING (POKA-YOKE) SOLUTIONS:
+□ [Solution 4] - [brief description]
+□ [Solution 5] - [brief description]
+
+AUTOMATION SOLUTIONS:
+□ [Solution 6] - [brief description]
+□ [Solution 7] - [brief description]
+
+TRAINING & COMPETENCY SOLUTIONS:
+□ [Solution 8] - [brief description]
+□ [Solution 9] - [brief description]
+
+STANDARDIZATION SOLUTIONS:
+□ [Solution 10] - [brief description]
+
+**Benchmarking Results:**
+
+| Organization/Source | Best Practice | Performance | Applicability |
+|---------------------|---------------|-------------|---------------|
+| [Company A] | [practice] | [performance] | High/Med/Low |
+| [Industry Standard] | [practice] | [performance] | High/Med/Low |
+| [Academic Research] | [practice] | [performance] | High/Med/Low |
+
+**Creative Techniques Used:**
+
+| Technique | Participants | Ideas Generated | Top Ideas |
+|-----------|--------------|-----------------|-----------|
+| Traditional Brainstorming | [#] | [#] | [list] |
+| SCAMPER | [#] | [#] | [list] |
+| Morphological Analysis | [#] | [#] | [list] |
+| Benchmarking | N/A | [#] | [list] |
+| TRIZ | [#] | [#] | [list] |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 2: SOLUTION EVALUATION & SELECTION
+═══════════════════════════════════════════════════════════════════════════════
+
+**Solution Screening Criteria:**
+
+| Criterion | Definition | Weight |
+|-----------|------------|--------|
+| Effectiveness | Degree to which solution addresses root cause | 30% |
+| Feasibility | Technical and organizational ability to implement | 20% |
+| Cost | Implementation and ongoing costs | 15% |
+| Time | Speed of implementation | 10% |
+| Risk | Implementation and failure risk | 15% |
+| Sustainability | Ability to maintain improvements | 10% |
+
+**Solution Evaluation Matrix:**
+
+| Solution | Effectiveness | Feasibility | Cost | Time | Risk | Sustain | Total |
+|----------|---------------|-------------|------|------|------|---------|-------|
+| Solution A | [1-10] | [1-10] | [1-10] | [1-10] | [1-10] | [1-10] | [weighted] |
+| Solution B | [1-10] | [1-10] | [1-10] | [1-10] | [1-10] | [1-10] | [weighted] |
+| Solution C | [1-10] | [1-10] | [1-10] | [1-10] | [1-10] | [1-10] | [weighted] |
+| Solution D | [1-10] | [1-10] | [1-10] | [1-10] | [1-10] | [1-10] | [weighted] |
+| Solution E | [1-10] | [1-10] | [1-10] | [1-10] | [1-10] | [1-10] | [weighted] |
+
+**Pugh Matrix Comparison:**
+
+| Criteria | Baseline | Sol A | Sol B | Sol C | Sol D |
+|----------|----------|-------|-------|-------|-------|
+| Addresses RC-1 | 0 | + | + | S | + |
+| Addresses RC-2 | 0 | + | S | + | - |
+| Addresses RC-3 | 0 | S | + | + | + |
+| Implementation cost | 0 | - | S | - | + |
+| Implementation time | 0 | S | + | - | + |
+| Sustainability | 0 | + | + | + | S |
+| Risk | 0 | S | - | + | S |
+| **Sum +** | - | [#] | [#] | [#] | [#] |
+| **Sum -** | - | [#] | [#] | [#] | [#] |
+| **Sum S** | - | [#] | [#] | [#] | [#] |
+| **Net Score** | 0 | [#] | [#] | [#] | [#] |
+
+**Cost-Benefit Analysis:**
+
+| Solution | Implementation Cost | Annual Savings | Payback Period | NPV (3 yr) | ROI |
+|----------|--------------------:|---------------:|---------------:|----------:|----:|
+| Solution A | $[X] | $[X] | [X] months | $[X] | [%] |
+| Solution B | $[X] | $[X] | [X] months | $[X] | [%] |
+| Solution C | $[X] | $[X] | [X] months | $[X] | [%] |
+
+**Selected Solution(s):**
+
+| Priority | Solution | Rationale | Root Causes Addressed |
+|----------|----------|-----------|----------------------|
+| 1 | [Solution X] | [why selected] | RC-1, RC-2 |
+| 2 | [Solution Y] | [why selected] | RC-3 |
+| 3 | [Solution Z] | [why selected] | RC-4 |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 3: SOLUTION DESIGN
+═══════════════════════════════════════════════════════════════════════════════
+
+**Solution Specification:**
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ SOLUTION: [Primary Solution Name]                                           │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│ DESCRIPTION:                                                                │
+│ [Detailed description of the solution and how it works]                     │
+│                                                                             │
+│ ROOT CAUSES ADDRESSED:                                                      │
+│ • RC-1: [how addressed]                                                     │
+│ • RC-2: [how addressed]                                                     │
+│                                                                             │
+│ EXPECTED IMPACT:                                                            │
+│ • Primary CTQ improvement: [X] → [Y] ([Z]% improvement)                     │
+│ • Defect reduction: [X]% → [Y]%                                             │
+│ • Cycle time: [X] → [Y] ([Z]% reduction)                                    │
+│                                                                             │
+│ TECHNICAL REQUIREMENTS:                                                     │
+│ • [Requirement 1]                                                           │
+│ • [Requirement 2]                                                           │
+│ • [Requirement 3]                                                           │
+│                                                                             │
+│ RESOURCE REQUIREMENTS:                                                      │
+│ • Personnel: [description]                                                  │
+│ • Equipment: [description]                                                  │
+│ • Systems: [description]                                                    │
+│ • Budget: $[amount]                                                         │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+**Process Changes (Current vs. Future State):**
+
+| Process Step | Current State | Future State | Change Type |
+|--------------|---------------|--------------|-------------|
+| [Step 1] | [current] | [future] | Eliminate/Modify/Add |
+| [Step 2] | [current] | [future] | Eliminate/Modify/Add |
+| [Step 3] | [current] | [future] | Eliminate/Modify/Add |
+| [Step 4] | [current] | [future] | Eliminate/Modify/Add |
+
+**Design for Six Sigma (DFSS) Elements:**
+
+| DFSS Principle | Application | How Implemented |
+|----------------|-------------|-----------------|
+| Voice of Customer | CTQ requirements | [description] |
+| Critical Parameters | Key input variables | [description] |
+| Design Margin | Safety factors | [description] |
+| Error-Proofing | Poka-yoke devices | [description] |
+| Robustness | Insensitivity to variation | [description] |
+
+**Solution FMEA (Failure Mode & Effects Analysis):**
+
+| Potential Failure Mode | Effects | Sev | Causes | Occ | Current Controls | Det | RPN | Actions |
+|------------------------|---------|-----|--------|-----|------------------|-----|-----|---------|
+| [Failure 1] | [effect] | [1-10] | [cause] | [1-10] | [control] | [1-10] | [#] | [action] |
+| [Failure 2] | [effect] | [1-10] | [cause] | [1-10] | [control] | [1-10] | [#] | [action] |
+| [Failure 3] | [effect] | [1-10] | [cause] | [1-10] | [control] | [1-10] | [#] | [action] |
+
+**Critical to Quality (CTQ) Specifications:**
+
+| CTQ | Lower Spec | Target | Upper Spec | Measurement | Frequency |
+|-----|------------|--------|------------|-------------|-----------|
+| [CTQ-1] | [LSL] | [T] | [USL] | [method] | [freq] |
+| [CTQ-2] | [LSL] | [T] | [USL] | [method] | [freq] |
+| [CTQ-3] | [LSL] | [T] | [USL] | [method] | [freq] |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 4: DESIGN OF EXPERIMENTS (DOE)
+═══════════════════════════════════════════════════════════════════════════════
+
+**DOE Objective:**
+Optimize [process/solution parameters] to maximize [Y] while minimizing [variation/cost/etc.]
+
+**Factor Selection:**
+
+| Factor | Type | Low Level (-1) | High Level (+1) | Center | Rationale |
+|--------|------|----------------|-----------------|--------|-----------|
+| A: [Factor 1] | Controllable | [value] | [value] | [value] | [why important] |
+| B: [Factor 2] | Controllable | [value] | [value] | [value] | [why important] |
+| C: [Factor 3] | Controllable | [value] | [value] | [value] | [why important] |
+| D: [Factor 4] | Noise | [value] | [value] | N/A | [why included] |
+
+**DOE Design Selection:**
+
+| Design Type | Factors | Runs | Resolution | Selected |
+|-------------|---------|------|------------|----------|
+| Full Factorial | 3 | 8 | Full | □ |
+| 2^(k-1) Fractional | 4 | 8 | IV | □ |
+| Taguchi L8 | 7 | 8 | III | □ |
+| Central Composite | 3 | 20 | Full + quad | □ |
+| Response Surface | 3 | 15 | Full + quad | □ |
+
+**Selected Design:** [Design name] with [#] runs + [#] center points
+
+**Experiment Run Order:**
+
+| Run | A | B | C | D | Response Y | Notes |
+|-----|---|---|---|---|------------|-------|
+| 1 | - | - | - | - | [value] | |
+| 2 | + | - | - | + | [value] | |
+| 3 | - | + | - | + | [value] | |
+| 4 | + | + | - | - | [value] | |
+| 5 | - | - | + | + | [value] | |
+| 6 | + | - | + | - | [value] | |
+| 7 | - | + | + | - | [value] | |
+| 8 | + | + | + | + | [value] | |
+
+**DOE Analysis Results:**
+
+| Effect | Estimate | Std Error | t-Value | p-Value | Significant? |
+|--------|----------|-----------|---------|---------|--------------|
+| A | [value] | [value] | [value] | [value] | □ Yes □ No |
+| B | [value] | [value] | [value] | [value] | □ Yes □ No |
+| C | [value] | [value] | [value] | [value] | □ Yes □ No |
+| AB | [value] | [value] | [value] | [value] | □ Yes □ No |
+| AC | [value] | [value] | [value] | [value] | □ Yes □ No |
+| BC | [value] | [value] | [value] | [value] | □ Yes □ No |
+
+**Optimal Settings:**
+
+| Factor | Optimal Level | Value | Rationale |
+|--------|---------------|-------|-----------|
+| A | + | [value] | [reason] |
+| B | - | [value] | [reason] |
+| C | + | [value] | [reason] |
+
+**Predicted Performance at Optimal:**
+Y = [predicted value] ± [confidence interval]
+
+**Confirmation Runs:**
+
+| Run | Predicted Y | Actual Y | Within CI? |
+|-----|-------------|----------|------------|
+| 1 | [value] | [value] | □ Yes □ No |
+| 2 | [value] | [value] | □ Yes □ No |
+| 3 | [value] | [value] | □ Yes □ No |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 5: PILOT DESIGN & EXECUTION
+═══════════════════════════════════════════════════════════════════════════════
+
+**Pilot Scope Definition:**
+
+| Element | Pilot Scope | Rationale |
+|---------|-------------|-----------|
+| Process area | [area/line/department] | [why selected] |
+| Product scope | [products included] | [why selected] |
+| Time period | [start] to [end] | [duration rationale] |
+| Volume | [expected volume] | [statistical significance] |
+| Team | [team members] | [roles] |
+
+**Pilot Success Criteria:**
+
+| Metric | Baseline | Pilot Target | Full Target | Measurement |
+|--------|----------|--------------|-------------|-------------|
+| Primary CTQ | [value] | [value] | [value] | [method] |
+| Defect Rate | [%] | [%] | [%] | [method] |
+| Cycle Time | [value] | [value] | [value] | [method] |
+| Customer Satisfaction | [score] | [score] | [score] | [method] |
+
+**Pilot Execution Plan:**
+
+| Phase | Week | Activities | Deliverables | Responsible |
+|-------|------|------------|--------------|-------------|
+| Setup | 1 | Install equipment, train team | Ready state | Project team |
+| Run-in | 2 | Initial operation, debug | Stable operation | Black Belt |
+| Data Collection | 3-4 | Collect pilot data | Complete dataset | Team |
+| Analysis | 5 | Analyze results | Analysis report | Black Belt |
+| Decision | 5 | Go/No-Go for full rollout | Decision | Champion |
+
+**Data Collection Plan for Pilot:**
+
+| Metric | Data Type | Collection Method | Frequency | Sample Size | Responsible |
+|--------|-----------|-------------------|-----------|-------------|-------------|
+| [CTQ-1] | Continuous | [method] | [freq] | [n] | [name] |
+| [CTQ-2] | Attribute | [method] | [freq] | [n] | [name] |
+| [Input X1] | Continuous | [method] | [freq] | [n] | [name] |
+| [Input X2] | Attribute | [method] | [freq] | [n] | [name] |
+
+**Pilot Risk Assessment:**
+
+| Risk | Probability | Impact | Mitigation | Contingency |
+|------|-------------|--------|------------|-------------|
+| Equipment failure | Medium | High | Backup equipment ready | Revert to baseline |
+| Training gaps | Medium | Medium | Pre-pilot training | On-the-job coaching |
+| Data quality issues | Low | High | Clear procedures | Data validation |
+| Resistance to change | Medium | Medium | Change management | Leadership support |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 6: PILOT RESULTS & STATISTICAL VALIDATION
+═══════════════════════════════════════════════════════════════════════════════
+
+**Pilot Results Summary:**
+
+| Metric | Baseline | Target | Pilot Result | % of Target | Status |
+|--------|----------|--------|--------------|-------------|--------|
+| Primary CTQ | [value] | [value] | [value] | [%] | □ ✓ □ ⚠ □ ✗ |
+| Defect Rate | [%] | [%] | [%] | [%] | □ ✓ □ ⚠ □ ✗ |
+| Cycle Time | [value] | [value] | [value] | [%] | □ ✓ □ ⚠ □ ✗ |
+| Process Capability | [Cpk] | [Cpk] | [Cpk] | [%] | □ ✓ □ ⚠ □ ✗ |
+
+**Statistical Validation - Hypothesis Testing:**
+
+**Test 1: Mean Comparison (Before vs. After)**
+
+| Parameter | Value |
+|-----------|-------|
+| H₀ | μ_before = μ_after (no improvement) |
+| H₁ | μ_before > μ_after (improvement occurred) |
+| Test | [t-test / Mann-Whitney / etc.] |
+| α | 0.05 |
+| Sample size (before) | n₁ = [#] |
+| Sample size (after) | n₂ = [#] |
+| Mean (before) | x̄₁ = [value] |
+| Mean (after) | x̄₂ = [value] |
+| Test statistic | t = [value] |
+| p-value | p = [value] |
+| **Conclusion** | □ Reject H₀ □ Fail to reject H₀ |
+
+**Test 2: Variance Comparison (Before vs. After)**
+
+| Parameter | Value |
+|-----------|-------|
+| H₀ | σ²_before = σ²_after (no reduction in variation) |
+| H₁ | σ²_before > σ²_after (variation reduced) |
+| Test | [F-test / Levene's / Bartlett's] |
+| α | 0.05 |
+| Std Dev (before) | s₁ = [value] |
+| Std Dev (after) | s₂ = [value] |
+| Test statistic | F = [value] |
+| p-value | p = [value] |
+| **Conclusion** | □ Reject H₀ □ Fail to reject H₀ |
+
+**Test 3: Proportion Comparison (Defect Rate)**
+
+| Parameter | Value |
+|-----------|-------|
+| H₀ | p_before = p_after |
+| H₁ | p_before > p_after |
+| Test | [2-proportion z-test / Chi-square] |
+| α | 0.05 |
+| Defects (before) | d₁ = [#], n₁ = [#], p₁ = [%] |
+| Defects (after) | d₂ = [#], n₂ = [#], p₂ = [%] |
+| Test statistic | z = [value] |
+| p-value | p = [value] |
+| **Conclusion** | □ Reject H₀ □ Fail to reject H₀ |
+
+**Process Capability Analysis:**
+
+| Period | n | Mean | Std Dev | Cp | Cpk | PPM Defective | Sigma Level |
+|--------|---|------|---------|-----|-----|---------------|-------------|
+| Baseline | [#] | [value] | [value] | [value] | [value] | [ppm] | [σ] |
+| Pilot | [#] | [value] | [value] | [value] | [value] | [ppm] | [σ] |
+| Target | - | [value] | [value] | [value] | [value] | [ppm] | [σ] |
+
+**Pilot Learnings & Adjustments:**
+
+| Finding | Category | Adjustment Made | Impact |
+|---------|----------|-----------------|--------|
+| [Finding 1] | Process | [adjustment] | [impact] |
+| [Finding 2] | Training | [adjustment] | [impact] |
+| [Finding 3] | Equipment | [adjustment] | [impact] |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 7: FULL IMPLEMENTATION PLAN
+═══════════════════════════════════════════════════════════════════════════════
+
+**Implementation Scope:**
+
+| Element | Scope | Timeline | Owner |
+|---------|-------|----------|-------|
+| Locations | [locations list] | [schedule] | [name] |
+| Products | [products list] | [schedule] | [name] |
+| Processes | [processes list] | [schedule] | [name] |
+| People | [affected roles] | [schedule] | [name] |
+
+**Implementation Phases:**
+
+| Phase | Duration | Activities | Milestones | Go/No-Go Criteria |
+|-------|----------|------------|------------|-------------------|
+| Phase 1 | [weeks] | [activities] | [milestone] | [criteria] |
+| Phase 2 | [weeks] | [activities] | [milestone] | [criteria] |
+| Phase 3 | [weeks] | [activities] | [milestone] | [criteria] |
+| Phase 4 | [weeks] | [activities] | [milestone] | [criteria] |
+
+**Resource Requirements:**
+
+| Resource | Quantity | Duration | Cost | Source |
+|----------|----------|----------|------|--------|
+| Personnel | [#] FTEs | [weeks] | $[X] | [internal/external] |
+| Equipment | [description] | Permanent | $[X] | [vendor] |
+| Software | [description] | Permanent | $[X] | [vendor] |
+| Training | [hours] | [weeks] | $[X] | [internal/external] |
+| Facilities | [description] | [duration] | $[X] | [source] |
+| **Total** | | | **$[X]** | |
+
+**Change Management Plan:**
+
+| Stakeholder Group | Impact Level | Key Concerns | Engagement Strategy | Communication |
+|-------------------|--------------|--------------|---------------------|---------------|
+| [Group 1] | High | [concerns] | [strategy] | [method/freq] |
+| [Group 2] | Medium | [concerns] | [strategy] | [method/freq] |
+| [Group 3] | Low | [concerns] | [strategy] | [method/freq] |
+
+**Training Plan:**
+
+| Audience | Content | Duration | Method | Trainer | Schedule |
+|----------|---------|----------|--------|---------|----------|
+| Operators | [topics] | [hours] | [method] | [name] | [date] |
+| Supervisors | [topics] | [hours] | [method] | [name] | [date] |
+| Support Staff | [topics] | [hours] | [method] | [name] | [date] |
+| Management | [topics] | [hours] | [method] | [name] | [date] |
+
+**Communication Plan:**
+
+| Communication | Audience | Timing | Channel | Owner | Content |
+|---------------|----------|--------|---------|-------|---------|
+| Kick-off announcement | All stakeholders | T-2 weeks | Email + Town hall | Champion | Project overview |
+| Progress updates | Leadership | Weekly | Status report | Black Belt | Progress, issues |
+| Go-live notification | Affected users | T-1 week | Email + Signage | Process Owner | What changes |
+| Training reminders | Trainees | Per schedule | Calendar + Email | HR | Training logistics |
+| Success celebration | All | T+2 weeks | Team meeting | Champion | Results achieved |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 8: RISK MANAGEMENT
+═══════════════════════════════════════════════════════════════════════════════
+
+**Implementation Risk Register:**
+
+| Risk ID | Risk Description | Prob | Impact | Score | Mitigation | Owner | Status |
+|---------|------------------|------|--------|-------|------------|-------|--------|
+| R-001 | [risk] | H/M/L | H/M/L | [#] | [mitigation] | [name] | Open |
+| R-002 | [risk] | H/M/L | H/M/L | [#] | [mitigation] | [name] | Open |
+| R-003 | [risk] | H/M/L | H/M/L | [#] | [mitigation] | [name] | Open |
+| R-004 | [risk] | H/M/L | H/M/L | [#] | [mitigation] | [name] | Open |
+
+**Contingency Plans:**
+
+| Risk | Trigger | Contingency Action | Decision Maker | Resources |
+|------|---------|-------------------|----------------|-----------|
+| [Risk 1] | [trigger event] | [action plan] | [name] | [resources] |
+| [Risk 2] | [trigger event] | [action plan] | [name] | [resources] |
+| [Risk 3] | [trigger event] | [action plan] | [name] | [resources] |
+
+**Rollback Plan:**
+
+| Scenario | Trigger Criteria | Rollback Steps | Duration | Communication |
+|----------|------------------|----------------|----------|---------------|
+| Partial rollback | [criteria] | [steps] | [time] | [plan] |
+| Full rollback | [criteria] | [steps] | [time] | [plan] |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 9: IMPROVE PHASE GATE REVIEW
+═══════════════════════════════════════════════════════════════════════════════
+
+**Phase Gate Checklist:**
+
+SOLUTION DEVELOPMENT:
+□ Root causes addressed by selected solutions
+□ Solution evaluation documented (matrix/Pugh)
+□ Cost-benefit analysis completed
+□ FMEA performed on solution design
+□ CTQ specifications defined
+
+PILOT EXECUTION:
+□ Pilot scope and criteria defined
+□ Pilot executed per plan
+□ Data collected per measurement plan
+□ Statistical validation completed
+□ Results demonstrate improvement
+
+IMPLEMENTATION READINESS:
+□ Full implementation plan developed
+□ Resources identified and committed
+□ Training plan and materials ready
+□ Change management plan in place
+□ Risk assessment and mitigation defined
+□ Communication plan developed
+
+**Gate Review Questions:**
+
+1. Are the selected solutions supported by data and analysis? □ Yes □ No
+2. Did the pilot demonstrate statistical improvement? □ Yes □ No
+3. Is the improvement sustainable? □ Yes □ No
+4. Are resources available for full implementation? □ Yes □ No
+5. Is the process owner committed to sustaining gains? □ Yes □ No
+6. Are training materials and plans complete? □ Yes □ No
+7. Is there a clear transition plan to Control phase? □ Yes □ No
+
+**Phase Gate Decision:**
+
+□ **APPROVED** - Proceed to full implementation and Control phase
+□ **CONDITIONAL** - Proceed with conditions: [list conditions]
+□ **REWORK** - Return to address: [list issues]
+□ **TERMINATE** - Project terminated: [reason]
+
+**Approval Signatures:**
+
+| Role | Name | Signature | Date |
+|------|------|-----------|------|
+| Project Champion | {{project_champion}} | _____________ | _______ |
+| Black Belt | {{black_belt}} | _____________ | _______ |
+| Process Owner | {{process_owner}} | _____________ | _______ |
+| Finance Representative | _____________ | _____________ | _______ |
+| Quality Representative | _____________ | _____________ | _______ |
+
+═══════════════════════════════════════════════════════════════════════════════
+PHASE 10: TRANSITION TO CONTROL
+═══════════════════════════════════════════════════════════════════════════════
+
+**Handover Checklist:**
+
+| Deliverable | Status | Location | Owner |
+|-------------|--------|----------|-------|
+| Updated process documentation | □ Complete | [location] | Process Owner |
+| Control plan | □ Complete | [location] | Process Owner |
+| Training materials | □ Complete | [location] | Training |
+| Measurement system | □ Complete | [location] | Quality |
+| SPC charts setup | □ Complete | [location] | Quality |
+| Response plans | □ Complete | [location] | Process Owner |
+| Financial tracking | □ Complete | [location] | Finance |
+
+**Control Phase Setup:**
+
+| Element | Description | Owner | Timeline |
+|---------|-------------|-------|----------|
+| Control metrics | [list] | [name] | [date] |
+| Control limits | [specifications] | [name] | [date] |
+| Audit schedule | [frequency] | [name] | [date] |
+| Review cadence | [frequency] | [name] | [date] |
+
+───────────────────────────────────────────────────────────────────────────────
+ANTI-PATTERNS TO AVOID
+───────────────────────────────────────────────────────────────────────────────
+
+✗ Jumping to solutions without proper Analyze phase completion
+✗ Selecting solutions based on opinion rather than data
+✗ Skipping pilot phase for "time savings"
+✗ Ignoring statistical validation of improvements
+✗ Insufficient sample size in pilot
+✗ Overlooking change management and stakeholder engagement
+✗ Not documenting process changes for Control phase
+✗ Optimizing local metrics at expense of system
+✗ Implementing without FMEA risk assessment
+✗ No contingency or rollback plan
+✗ Training treated as checkbox rather than competency building
+✗ Champion and Process Owner not engaged
+✗ Rushing gate review without complete deliverables
+✗ Not quantifying financial benefits
+
+───────────────────────────────────────────────────────────────────────────────
+QUALITY INDICATORS
+───────────────────────────────────────────────────────────────────────────────
+
+□ Solutions directly address validated root causes
+□ Solution selection based on structured evaluation
+□ Pilot demonstrated statistically significant improvement
+□ DOE used to optimize solution parameters
+□ FMEA completed with actions for high RPN items
+□ Implementation plan comprehensive with resources committed
+□ Change management plan addresses all stakeholder groups
+□ Training plan ensures competency, not just awareness
+□ Risk register maintained with active mitigation
+□ Phase gate approved with complete deliverables
+□ Clear transition plan to Control phase
+□ Financial benefits quantified and tracked`,
     variables: [
       { name: 'project_name', description: 'Six Sigma project name', example: 'Reduce Order Processing Defects', required: true },
       { name: 'problem_statement', description: 'Problem being solved', example: '15% of orders have data entry errors', required: true },
       { name: 'root_causes', description: 'Root causes from Analyze', example: 'Manual entry, unclear requirements, no validation', required: true },
       { name: 'improvement_target', description: 'Target improvement', example: 'Reduce defect rate from 15% to less than 3%', required: true },
+      { name: 'project_champion', description: 'Project Champion name', example: 'Jennifer Martinez', required: false },
+      { name: 'black_belt', description: 'Black Belt name', example: 'Michael Chen', required: false },
+      { name: 'process_owner', description: 'Process Owner name', example: 'Sarah Johnson', required: false },
+      { name: 'improve_start_date', description: 'Improve phase start date', example: 'January 15, 2025', required: false },
+      { name: 'target_completion', description: 'Target completion date', example: 'March 30, 2025', required: false },
     ],
     tier: 'premium',
-    estimatedTimeSaved: '5 hours',
-    tags: ['six-sigma', 'dmaic', 'improve', 'solution-design', 'pilot', 'ASQ', 'DFSS', 'Poka-Yoke'],
+    estimatedTimeSaved: '10 hours',
+    tags: ['six-sigma', 'dmaic', 'improve', 'solution-design', 'pilot', 'DOE', 'hypothesis-testing', 'FMEA', 'ASQ', 'DFSS', 'Poka-Yoke', 'statistical-validation'],
   },
 
   // Six Sigma - Control Phase
@@ -29604,31 +35463,788 @@ Generate Improve phase deliverables:
     phase: 'Control',
     canonicalPhase: 4,
     description: 'Generate comprehensive DMAIC Control phase documentation with control plans, SPC implementation, and sustainability mechanisms.',
-    template: `You are a Six Sigma Master Black Belt specializing in process control. Generate Control phase documentation ensuring improvements are maintained.
+    template: `You are a Six Sigma Master Black Belt (MBB) and Certified Quality Engineer (CQE) specializing in statistical process control and process sustainability. Generate comprehensive Control phase documentation ensuring improvements are institutionalized, monitored, and sustained following ASQ Body of Knowledge and DMAIC methodology standards.
 
-PROJECT CONTEXT:
-Project: {{project_name}}
+═══════════════════════════════════════════════════════════════════
+SIX SIGMA CONTROL PHASE SUSTAINABILITY SYSTEM
+ASQ & DMAIC Compliant | Tollgate Ready
+═══════════════════════════════════════════════════════════════════
+
+PROJECT IDENTIFICATION
+────────────────────────────────────────────────────────────────────
+Project Name: {{project_name}}
+Project ID: {{project_id}}
+Belt Level: {{belt_level}}
 Improvement Implemented: {{improvement_summary}}
 Achieved Results: {{achieved_results}}
 Control Phase Start: {{control_start_date}}
+Target Handover Date: {{handover_date}}
 
-Generate Control phase deliverables:
-1. CONTROL PLAN - Process control plan matrix with CTQs, specifications, methods, reaction plans
-2. STATISTICAL PROCESS CONTROL - Chart selection, control limits, out-of-control rules
-3. RESPONSE PLAN - Out-of-control protocol, escalation matrix, root cause documentation
-4. STANDARD OPERATING PROCEDURES - Updated SOPs, procedure template, training verification
-5. PROCESS AUDIT SYSTEM - Schedule, checklist, findings tracking
-6. SUSTAINABILITY DASHBOARD - Control metrics, capability monitoring, financial impact
-7. TRANSITION & HANDOVER - Knowledge transfer, process owner accountability, closure sign-off`,
+PROJECT PERFORMANCE SUMMARY
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────┐
+│ METRIC               │ BASELINE │ TARGET  │ ACHIEVED │ STATUS  │
+├─────────────────────────────────────────────────────────────────┤
+│ Primary Y (CTQ)      │          │         │          │         │
+│ Secondary Y          │          │         │          │         │
+│ Defect Rate (DPMO)   │          │         │          │         │
+│ Process Sigma        │          │         │          │         │
+│ Cp/Cpk               │          │         │          │         │
+│ Cycle Time           │          │         │          │         │
+│ Cost Savings (Annual)│          │         │          │         │
+│ ROI                  │          │         │          │         │
+└─────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════
+PHASE 1: CONTROL STRATEGY DEVELOPMENT
+═══════════════════════════════════════════════════════════════════
+
+1.1 CONTROL PHILOSOPHY
+────────────────────────────────────────────────────────────────────
+Control Approach:
+□ Statistical Process Control (SPC)
+□ Error-proofing (Poka-Yoke)
+□ Standardization
+□ Visual Management
+□ Automated Controls
+□ Administrative Controls
+
+Control Strategy Summary:
+┌─────────────────────────────────────────────────────────────────┐
+│ ELEMENT          │ APPROACH           │ OWNERSHIP             │
+├─────────────────────────────────────────────────────────────────┤
+│ Detection        │                    │                       │
+│ Prevention       │                    │                       │
+│ Correction       │                    │                       │
+│ Monitoring       │                    │                       │
+│ Documentation    │                    │                       │
+│ Training         │                    │                       │
+└─────────────────────────────────────────────────────────────────┘
+
+1.2 CRITICAL-TO-QUALITY (CTQ) HIERARCHY
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────┐
+│ LEVEL   │ CTQ                    │ SPEC LIMITS    │ CONTROL    │
+├─────────────────────────────────────────────────────────────────┤
+│ Primary │                        │ LSL:    USL:   │            │
+│ Second. │                        │ LSL:    USL:   │            │
+│ Tertiary│                        │ LSL:    USL:   │            │
+│ KPIs    │                        │ Target:        │            │
+└─────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════
+PHASE 2: CONTROL PLAN DEVELOPMENT
+═══════════════════════════════════════════════════════════════════
+
+2.1 PROCESS CONTROL PLAN MATRIX
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ STEP │ PROCESS    │ CTQ/      │ SPEC      │ MEASUREMENT │ SAMPLE │ CONTROL │ REACTION    │ RESPONSIBLE │
+│      │ STEP       │ PARAMETER │ LIMITS    │ METHOD      │ SIZE/  │ METHOD  │ PLAN        │ PARTY       │
+│      │            │           │           │             │ FREQ   │         │             │             │
+├─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 1    │            │           │ LSL:      │             │        │         │ IF OOC:     │             │
+│      │            │           │ USL:      │             │        │         │ 1.          │             │
+│      │            │           │ Target:   │             │        │         │ 2.          │             │
+│      │            │           │           │             │        │         │ 3.          │             │
+├─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 2    │            │           │ LSL:      │             │        │         │ IF OOC:     │             │
+│      │            │           │ USL:      │             │        │         │ 1.          │             │
+│      │            │           │           │             │        │         │ 2.          │             │
+├─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 3    │            │           │ LSL:      │             │        │         │ IF OOC:     │             │
+│      │            │           │ USL:      │             │        │         │ 1.          │             │
+│      │            │           │           │             │        │         │ 2.          │             │
+├─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 4    │            │           │ LSL:      │             │        │         │ IF OOC:     │             │
+│      │            │           │ USL:      │             │        │         │ 1.          │             │
+│      │            │           │           │             │        │         │ 2.          │             │
+├─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 5    │            │           │ LSL:      │             │        │         │ IF OOC:     │             │
+│      │            │           │ USL:      │             │        │         │ 1.          │             │
+│      │            │           │           │             │        │         │ 2.          │             │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+2.2 CONTROL METHODS JUSTIFICATION
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────┐
+│ CTQ/PARAMETER    │ METHOD SELECTED   │ RATIONALE              │
+├─────────────────────────────────────────────────────────────────┤
+│                  │ □ X-bar/R Chart   │                        │
+│                  │ □ X-bar/S Chart   │                        │
+│                  │ □ I-MR Chart      │                        │
+│                  │ □ p Chart         │                        │
+│                  │ □ np Chart        │                        │
+│                  │ □ c Chart         │                        │
+│                  │ □ u Chart         │                        │
+│                  │ □ EWMA            │                        │
+│                  │ □ CUSUM           │                        │
+│                  │ □ Pre-Control     │                        │
+│                  │ □ Checklist       │                        │
+│                  │ □ Poka-Yoke       │                        │
+│                  │ □ Automated       │                        │
+└─────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════
+PHASE 3: STATISTICAL PROCESS CONTROL IMPLEMENTATION
+═══════════════════════════════════════════════════════════════════
+
+3.1 SPC CHART SELECTION MATRIX
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────┐
+│ DATA TYPE        │ SAMPLE SIZE       │ RECOMMENDED CHART      │
+├─────────────────────────────────────────────────────────────────┤
+│ Variable         │ n > 1 (2-10)      │ X-bar/R Chart          │
+│ (Continuous)     │ n > 10            │ X-bar/S Chart          │
+│                  │ n = 1             │ I-MR (Individuals)     │
+├─────────────────────────────────────────────────────────────────┤
+│ Attribute        │ Defective items   │ p Chart (proportion)   │
+│ (Discrete)       │ Defective items   │ np Chart (if n const.) │
+│                  │ Defects per unit  │ c Chart (if area const)│
+│                  │ Defects per unit  │ u Chart (if area varies│
+├─────────────────────────────────────────────────────────────────┤
+│ Small shifts     │ Any               │ EWMA or CUSUM          │
+│ Short runs       │ Any               │ Pre-Control            │
+└─────────────────────────────────────────────────────────────────┘
+
+3.2 CONTROL CHART SPECIFICATIONS
+────────────────────────────────────────────────────────────────────
+Chart 1: [Primary CTQ]
+┌─────────────────────────────────────────────────────────────────┐
+│ PARAMETER              │ VALUE                                 │
+├─────────────────────────────────────────────────────────────────┤
+│ Chart Type             │                                       │
+│ Characteristic         │                                       │
+│ Unit of Measure        │                                       │
+│ Sample Size (n)        │                                       │
+│ Sampling Frequency     │                                       │
+│ Subgroup Rationale     │                                       │
+├─────────────────────────────────────────────────────────────────┤
+│ UCL (Upper Control)    │                                       │
+│ CL (Center Line)       │                                       │
+│ LCL (Lower Control)    │                                       │
+├─────────────────────────────────────────────────────────────────┤
+│ USL (Upper Spec)       │                                       │
+│ Target                 │                                       │
+│ LSL (Lower Spec)       │                                       │
+├─────────────────────────────────────────────────────────────────┤
+│ Cp                     │                                       │
+│ Cpk                    │                                       │
+│ Pp                     │                                       │
+│ Ppk                    │                                       │
+└─────────────────────────────────────────────────────────────────┘
+
+Chart 2: [Secondary CTQ]
+[Repeat structure as needed]
+
+3.3 CONTROL LIMIT CALCULATIONS
+────────────────────────────────────────────────────────────────────
+X-bar/R Chart Formulas:
+UCL_Xbar = X̄ + A₂R̄
+CL_Xbar = X̄
+LCL_Xbar = X̄ - A₂R̄
+UCL_R = D₄R̄
+CL_R = R̄
+LCL_R = D₃R̄
+
+Constants Table (for reference):
+┌──────────────────────────────────────────────────────────────────┐
+│ n   │ A₂     │ D₃    │ D₄    │ d₂     │ A₃     │ B₃    │ B₄    │
+├──────────────────────────────────────────────────────────────────┤
+│ 2   │ 1.880  │ 0     │ 3.267 │ 1.128  │ 2.659  │ 0     │ 3.267 │
+│ 3   │ 1.023  │ 0     │ 2.575 │ 1.693  │ 1.954  │ 0     │ 2.568 │
+│ 4   │ 0.729  │ 0     │ 2.282 │ 2.059  │ 1.628  │ 0     │ 2.266 │
+│ 5   │ 0.577  │ 0     │ 2.114 │ 2.326  │ 1.427  │ 0     │ 2.089 │
+│ 6   │ 0.483  │ 0     │ 2.004 │ 2.534  │ 1.287  │ 0.030 │ 1.970 │
+│ 7   │ 0.419  │ 0.076 │ 1.924 │ 2.704  │ 1.182  │ 0.118 │ 1.882 │
+│ 8   │ 0.373  │ 0.136 │ 1.864 │ 2.847  │ 1.099  │ 0.185 │ 1.815 │
+│ 9   │ 0.337  │ 0.184 │ 1.816 │ 2.970  │ 1.032  │ 0.239 │ 1.761 │
+│ 10  │ 0.308  │ 0.223 │ 1.777 │ 3.078  │ 0.975  │ 0.284 │ 1.716 │
+└──────────────────────────────────────────────────────────────────┘
+
+3.4 WESTERN ELECTRIC RULES (OUT-OF-CONTROL DETECTION)
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────┐
+│ RULE │ DESCRIPTION                              │ ENABLED │
+├─────────────────────────────────────────────────────────────────┤
+│ 1    │ One point beyond 3σ                      │ □       │
+│ 2    │ 9 points in a row on same side of CL    │ □       │
+│ 3    │ 6 points in a row steadily ↑ or ↓       │ □       │
+│ 4    │ 14 points alternating up and down       │ □       │
+│ 5    │ 2 of 3 points beyond 2σ (same side)     │ □       │
+│ 6    │ 4 of 5 points beyond 1σ (same side)     │ □       │
+│ 7    │ 15 points within 1σ of CL (stratification│ □      │
+│ 8    │ 8 points beyond 1σ (both sides)         │ □       │
+└─────────────────────────────────────────────────────────────────┘
+
+Rules Applied: _______________________________________________
+
+═══════════════════════════════════════════════════════════════════
+PHASE 4: OUT-OF-CONTROL ACTION PLAN (OCAP)
+═══════════════════════════════════════════════════════════════════
+
+4.1 RESPONSE PROTOCOL
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────┐
+│ CONDITION               │ IMMEDIATE ACTION   │ ESCALATION      │
+├─────────────────────────────────────────────────────────────────┤
+│ Point beyond UCL        │ 1. Stop/Isolate    │ Notify:         │
+│                         │ 2. Check MSA       │ Within:         │
+│                         │ 3. Root cause      │ Document:       │
+├─────────────────────────────────────────────────────────────────┤
+│ Point beyond LCL        │ 1.                 │ Notify:         │
+│                         │ 2.                 │ Within:         │
+│                         │ 3.                 │ Document:       │
+├─────────────────────────────────────────────────────────────────┤
+│ Trend (6+ points)       │ 1.                 │ Notify:         │
+│                         │ 2.                 │ Within:         │
+│                         │ 3.                 │ Document:       │
+├─────────────────────────────────────────────────────────────────┤
+│ Run (9+ same side)      │ 1.                 │ Notify:         │
+│                         │ 2.                 │ Within:         │
+│                         │ 3.                 │ Document:       │
+├─────────────────────────────────────────────────────────────────┤
+│ 2 of 3 beyond 2σ        │ 1.                 │ Notify:         │
+│                         │ 2.                 │ Within:         │
+│                         │ 3.                 │ Document:       │
+└─────────────────────────────────────────────────────────────────┘
+
+4.2 OCAP DECISION TREE
+────────────────────────────────────────────────────────────────────
+                    [OUT-OF-CONTROL DETECTED]
+                              │
+                    ┌─────────┴─────────┐
+                    ▼                   ▼
+            [SPECIAL CAUSE]      [FALSE ALARM]
+                    │                   │
+          ┌────────┴────────┐    Document &
+          ▼                 ▼    Continue
+    [ASSIGNABLE]      [RANDOM]
+          │                 │
+    ┌─────┴─────┐    Monitor for
+    ▼           ▼    Recurrence
+[REMOVE]   [CANNOT
+ CAUSE]    REMOVE]
+    │           │
+Recalculate   Accept Risk
+Limits        Document
+
+4.3 ESCALATION MATRIX
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────┐
+│ SEVERITY    │ RESPONSE TIME │ NOTIFICATION      │ AUTHORITY     │
+├─────────────────────────────────────────────────────────────────┤
+│ Level 1     │ Immediate     │ Operator          │ Continue      │
+│ (Minor OOC) │ < 15 min      │ Line Lead         │ with checks   │
+├─────────────────────────────────────────────────────────────────┤
+│ Level 2     │ < 1 hour      │ Supervisor        │ Isolate       │
+│ (Major OOC) │               │ Quality           │ output        │
+├─────────────────────────────────────────────────────────────────┤
+│ Level 3     │ < 4 hours     │ Manager           │ Stop process  │
+│ (Critical)  │               │ Process Owner     │ until resolved│
+├─────────────────────────────────────────────────────────────────┤
+│ Level 4     │ Immediate     │ Plant Manager     │ Full line     │
+│ (Safety/Reg)│               │ Compliance        │ shutdown      │
+└─────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════
+PHASE 5: STANDARD OPERATING PROCEDURES (SOPs)
+═══════════════════════════════════════════════════════════════════
+
+5.1 SOP INVENTORY
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────┐
+│ SOP ID │ TITLE                    │ VERSION │ STATUS │ OWNER   │
+├─────────────────────────────────────────────────────────────────┤
+│        │                          │         │ □ New  │         │
+│        │                          │         │ □ Rev  │         │
+│        │                          │         │ □ Exist│         │
+├─────────────────────────────────────────────────────────────────┤
+│        │                          │         │ □ New  │         │
+│        │                          │         │ □ Rev  │         │
+│        │                          │         │ □ Exist│         │
+├─────────────────────────────────────────────────────────────────┤
+│        │                          │         │ □ New  │         │
+│        │                          │         │ □ Rev  │         │
+│        │                          │         │ □ Exist│         │
+└─────────────────────────────────────────────────────────────────┘
+
+5.2 SOP TEMPLATE STRUCTURE
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────┐
+│                    STANDARD OPERATING PROCEDURE                 │
+├─────────────────────────────────────────────────────────────────┤
+│ Document ID:          │ Version:            │ Effective Date:  │
+│ Process Name:         │ Department:         │ Page __ of __    │
+├─────────────────────────────────────────────────────────────────┤
+│ 1. PURPOSE                                                      │
+│    [Why this procedure exists]                                  │
+├─────────────────────────────────────────────────────────────────┤
+│ 2. SCOPE                                                        │
+│    [What/who it applies to]                                     │
+├─────────────────────────────────────────────────────────────────┤
+│ 3. DEFINITIONS                                                  │
+│    [Key terms]                                                  │
+├─────────────────────────────────────────────────────────────────┤
+│ 4. RESPONSIBILITIES                                             │
+│    [Who does what]                                              │
+├─────────────────────────────────────────────────────────────────┤
+│ 5. EQUIPMENT/MATERIALS                                          │
+│    [Required resources]                                         │
+├─────────────────────────────────────────────────────────────────┤
+│ 6. SAFETY CONSIDERATIONS                                        │
+│    [Warnings, PPE, etc.]                                        │
+├─────────────────────────────────────────────────────────────────┤
+│ 7. PROCEDURE STEPS                                              │
+│    Step 1:                                                      │
+│    Step 2:                                                      │
+│    Step 3:                                                      │
+├─────────────────────────────────────────────────────────────────┤
+│ 8. QUALITY CHECKPOINTS                                          │
+│    [Verification points]                                        │
+├─────────────────────────────────────────────────────────────────┤
+│ 9. TROUBLESHOOTING                                              │
+│    [Common issues and solutions]                                │
+├─────────────────────────────────────────────────────────────────┤
+│ 10. REVISION HISTORY                                            │
+│     [Change log]                                                │
+├─────────────────────────────────────────────────────────────────┤
+│ APPROVALS                                                       │
+│ Prepared by: _____________ Date: ___                            │
+│ Reviewed by: _____________ Date: ___                            │
+│ Approved by: _____________ Date: ___                            │
+└─────────────────────────────────────────────────────────────────┘
+
+5.3 VISUAL WORK INSTRUCTIONS
+────────────────────────────────────────────────────────────────────
+Visual Aid Requirements:
+□ Process flow diagram
+□ Photos of correct setup
+□ Photos of defect examples (good vs. bad)
+□ Equipment diagrams
+□ Safety symbols/warnings
+□ Control chart posting location
+□ Quick reference cards
+
+═══════════════════════════════════════════════════════════════════
+PHASE 6: ERROR-PROOFING (POKA-YOKE) IMPLEMENTATION
+═══════════════════════════════════════════════════════════════════
+
+6.1 POKA-YOKE INVENTORY
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────────────────────────┐
+│ ID │ PROCESS STEP    │ ERROR PREVENTED   │ TYPE          │ METHOD        │ STATUS │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│    │                 │                   │ □ Prevention  │ □ Contact     │ □ New  │
+│    │                 │                   │ □ Detection   │ □ Fixed-value │ □ Exist│
+│    │                 │                   │ □ Warning     │ □ Motion-step │ □ Mod  │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│    │                 │                   │ □ Prevention  │ □ Contact     │ □ New  │
+│    │                 │                   │ □ Detection   │ □ Fixed-value │ □ Exist│
+│    │                 │                   │ □ Warning     │ □ Motion-step │ □ Mod  │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│    │                 │                   │ □ Prevention  │ □ Contact     │ □ New  │
+│    │                 │                   │ □ Detection   │ □ Fixed-value │ □ Exist│
+│    │                 │                   │ □ Warning     │ □ Motion-step │ □ Mod  │
+└─────────────────────────────────────────────────────────────────────────────────────┘
+
+6.2 POKA-YOKE EFFECTIVENESS
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────┐
+│ LEVEL              │ DESCRIPTION                  │ APPLIED     │
+├─────────────────────────────────────────────────────────────────┤
+│ Level 3 (Best)     │ Impossible to make error     │ □           │
+│ Level 2            │ Error detected immediately   │ □           │
+│ Level 1            │ Error detected before defect │ □           │
+│ Level 0 (Baseline) │ Defect detected before ship  │ □           │
+└─────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════
+PHASE 7: TRAINING PLAN
+═══════════════════════════════════════════════════════════════════
+
+7.1 TRAINING REQUIREMENTS MATRIX
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────────────────────────┐
+│ ROLE             │ TRAINING TOPIC         │ METHOD    │ DURATION │ COMPLETION     │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Operators        │ New SOP procedures     │ □ Class   │          │ □ Complete     │
+│                  │                        │ □ OJT     │          │ Date:          │
+│                  │                        │ □ E-learn │          │                │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Operators        │ SPC chart reading      │ □ Class   │          │ □ Complete     │
+│                  │                        │ □ OJT     │          │ Date:          │
+│                  │                        │ □ E-learn │          │                │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Supervisors      │ OCAP response          │ □ Class   │          │ □ Complete     │
+│                  │                        │ □ OJT     │          │ Date:          │
+│                  │                        │ □ E-learn │          │                │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Quality          │ Control plan admin     │ □ Class   │          │ □ Complete     │
+│                  │                        │ □ OJT     │          │ Date:          │
+│                  │                        │ □ E-learn │          │                │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Process Owner    │ Full control system    │ □ Class   │          │ □ Complete     │
+│                  │                        │ □ OJT     │          │ Date:          │
+│                  │                        │ □ E-learn │          │                │
+└─────────────────────────────────────────────────────────────────────────────────────┘
+
+7.2 TRAINING VERIFICATION
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────┐
+│ TRAINEE        │ COMPETENCY DEMONSTRATED │ ASSESSOR  │ DATE    │
+├─────────────────────────────────────────────────────────────────┤
+│                │ □ SOP execution         │           │         │
+│                │ □ Chart interpretation  │           │         │
+│                │ □ OOC response          │           │         │
+├─────────────────────────────────────────────────────────────────┤
+│                │ □ SOP execution         │           │         │
+│                │ □ Chart interpretation  │           │         │
+│                │ □ OOC response          │           │         │
+└─────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════
+PHASE 8: PROCESS AUDIT SYSTEM
+═══════════════════════════════════════════════════════════════════
+
+8.1 LAYERED PROCESS AUDIT (LPA) SCHEDULE
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────┐
+│ LAYER           │ FREQUENCY     │ AUDITOR           │ FOCUS     │
+├─────────────────────────────────────────────────────────────────┤
+│ Layer 1         │ Every shift   │ Team Lead         │ Critical  │
+│ (Operational)   │               │                   │ params    │
+├─────────────────────────────────────────────────────────────────┤
+│ Layer 2         │ Daily         │ Supervisor        │ SOP       │
+│ (Supervisory)   │               │                   │ compliance│
+├─────────────────────────────────────────────────────────────────┤
+│ Layer 3         │ Weekly        │ Manager           │ System    │
+│ (Management)    │               │                   │ health    │
+├─────────────────────────────────────────────────────────────────┤
+│ Layer 4         │ Monthly       │ Process Owner     │ Full      │
+│ (Strategic)     │               │ Quality           │ review    │
+└─────────────────────────────────────────────────────────────────┘
+
+8.2 PROCESS AUDIT CHECKLIST
+────────────────────────────────────────────────────────────────────
+Process: ___________________ Date: _______ Auditor: ___________
+
+┌─────────────────────────────────────────────────────────────────┐
+│ # │ AUDIT ITEM                              │ Y │ N │ NA│ NOTES│
+├─────────────────────────────────────────────────────────────────┤
+│ 1 │ Current SOP posted/accessible           │ □ │ □ │ □ │      │
+│ 2 │ Operator trained (verified)             │ □ │ □ │ □ │      │
+│ 3 │ Control chart current (within 4 hours)  │ □ │ □ │ □ │      │
+│ 4 │ Control limits correct                  │ □ │ □ │ □ │      │
+│ 5 │ Reaction plan documented (if OOC)       │ □ │ □ │ □ │      │
+│ 6 │ Measurement system verified             │ □ │ □ │ □ │      │
+│ 7 │ Poka-yokes functional                   │ □ │ □ │ □ │      │
+│ 8 │ 5S/workplace organization               │ □ │ □ │ □ │      │
+│ 9 │ Safety requirements met                 │ □ │ □ │ □ │      │
+│ 10│ Documentation complete                  │ □ │ □ │ □ │      │
+├─────────────────────────────────────────────────────────────────┤
+│   │ OVERALL COMPLIANCE                      │   /10 = ___% │   │
+└─────────────────────────────────────────────────────────────────┘
+
+Findings/Corrective Actions Required:
+_________________________________________________________________
+_________________________________________________________________
+
+8.3 AUDIT FINDINGS TRACKING
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────────────────────────┐
+│ FINDING │ DATE    │ CATEGORY    │ CORRECTIVE ACTION   │ OWNER   │ DUE   │ STATUS │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│         │         │ □ Major     │                     │         │       │ □ Open │
+│         │         │ □ Minor     │                     │         │       │ □ Closed│
+│         │         │ □ Observe   │                     │         │       │        │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│         │         │ □ Major     │                     │         │       │ □ Open │
+│         │         │ □ Minor     │                     │         │       │ □ Closed│
+│         │         │ □ Observe   │                     │         │       │        │
+└─────────────────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════
+PHASE 9: SUSTAINABILITY METRICS & DASHBOARD
+═══════════════════════════════════════════════════════════════════
+
+9.1 CONTROL PHASE METRICS
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────────────────────────┐
+│ METRIC                    │ BASELINE │ CONTROL │ TARGET │ CURRENT │ TREND │ STATUS│
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ PROCESS METRICS                                                                     │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Primary CTQ               │          │         │        │         │  ↑↓→  │ 🟢🟡🔴│
+│ Process Capability (Cpk)  │          │         │ ≥1.33  │         │  ↑↓→  │ 🟢🟡🔴│
+│ Defect Rate (DPMO)        │          │         │        │         │  ↑↓→  │ 🟢🟡🔴│
+│ Process Sigma Level       │          │         │        │         │  ↑↓→  │ 🟢🟡🔴│
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ CONTROL SYSTEM METRICS                                                              │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ SPC Chart Compliance (%)  │    N/A   │         │ 100%   │         │  ↑↓→  │ 🟢🟡🔴│
+│ OOC Events (#/month)      │          │         │        │         │  ↑↓→  │ 🟢🟡🔴│
+│ OCAP Response Time (hrs)  │    N/A   │         │ <4     │         │  ↑↓→  │ 🟢🟡🔴│
+│ Audit Compliance (%)      │    N/A   │         │ ≥95%   │         │  ↑↓→  │ 🟢🟡🔴│
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ FINANCIAL METRICS                                                                   │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Hard Savings ($/month)    │    $0    │         │        │         │  ↑↓→  │ 🟢🟡🔴│
+│ Soft Savings ($/month)    │    $0    │         │        │         │  ↑↓→  │ 🟢🟡🔴│
+│ Cumulative Savings        │    $0    │         │        │         │  ↑↓→  │ 🟢🟡🔴│
+│ Cost of Poor Quality      │          │         │        │         │  ↑↓→  │ 🟢🟡🔴│
+└─────────────────────────────────────────────────────────────────────────────────────┘
+
+9.2 SAVINGS VALIDATION
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────┐
+│ CATEGORY        │ CALCULATION METHOD        │ MONTHLY  │ ANNUAL │
+├─────────────────────────────────────────────────────────────────┤
+│ HARD SAVINGS (verified, repeatable)                             │
+├─────────────────────────────────────────────────────────────────┤
+│ Scrap reduction │ (Old - New) × Unit cost   │ $        │ $      │
+│ Rework reduction│ (Old - New) × Labor cost  │ $        │ $      │
+│ Warranty claims │ (Old - New) × Claim cost  │ $        │ $      │
+│ Material savings│ Units × Cost difference   │ $        │ $      │
+│                 │                           │ ──────── │ ────── │
+│ Total Hard      │                           │ $        │ $      │
+├─────────────────────────────────────────────────────────────────┤
+│ SOFT SAVINGS (estimated, one-time)                              │
+├─────────────────────────────────────────────────────────────────┤
+│ Time savings    │ Hours × Loaded labor rate │ $        │ $      │
+│ Capacity gain   │ Added units × Margin      │ $        │ $      │
+│ Risk avoidance  │ Probability × Impact      │ $        │ $      │
+│                 │                           │ ──────── │ ────── │
+│ Total Soft      │                           │ $        │ $      │
+├─────────────────────────────────────────────────────────────────┤
+│ TOTAL SAVINGS   │                           │ $        │ $      │
+└─────────────────────────────────────────────────────────────────┘
+
+Finance Validation: _______________ Date: _______ Signature: _________
+
+9.3 SUSTAINABILITY TREND ANALYSIS
+────────────────────────────────────────────────────────────────────
+Monthly Review Schedule:
+□ Month 1: Daily monitoring
+□ Month 2: Weekly review
+□ Month 3: Bi-weekly review
+□ Month 4-6: Monthly review
+□ Month 7+: Quarterly review (if stable)
+
+Trend Analysis Template:
+┌─────────────────────────────────────────────────────────────────┐
+│ PERIOD    │ CTQ VALUE │ Cpk   │ OOC EVENTS │ SAVINGS │ STATUS  │
+├─────────────────────────────────────────────────────────────────┤
+│ Month 1   │           │       │            │ $       │         │
+│ Month 2   │           │       │            │ $       │         │
+│ Month 3   │           │       │            │ $       │         │
+│ Month 4   │           │       │            │ $       │         │
+│ Month 5   │           │       │            │ $       │         │
+│ Month 6   │           │       │            │ $       │         │
+├─────────────────────────────────────────────────────────────────┤
+│ 6-Mo Avg  │           │       │            │ $       │         │
+└─────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════
+PHASE 10: PROJECT TRANSITION & HANDOVER
+═══════════════════════════════════════════════════════════════════
+
+10.1 HANDOVER CHECKLIST
+────────────────────────────────────────────────────────────────────
+DOCUMENTATION COMPLETE:
+□ Control Plan finalized and approved
+□ SOPs updated and version-controlled
+□ SPC charts established with valid control limits
+□ OCAP documented and trained
+□ Training records complete
+□ Audit schedule established
+□ Visual management installed
+□ Poka-yokes verified functional
+□ Savings validated by Finance
+
+KNOWLEDGE TRANSFER:
+□ Process Owner identified and trained
+□ Backup Process Owner identified
+□ All operators trained and verified
+□ Quality personnel trained
+□ Escalation contacts documented
+□ Lessons learned documented
+
+SYSTEMS:
+□ Measurement systems verified (GR&R current)
+□ Data collection systems functional
+□ Reporting dashboards active
+□ Alert systems configured
+
+10.2 PROCESS OWNER ACCOUNTABILITY
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────┐
+│ ROLE              │ NAME           │ RESPONSIBILITIES          │
+├─────────────────────────────────────────────────────────────────┤
+│ Process Owner     │                │ • Overall accountability  │
+│                   │                │ • Monthly metrics review  │
+│                   │                │ • Resource allocation     │
+│                   │                │ • Escalation decisions    │
+├─────────────────────────────────────────────────────────────────┤
+│ Control Champion  │                │ • Daily SPC review        │
+│                   │                │ • OCAP coordination       │
+│                   │                │ • Training verification   │
+│                   │                │ • Audit execution         │
+├─────────────────────────────────────────────────────────────────┤
+│ Quality Contact   │                │ • Capability monitoring   │
+│                   │                │ • MSA maintenance         │
+│                   │                │ • Control limit updates   │
+│                   │                │ • Audit findings follow-up│
+└─────────────────────────────────────────────────────────────────┘
+
+10.3 TRANSITION MEETING AGENDA
+────────────────────────────────────────────────────────────────────
+1. Project summary and results review
+2. Control system walkthrough
+3. Roles and responsibilities review
+4. Documentation handover
+5. Open items and risks
+6. Support plan (first 90 days)
+7. Success criteria for full handover
+8. Sign-off and commitment
+
+10.4 POST-PROJECT SUPPORT PLAN
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────┐
+│ PERIOD          │ SUPPORT LEVEL        │ BELT INVOLVEMENT       │
+├─────────────────────────────────────────────────────────────────┤
+│ Days 1-30       │ High (daily check-in)│ On-call, attend OOC    │
+│ Days 31-60      │ Medium (weekly)      │ Review metrics weekly  │
+│ Days 61-90      │ Low (bi-weekly)      │ Review at month-end    │
+│ Day 91+         │ As needed            │ Quarterly review       │
+└─────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════
+PHASE 11: CONTROL PHASE GATE REVIEW
+═══════════════════════════════════════════════════════════════════
+
+11.1 TOLLGATE CHECKLIST
+────────────────────────────────────────────────────────────────────
+REQUIRED DELIVERABLES:
+□ Control Plan complete and approved
+□ SPC implemented with stable control limits
+□ Process capability ≥ target (Cpk ≥ 1.33 or agreed target)
+□ OCAP documented and validated
+□ SOPs updated and personnel trained
+□ Audit system in place with first audits complete
+□ Poka-yokes installed and verified
+□ Savings validated by Finance
+□ Process Owner formally accepts accountability
+□ 30-day stability demonstrated
+
+TOLLGATE CRITERIA:
+┌─────────────────────────────────────────────────────────────────┐
+│ CRITERION                          │ REQUIREMENT    │ ACTUAL   │
+├─────────────────────────────────────────────────────────────────┤
+│ Process stability (30 days)        │ In control     │ □ Y □ N  │
+│ Capability achievement             │ Cpk ≥          │          │
+│ Training completion                │ 100%           │          │
+│ Audit compliance                   │ ≥ 95%          │          │
+│ Documentation complete             │ 100%           │ □ Y □ N  │
+│ Savings validated                  │ $ ________     │ $        │
+│ Process Owner sign-off             │ Required       │ □ Y □ N  │
+└─────────────────────────────────────────────────────────────────┘
+
+11.2 LESSONS LEARNED
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────┐
+│ CATEGORY        │ LESSON                    │ RECOMMENDATION    │
+├─────────────────────────────────────────────────────────────────┤
+│ What worked     │                           │                   │
+│ well            │                           │                   │
+├─────────────────────────────────────────────────────────────────┤
+│ What would we   │                           │                   │
+│ do differently  │                           │                   │
+├─────────────────────────────────────────────────────────────────┤
+│ Unexpected      │                           │                   │
+│ challenges      │                           │                   │
+├─────────────────────────────────────────────────────────────────┤
+│ Replication     │                           │                   │
+│ opportunities   │                           │                   │
+└─────────────────────────────────────────────────────────────────┘
+
+11.3 PROJECT CLOSURE SIGN-OFF
+────────────────────────────────────────────────────────────────────
+PROJECT: {{project_name}}
+
+CERTIFICATION:
+This project has successfully completed the DMAIC Control phase.
+All control systems are in place and the improved process has
+demonstrated sustained capability.
+
+Project Results Summary:
+• Primary CTQ improvement: ________ → ________
+• Process Sigma improvement: ______ → ______
+• Annual validated savings: $____________
+
+┌─────────────────────────────────────────────────────────────────┐
+│ ROLE                    │ NAME           │ SIGNATURE   │ DATE  │
+├─────────────────────────────────────────────────────────────────┤
+│ Project Belt            │                │             │       │
+├─────────────────────────────────────────────────────────────────┤
+│ Process Owner           │                │             │       │
+├─────────────────────────────────────────────────────────────────┤
+│ Champion                │                │             │       │
+├─────────────────────────────────────────────────────────────────┤
+│ Master Black Belt       │                │             │       │
+├─────────────────────────────────────────────────────────────────┤
+│ Finance Representative  │                │             │       │
+└─────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════
+ANTI-PATTERNS TO AVOID
+═══════════════════════════════════════════════════════════════════
+
+❌ Declaring victory without 30-day stability proof
+❌ Control limits based on specifications, not data
+❌ SPC charts without regular review/action
+❌ SOPs written but not trained
+❌ Process Owner assignment without accountability
+❌ Skipping MSA verification before control phase
+❌ Generic OCAP without specific reaction plans
+❌ Savings claimed without Finance validation
+❌ Handover without competency verification
+❌ Audit system designed but not executed
+❌ Ignoring early warning signs of deterioration
+❌ Over-reliance on detection vs. prevention
+
+═══════════════════════════════════════════════════════════════════
+QUALITY INDICATORS
+═══════════════════════════════════════════════════════════════════
+
+✓ Control limits calculated from stable baseline data
+✓ OCAP tested with simulated OOC events
+✓ Training verified through practical demonstration
+✓ Audit findings addressed within 48 hours
+✓ Monthly capability studies during control period
+✓ Savings independently validated by Finance
+✓ Process Owner demonstrates system knowledge
+✓ Visual management visible at point of use
+✓ Poka-yokes tested and failure modes documented
+✓ Lessons learned shared with organization
+
+═══════════════════════════════════════════════════════════════════
+OUTPUT: Generate comprehensive Control phase documentation with
+all tables, matrices, and forms populated based on the project
+context. Ensure ASQ/DMAIC compliance and tollgate readiness.
+═══════════════════════════════════════════════════════════════════`,
     variables: [
       { name: 'project_name', description: 'Six Sigma project name', example: 'Reduce Order Processing Defects', required: true },
-      { name: 'improvement_summary', description: 'What was implemented', example: 'Automated validation, error-proofed forms', required: true },
-      { name: 'achieved_results', description: 'Results from improvement', example: 'Defect rate reduced from 15% to 2.3%', required: true },
-      { name: 'control_start_date', description: 'Control phase start', example: 'February 1, 2025', required: true },
+      { name: 'project_id', description: 'Project identifier', example: 'SS-2025-042', required: false },
+      { name: 'belt_level', description: 'Project belt level', example: 'Green Belt / Black Belt', required: false },
+      { name: 'improvement_summary', description: 'What was implemented in Improve phase', example: 'Automated validation rules, error-proofed input forms, real-time feedback system', required: true },
+      { name: 'achieved_results', description: 'Quantified results from improvement', example: 'Defect rate reduced from 15% to 2.3%, Cpk improved from 0.67 to 1.45', required: true },
+      { name: 'control_start_date', description: 'Control phase start date', example: 'February 1, 2025', required: true },
+      { name: 'handover_date', description: 'Target handover date', example: 'May 1, 2025', required: false },
     ],
     tier: 'premium',
-    estimatedTimeSaved: '4 hours',
-    tags: ['six-sigma', 'dmaic', 'control', 'spc', 'sustainability', 'ASQ', 'Control Charts', 'Process Capability'],
+    estimatedTimeSaved: '8 hours',
+    tags: ['six-sigma', 'dmaic', 'control', 'spc', 'sustainability', 'ASQ', 'Control Charts', 'Process Capability', 'Poka-Yoke', 'OCAP'],
   },
 
   // Hybrid - Governance Phase
@@ -29639,30 +36255,861 @@ Generate Control phase deliverables:
     phase: 'Governance',
     canonicalPhase: 4,
     description: 'Generate comprehensive hybrid governance documentation with decision rights, compliance checkpoints, and adaptive oversight.',
-    template: `You are a Governance Expert specializing in hybrid methodologies. Generate governance documentation balancing agile flexibility with enterprise accountability.
+    template: `You are a Senior Governance Architect and PMI-certified Project Management Professional (PMP) specializing in hybrid project governance. Generate comprehensive governance documentation that balances agile flexibility with enterprise accountability, regulatory compliance, and organizational oversight requirements following PMI Agile Practice Guide and PMBOK 7th Edition principles.
 
-PROJECT CONTEXT:
-Project: {{project_name}}
+═══════════════════════════════════════════════════════════════════
+HYBRID GOVERNANCE FRAMEWORK & DECISION RIGHTS SYSTEM
+PMI Agile Practice Guide Compliant | Enterprise Ready
+═══════════════════════════════════════════════════════════════════
+
+PROJECT IDENTIFICATION
+────────────────────────────────────────────────────────────────────
+Project Name: {{project_name}}
+Project ID: {{project_id}}
 Methodology Mix: {{methodology_mix}}
 Compliance Requirements: {{compliance_requirements}}
 Governance Level: {{governance_level}}
+Regulatory Framework: {{regulatory_framework}}
+Organization: {{organization}}
+Effective Date: {{effective_date}}
 
-Generate hybrid governance framework:
-1. GOVERNANCE STRUCTURE - Bodies, philosophy, decision rights matrix (RACI)
-2. COMPLIANCE CHECKPOINTS - Regulatory requirements, stage gate criteria, continuous verification
-3. REPORTING & TRANSPARENCY - Cadence, status indicators (RAG criteria)
-4. CHANGE GOVERNANCE - Categories, change request process, change log
-5. RISK & ISSUE GOVERNANCE - Tolerance by category, escalation path, resolution timelines
-6. AUDIT & ASSURANCE - Readiness, evidence management, assurance activities
-7. GOVERNANCE REVIEW & ADAPTATION - Effectiveness metrics, retrospective, adaptations`,
+GOVERNANCE SCOPE
+────────────────────────────────────────────────────────────────────
+□ Project-level governance
+□ Program-level governance
+□ Portfolio-level governance
+□ Enterprise PMO integration
+
+Budget Authority: $_______________
+Duration: _______ months
+Team Size: _______ FTEs
+Criticality: □ Mission Critical □ Business Critical □ Standard
+
+═══════════════════════════════════════════════════════════════════
+PHASE 1: GOVERNANCE PHILOSOPHY & PRINCIPLES
+═══════════════════════════════════════════════════════════════════
+
+1.1 HYBRID GOVERNANCE PHILOSOPHY
+────────────────────────────────────────────────────────────────────
+Core Philosophy Statement:
+"This governance framework enables [agile/adaptive delivery] while
+maintaining [enterprise accountability and compliance]. We govern
+[outcomes and value] rather than [activities and tasks], empowering
+teams within clear boundaries."
+
+Governance Principles:
+┌─────────────────────────────────────────────────────────────────┐
+│ PRINCIPLE              │ WHAT IT MEANS                │ HOW WE │
+│                        │                              │ APPLY  │
+├─────────────────────────────────────────────────────────────────┤
+│ Outcome-Based          │ Measure results, not         │        │
+│ Governance             │ activities                   │        │
+├─────────────────────────────────────────────────────────────────┤
+│ Minimum Viable         │ Lightest governance that     │        │
+│ Governance             │ achieves compliance          │        │
+├─────────────────────────────────────────────────────────────────┤
+│ Trust but Verify       │ Empower teams with           │        │
+│                        │ appropriate oversight        │        │
+├─────────────────────────────────────────────────────────────────┤
+│ Adaptive Compliance    │ Compliance methods flex      │        │
+│                        │ with delivery approach       │        │
+├─────────────────────────────────────────────────────────────────┤
+│ Transparency by        │ Information radiates         │        │
+│ Default                │ automatically                │        │
+├─────────────────────────────────────────────────────────────────┤
+│ Decentralized          │ Decisions at the lowest      │        │
+│ Decisions              │ appropriate level            │        │
+└─────────────────────────────────────────────────────────────────┘
+
+1.2 GOVERNANCE INTENSITY CALIBRATION
+────────────────────────────────────────────────────────────────────
+Project Risk Profile Assessment:
+┌─────────────────────────────────────────────────────────────────┐
+│ FACTOR                    │ LOW (1) │ MED (3) │ HIGH (5)│SCORE │
+├─────────────────────────────────────────────────────────────────┤
+│ Budget Size               │ <$500K  │ $500K-5M│ >$5M    │      │
+│ Regulatory Exposure       │ None    │ Moderate│ High    │      │
+│ Stakeholder Visibility    │ Internal│ Division│ Executive│     │
+│ Technical Complexity      │ Standard│ Complex │ Novel   │      │
+│ Organizational Impact     │ Team    │ Dept    │ Enterprise│    │
+│ Data Sensitivity          │ Public  │ Internal│ Confidnt│      │
+│ Vendor Dependencies       │ None    │ Some    │ Critical│      │
+│ Time Criticality          │ Flexible│ Target  │ Fixed   │      │
+├─────────────────────────────────────────────────────────────────┤
+│ TOTAL SCORE               │                             │  /40 │
+└─────────────────────────────────────────────────────────────────┘
+
+Governance Tier Assignment:
+□ Tier 1 (8-16): Light Touch - Team self-governance with periodic checks
+□ Tier 2 (17-28): Standard - Regular governance with defined checkpoints
+□ Tier 3 (29-40): Enhanced - Intensive governance with formal gates
+
+═══════════════════════════════════════════════════════════════════
+PHASE 2: GOVERNANCE STRUCTURE & BODIES
+═══════════════════════════════════════════════════════════════════
+
+2.1 GOVERNANCE BODIES
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────────────────────────┐
+│ BODY              │ COMPOSITION        │ AUTHORITY           │ FREQUENCY           │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Steering          │ • Executive Sponsor│ • Budget approval   │ □ Monthly           │
+│ Committee         │ • Business Owners  │ • Scope changes >$X │ □ Bi-weekly         │
+│                   │ • IT Leadership    │ • Go/No-Go gates    │ □ On-demand         │
+│                   │ • PMO Director     │ • Escalation final  │                     │
+│                   │                    │   decision          │                     │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Project           │ • Project Manager  │ • Day-to-day        │ □ Weekly            │
+│ Governance        │ • Tech Lead        │   decisions         │ □ Bi-weekly         │
+│ Board             │ • Business Rep     │ • Scope <$X         │                     │
+│                   │ • Quality Lead     │ • Risk mitigation   │                     │
+│                   │                    │ • Team allocation   │                     │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Agile             │ • Product Owner    │ • Backlog priority  │ □ Each iteration    │
+│ Governance        │ • Scrum Master     │ • Sprint scope      │ □ Daily (standup)   │
+│ (Team Level)      │ • Team Leads       │ • Technical choices │                     │
+│                   │ • Dev Team         │ • Quality standards │                     │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Compliance        │ • Compliance       │ • Regulatory        │ □ Per milestone     │
+│ Review Board      │   Officer          │   sign-off          │ □ Pre-release       │
+│                   │ • Legal            │ • Audit findings    │ □ Quarterly         │
+│                   │ • Security         │ • Policy exceptions │                     │
+│                   │ • Privacy          │                     │                     │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Architecture      │ • Enterprise       │ • Technical         │ □ Design reviews    │
+│ Review Board      │   Architect        │   standards         │ □ On-demand         │
+│                   │ • Solution Arch    │ • Integration       │                     │
+│                   │ • Security Arch    │   approval          │                     │
+│                   │ • Domain Experts   │ • Exception grants  │                     │
+└─────────────────────────────────────────────────────────────────────────────────────┘
+
+2.2 GOVERNANCE ORGANIZATIONAL STRUCTURE
+────────────────────────────────────────────────────────────────────
+                    ┌─────────────────────┐
+                    │  EXECUTIVE SPONSOR  │
+                    │   (Accountable)     │
+                    └──────────┬──────────┘
+                               │
+                    ┌──────────▼──────────┐
+                    │ STEERING COMMITTEE  │
+                    │   (Strategic)       │
+                    └──────────┬──────────┘
+                               │
+          ┌────────────────────┼────────────────────┐
+          │                    │                    │
+┌─────────▼─────────┐ ┌────────▼────────┐ ┌────────▼────────┐
+│   PROJECT BOARD   │ │   COMPLIANCE    │ │  ARCHITECTURE   │
+│   (Tactical)      │ │     BOARD       │ │     BOARD       │
+└─────────┬─────────┘ └─────────────────┘ └─────────────────┘
+          │
+    ┌─────┴─────┐
+    │           │
+┌───▼───┐   ┌───▼───┐
+│ TEAM  │   │ TEAM  │
+│   1   │   │   2   │
+└───────┘   └───────┘
+
+═══════════════════════════════════════════════════════════════════
+PHASE 3: DECISION RIGHTS & AUTHORITY MATRIX
+═══════════════════════════════════════════════════════════════════
+
+3.1 RACI MATRIX FOR KEY DECISIONS
+────────────────────────────────────────────────────────────────────
+R = Responsible | A = Accountable | C = Consulted | I = Informed
+
+┌───────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ DECISION AREA              │EXEC   │STEER. │PROJ   │PROD   │TECH   │COMPLY │TEAM   │
+│                            │SPONSOR│COMM.  │MGR    │OWNER  │LEAD   │OFFICER│       │
+├───────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ STRATEGIC DECISIONS                                                                                       │
+├───────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Project continuation       │   A   │   R   │   C   │   C   │   C   │   C   │   I   │
+│ Budget increase >10%       │   A   │   R   │   C   │   C   │   I   │   I   │   I   │
+│ Timeline extension >4 wks  │   A   │   R   │   C   │   C   │   C   │   I   │   I   │
+│ Scope change (major)       │   A   │   R   │   C   │   C   │   C   │   C   │   I   │
+│ Vendor selection (>$100K)  │   A   │   R   │   C   │   I   │   C   │   I   │   I   │
+├───────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ TACTICAL DECISIONS                                                                                        │
+├───────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Sprint/iteration scope     │   I   │   I   │   C   │   A   │   C   │   I   │   R   │
+│ Backlog prioritization     │   I   │   I   │   C   │   A   │   C   │   I   │   R   │
+│ Technical approach         │   I   │   I   │   C   │   C   │   A   │   C   │   R   │
+│ Resource allocation        │   I   │   C   │   A   │   C   │   C   │   I   │   R   │
+│ Risk mitigation tactics    │   I   │   C   │   A   │   C   │   R   │   C   │   R   │
+│ Quality standards          │   I   │   C   │   C   │   C   │   A   │   C   │   R   │
+├───────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ OPERATIONAL DECISIONS                                                                                     │
+├───────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Daily task assignment      │   -   │   -   │   I   │   I   │   C   │   -   │  A/R  │
+│ Technical implementation   │   -   │   -   │   I   │   I   │   A   │   I   │   R   │
+│ Bug fix prioritization     │   -   │   -   │   C   │   A   │   C   │   I   │   R   │
+│ Code review approval       │   -   │   -   │   I   │   I   │   A   │   I   │   R   │
+│ Test execution             │   -   │   -   │   I   │   I   │   C   │   I   │  A/R  │
+├───────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ COMPLIANCE DECISIONS                                                                                      │
+├───────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Compliance exception       │   C   │   A   │   C   │   C   │   C   │   R   │   I   │
+│ Audit response             │   I   │   C   │   R   │   C   │   R   │   A   │   R   │
+│ Security waiver            │   C   │   A   │   C   │   I   │   C   │   R   │   I   │
+│ Data privacy decisions     │   C   │   A   │   C   │   C   │   C   │   R   │   I   │
+├───────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ RELEASE DECISIONS                                                                                         │
+├───────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Production release         │   I   │   A   │   R   │   C   │   R   │   C   │   R   │
+│ Rollback decision          │   I   │   I   │   A   │   C   │   R   │   C   │   R   │
+│ Feature toggle activation  │   I   │   I   │   C   │   A   │   R   │   I   │   R   │
+└───────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+3.2 DECISION ESCALATION THRESHOLDS
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────┐
+│ DECISION TYPE    │ TEAM       │ PROJ MGR   │ STEER COMM│ EXEC  │
+├─────────────────────────────────────────────────────────────────┤
+│ Budget Impact    │ <$5K       │ $5K-$50K   │ $50K-$500K│ >$500K│
+│ Schedule Impact  │ <1 week    │ 1-4 weeks  │ 1-3 months│ >3 mo │
+│ Scope Change     │ Story-level│ Feature    │ Epic/Major│Program│
+│ Risk Acceptance  │ Low        │ Medium     │ High      │Critical│
+│ Vendor Commit    │ <$5K       │ $5K-$100K  │ $100K-$1M │ >$1M  │
+│ Resource Request │ <0.5 FTE   │ 0.5-2 FTE  │ 2-5 FTE   │ >5 FTE│
+└─────────────────────────────────────────────────────────────────┘
+
+3.3 DECISION RIGHTS BY METHODOLOGY CONTEXT
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────┐
+│ CONTEXT          │ AGILE AUTONOMY        │ GOVERNANCE CONTROL  │
+├─────────────────────────────────────────────────────────────────┤
+│ Sprint Execution │ High - Team decides   │ Low - Trust team    │
+│                  │ "how" within sprint   │ retrospective data  │
+├─────────────────────────────────────────────────────────────────┤
+│ Iteration        │ Medium - PO prioritizes│ Medium - Review    │
+│ Planning         │ Team estimates        │ against roadmap     │
+├─────────────────────────────────────────────────────────────────┤
+│ Release Decision │ Low - Team recommends │ High - Gate approval│
+│                  │ readiness             │ required            │
+├─────────────────────────────────────────────────────────────────┤
+│ Architecture     │ Low/Medium - Propose  │ High - ARB approval │
+│ Changes          │ options               │ for significant     │
+├─────────────────────────────────────────────────────────────────┤
+│ Compliance       │ Low - Execute         │ High - Must follow  │
+│ Activities       │ requirements          │ defined process     │
+└─────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════
+PHASE 4: STAGE GATES & CHECKPOINTS
+═══════════════════════════════════════════════════════════════════
+
+4.1 HYBRID STAGE GATE MODEL
+────────────────────────────────────────────────────────────────────
+Gate Philosophy: "Lightweight gates at key value transitions,
+continuous compliance throughout"
+
+┌─────────────────────────────────────────────────────────────────────────────────────┐
+│ GATE    │ TRIGGER              │ KEY QUESTIONS                │ DELIVERABLES      │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ G0      │ Project initiation   │ • Is the business case      │ • Approved charter│
+│ Concept │                      │   valid?                     │ • Initial budget  │
+│         │                      │ • Do we have sponsorship?    │ • Team assignment │
+│         │                      │ • Is it aligned to strategy? │ • Risk assessment │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ G1      │ After discovery/     │ • Is the solution feasible?  │ • Architecture    │
+│ Feasib- │ Sprint 0 / Inception │ • Are risks manageable?      │ • Tech stack      │
+│ ility   │                      │ • Is the approach sound?     │ • Revised estimate│
+│         │                      │ • Compliance path clear?     │ • MVP definition  │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ G2      │ MVP/Pilot complete   │ • Does MVP validate value?   │ • Working MVP     │
+│ Validat-│ (every N sprints)    │ • User feedback positive?    │ • User feedback   │
+│ ion     │                      │ • Ready to scale?            │ • Go/No-Go data   │
+│         │                      │ • Technical debt acceptable? │ • Scale plan      │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ G3      │ Pre-production       │ • Production ready?          │ • Test results    │
+│ Release │ release              │ • Compliance complete?       │ • Sign-offs       │
+│ Ready   │                      │ • Operations ready?          │ • Runbooks        │
+│         │                      │ • Rollback tested?           │ • Training done   │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ G4      │ Project closure      │ • Value delivered?           │ • Benefits report │
+│ Closure │                      │ • Knowledge transferred?     │ • Lessons learned │
+│         │                      │ • Support transitioned?      │ • Closure sign-off│
+└─────────────────────────────────────────────────────────────────────────────────────┘
+
+4.2 GATE REVIEW CHECKLIST
+────────────────────────────────────────────────────────────────────
+Gate: _______ Date: _______ Presenter: _______
+
+PRE-GATE READINESS:
+□ All mandatory deliverables complete
+□ Stakeholder reviews conducted
+□ Quality metrics within tolerance
+□ Risk register updated
+□ Financial tracking current
+
+GATE CRITERIA:
+┌─────────────────────────────────────────────────────────────────┐
+│ CRITERION                   │ THRESHOLD        │ ACTUAL │STATUS │
+├─────────────────────────────────────────────────────────────────┤
+│ Scope completion            │ ≥90% planned     │        │ □ P/F │
+│ Budget variance             │ ≤10%             │        │ □ P/F │
+│ Schedule variance           │ ≤2 weeks         │        │ □ P/F │
+│ Quality score               │ ≥85%             │        │ □ P/F │
+│ Risk exposure               │ ≤Medium          │        │ □ P/F │
+│ Compliance status           │ No critical gaps │        │ □ P/F │
+│ Stakeholder satisfaction    │ ≥3.5/5           │        │ □ P/F │
+│ Team health                 │ Green/Yellow     │        │ □ P/F │
+└─────────────────────────────────────────────────────────────────┘
+
+GATE DECISION:
+□ GO - Proceed to next phase
+□ GO WITH CONDITIONS - Proceed with specified actions
+□ HOLD - Address issues before re-review
+□ STOP - Project terminated
+
+Conditions (if applicable): _________________________________
+_____________________________________________________________
+
+4.3 CONTINUOUS COMPLIANCE CHECKPOINTS
+────────────────────────────────────────────────────────────────────
+In addition to formal gates, continuous checkpoints include:
+
+┌─────────────────────────────────────────────────────────────────┐
+│ CHECKPOINT           │ FREQUENCY      │ OWNER        │ EVIDENCE │
+├─────────────────────────────────────────────────────────────────┤
+│ Code security scan   │ Every commit   │ Dev Team     │ Scan rpt │
+│ Dependency check     │ Daily build    │ DevOps       │ SBOM     │
+│ Test coverage        │ Each sprint    │ QA Lead      │ Report   │
+│ Architecture review  │ Major changes  │ Architect    │ ARB mins │
+│ Privacy impact       │ New data flows │ Privacy      │ PIA doc  │
+│ Accessibility check  │ UI changes     │ UX Lead      │ WCAG rpt │
+│ Performance baseline │ Each release   │ Perf Lead    │ Test rpt │
+│ Documentation review │ Feature complete│Doc Writer   │ Review   │
+└─────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════
+PHASE 5: REPORTING & TRANSPARENCY FRAMEWORK
+═══════════════════════════════════════════════════════════════════
+
+5.1 REPORTING CADENCE
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────────────────────────┐
+│ REPORT              │ AUDIENCE           │ FREQUENCY   │ FORMAT   │ OWNER          │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Executive Dashboard │ Exec Sponsor       │ Weekly      │ 1-page   │ PM             │
+│                     │ Steering Comm      │             │ visual   │                │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Project Status      │ Project Board      │ Weekly/     │ 2-3 pages│ PM             │
+│ Report              │ Stakeholders       │ Bi-weekly   │          │                │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Sprint/Iteration    │ Product Owner      │ Each sprint │ Demo +   │ Scrum Master   │
+│ Review              │ Stakeholders       │             │ metrics  │                │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Risk Report         │ Project Board      │ Bi-weekly   │ Risk     │ PM             │
+│                     │                    │             │ register │                │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Compliance Status   │ Compliance Board   │ Monthly     │ Checklist│ Compliance     │
+│                     │ Steering Comm      │             │ + gaps   │ Officer        │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Financial Report    │ Finance            │ Monthly     │ Actuals  │ PM/Finance     │
+│                     │ Steering Comm      │             │ vs plan  │                │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Team Health         │ Project Board      │ Each sprint │ Survey   │ Scrum Master   │
+│ Metrics             │                    │             │ results  │                │
+└─────────────────────────────────────────────────────────────────────────────────────┘
+
+5.2 STATUS INDICATOR DEFINITIONS (RAG)
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────┐
+│ DIMENSION    │ GREEN              │ AMBER         │ RED          │
+├─────────────────────────────────────────────────────────────────┤
+│ Schedule     │ On track or ahead  │ 1-2 weeks     │ >2 weeks     │
+│              │                    │ behind        │ behind       │
+├─────────────────────────────────────────────────────────────────┤
+│ Budget       │ ≤5% variance       │ 5-15% variance│ >15% variance│
+├─────────────────────────────────────────────────────────────────┤
+│ Scope        │ Baseline or        │ Minor scope   │ Major scope  │
+│              │ approved change    │ creep (<10%)  │ change (>10%)│
+├─────────────────────────────────────────────────────────────────┤
+│ Quality      │ All metrics met    │ 1-2 metrics   │ >2 metrics   │
+│              │                    │ below target  │ critical     │
+├─────────────────────────────────────────────────────────────────┤
+│ Risk         │ All risks managed  │ High risks    │ Critical     │
+│              │ no critical        │ require action│ unmitigated  │
+├─────────────────────────────────────────────────────────────────┤
+│ Resources    │ Fully staffed      │ <90% staffed  │ <80% staffed │
+│              │                    │ or key gaps   │ or key exits │
+├─────────────────────────────────────────────────────────────────┤
+│ Stakeholder  │ Engaged, supportive│ Some concerns │ Significant  │
+│              │                    │               │ opposition   │
+├─────────────────────────────────────────────────────────────────┤
+│ Compliance   │ All requirements   │ Minor gaps    │ Major gaps   │
+│              │ met                │ being addressed│ unaddressed │
+└─────────────────────────────────────────────────────────────────┘
+
+5.3 EXECUTIVE DASHBOARD TEMPLATE
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────┐
+│ PROJECT: {{project_name}}         │ PERIOD: ________           │
+├─────────────────────────────────────────────────────────────────┤
+│ OVERALL STATUS:  🟢 🟡 🔴                                       │
+├─────────────────────────────────────────────────────────────────┤
+│ KEY METRICS                                                     │
+│ ┌──────────┬──────────┬──────────┬──────────┬──────────┐       │
+│ │ Schedule │  Budget  │  Scope   │ Quality  │   Risk   │       │
+│ │   🟢🟡🔴  │   🟢🟡🔴  │   🟢🟡🔴  │   🟢🟡🔴  │   🟢🟡🔴  │       │
+│ └──────────┴──────────┴──────────┴──────────┴──────────┘       │
+├─────────────────────────────────────────────────────────────────┤
+│ PROGRESS: [████████████░░░░] 75%                               │
+│ Sprint: 12 of 16  │  Features: 45/60  │  Stories: 180/220     │
+├─────────────────────────────────────────────────────────────────┤
+│ TOP 3 ACCOMPLISHMENTS:                                          │
+│ 1. ________________________________________________             │
+│ 2. ________________________________________________             │
+│ 3. ________________________________________________             │
+├─────────────────────────────────────────────────────────────────┤
+│ TOP 3 RISKS/ISSUES:                                             │
+│ 1. ________________________________________________ 🟢🟡🔴      │
+│ 2. ________________________________________________ 🟢🟡🔴      │
+│ 3. ________________________________________________ 🟢🟡🔴      │
+├─────────────────────────────────────────────────────────────────┤
+│ DECISIONS NEEDED:                                               │
+│ • ________________________________________________              │
+├─────────────────────────────────────────────────────────────────┤
+│ NEXT MILESTONE: _________________ DATE: _______                 │
+└─────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════
+PHASE 6: CHANGE GOVERNANCE
+═══════════════════════════════════════════════════════════════════
+
+6.1 CHANGE CATEGORIES & AUTHORITIES
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────────────────────────┐
+│ CATEGORY        │ DEFINITION                 │ AUTHORITY    │ PROCESS             │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Type 0:         │ Bug fixes, minor UX,       │ Team         │ Team discretion     │
+│ Trivial         │ no new functionality       │ (PO confirms)│ within sprint       │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Type 1:         │ Story-level changes,       │ Product Owner│ Backlog grooming    │
+│ Minor           │ within sprint capacity     │              │ prioritization      │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Type 2:         │ Feature-level changes,     │ Project Board│ Change request      │
+│ Moderate        │ affects 1-2 sprints        │              │ + assessment        │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Type 3:         │ Epic-level changes,        │ Steering     │ Formal CR +         │
+│ Major           │ affects timeline/budget    │ Committee    │ impact analysis     │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Type 4:         │ Program-level changes,     │ Executive    │ Business case       │
+│ Strategic       │ business case impact       │ Sponsor      │ revision            │
+└─────────────────────────────────────────────────────────────────────────────────────┘
+
+6.2 CHANGE REQUEST WORKFLOW
+────────────────────────────────────────────────────────────────────
+    ┌─────────────────┐
+    │ Change Request  │
+    │   Submitted     │
+    └────────┬────────┘
+             │
+    ┌────────▼────────┐
+    │  Categorize &   │
+    │   Assess        │
+    └────────┬────────┘
+             │
+    ┌────────▼────────┐    ┌─────────────────┐
+    │  Impact Analysis│───▶│ Schedule Impact │
+    │  (if needed)    │    │ Cost Impact     │
+    └────────┬────────┘    │ Resource Impact │
+             │             │ Risk Impact     │
+    ┌────────▼────────┐    │ Quality Impact  │
+    │  Route to       │    └─────────────────┘
+    │  Authority      │
+    └────────┬────────┘
+             │
+    ┌────────▼────────┐
+    │  Review &       │───▶ Approved / Rejected / Deferred
+    │  Decision       │
+    └────────┬────────┘
+             │
+    ┌────────▼────────┐
+    │  Implement &    │
+    │  Track          │
+    └─────────────────┘
+
+6.3 CHANGE REQUEST TEMPLATE
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────┐
+│                    CHANGE REQUEST                               │
+├─────────────────────────────────────────────────────────────────┤
+│ CR Number: ________    │ Date: ________  │ Category: Type __   │
+│ Requester: __________  │ Priority: ____  │ Status: __________  │
+├─────────────────────────────────────────────────────────────────┤
+│ CHANGE DESCRIPTION:                                             │
+│ _______________________________________________________________ │
+│ _______________________________________________________________ │
+├─────────────────────────────────────────────────────────────────┤
+│ BUSINESS JUSTIFICATION:                                         │
+│ _______________________________________________________________ │
+├─────────────────────────────────────────────────────────────────┤
+│ IMPACT ASSESSMENT:                                              │
+│ Schedule: □ None □ +___ days/weeks                              │
+│ Budget:   □ None □ +$_______                                    │
+│ Resource: □ None □ +___ FTE for ___ weeks                       │
+│ Quality:  □ None □ Risk to ________                             │
+│ Risk:     □ None □ New risk: ________                           │
+├─────────────────────────────────────────────────────────────────┤
+│ RECOMMENDATION:  □ Approve  □ Reject  □ Defer  □ More Info      │
+│ Rationale: ________________________________________________     │
+├─────────────────────────────────────────────────────────────────┤
+│ DECISION:                                                       │
+│ Authority: _____________ │ Date: ______ │ Decision: ________    │
+│ Conditions: _______________________________________________     │
+└─────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════
+PHASE 7: RISK & ISSUE GOVERNANCE
+═══════════════════════════════════════════════════════════════════
+
+7.1 RISK TOLERANCE FRAMEWORK
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────┐
+│ RISK CATEGORY   │ TOLERANCE    │ ESCALATION        │ AUTHORITY  │
+├─────────────────────────────────────────────────────────────────┤
+│ Financial       │ ≤5% budget   │ >5% to PM         │ Steer Comm │
+│                 │ variance     │ >15% to Steer     │ >$100K     │
+├─────────────────────────────────────────────────────────────────┤
+│ Schedule        │ ≤1 week slip │ >1 wk to PM       │ Steer Comm │
+│                 │              │ >4 wks to Steer   │ >4 weeks   │
+├─────────────────────────────────────────────────────────────────┤
+│ Technical       │ Manageable   │ Arch changes to   │ ARB        │
+│                 │ within team  │ ARB               │            │
+├─────────────────────────────────────────────────────────────────┤
+│ Compliance      │ Zero critical│ Any gap to        │ Compliance │
+│                 │ gaps         │ Compliance Board  │ Board      │
+├─────────────────────────────────────────────────────────────────┤
+│ Security        │ No high/crit │ High to Security  │ CISO       │
+│                 │ vulnerab.    │ Critical to CISO  │            │
+├─────────────────────────────────────────────────────────────────┤
+│ Reputational    │ Contained    │ Any external      │ Exec       │
+│                 │ internally   │ exposure          │ Sponsor    │
+└─────────────────────────────────────────────────────────────────┘
+
+7.2 RISK ASSESSMENT MATRIX
+────────────────────────────────────────────────────────────────────
+             IMPACT
+             │ Very Low│  Low   │ Medium │  High  │Very High│
+         ────┼─────────┼────────┼────────┼────────┼─────────┤
+      Very   │         │        │        │        │         │
+PROB  High   │  Medium │ Medium │  High  │Critical│Critical │
+      ────   ├─────────┼────────┼────────┼────────┼─────────┤
+      High   │   Low   │ Medium │  High  │  High  │Critical │
+      ────   ├─────────┼────────┼────────┼────────┼─────────┤
+      Medium │   Low   │  Low   │ Medium │  High  │  High   │
+      ────   ├─────────┼────────┼────────┼────────┼─────────┤
+      Low    │  V.Low  │  Low   │  Low   │ Medium │  High   │
+      ────   ├─────────┼────────┼────────┼────────┼─────────┤
+      Very   │  V.Low  │ V.Low  │  Low   │  Low   │ Medium  │
+      Low    │         │        │        │        │         │
+
+Response by Level:
+• Critical: Immediate escalation, mitigation plan within 24 hrs
+• High: Escalate to Project Board, mitigation plan within 1 week
+• Medium: Monitor actively, mitigation plan within 2 weeks
+• Low: Monitor, address in normal planning
+• Very Low: Accept and document
+
+7.3 ISSUE ESCALATION PATH
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────┐
+│ SEVERITY   │ RESPONSE    │ FIRST LEVEL   │ ESCALATION    │ SLA  │
+├─────────────────────────────────────────────────────────────────┤
+│ Critical   │ Immediate   │ PM + Tech Lead│ Exec Sponsor  │ 4 hrs│
+│            │ all-hands   │               │               │      │
+├─────────────────────────────────────────────────────────────────┤
+│ High       │ Same day    │ PM            │ Project Board │ 24 hr│
+│            │ response    │               │               │      │
+├─────────────────────────────────────────────────────────────────┤
+│ Medium     │ Within 48   │ Team Lead     │ PM            │ 3 day│
+│            │ hours       │               │               │      │
+├─────────────────────────────────────────────────────────────────┤
+│ Low        │ Next sprint │ Team          │ Team Lead     │ 1 wk │
+│            │ planning    │               │               │      │
+└─────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════
+PHASE 8: COMPLIANCE & AUDIT GOVERNANCE
+═══════════════════════════════════════════════════════════════════
+
+8.1 COMPLIANCE REQUIREMENTS MAPPING
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────────────────────────┐
+│ REQUIREMENT      │ STANDARD/REG     │ CONTROLS           │ EVIDENCE        │ FREQ │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Data Privacy     │ GDPR/CCPA        │ • Consent mgmt     │ • Privacy Impact│ Init │
+│                  │                  │ • Data mapping     │ • DPIA          │ +Chg │
+│                  │                  │ • Retention policy │ • Data flow maps│      │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Financial        │ SOX              │ • Access controls  │ • Access reviews│ Qtrly│
+│ Controls         │                  │ • Segregation      │ • SOD matrix    │      │
+│                  │                  │ • Audit trails     │ • Audit logs    │      │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Information      │ ISO 27001        │ • Security policy  │ • Policy docs   │ Ann  │
+│ Security         │                  │ • Vuln management  │ • Scan reports  │ +Cont│
+│                  │                  │ • Incident response│ • IR plans      │      │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Accessibility    │ WCAG 2.1 AA      │ • Accessible design│ • A11y test rpts│ Each │
+│                  │                  │ • Screen reader    │ • Compliance    │ Rls  │
+│                  │                  │   testing          │   statement     │      │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Industry         │ {{regulatory_    │ •                  │ •               │      │
+│ Specific         │  framework}}     │ •                  │ •               │      │
+│                  │                  │ •                  │ •               │      │
+└─────────────────────────────────────────────────────────────────────────────────────┘
+
+8.2 AUDIT READINESS CHECKLIST
+────────────────────────────────────────────────────────────────────
+□ Documentation
+  □ Project charter and approvals
+  □ Requirements traceability matrix
+  □ Change request log with approvals
+  □ Risk register with treatment evidence
+  □ Test plans and results
+  □ Meeting minutes with decisions
+
+□ Access & Security
+  □ User access reviews completed
+  □ Privileged access documented
+  □ Service accounts inventoried
+  □ Access request/removal evidence
+
+□ Change Management
+  □ All changes logged and approved
+  □ Testing evidence for changes
+  □ Rollback procedures documented
+  □ Post-implementation reviews
+
+□ Incident Management
+  □ Incident log maintained
+  □ Root cause analyses completed
+  □ Corrective actions tracked
+
+□ Compliance
+  □ Compliance assessment completed
+  □ Gaps identified and tracked
+  □ Remediation evidence available
+  □ Sign-offs obtained
+
+8.3 EVIDENCE MANAGEMENT
+────────────────────────────────────────────────────────────────────
+Evidence Repository: _______________________________________
+
+┌─────────────────────────────────────────────────────────────────┐
+│ EVIDENCE TYPE        │ LOCATION           │ RETENTION │ OWNER   │
+├─────────────────────────────────────────────────────────────────┤
+│ Approvals/Sign-offs  │                    │ 7 years   │         │
+│ Meeting Minutes      │                    │ 5 years   │         │
+│ Change Records       │                    │ 7 years   │         │
+│ Test Results         │                    │ 5 years   │         │
+│ Security Scans       │                    │ 3 years   │         │
+│ Access Reviews       │                    │ 7 years   │         │
+│ Training Records     │                    │ 5 years   │         │
+│ Incident Reports     │                    │ 7 years   │         │
+└─────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════
+PHASE 9: GOVERNANCE METRICS & EFFECTIVENESS
+═══════════════════════════════════════════════════════════════════
+
+9.1 GOVERNANCE HEALTH METRICS
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────────────────────────┐
+│ METRIC                       │ TARGET    │ ACTUAL    │ TREND    │ STATUS          │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ DECISION EFFICIENCY                                                                 │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Avg decision cycle time      │ <3 days   │           │   ↑↓→    │     🟢🟡🔴       │
+│ Decisions made at right level│ >90%      │           │   ↑↓→    │     🟢🟡🔴       │
+│ Escalations as % of decisions│ <10%      │           │   ↑↓→    │     🟢🟡🔴       │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ COMPLIANCE EFFECTIVENESS                                                            │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Compliance checkpoint pass % │ >95%      │           │   ↑↓→    │     🟢🟡🔴       │
+│ Audit findings (critical)    │ 0         │           │   ↑↓→    │     🟢🟡🔴       │
+│ Audit findings (other)       │ <5        │           │   ↑↓→    │     🟢🟡🔴       │
+│ Remediation on-time %        │ >90%      │           │   ↑↓→    │     🟢🟡🔴       │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ CHANGE GOVERNANCE                                                                   │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Change request approval time │ <5 days   │           │   ↑↓→    │     🟢🟡🔴       │
+│ Unauthorized changes         │ 0         │           │   ↑↓→    │     🟢🟡🔴       │
+│ Change success rate          │ >95%      │           │   ↑↓→    │     🟢🟡🔴       │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ RISK GOVERNANCE                                                                     │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Risks identified proactively │ >80%      │           │   ↑↓→    │     🟢🟡🔴       │
+│ Risk mitigation effectiveness│ >85%      │           │   ↑↓→    │     🟢🟡🔴       │
+│ Issue resolution SLA met     │ >90%      │           │   ↑↓→    │     🟢🟡🔴       │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ STAKEHOLDER ENGAGEMENT                                                              │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│ Steering Committee attendance│ >80%      │           │   ↑↓→    │     🟢🟡🔴       │
+│ Report delivery on-time      │ 100%      │           │   ↑↓→    │     🟢🟡🔴       │
+│ Stakeholder satisfaction     │ >3.5/5    │           │   ↑↓→    │     🟢🟡🔴       │
+└─────────────────────────────────────────────────────────────────────────────────────┘
+
+9.2 GOVERNANCE RETROSPECTIVE TEMPLATE
+────────────────────────────────────────────────────────────────────
+Conducted: _____________ Participants: _________________________
+
+┌─────────────────────────────────────────────────────────────────┐
+│ WHAT'S WORKING WELL                                             │
+│ _______________________________________________________________ │
+│ _______________________________________________________________ │
+│ _______________________________________________________________ │
+├─────────────────────────────────────────────────────────────────┤
+│ WHAT NEEDS IMPROVEMENT                                          │
+│ _______________________________________________________________ │
+│ _______________________________________________________________ │
+│ _______________________________________________________________ │
+├─────────────────────────────────────────────────────────────────┤
+│ GOVERNANCE OVERHEAD ASSESSMENT                                  │
+│ □ Too light - Need more structure                               │
+│ □ Just right - Balanced                                         │
+│ □ Too heavy - Need to streamline                                │
+│ Specific areas: _______________________________________________ │
+├─────────────────────────────────────────────────────────────────┤
+│ ACTION ITEMS                                                    │
+│ 1. _________________________________ Owner: _____ Due: _____   │
+│ 2. _________________________________ Owner: _____ Due: _____   │
+│ 3. _________________________________ Owner: _____ Due: _____   │
+└─────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════
+PHASE 10: GOVERNANCE ADAPTATION GUIDELINES
+═══════════════════════════════════════════════════════════════════
+
+10.1 ADAPTATION TRIGGERS
+────────────────────────────────────────────────────────────────────
+Review and adapt governance when:
+□ Project moves to a new phase
+□ Team size changes significantly (±25%)
+□ Budget authority changes
+□ Regulatory requirements change
+□ Governance metrics indicate issues
+□ Stakeholder feedback indicates friction
+□ Quarterly governance review cycle
+□ Major organizational change
+
+10.2 SCALING GOVERNANCE UP
+────────────────────────────────────────────────────────────────────
+Trigger: Risk profile increases, compliance gaps, quality issues
+
+┌─────────────────────────────────────────────────────────────────┐
+│ AREA              │ ENHANCEMENT                                 │
+├─────────────────────────────────────────────────────────────────┤
+│ Reporting         │ Increase frequency, add detail              │
+│ Gates             │ Add checkpoints, strengthen criteria        │
+│ Approvals         │ Lower thresholds, require more sign-offs    │
+│ Auditing          │ More frequent audits, deeper reviews        │
+│ Oversight         │ Add governance body, increase meetings      │
+│ Documentation     │ More formal templates, required reviews     │
+└─────────────────────────────────────────────────────────────────┘
+
+10.3 SCALING GOVERNANCE DOWN
+────────────────────────────────────────────────────────────────────
+Trigger: Consistent success, stable team, reduced risk
+
+┌─────────────────────────────────────────────────────────────────┐
+│ AREA              │ SIMPLIFICATION                              │
+├─────────────────────────────────────────────────────────────────┤
+│ Reporting         │ Reduce frequency, exception-based           │
+│ Gates             │ Combine checkpoints, outcome-focused        │
+│ Approvals         │ Raise thresholds, delegate more             │
+│ Auditing          │ Risk-based, less frequent                   │
+│ Oversight         │ Combine meetings, async updates             │
+│ Documentation     │ Lighter templates, trust automation         │
+└─────────────────────────────────────────────────────────────────┘
+
+10.4 GOVERNANCE CHANGE LOG
+────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────────────────────────┐
+│ DATE    │ CHANGE DESCRIPTION              │ RATIONALE           │ APPROVED BY      │
+├─────────────────────────────────────────────────────────────────────────────────────┤
+│         │                                 │                     │                  │
+│         │                                 │                     │                  │
+│         │                                 │                     │                  │
+│         │                                 │                     │                  │
+└─────────────────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════
+PHASE 11: GOVERNANCE FRAMEWORK SIGN-OFF
+═══════════════════════════════════════════════════════════════════
+
+11.1 FRAMEWORK APPROVAL
+────────────────────────────────────────────────────────────────────
+This governance framework has been reviewed and approved for
+implementation on project: {{project_name}}
+
+Framework Version: _______
+Effective Date: {{effective_date}}
+Review Date: _______
+
+┌─────────────────────────────────────────────────────────────────┐
+│ ROLE                    │ NAME           │ SIGNATURE   │ DATE  │
+├─────────────────────────────────────────────────────────────────┤
+│ Executive Sponsor       │                │             │       │
+├─────────────────────────────────────────────────────────────────┤
+│ Project Manager         │                │             │       │
+├─────────────────────────────────────────────────────────────────┤
+│ Compliance Officer      │                │             │       │
+├─────────────────────────────────────────────────────────────────┤
+│ PMO Director            │                │             │       │
+├─────────────────────────────────────────────────────────────────┤
+│ Business Owner          │                │             │       │
+└─────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════
+ANTI-PATTERNS TO AVOID
+═══════════════════════════════════════════════════════════════════
+
+❌ Governance theater - Heavy process with no real oversight
+❌ One-size-fits-all - Same governance for all project types
+❌ Decision bottlenecks - Everything escalates to the top
+❌ Compliance-only focus - Checking boxes without value
+❌ Governance by exception - Only engaging when problems occur
+❌ Documentation obsession - Papers over actual oversight
+❌ Audit-driven governance - Designing for auditors, not outcomes
+❌ Waterfall gates on agile delivery - Blocking iteration flow
+❌ Shadow governance - Informal decisions outside the framework
+❌ Governance drift - Not adapting as project evolves
+
+═══════════════════════════════════════════════════════════════════
+QUALITY INDICATORS
+═══════════════════════════════════════════════════════════════════
+
+✓ Decisions made at the appropriate level without unnecessary escalation
+✓ Teams feel empowered within clear boundaries
+✓ Compliance achieved without blocking delivery
+✓ Stakeholders receive timely, accurate information
+✓ Changes are managed efficiently with proper oversight
+✓ Risks are identified early and managed effectively
+✓ Audit readiness is continuous, not a scramble
+✓ Governance overhead is proportional to project risk
+✓ Framework adapts as project context changes
+✓ Both agile values and enterprise accountability are honored
+
+═══════════════════════════════════════════════════════════════════
+OUTPUT: Generate comprehensive hybrid governance documentation
+with all frameworks, matrices, and templates populated based on
+project context. Balance agile autonomy with enterprise oversight.
+═══════════════════════════════════════════════════════════════════`,
     variables: [
       { name: 'project_name', description: 'Project name', example: 'Enterprise Platform Migration', required: true },
-      { name: 'methodology_mix', description: 'Hybrid methodology approach', example: 'Agile delivery with PRINCE2 gates', required: true },
-      { name: 'compliance_requirements', description: 'Key compliance needs', example: 'SOX, GDPR, Internal audit', required: true },
-      { name: 'governance_level', description: 'Governance intensity', example: 'High (regulated industry)', required: true },
+      { name: 'project_id', description: 'Project identifier', example: 'PRJ-2025-089', required: false },
+      { name: 'methodology_mix', description: 'Hybrid methodology approach', example: 'Agile delivery with PRINCE2 gates, Kanban for support', required: true },
+      { name: 'compliance_requirements', description: 'Key compliance needs', example: 'SOX, GDPR, PCI-DSS, Internal audit', required: true },
+      { name: 'governance_level', description: 'Governance intensity', example: 'High (regulated industry with external audit)', required: true },
+      { name: 'regulatory_framework', description: 'Industry-specific regulations', example: 'HIPAA, FedRAMP, Basel III', required: false },
+      { name: 'organization', description: 'Organization name', example: 'Acme Financial Services', required: false },
+      { name: 'effective_date', description: 'Governance effective date', example: 'February 1, 2025', required: false },
     ],
     tier: 'premium',
-    estimatedTimeSaved: '4 hours',
-    tags: ['hybrid', 'governance', 'compliance', 'decision-rights', 'oversight', 'PMI Agile Practice Guide', 'Stage Gates'],
+    estimatedTimeSaved: '10 hours',
+    tags: ['hybrid', 'governance', 'compliance', 'decision-rights', 'oversight', 'PMI Agile Practice Guide', 'Stage Gates', 'RACI', 'RAG', 'Audit', 'Risk Management'],
   },
 ];
