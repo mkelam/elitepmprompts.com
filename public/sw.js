@@ -1,5 +1,8 @@
-const CACHE_NAME = 'pm-nexus-v1';
-const STATIC_CACHE = 'pm-nexus-static-v1';
+const CACHE_NAME = 'pm-nexus-v2';
+const STATIC_CACHE = 'pm-nexus-static-v2';
+
+// Skip service worker caching in development
+const isDev = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
 
 // Static assets to cache immediately
 const STATIC_ASSETS = [
@@ -49,6 +52,11 @@ self.addEventListener('activate', (event) => {
 
 // Fetch event - cache-first strategy for static assets, network-first for others
 self.addEventListener('fetch', (event) => {
+  // In development, always fetch from network
+  if (isDev) {
+    return;
+  }
+
   const { request } = event;
   const url = new URL(request.url);
 
