@@ -89,7 +89,7 @@ export default function Home() {
         role="main"
       >
         {/* Compact Header with Integrated Actions */}
-        <header className="glass-chrome p-4 sm:p-6 space-y-2">
+        <header className="glass-chrome p-4 sm:p-6 space-y-2 relative z-30">
           {/* Top Row: Title + Actions */}
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3">
             <div className="text-center lg:text-left">
