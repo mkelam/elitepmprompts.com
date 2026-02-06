@@ -105,7 +105,7 @@ export function PromptSearch({ prompts, onFilter }: PromptSearchProps) {
       </div>
 
       {/* Framework Filters - Collapsible */}
-      <div className="space-y-2">
+      <div className="relative z-20 space-y-2">
         <div
           className="flex flex-wrap items-center gap-1.5"
           role="group"
@@ -164,7 +164,7 @@ export function PromptSearch({ prompts, onFilter }: PromptSearchProps) {
         {/* Expanded Secondary Frameworks */}
         {showAllFrameworks && (
           <div
-            className="flex flex-wrap gap-1.5 pt-1 border-t border-white/10 animate-in slide-in-from-top-2 duration-200"
+            className="relative z-20 flex flex-wrap gap-1.5 pt-1 border-t border-white/10 animate-in slide-in-from-top-2 duration-200"
             role="group"
             aria-label="Additional framework filters"
           >
