@@ -118,8 +118,8 @@ export function PromptSearch({ prompts, onFilter }: PromptSearchProps) {
               onClick={() => setActiveFramework(fw)}
               className={`px-2.5 py-1 rounded-md text-xs font-medium transition-all capitalize ${
                 activeFramework === fw
-                  ? "bg-nexus-cyan/20 text-nexus-cyan border border-nexus-cyan/30"
-                  : "bg-white/5 text-white/60 hover:text-white/80 hover:bg-white/10 border border-transparent"
+                  ? "bg-black/60 text-cyan-300 border border-cyan-500/40"
+                  : "bg-black/40 text-white/60 hover:text-white/80 hover:bg-black/50 border border-white/10"
               }`}
               aria-pressed={activeFramework === fw}
               aria-label={`Filter by ${fw === "all" ? "all frameworks" : fw.replace("-", " ")}`}
@@ -131,7 +131,7 @@ export function PromptSearch({ prompts, onFilter }: PromptSearchProps) {
           {/* Active Secondary Framework (if any) - Show inline when not expanded */}
           {activeInSecondary && !showAllFrameworks && (
             <button
-              className="px-2.5 py-1 rounded-md text-xs font-medium bg-nexus-cyan/20 text-nexus-cyan border border-nexus-cyan/30 capitalize flex items-center gap-1"
+              className="px-2.5 py-1 rounded-md text-xs font-medium bg-black/60 text-cyan-300 border border-cyan-500/40 capitalize flex items-center gap-1"
               onClick={() => setShowAllFrameworks(true)}
             >
               {activeFramework === "safe" ? "SAFe" : activeFramework.replace("-", " ")}
@@ -150,8 +150,8 @@ export function PromptSearch({ prompts, onFilter }: PromptSearchProps) {
             onClick={() => setShowAllFrameworks(!showAllFrameworks)}
             className={`px-2.5 py-1 rounded-md text-xs font-medium transition-all flex items-center gap-1 ${
               showAllFrameworks || activeInSecondary
-                ? "bg-white/10 text-white/80"
-                : "bg-white/5 text-white/50 hover:text-white/70 hover:bg-white/10"
+                ? "bg-black/50 text-white/80 border border-white/20"
+                : "bg-black/40 text-white/50 hover:text-white/70 hover:bg-black/50 border border-white/10"
             }`}
             aria-expanded={showAllFrameworks}
             aria-label={showAllFrameworks ? "Show fewer frameworks" : "Show more frameworks"}
@@ -177,8 +177,8 @@ export function PromptSearch({ prompts, onFilter }: PromptSearchProps) {
                 }}
                 className={`px-2.5 py-1 rounded-md text-xs font-medium transition-all capitalize ${
                   activeFramework === fw
-                    ? "bg-nexus-cyan/20 text-nexus-cyan border border-nexus-cyan/30"
-                    : "bg-white/5 text-white/60 hover:text-white/80 hover:bg-white/10 border border-transparent"
+                    ? "bg-black/60 text-cyan-300 border border-cyan-500/40"
+                    : "bg-black/40 text-white/60 hover:text-white/80 hover:bg-black/50 border border-white/10"
                 }`}
                 aria-pressed={activeFramework === fw}
                 aria-label={`Filter by ${fw.replace("-", " ")}`}
@@ -203,8 +203,8 @@ export function PromptSearch({ prompts, onFilter }: PromptSearchProps) {
               onClick={() => setActivePhase("all")}
               className={`px-2 py-0.5 rounded text-[11px] font-medium transition-all ${
                 activePhase === "all"
-                  ? "bg-purple-500/20 text-purple-300 border border-purple-500/30"
-                  : "bg-white/5 text-white/50 hover:text-white/70 hover:bg-white/10 border border-transparent"
+                  ? "bg-black/60 text-purple-300 border border-purple-500/40"
+                  : "bg-black/40 text-white/50 hover:text-white/70 hover:bg-black/50 border border-white/10"
               }`}
               aria-pressed={activePhase === "all"}
             >
@@ -216,8 +216,8 @@ export function PromptSearch({ prompts, onFilter }: PromptSearchProps) {
                 onClick={() => setActivePhase(phase.name)}
                 className={`px-2 py-0.5 rounded text-[11px] font-medium transition-all ${
                   activePhase === phase.name
-                    ? "bg-purple-500/20 text-purple-300 border border-purple-500/30"
-                    : "bg-white/5 text-white/50 hover:text-white/70 hover:bg-white/10 border border-transparent"
+                    ? "bg-black/60 text-purple-300 border border-purple-500/40"
+                    : "bg-black/40 text-white/50 hover:text-white/70 hover:bg-black/50 border border-white/10"
                 }`}
                 aria-pressed={activePhase === phase.name}
                 title={phase.description}
