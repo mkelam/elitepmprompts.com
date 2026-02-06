@@ -471,11 +471,14 @@ export async function exportLibraryToHTML(prompts: Prompt[]) {
       background: linear-gradient(135deg, #3b82f6, #2563eb);
       border: none;
       color: #fff;
-      padding: 0.75rem 1.5rem;
+      padding: 0.5rem 1rem;
       border-radius: 0.5rem;
       cursor: pointer;
       font-weight: 500;
       transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.875rem;
     }
     .copy-btn:hover { transform: scale(1.02); }
     .copy-btn.copied { background: linear-gradient(135deg, #22c55e, #16a34a); }
@@ -570,6 +573,17 @@ export async function exportLibraryToHTML(prompts: Prompt[]) {
     .preview-panel {
       display: flex;
       flex-direction: column;
+    }
+    .preview-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+    }
+    .preview-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
     }
     .preview-section {
       background: rgba(59,130,246,0.1);
@@ -744,6 +758,16 @@ export async function exportLibraryToHTML(prompts: Prompt[]) {
 
         <!-- Right: Live Preview Panel -->
         <div class="preview-panel">
+          <div class="preview-header">
+            <h3 class="preview-title">Preview</h3>
+            <button class="copy-btn" id="copy-btn" onclick="copyPrompt()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              Copy Prompt
+            </button>
+          </div>
           <div class="preview-section">
             <div class="preview-label">
               <span class="live-indicator"></span>
@@ -756,7 +780,6 @@ export async function exportLibraryToHTML(prompts: Prompt[]) {
 
       <div class="btn-row">
         <button class="secondary-btn" onclick="resetVariables()">Reset</button>
-        <button class="copy-btn" id="copy-btn" onclick="copyPrompt()">Copy Filled Prompt</button>
       </div>
     </div>
   </div>
@@ -964,10 +987,10 @@ export async function exportLibraryToHTML(prompts: Prompt[]) {
 
       navigator.clipboard.writeText(filledPrompt).then(() => {
         const btn = document.getElementById('copy-btn');
-        btn.textContent = 'Copied!';
+        btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;"><polyline points="20 6 9 17 4 12"></polyline></svg>Copied!';
         btn.classList.add('copied');
         setTimeout(() => {
-          btn.textContent = 'Copy Filled Prompt';
+          btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>Copy Prompt';
           btn.classList.remove('copied');
         }, 2000);
       });
