@@ -107,7 +107,7 @@ export default function Home() {
                 {isUnlocked ? (
                   <button
                     onClick={() => lock()}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 text-green-300 text-xs hover:bg-green-500/30 transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/50 border border-green-500/40 text-green-300 text-xs hover:bg-black/60 hover:border-green-500/60 transition-colors"
                   >
                     <Crown className="w-3.5 h-3.5" />
                     <span className="hidden sm:inline">Premium Active</span>
@@ -116,7 +116,7 @@ export default function Home() {
                 ) : (
                   <button
                     onClick={() => setShowUnlockModal(true)}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border border-yellow-500/30 text-yellow-300 text-xs hover:bg-yellow-500/30 transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/50 border border-yellow-500/40 text-yellow-300 text-xs hover:bg-black/60 hover:border-yellow-500/60 transition-colors"
                   >
                     <Lock className="w-3.5 h-3.5" />
                     <span className="hidden sm:inline">Unlock Premium</span>
@@ -128,7 +128,7 @@ export default function Home() {
                 <div className="relative">
                   <button
                     onClick={() => setShowDownloadMenu(!showDownloadMenu)}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-blue-500/20 to-cyan-500/20 border border-blue-500/30 text-blue-300 text-xs hover:bg-blue-500/30 transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/50 border border-blue-500/40 text-blue-300 text-xs hover:bg-black/60 hover:border-blue-500/60 transition-colors"
                   >
                     <Download className="w-3.5 h-3.5" />
                     <span className="hidden sm:inline">Export</span>
@@ -144,7 +144,7 @@ export default function Home() {
                         }}
                         className="w-full px-4 py-3 text-left text-sm text-white/80 hover:bg-white/10 transition-colors flex items-center gap-3"
                       >
-                        <span className="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center text-green-400">
+                        <span className="w-8 h-8 rounded-lg bg-black/50 border border-green-500/30 flex items-center justify-center text-green-400">
                           📊
                         </span>
                         <div>
@@ -159,7 +159,7 @@ export default function Home() {
                         }}
                         className="w-full px-4 py-3 text-left text-sm text-white/80 hover:bg-white/10 transition-colors flex items-center gap-3 border-t border-white/10"
                       >
-                        <span className="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center text-purple-400">
+                        <span className="w-8 h-8 rounded-lg bg-black/50 border border-purple-500/30 flex items-center justify-center text-purple-400">
                           🌐
                         </span>
                         <div>
@@ -174,7 +174,7 @@ export default function Home() {
                         }}
                         className="w-full px-4 py-3 text-left text-sm text-white/80 hover:bg-white/10 transition-colors flex items-center gap-3 border-t border-white/10"
                       >
-                        <span className="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center text-blue-400">
+                        <span className="w-8 h-8 rounded-lg bg-black/50 border border-blue-500/30 flex items-center justify-center text-blue-400">
                           {"{ }"}
                         </span>
                         <div>
@@ -206,7 +206,7 @@ export default function Home() {
 
           {/* View Mode Tabs - Compact */}
           <div
-            className="flex items-center gap-1 p-1 rounded-lg bg-white/5 border border-white/10 self-center sm:self-auto"
+            className="flex items-center gap-1 p-1 rounded-lg bg-black/40 border border-white/10 self-center sm:self-auto"
             role="tablist"
             aria-label="Filter prompt view"
           >
@@ -217,8 +217,8 @@ export default function Home() {
               aria-controls="prompts-panel"
               className={`min-h-[36px] px-3 py-1.5 rounded-md text-xs font-medium transition-all focus:outline-none focus:ring-2 focus:ring-blue-400/50 ${
                 filterMode === "all"
-                  ? "bg-blue-500/20 text-blue-200 border border-blue-500/30"
-                  : "text-white/60 hover:text-white/80 hover:bg-white/5"
+                  ? "bg-black/60 text-blue-200 border border-blue-500/40"
+                  : "text-white/60 hover:text-white/80 hover:bg-black/30"
               }`}
             >
               All
@@ -230,8 +230,8 @@ export default function Home() {
               aria-controls="prompts-panel"
               className={`min-h-[36px] px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-blue-400/50 ${
                 filterMode === "favorites"
-                  ? "bg-pink-500/20 text-pink-200 border border-pink-500/30"
-                  : "text-white/60 hover:text-white/80 hover:bg-white/5"
+                  ? "bg-black/60 text-pink-200 border border-pink-500/40"
+                  : "text-white/60 hover:text-white/80 hover:bg-black/30"
               }`}
             >
               <Heart className={`w-3.5 h-3.5 ${filterMode === "favorites" ? "fill-pink-300" : ""}`} aria-hidden="true" />
@@ -248,8 +248,8 @@ export default function Home() {
               aria-controls="prompts-panel"
               className={`min-h-[36px] px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-blue-400/50 ${
                 filterMode === "recent"
-                  ? "bg-purple-500/20 text-purple-200 border border-purple-500/30"
-                  : "text-white/60 hover:text-white/80 hover:bg-white/5"
+                  ? "bg-black/60 text-purple-200 border border-purple-500/40"
+                  : "text-white/60 hover:text-white/80 hover:bg-black/30"
               }`}
             >
               <Clock className="w-3.5 h-3.5" aria-hidden="true" />
