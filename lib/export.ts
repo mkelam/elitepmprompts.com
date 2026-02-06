@@ -444,6 +444,11 @@ export async function exportLibraryToHTML(prompts: Prompt[]) {
       margin-bottom: 1.5rem;
     }
     .modal-title { font-size: 1.5rem; font-weight: 700; }
+    .modal-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
     .close-btn {
       background: none;
       border: none;
@@ -451,8 +456,15 @@ export async function exportLibraryToHTML(prompts: Prompt[]) {
       font-size: 1.5rem;
       cursor: pointer;
       padding: 0.5rem;
+      min-width: 44px;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.5rem;
+      transition: all 0.2s;
     }
-    .close-btn:hover { color: #fff; }
+    .close-btn:hover { color: #fff; background: rgba(255,255,255,0.1); }
     .modal-section { margin-bottom: 1.5rem; }
     .modal-section-title {
       font-size: 0.75rem;
@@ -573,17 +585,6 @@ export async function exportLibraryToHTML(prompts: Prompt[]) {
     .preview-panel {
       display: flex;
       flex-direction: column;
-    }
-    .preview-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.75rem;
-    }
-    .preview-title {
-      font-size: 1.125rem;
-      font-weight: 600;
-      color: rgba(255,255,255,0.9);
     }
     .preview-section {
       background: rgba(59,130,246,0.1);
@@ -733,7 +734,16 @@ export async function exportLibraryToHTML(prompts: Prompt[]) {
           <h2 class="modal-title" id="modal-title"></h2>
           <div class="card-meta" id="modal-category"></div>
         </div>
-        <button class="close-btn" onclick="closeModal()">&times;</button>
+        <div class="modal-actions">
+          <button class="copy-btn" id="copy-btn" onclick="copyPrompt()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            Copy Prompt
+          </button>
+          <button class="close-btn" onclick="closeModal()">&times;</button>
+        </div>
       </div>
       <div class="modal-section">
         <p class="modal-section-title">Description</p>
@@ -758,16 +768,6 @@ export async function exportLibraryToHTML(prompts: Prompt[]) {
 
         <!-- Right: Live Preview Panel -->
         <div class="preview-panel">
-          <div class="preview-header">
-            <h3 class="preview-title">Preview</h3>
-            <button class="copy-btn" id="copy-btn" onclick="copyPrompt()">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;">
-                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-              </svg>
-              Copy Prompt
-            </button>
-          </div>
           <div class="preview-section">
             <div class="preview-label">
               <span class="live-indicator"></span>
