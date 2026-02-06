@@ -140,7 +140,7 @@ export function exportLibraryToExcel(prompts: Prompt[]) {
 
 // Export entire prompt library to interactive HTML
 export function exportLibraryToHTML(prompts: Prompt[]) {
-  const categories = Array.from(new Set(prompts.map(p => p.framework)));
+  const frameworks = Array.from(new Set(prompts.map(p => p.framework)));
   const promptsJSON = JSON.stringify(prompts);
 
   const htmlContent = `<!DOCTYPE html>
@@ -246,12 +246,29 @@ export function exportLibraryToHTML(prompts: Prompt[]) {
     }
     .badge-free { background: rgba(34,197,94,0.2); color: #4ade80; }
     .badge-premium { background: rgba(234,179,8,0.2); color: #facc15; }
-    .card-category {
+    .card-meta {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .card-framework {
+      background: rgba(59,130,246,0.2);
+      border: 1px solid rgba(59,130,246,0.3);
       color: #60a5fa;
-      font-size: 0.75rem;
+      font-size: 0.65rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      margin-bottom: 0.5rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 9999px;
+    }
+    .card-phase {
+      background: rgba(34,211,238,0.2);
+      border: 1px solid rgba(34,211,238,0.3);
+      color: #22d3ee;
+      font-size: 0.65rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 9999px;
     }
     .card-desc { color: #94a3b8; font-size: 0.875rem; line-height: 1.5; }
     .card-frameworks {
@@ -548,7 +565,7 @@ export function exportLibraryToHTML(prompts: Prompt[]) {
     <div class="controls">
       <input type="text" class="search" id="search" placeholder="Search prompts...">
       <button class="filter-btn active" data-filter="all">All</button>
-      ${categories.map(cat => `<button class="filter-btn" data-filter="${cat}">${cat.charAt(0).toUpperCase() + cat.slice(1)}</button>`).join('')}
+      ${frameworks.map(fw => `<button class="filter-btn" data-filter="${fw}">${fw === 'safe' ? 'SAFe' : fw.charAt(0).toUpperCase() + fw.slice(1)}</button>`).join('')}
     </div>
 
     <div class="grid" id="prompts-grid"></div>
@@ -563,7 +580,7 @@ export function exportLibraryToHTML(prompts: Prompt[]) {
       <div class="modal-header">
         <div>
           <h2 class="modal-title" id="modal-title"></h2>
-          <p class="card-category" id="modal-category"></p>
+          <div class="card-meta" id="modal-category"></div>
         </div>
         <button class="close-btn" onclick="closeModal()">&times;</button>
       </div>
@@ -647,7 +664,10 @@ export function exportLibraryToHTML(prompts: Prompt[]) {
             <span class="card-title">\${p.title}</span>
             <span class="badge badge-\${p.tier}">\${p.tier}</span>
           </div>
-          <p class="card-category">\${p.framework}</p>
+          <div class="card-meta">
+            <span class="card-framework">\${p.framework === 'safe' ? 'SAFe' : p.framework}</span>
+            <span class="card-phase">\${p.phase}</span>
+          </div>
           <p class="card-desc">\${p.description.substring(0, 120)}\${p.description.length > 120 ? '...' : ''}</p>
           <div class="card-frameworks">
             \${p.tags.slice(0, 3).map(f => \`<span class="framework-tag">\${f}</span>\`).join('')}
@@ -668,7 +688,10 @@ export function exportLibraryToHTML(prompts: Prompt[]) {
       });
 
       document.getElementById('modal-title').textContent = selectedPrompt.title;
-      document.getElementById('modal-category').textContent = selectedPrompt.framework;
+      document.getElementById('modal-category').innerHTML = \`
+        <span class="card-framework">\${selectedPrompt.framework === 'safe' ? 'SAFe' : selectedPrompt.framework}</span>
+        <span class="card-phase">\${selectedPrompt.phase}</span>
+      \`;
       document.getElementById('modal-desc').textContent = selectedPrompt.description;
       document.getElementById('modal-frameworks').innerHTML = selectedPrompt.tags
         .map(f => \`<span class="framework-tag">\${f}</span>\`).join('');
