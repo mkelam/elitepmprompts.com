@@ -64,10 +64,10 @@ export function PromptList({
             {/* Top Row: Framework + Phase + Status Badges */}
             <div className="flex items-center justify-between gap-2 mb-2">
               <div className="flex items-center gap-1.5">
-                <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-white/5 text-white/50 uppercase tracking-wide">
+                <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-black/50 border border-blue-500/30 text-blue-300/80 uppercase tracking-wide">
                   {prompt.framework === "safe" ? "SAFe" : prompt.framework}
                 </span>
-                <span className="text-[10px] px-1.5 py-0.5 rounded bg-nexus-cyan/10 text-nexus-cyan/60">
+                <span className="text-[10px] px-1.5 py-0.5 rounded bg-black/50 border border-cyan-500/30 text-cyan-300/70">
                   {prompt.phase}
                 </span>
               </div>

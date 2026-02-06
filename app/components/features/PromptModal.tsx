@@ -104,17 +104,17 @@ export function PromptModal({ prompt, onClose, isFavorite, onToggleFavorite }: P
         {/* Header with Close Button */}
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3 flex-wrap">
-            <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-200 uppercase tracking-wider">
+            <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-black/50 border border-blue-500/40 text-blue-200 uppercase tracking-wider">
               {prompt.framework === "safe" ? "SAFe" : prompt.framework}
             </span>
-            <span className="text-xs px-2 py-0.5 rounded-full bg-nexus-cyan/20 text-nexus-cyan">
+            <span className="text-xs px-2 py-0.5 rounded-full bg-black/50 border border-cyan-500/40 text-cyan-300">
               {prompt.phase}
             </span>
             <span className="text-xs text-white/50">
               {prompt.estimatedTimeSaved} saved
             </span>
             {prompt.tier === "premium" && (
-              <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-green-500/20 text-green-200 uppercase tracking-wider">
+              <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-black/50 border border-green-500/40 text-green-200 uppercase tracking-wider">
                 PREMIUM
               </span>
             )}
@@ -129,8 +129,8 @@ export function PromptModal({ prompt, onClose, isFavorite, onToggleFavorite }: P
               className={cn(
                 "min-w-[44px] min-h-[44px] p-2.5 sm:p-2 rounded-lg transition-all duration-200 flex items-center justify-center",
                 isFavorite
-                  ? "bg-pink-500/20 text-pink-400 hover:bg-pink-500/30"
-                  : "text-white/50 hover:text-pink-400 hover:bg-white/10"
+                  ? "bg-black/50 border border-pink-500/40 text-pink-400 hover:bg-black/60"
+                  : "text-white/50 hover:text-pink-400 hover:bg-black/40"
               )}
               aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
             >
