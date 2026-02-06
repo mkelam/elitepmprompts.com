@@ -151,21 +151,69 @@ export function exportLibraryToHTML(prompts: Prompt[]) {
   <title>PM_Nexus Vault - Prompt Library</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* Circuit board background pattern - lightweight SVG */
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      background-color: #0f172a;
+      background-image:
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg stroke='%231e3a5f' stroke-width='0.5'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+        linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
       color: #e2e8f0;
       min-height: 100vh;
       padding: 2rem;
     }
+
+    /* Glassmorphism base */
+    .glass {
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 1rem;
+    }
+
+    .glass-content {
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 4px 24px rgba(0, 0, 0, 0.3);
+      border-radius: 1rem;
+      transition: all 0.3s;
+    }
+
+    .glass-content:hover {
+      background: rgba(0, 0, 0, 0.60);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .glass-modal {
+      background: rgba(0, 0, 0, 0.50);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 8px 32px rgba(0, 0, 0, 0.5);
+      border-radius: 1rem;
+    }
+
     .container { max-width: 1200px; margin: 0 auto; }
-    header { text-align: center; margin-bottom: 2rem; }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+    }
+
     h1 {
       font-size: 2.5rem;
-      background: linear-gradient(90deg, #60a5fa, #fff, #60a5fa);
+      background: linear-gradient(90deg, #22d3ee, #fff, #a78bfa);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      background-clip: text;
       margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
     .subtitle { color: #94a3b8; font-size: 1rem; }
     .stats {
@@ -176,16 +224,22 @@ export function exportLibraryToHTML(prompts: Prompt[]) {
       flex-wrap: wrap;
     }
     .stat {
-      background: rgba(255,255,255,0.05);
+      background: rgba(0,0,0,0.4);
       padding: 0.5rem 1rem;
       border-radius: 9999px;
       font-size: 0.875rem;
       border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(8px);
     }
+
+    .toolbar {
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
     .controls {
       display: flex;
       gap: 1rem;
-      margin-bottom: 2rem;
       flex-wrap: wrap;
     }
     .search {
@@ -193,25 +247,34 @@ export function exportLibraryToHTML(prompts: Prompt[]) {
       min-width: 200px;
       padding: 0.75rem 1rem;
       border-radius: 0.75rem;
-      border: 1px solid rgba(255,255,255,0.2);
-      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(8px);
       color: #fff;
       font-size: 1rem;
+      transition: all 0.2s;
+    }
+    .search:focus {
+      outline: none;
+      background: rgba(0,0,0,0.55);
+      border-color: rgba(255,255,255,0.25);
+      box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.3);
     }
     .search::placeholder { color: #64748b; }
     .filter-btn {
       padding: 0.75rem 1.25rem;
       border-radius: 0.75rem;
-      border: 1px solid rgba(255,255,255,0.2);
-      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(0,0,0,0.4);
       color: #94a3b8;
       cursor: pointer;
       transition: all 0.2s;
+      backdrop-filter: blur(8px);
     }
     .filter-btn:hover, .filter-btn.active {
-      background: rgba(59,130,246,0.2);
-      border-color: rgba(59,130,246,0.5);
-      color: #60a5fa;
+      background: rgba(0,0,0,0.6);
+      border-color: rgba(34,211,238,0.4);
+      color: #22d3ee;
     }
     .phase-filters {
       display: flex;
@@ -250,17 +313,20 @@ export function exportLibraryToHTML(prompts: Prompt[]) {
       gap: 1rem;
     }
     .card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 4px 24px rgba(0, 0, 0, 0.3);
       border-radius: 1rem;
       padding: 1.5rem;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.3s;
     }
     .card:hover {
-      background: rgba(255,255,255,0.1);
-      border-color: rgba(255,255,255,0.2);
-      transform: translateY(-2px);
+      background: rgba(0, 0, 0, 0.60);
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px) scale(1.01);
     }
     .card-header {
       display: flex;
@@ -320,8 +386,9 @@ export function exportLibraryToHTML(prompts: Prompt[]) {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.8);
-      backdrop-filter: blur(4px);
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       z-index: 100;
       justify-content: center;
       align-items: center;
@@ -329,8 +396,11 @@ export function exportLibraryToHTML(prompts: Prompt[]) {
     }
     .modal-overlay.active { display: flex; }
     .modal {
-      background: #1e293b;
-      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(0, 0, 0, 0.50);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 8px 32px rgba(0, 0, 0, 0.5);
       border-radius: 1rem;
       max-width: 800px;
       width: 100%;
@@ -583,9 +653,9 @@ export function exportLibraryToHTML(prompts: Prompt[]) {
 </head>
 <body>
   <div class="container">
-    <header>
-      <h1>PM_Nexus Vault</h1>
-      <p class="subtitle">Enterprise Prompt Library - Exported ${new Date().toLocaleDateString()}</p>
+    <header class="glass">
+      <h1>The Project Manager's Nexus</h1>
+      <p class="subtitle">The Ultimate Command Center for <span style="color:#22d3ee;font-weight:500;">Enterprise Execution</span></p>
       <div class="stats">
         <span class="stat">📚 <span id="total-count">${prompts.length}</span> Prompts</span>
         <span class="stat">✅ <span id="free-count">${prompts.filter(p => p.tier === 'free').length}</span> Free</span>
@@ -593,15 +663,17 @@ export function exportLibraryToHTML(prompts: Prompt[]) {
       </div>
     </header>
 
-    <div class="controls">
-      <input type="text" class="search" id="search" placeholder="Search prompts...">
-      <button class="filter-btn active" data-filter="all">All</button>
-      ${frameworks.map(fw => `<button class="filter-btn" data-filter="${fw}">${fw === 'safe' ? 'SAFe' : fw.charAt(0).toUpperCase() + fw.slice(1)}</button>`).join('')}
-    </div>
+    <div class="toolbar glass">
+      <div class="controls">
+        <input type="text" class="search" id="search" placeholder="Search prompts...">
+        <button class="filter-btn active" data-filter="all">All</button>
+        ${frameworks.map(fw => `<button class="filter-btn" data-filter="${fw}">${fw === 'safe' ? 'SAFe' : fw.charAt(0).toUpperCase() + fw.slice(1)}</button>`).join('')}
+      </div>
 
-    <div class="phase-filters" id="phase-filters" style="display:none;">
-      <span class="phase-label">Phases:</span>
-      <button class="phase-btn active" data-phase="all">All</button>
+      <div class="phase-filters" id="phase-filters" style="display:none;">
+        <span class="phase-label">Phases:</span>
+        <button class="phase-btn active" data-phase="all">All</button>
+      </div>
     </div>
 
     <div class="grid" id="prompts-grid"></div>
