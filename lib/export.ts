@@ -440,22 +440,48 @@ export async function exportLibraryToHTML(prompts: Prompt[]) {
     .modal-header {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
+      align-items: center;
       margin-bottom: 1.5rem;
     }
-    .modal-title { font-size: 1.5rem; font-weight: 700; }
-    .modal-actions {
+    .modal-header-left {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .modal-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.125rem 0.5rem;
+      border-radius: 9999px;
+      background: rgba(0,0,0,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .modal-badge-framework {
+      border: 1px solid rgba(59,130,246,0.4);
+      color: #bfdbfe;
+    }
+    .modal-badge-phase {
+      border: 1px solid rgba(34,211,238,0.4);
+      color: #67e8f9;
+      font-weight: 400;
+    }
+    .modal-badge-premium {
+      border: 1px solid rgba(34,197,94,0.4);
+      color: #bbf7d0;
+    }
+    .modal-time-saved {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
     }
     .close-btn {
       background: none;
       border: none;
-      color: #64748b;
-      font-size: 1.5rem;
+      color: rgba(255,255,255,0.5);
+      font-size: 1.75rem;
       cursor: pointer;
-      padding: 0.5rem;
+      padding: 0.625rem;
       min-width: 44px;
       min-height: 44px;
       display: flex;
@@ -465,23 +491,78 @@ export async function exportLibraryToHTML(prompts: Prompt[]) {
       transition: all 0.2s;
     }
     .close-btn:hover { color: #fff; background: rgba(255,255,255,0.1); }
-    .modal-section { margin-bottom: 1.5rem; }
-    .modal-section-title {
+    .modal-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(to right, #bfdbfe, #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.3;
+    }
+    .modal-desc {
+      color: rgba(255,255,255,0.7);
+      margin-top: 0.5rem;
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+    .modal-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+    .modal-tag {
       font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #64748b;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.25rem;
+      background: rgba(255,255,255,0.05);
+      color: rgba(255,255,255,0.6);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .modal-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    @media (min-width: 768px) {
+      .modal-content {
+        flex-direction: row;
+        gap: 2rem;
+      }
+    }
+    .modal-left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .modal-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 250px;
+    }
+    @media (min-width: 640px) {
+      .modal-right {
+        min-height: 400px;
+      }
+    }
+    .preview-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       margin-bottom: 0.5rem;
     }
-    .variable {
-      background: rgba(59,130,246,0.3);
-      color: #60a5fa;
-      padding: 0.125rem 0.375rem;
-      border-radius: 0.25rem;
+    .preview-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
     }
     .copy-btn {
-      background: linear-gradient(135deg, #3b82f6, #2563eb);
-      border: none;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.12);
       color: #fff;
       padding: 0.5rem 1rem;
       border-radius: 0.5rem;
@@ -492,184 +573,75 @@ export async function exportLibraryToHTML(prompts: Prompt[]) {
       align-items: center;
       font-size: 0.875rem;
     }
-    .copy-btn:hover { transform: scale(1.02); }
-    .copy-btn.copied { background: linear-gradient(135deg, #22c55e, #16a34a); }
-    /* Side-by-side layout for variables and preview */
-    .customization-layout {
-      display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-    .variables-panel {
-      display: flex;
-      flex-direction: column;
-    }
-    .variables-panel-header {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #64748b;
-      margin-bottom: 0.75rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .variables-scroll {
-      max-height: 400px;
-      overflow-y: auto;
-      padding-right: 0.5rem;
-    }
-    .variables-scroll::-webkit-scrollbar {
-      width: 6px;
-    }
-    .variables-scroll::-webkit-scrollbar-track {
-      background: rgba(255,255,255,0.05);
-      border-radius: 3px;
-    }
-    .variables-scroll::-webkit-scrollbar-thumb {
-      background: rgba(255,255,255,0.2);
-      border-radius: 3px;
-    }
-    .variables-scroll::-webkit-scrollbar-thumb:hover {
-      background: rgba(255,255,255,0.3);
-    }
-    .variables-grid {
-      display: grid;
-      gap: 0.75rem;
-    }
-    .variable-input-group {
-      background: rgba(0,0,0,0.2);
+    .copy-btn:hover { background: rgba(0,0,0,0.5); border-color: rgba(255,255,255,0.2); }
+    .copy-btn.copied { background: rgba(34,197,94,0.2); color: #bbf7d0; }
+    .preview-box {
+      flex: 1;
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      background: rgba(0,0,0,0.5);
       border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 0.5rem;
-      padding: 0.875rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      color: rgba(255,255,255,0.9);
+      overflow-y: auto;
+    }
+    .variables-section-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 1rem;
+    }
+    .variable-item {
+      margin-bottom: 1rem;
     }
     .variable-label {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 0.375rem;
+      margin-bottom: 0.25rem;
     }
     .variable-name {
-      font-weight: 600;
-      color: #60a5fa;
       font-size: 0.875rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.8);
+      text-transform: capitalize;
     }
-    .variable-example {
-      font-size: 0.7rem;
-      color: #64748b;
-      font-style: italic;
-    }
-    .variable-desc {
-      font-size: 0.8rem;
-      color: #94a3b8;
-      margin-bottom: 0.5rem;
-      line-height: 1.4;
+    .variable-required {
+      font-size: 0.75rem;
+      color: #f87171;
     }
     .variable-input {
       width: 100%;
       padding: 0.5rem 0.75rem;
-      border-radius: 0.375rem;
-      border: 1px solid rgba(255,255,255,0.2);
-      background: rgba(0,0,0,0.3);
+      border-radius: 0.5rem;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(8px);
       color: #fff;
       font-size: 0.875rem;
-      transition: border-color 0.2s;
+      transition: all 0.2s;
     }
     .variable-input:focus {
       outline: none;
-      border-color: #3b82f6;
-      box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
+      background: rgba(0,0,0,0.55);
+      border-color: rgba(255,255,255,0.25);
+      box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.3);
     }
-    .variable-input::placeholder { color: #475569; }
-    .preview-panel {
-      display: flex;
-      flex-direction: column;
-    }
-    .preview-section {
-      background: rgba(59,130,246,0.1);
-      border: 1px solid rgba(59,130,246,0.3);
-      border-radius: 0.5rem;
-      padding: 1rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    .preview-label {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+    .variable-input::placeholder { color: #64748b; }
+    .variable-desc {
       font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #60a5fa;
-      margin-bottom: 0.75rem;
-    }
-    .live-indicator {
-      width: 8px;
-      height: 8px;
-      background: #22c55e;
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
-    }
-    .template-box {
-      background: rgba(0,0,0,0.3);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 0.5rem;
-      padding: 1rem;
-      font-family: monospace;
-      font-size: 0.875rem;
-      line-height: 1.6;
-      white-space: pre-wrap;
-      color: #e2e8f0;
-      flex: 1;
-      max-height: 400px;
-      overflow-y: auto;
+      color: rgba(255,255,255,0.4);
+      margin-top: 0.25rem;
     }
     .filled-variable {
-      background: rgba(34,197,94,0.3);
-      color: #4ade80;
-      padding: 0.125rem 0.375rem;
-      border-radius: 0.25rem;
+      color: #93c5fd;
+      font-weight: 700;
     }
     .unfilled-variable {
-      background: rgba(234,179,8,0.3);
-      color: #fbbf24;
-      padding: 0.125rem 0.375rem;
-      border-radius: 0.25rem;
-    }
-    .btn-row {
-      display: flex;
-      gap: 0.75rem;
-      justify-content: flex-end;
-    }
-    .secondary-btn {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      color: #94a3b8;
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.5rem;
-      cursor: pointer;
-      font-weight: 500;
-      transition: all 0.2s;
-    }
-    .secondary-btn:hover {
-      background: rgba(255,255,255,0.15);
-      color: #fff;
-    }
-    /* No variables state */
-    .no-variables {
-      color: #64748b;
-      font-size: 0.875rem;
-      text-align: center;
-      padding: 2rem 1rem;
-      background: rgba(0,0,0,0.2);
-      border-radius: 0.5rem;
-      border: 1px dashed rgba(255,255,255,0.1);
+      color: rgba(234,179,8,0.8);
     }
     .empty-state {
       text-align: center;
@@ -729,57 +701,43 @@ export async function exportLibraryToHTML(prompts: Prompt[]) {
   <!-- Modal -->
   <div class="modal-overlay" id="modal">
     <div class="modal">
+      <!-- Header: Badges left, Close button right -->
       <div class="modal-header">
-        <div>
-          <h2 class="modal-title" id="modal-title"></h2>
-          <div class="card-meta" id="modal-category"></div>
-        </div>
-        <div class="modal-actions">
-          <button class="copy-btn" id="copy-btn" onclick="copyPrompt()">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;">
-              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-            </svg>
-            Copy Prompt
-          </button>
-          <button class="close-btn" onclick="closeModal()">&times;</button>
-        </div>
-      </div>
-      <div class="modal-section">
-        <p class="modal-section-title">Description</p>
-        <p id="modal-desc"></p>
-      </div>
-      <div class="modal-section">
-        <p class="modal-section-title">Tags</p>
-        <div id="modal-frameworks" class="card-frameworks"></div>
+        <div class="modal-header-left" id="modal-badges"></div>
+        <button class="close-btn" onclick="closeModal()">&times;</button>
       </div>
 
-      <!-- Side-by-side customization layout -->
-      <div class="customization-layout" id="customization-section">
-        <!-- Left: Variables Panel -->
-        <div class="variables-panel" id="variables-section">
-          <div class="variables-panel-header">
-            <span>Customize Variables</span>
+      <!-- Two-column content -->
+      <div class="modal-content">
+        <!-- Left: Title, Description, Tags, Variables -->
+        <div class="modal-left">
+          <div>
+            <h2 class="modal-title" id="modal-title"></h2>
+            <p class="modal-desc" id="modal-desc"></p>
+            <div class="modal-tags" id="modal-tags"></div>
           </div>
-          <div class="variables-scroll">
-            <div class="variables-grid" id="modal-variables"></div>
+
+          <!-- Variables Section -->
+          <div>
+            <h3 class="variables-section-title">Customize Variables</h3>
+            <div id="modal-variables"></div>
           </div>
         </div>
 
-        <!-- Right: Live Preview Panel -->
-        <div class="preview-panel">
-          <div class="preview-section">
-            <div class="preview-label">
-              <span class="live-indicator"></span>
-              Live Preview
-            </div>
-            <div class="template-box" id="modal-template"></div>
+        <!-- Right: Preview -->
+        <div class="modal-right">
+          <div class="preview-header">
+            <h3 class="preview-title">Preview</h3>
+            <button class="copy-btn" id="copy-btn" onclick="copyPrompt()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              Copy Prompt
+            </button>
           </div>
+          <div class="preview-box" id="modal-template"></div>
         </div>
-      </div>
-
-      <div class="btn-row">
-        <button class="secondary-btn" onclick="resetVariables()">Reset</button>
       </div>
     </div>
   </div>
@@ -889,35 +847,49 @@ export async function exportLibraryToHTML(prompts: Prompt[]) {
         variableValues[v.name] = '';
       });
 
-      document.getElementById('modal-title').textContent = selectedPrompt.title;
-      document.getElementById('modal-category').innerHTML = \`
-        <span class="card-framework">\${selectedPrompt.framework === 'safe' ? 'SAFe' : selectedPrompt.framework}</span>
-        <span class="card-phase">\${selectedPrompt.phase}</span>
+      // Populate header badges (Framework, Phase, Time Saved, Premium badge)
+      let badgesHtml = \`
+        <span class="modal-badge modal-badge-framework">\${selectedPrompt.framework === 'safe' ? 'SAFe' : selectedPrompt.framework}</span>
+        <span class="modal-badge modal-badge-phase">\${selectedPrompt.phase}</span>
+        <span class="modal-time-saved">\${selectedPrompt.estimatedTimeSaved} saved</span>
       \`;
+      if (selectedPrompt.tier === 'premium') {
+        badgesHtml += '<span class="modal-badge modal-badge-premium">PREMIUM</span>';
+      }
+      document.getElementById('modal-badges').innerHTML = badgesHtml;
+
+      // Populate title and description
+      document.getElementById('modal-title').textContent = selectedPrompt.title;
       document.getElementById('modal-desc').textContent = selectedPrompt.description;
-      document.getElementById('modal-frameworks').innerHTML = selectedPrompt.tags
-        .map(f => \`<span class="framework-tag">\${f}</span>\`).join('');
+
+      // Populate tags (limit to 8, show +N more)
+      const tagsHtml = selectedPrompt.tags.slice(0, 8)
+        .map(tag => \`<span class="modal-tag">\${tag}</span>\`).join('');
+      const moreTagsHtml = selectedPrompt.tags.length > 8
+        ? \`<span class="modal-tag" style="color: rgba(255,255,255,0.4);">+\${selectedPrompt.tags.length - 8} more</span>\`
+        : '';
+      document.getElementById('modal-tags').innerHTML = tagsHtml + moreTagsHtml;
 
       // Render variable input fields
       const variablesContainer = document.getElementById('modal-variables');
       if (selectedPrompt.variables.length === 0) {
-        variablesContainer.innerHTML = '<div class="no-variables">No customizable variables for this prompt</div>';
+        variablesContainer.innerHTML = '<p style="color: rgba(255,255,255,0.4); font-size: 0.875rem;">No customizable variables for this prompt.</p>';
       } else {
         variablesContainer.innerHTML = selectedPrompt.variables
           .map(v => \`
-            <div class="variable-input-group">
+            <div class="variable-item">
               <div class="variable-label">
-                <span class="variable-name">{{\${v.name}}}</span>
-                <span class="variable-example">e.g., \${v.example}</span>
+                <span class="variable-name">\${v.name.replace(/_/g, ' ')}</span>
+                \${v.required ? '<span class="variable-required">*Required</span>' : ''}
               </div>
-              <p class="variable-desc">\${v.description}</p>
               <input
                 type="text"
                 class="variable-input"
                 data-variable="\${v.name}"
-                placeholder="Enter \${v.name.replace(/_/g, ' ')}..."
+                placeholder="\${v.example}"
                 oninput="updateVariable('\${v.name}', this.value)"
               />
+              <p class="variable-desc">\${v.description}</p>
             </div>
           \`).join('');
       }
@@ -926,8 +898,11 @@ export async function exportLibraryToHTML(prompts: Prompt[]) {
       updateTemplatePreview();
 
       document.getElementById('modal').classList.add('active');
-      document.getElementById('copy-btn').textContent = 'Copy Filled Prompt';
-      document.getElementById('copy-btn').classList.remove('copied');
+
+      // Reset copy button state
+      const copyBtn = document.getElementById('copy-btn');
+      copyBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>Copy Prompt';
+      copyBtn.classList.remove('copied');
     }
 
     function updateVariable(name, value) {
@@ -951,23 +926,6 @@ export async function exportLibraryToHTML(prompts: Prompt[]) {
       });
 
       document.getElementById('modal-template').innerHTML = template;
-    }
-
-    function resetVariables() {
-      if (!selectedPrompt) return;
-
-      // Clear all values
-      selectedPrompt.variables.forEach(v => {
-        variableValues[v.name] = '';
-      });
-
-      // Clear all input fields
-      document.querySelectorAll('.variable-input').forEach(input => {
-        input.value = '';
-      });
-
-      // Update preview
-      updateTemplatePreview();
     }
 
     function closeModal() {
