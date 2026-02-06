@@ -138,9 +138,9 @@ export default function Home() {
                   {showDownloadMenu && (
                     <div className="absolute top-full mt-2 right-0 z-50 bg-black/90 backdrop-blur-xl border border-white/20 rounded-xl shadow-2xl overflow-hidden min-w-[200px]">
                       <button
-                        onClick={() => {
-                          exportLibraryToHTML(allPrompts);
+                        onClick={async () => {
                           setShowDownloadMenu(false);
+                          await exportLibraryToHTML(allPrompts);
                         }}
                         className="w-full px-4 py-3 text-left text-sm text-white/80 hover:bg-white/10 transition-colors flex items-center gap-3"
                       >

@@ -138,10 +138,29 @@ export function exportLibraryToExcel(prompts: Prompt[]) {
   XLSX.writeFile(wb, `PM_Nexus_Library_${new Date().toISOString().split('T')[0]}.xlsx`);
 }
 
+// Helper to convert image to base64
+async function imageToBase64(url: string): Promise<string> {
+  try {
+    const response = await fetch(url);
+    const blob = await response.blob();
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onloadend = () => resolve(reader.result as string);
+      reader.onerror = reject;
+      reader.readAsDataURL(blob);
+    });
+  } catch {
+    return '';
+  }
+}
+
 // Export entire prompt library to interactive HTML
-export function exportLibraryToHTML(prompts: Prompt[]) {
+export async function exportLibraryToHTML(prompts: Prompt[]) {
   const frameworks = Array.from(new Set(prompts.map(p => p.framework)));
   const promptsJSON = JSON.stringify(prompts);
+
+  // Fetch and convert background image to base64
+  const bgImageBase64 = await imageToBase64('/images/construction.png');
 
   const htmlContent = `<!DOCTYPE html>
 <html lang="en">
@@ -152,16 +171,26 @@ export function exportLibraryToHTML(prompts: Prompt[]) {
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* Circuit board background pattern - lightweight SVG */
+    /* Background with overlay - matching main app exactly */
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background-color: #0f172a;
-      background-image:
-        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg stroke='%231e3a5f' stroke-width='0.5'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
-        linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-      color: #e2e8f0;
+      background-image: url("${bgImageBase64}");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: rgba(255, 255, 255, 0.9);
       min-height: 100vh;
       padding: 2rem;
+    }
+
+    /* Dark overlay matching main app (bg-black/75) */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      z-index: -1;
     }
 
     /* Glassmorphism base */
