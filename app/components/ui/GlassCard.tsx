@@ -4,14 +4,21 @@ import React from "react";
 interface GlassCardProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   active?: boolean;
+  variant?: "content" | "modal" | "chrome";
 }
 
-export function GlassCard({ className, children, active, ...props }: GlassCardProps) {
+export function GlassCard({ className, children, active, variant = "content", ...props }: GlassCardProps) {
+  const variants = {
+    content: "glass-content",
+    modal: "glass-modal",
+    chrome: "glass-chrome",
+  };
+
   return (
     <div
       className={cn(
-        "glass-card border-white/10 hover:border-white/20",
-        active && "bg-white/10 border-white/30 ring-1 ring-white/30",
+        variants[variant],
+        active && "ring-1 ring-white/30 border-white/30",
         className
       )}
       {...props}

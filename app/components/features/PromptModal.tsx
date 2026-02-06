@@ -97,7 +97,8 @@ export function PromptModal({ prompt, onClose, isFavorite, onToggleFavorite }: P
       aria-labelledby="modal-title"
     >
       <GlassCard
-        className="w-full h-full sm:h-auto sm:max-w-4xl sm:max-h-[90vh] sm:rounded-2xl rounded-none overflow-y-auto relative bg-black/40 border-white/20"
+        variant="modal"
+        className="w-full h-full sm:h-auto sm:max-w-4xl sm:max-h-[90vh] sm:rounded-2xl rounded-none overflow-y-auto relative p-6"
         onClick={(e: React.MouseEvent) => e.stopPropagation()}
       >
         {/* Header with Close Button */}
@@ -268,7 +269,7 @@ export function PromptModal({ prompt, onClose, isFavorite, onToggleFavorite }: P
                 {copied ? "Copied!" : "Copy Prompt"}
               </GlassButton>
             </div>
-            <div className="flex-1 p-6 rounded-xl bg-black/30 border border-white/10 font-mono text-sm leading-relaxed whitespace-pre-wrap text-white/80 overflow-auto">
+            <div className="flex-1 p-6 rounded-xl bg-black/50 border border-white/10 font-mono text-sm leading-relaxed whitespace-pre-wrap text-white/90 overflow-auto">
               {filledTemplate.split(/(\{\{\w+\}\})/).map((part: string, i: number) => {
                 if (part.startsWith("{{") && part.endsWith("}}")) {
                   const key = part.slice(2, -2);
