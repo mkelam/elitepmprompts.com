@@ -213,6 +213,37 @@ export function exportLibraryToHTML(prompts: Prompt[]) {
       border-color: rgba(59,130,246,0.5);
       color: #60a5fa;
     }
+    .phase-filters {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      padding: 0.75rem 0;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 0.5rem;
+    }
+    .phase-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #64748b;
+      margin-right: 0.25rem;
+    }
+    .phase-btn {
+      padding: 0.375rem 0.75rem;
+      border-radius: 0.5rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.05);
+      color: #94a3b8;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.75rem;
+    }
+    .phase-btn:hover, .phase-btn.active {
+      background: rgba(168,85,247,0.2);
+      border-color: rgba(168,85,247,0.5);
+      color: #c084fc;
+    }
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -568,6 +599,11 @@ export function exportLibraryToHTML(prompts: Prompt[]) {
       ${frameworks.map(fw => `<button class="filter-btn" data-filter="${fw}">${fw === 'safe' ? 'SAFe' : fw.charAt(0).toUpperCase() + fw.slice(1)}</button>`).join('')}
     </div>
 
+    <div class="phase-filters" id="phase-filters" style="display:none;">
+      <span class="phase-label">Phases:</span>
+      <button class="phase-btn active" data-phase="all">All</button>
+    </div>
+
     <div class="grid" id="prompts-grid"></div>
     <div class="empty-state" id="empty-state" style="display:none;">
       <p>No prompts found matching your search.</p>
@@ -627,9 +663,46 @@ export function exportLibraryToHTML(prompts: Prompt[]) {
   <script>
     const prompts = ${promptsJSON};
     let currentFilter = 'all';
+    let currentPhase = 'all';
     let searchQuery = '';
     let selectedPrompt = null;
     let variableValues = {};
+
+    function updatePhaseFilters() {
+      const phaseFiltersDiv = document.getElementById('phase-filters');
+
+      if (currentFilter === 'all') {
+        phaseFiltersDiv.style.display = 'none';
+        currentPhase = 'all';
+        return;
+      }
+
+      // Get unique phases for the selected framework
+      const frameworkPrompts = prompts.filter(p => p.framework === currentFilter);
+      const phases = [...new Set(frameworkPrompts.map(p => p.phase))];
+
+      if (phases.length === 0) {
+        phaseFiltersDiv.style.display = 'none';
+        return;
+      }
+
+      phaseFiltersDiv.style.display = 'flex';
+      phaseFiltersDiv.innerHTML = \`
+        <span class="phase-label">Phases:</span>
+        <button class="phase-btn \${currentPhase === 'all' ? 'active' : ''}" data-phase="all">All</button>
+        \${phases.map(phase => \`<button class="phase-btn \${currentPhase === phase ? 'active' : ''}" data-phase="\${phase}">\${phase}</button>\`).join('')}
+      \`;
+
+      // Add event listeners to phase buttons
+      phaseFiltersDiv.querySelectorAll('.phase-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          phaseFiltersDiv.querySelectorAll('.phase-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentPhase = btn.dataset.phase;
+          renderPrompts();
+        });
+      });
+    }
 
     function renderPrompts() {
       const grid = document.getElementById('prompts-grid');
@@ -641,13 +714,18 @@ export function exportLibraryToHTML(prompts: Prompt[]) {
         filtered = filtered.filter(p => p.framework === currentFilter);
       }
 
+      if (currentPhase !== 'all') {
+        filtered = filtered.filter(p => p.phase === currentPhase);
+      }
+
       if (searchQuery) {
         const q = searchQuery.toLowerCase();
         filtered = filtered.filter(p =>
           p.title.toLowerCase().includes(q) ||
           p.description.toLowerCase().includes(q) ||
           p.tags.some(f => f.toLowerCase().includes(q)) ||
-          p.framework.toLowerCase().includes(q)
+          p.framework.toLowerCase().includes(q) ||
+          p.phase.toLowerCase().includes(q)
         );
       }
 
@@ -805,6 +883,8 @@ export function exportLibraryToHTML(prompts: Prompt[]) {
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         currentFilter = btn.dataset.filter;
+        currentPhase = 'all';
+        updatePhaseFilters();
         renderPrompts();
       });
     });
