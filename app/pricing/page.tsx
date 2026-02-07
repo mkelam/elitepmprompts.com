@@ -11,7 +11,7 @@ import {
   FileText,
   ShoppingCart,
 } from "lucide-react";
-import { allBlueprints, safeSuite } from "@/data/blueprints";
+import { allBlueprints, safeSuite, pmbokSuite } from "@/data/blueprints";
 import { initiatePayFastPayment } from "@/lib/payfast";
 
 const tiers = [
@@ -53,16 +53,15 @@ const tiers = [
     ],
   },
   {
-    id: "suite",
+    id: "safe-suite",
     name: "SAFe Methodology Suite",
     price: "$697",
     period: "one-time",
     description: "All 4 SAFe blueprints — complete methodology coverage.",
     icon: Layers,
-    accent: "violet",
-    cta: "Get the Suite",
+    accent: "cyan",
+    cta: "Get SAFe Suite",
     href: "#",
-    popular: true,
     features: [
       "All 4 SAFe 6.0 blueprints:",
       "  — PI Planning Copilot (7 steps)",
@@ -74,17 +73,49 @@ const tiers = [
       "Lifetime access & methodology updates",
     ],
   },
+  {
+    id: "pmbok-suite",
+    name: "PMBOK Methodology Suite",
+    price: "$897",
+    period: "one-time",
+    description: "All 4 PMBOK 7th Edition blueprints — full project lifecycle.",
+    icon: Layers,
+    accent: "violet",
+    cta: "Get PMBOK Suite",
+    href: "#",
+    popular: true,
+    features: [
+      "All 4 PMBOK 7th Edition blueprints:",
+      "  — Initiation & Planning (7 steps)",
+      "  — Execution & Monitoring (5 steps)",
+      "  — Risk & Procurement (5 steps)",
+      "  — Closure & Lessons Learned (5 steps)",
+      "22 total steps, 68+ artifacts",
+      "Save $291 vs buying individually",
+      "Lifetime access & methodology updates",
+    ],
+  },
 ];
 
 export default function PricingPage() {
   const [selectedBlueprint, setSelectedBlueprint] = useState("");
 
-  function handleBuySuite() {
+  function handleBuySafeSuite() {
     initiatePayFastPayment({
       itemName: safeSuite.name,
       itemDescription: "All 4 SAFe 6.0 blueprints — complete methodology coverage",
       amount: safeSuite.price / 100,
       blueprintId: safeSuite.id,
+      returnPath: "/blueprints",
+    });
+  }
+
+  function handleBuyPmbokSuite() {
+    initiatePayFastPayment({
+      itemName: pmbokSuite.name,
+      itemDescription: "All 4 PMBOK 7th Edition blueprints — full project lifecycle coverage",
+      amount: pmbokSuite.price / 100,
+      blueprintId: pmbokSuite.id,
       returnPath: "/blueprints",
     });
   }
@@ -113,7 +144,7 @@ export default function PricingPage() {
       </header>
 
       {/* Pricing cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
         {tiers.map((tier) => {
           const accentColors = {
             green: {
@@ -179,9 +210,9 @@ export default function PricingPage() {
               </ul>
 
               {/* CTA */}
-              {tier.id === "suite" ? (
+              {tier.id === "safe-suite" || tier.id === "pmbok-suite" ? (
                 <button
-                  onClick={handleBuySuite}
+                  onClick={tier.id === "safe-suite" ? handleBuySafeSuite : handleBuyPmbokSuite}
                   className="mt-6 inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-sm font-medium transition-all bg-gradient-to-r from-nexus-cyan to-nexus-violet text-white hover:opacity-90 cursor-pointer"
                 >
                   <ShoppingCart className="w-4 h-4" />

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { BookOpen, Layers, FileCheck, CheckCircle2, ShoppingCart } from "lucide-react";
-import { allBlueprints, safeSuite } from "@/data/blueprints";
+import { allBlueprints, safeSuite, pmbokSuite, getBlueprintsByMethodology } from "@/data/blueprints";
 import { BlueprintCard } from "@/app/components/blueprints/BlueprintCard";
 import { useBlueprintAccess } from "@/hooks/useBlueprintAccess";
 import { checkPayFastReturn, initiatePayFastPayment } from "@/lib/payfast";
@@ -32,7 +32,7 @@ export default function BlueprintsPage() {
     }
   }, [recordPurchase, paymentRecorded]);
 
-  function handleBuySuite() {
+  function handleBuySafeSuite() {
     initiatePayFastPayment({
       itemName: safeSuite.name,
       itemDescription: "All 4 SAFe 6.0 blueprints — complete methodology coverage",
@@ -41,6 +41,19 @@ export default function BlueprintsPage() {
       returnPath: "/blueprints",
     });
   }
+
+  function handleBuyPmbokSuite() {
+    initiatePayFastPayment({
+      itemName: pmbokSuite.name,
+      itemDescription: "All 4 PMBOK 7th Edition blueprints — full project lifecycle coverage",
+      amount: pmbokSuite.price / 100,
+      blueprintId: pmbokSuite.id,
+      returnPath: "/blueprints",
+    });
+  }
+
+  const safeBlueprints = getBlueprintsByMethodology("SAFe");
+  const pmbokBlueprints = getBlueprintsByMethodology("PMBOK");
 
   // Aggregate stats
   const totalSteps = allBlueprints.reduce((sum, b) => sum + b.stepCount, 0);
@@ -60,10 +73,6 @@ export default function BlueprintsPage() {
 
       {/* Header */}
       <header className="text-center space-y-3">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-nexus-cyan/10 border border-nexus-cyan/30">
-          <BookOpen className="w-3.5 h-3.5 text-nexus-cyan" />
-          <span className="text-xs text-nexus-cyan font-medium">SAFe 6.0 Methodology Suite</span>
-        </div>
         <h1 className="text-3xl sm:text-4xl font-bold text-white">
           Agentic Blueprints
         </h1>
@@ -72,7 +81,7 @@ export default function BlueprintsPage() {
           Each blueprint guides you through a structured ceremony with checkpoints at every step.
         </p>
 
-        {/* Suite stats */}
+        {/* Stats */}
         <div className="flex items-center justify-center gap-6 pt-2">
           <div className="flex items-center gap-1.5 text-xs text-white/60">
             <BookOpen className="w-3.5 h-3.5" />
@@ -89,34 +98,66 @@ export default function BlueprintsPage() {
         </div>
       </header>
 
-      {/* Suite offer banner */}
-      <div className="glass-content p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 border-nexus-violet/20">
-        <div>
-          <h2 className="text-sm font-semibold text-white">{safeSuite.name}</h2>
-          <p className="text-xs text-white/60 mt-1">{safeSuite.description}</p>
-        </div>
-        <div className="flex items-center gap-3">
-          <div className="text-right">
-            <p className="text-xs text-white/50 line-through">${(allBlueprints.length * 297)}</p>
-            <p className="text-lg font-bold text-white">${(safeSuite.price / 100).toFixed(0)}</p>
+      {/* Methodology Suites — side by side */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* SAFe Suite */}
+        <div className="glass-content p-4 sm:p-5 flex flex-col justify-between gap-4 border-nexus-cyan/20">
+          <div>
+            <p className="text-xs font-medium uppercase tracking-[0.15em] text-nexus-cyan/70 mb-1">SAFe 6.0 Methodology Suite</p>
+            <h2 className="text-sm font-semibold text-white">{safeSuite.name}</h2>
+            <p className="text-xs text-white/60 mt-1">{safeSuite.description}</p>
           </div>
-          {hasPurchased("safe-suite") ? (
-            <span className="px-4 py-2 rounded-xl bg-green-500/10 border border-green-500/30 text-green-400 text-sm font-medium whitespace-nowrap">
-              Purchased
-            </span>
-          ) : (
-            <button
-              onClick={handleBuySuite}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-nexus-cyan to-nexus-violet text-white text-sm font-medium hover:opacity-90 transition-opacity whitespace-nowrap cursor-pointer"
-            >
-              <ShoppingCart className="w-4 h-4" />
-              Get the Suite
-            </button>
-          )}
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-xs text-white/50 line-through">${(safeBlueprints.length * 297)}</p>
+              <p className="text-lg font-bold text-white">${(safeSuite.price / 100).toFixed(0)}</p>
+            </div>
+            {hasPurchased("safe-suite") ? (
+              <span className="px-4 py-2 rounded-xl bg-green-500/10 border border-green-500/30 text-green-400 text-sm font-medium whitespace-nowrap">
+                Purchased
+              </span>
+            ) : (
+              <button
+                onClick={handleBuySafeSuite}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-nexus-cyan to-nexus-violet text-white text-sm font-medium hover:opacity-90 transition-opacity whitespace-nowrap cursor-pointer"
+              >
+                <ShoppingCart className="w-4 h-4" />
+                Get the Suite
+              </button>
+            )}
+          </div>
+        </div>
+
+        {/* PMBOK Suite */}
+        <div className="glass-content p-4 sm:p-5 flex flex-col justify-between gap-4 border-nexus-violet/20">
+          <div>
+            <p className="text-xs font-medium uppercase tracking-[0.15em] text-nexus-violet/70 mb-1">PMBOK 7th Edition</p>
+            <h2 className="text-sm font-semibold text-white">{pmbokSuite.name}</h2>
+            <p className="text-xs text-white/60 mt-1">{pmbokSuite.description}</p>
+          </div>
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-xs text-white/50 line-through">${(pmbokBlueprints.length * 297)}</p>
+              <p className="text-lg font-bold text-white">${(pmbokSuite.price / 100).toFixed(0)}</p>
+            </div>
+            {hasPurchased("pmbok-suite") ? (
+              <span className="px-4 py-2 rounded-xl bg-green-500/10 border border-green-500/30 text-green-400 text-sm font-medium whitespace-nowrap">
+                Purchased
+              </span>
+            ) : (
+              <button
+                onClick={handleBuyPmbokSuite}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-nexus-violet to-nexus-cyan text-white text-sm font-medium hover:opacity-90 transition-opacity whitespace-nowrap cursor-pointer"
+              >
+                <ShoppingCart className="w-4 h-4" />
+                Get the Suite
+              </button>
+            )}
+          </div>
         </div>
       </div>
 
-      {/* Blueprint grid */}
+      {/* All blueprints */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {allBlueprints.map((blueprint) => (
           <BlueprintCard

@@ -8,10 +8,12 @@ const STORAGE_KEY = "pmnexus_purchases";
 export function useBlueprintAccess() {
   const [purchases, setPurchases] = useState<PurchaseRecord[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isDevMode, setIsDevMode] = useState(false);
 
-  // Load from localStorage
+  // Load from localStorage + detect dev mode after hydration
   useEffect(() => {
     if (typeof window !== "undefined") {
+      setIsDevMode(window.location.hostname === "localhost");
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
         try {
@@ -26,13 +28,16 @@ export function useBlueprintAccess() {
 
   const hasPurchased = useCallback(
     (blueprintId: string): boolean => {
+      // Dev mode: unlock everything on localhost (set after hydration)
+      if (isDevMode) return true;
       // Check direct blueprint purchase
       if (purchases.some((p) => p.blueprintId === blueprintId)) return true;
-      // Check suite purchase (unlocks all blueprints in suite)
+      // Check suite purchases (unlocks all blueprints in that suite)
       if (purchases.some((p) => p.blueprintId === "safe-suite")) return true;
+      if (purchases.some((p) => p.blueprintId === "pmbok-suite")) return true;
       return false;
     },
-    [purchases]
+    [purchases, isDevMode]
   );
 
   const recordPurchase = useCallback(
