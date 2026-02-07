@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { BookOpen, Layers, FileCheck, CheckCircle2, ShoppingCart } from "lucide-react";
-import { allBlueprints, safeSuite, pmbokSuite, getBlueprintsByMethodology } from "@/data/blueprints";
+import { allBlueprints, safeSuite, pmbokSuite, agileSuite, getBlueprintsByMethodology } from "@/data/blueprints";
 import { BlueprintCard } from "@/app/components/blueprints/BlueprintCard";
 import { useBlueprintAccess } from "@/hooks/useBlueprintAccess";
 import { checkPayFastReturn, initiatePayFastPayment } from "@/lib/payfast";
@@ -52,8 +52,19 @@ export default function BlueprintsPage() {
     });
   }
 
+  function handleBuyAgileSuite() {
+    initiatePayFastPayment({
+      itemName: agileSuite.name,
+      itemDescription: "All 4 Agile & Scrum blueprints — sprint to release coverage",
+      amount: agileSuite.price / 100,
+      blueprintId: agileSuite.id,
+      returnPath: "/blueprints",
+    });
+  }
+
   const safeBlueprints = getBlueprintsByMethodology("SAFe");
   const pmbokBlueprints = getBlueprintsByMethodology("PMBOK");
+  const agileBlueprints = getBlueprintsByMethodology("Agile");
 
   // Aggregate stats
   const totalSteps = allBlueprints.reduce((sum, b) => sum + b.stepCount, 0);
@@ -98,12 +109,12 @@ export default function BlueprintsPage() {
         </div>
       </header>
 
-      {/* Methodology Suites — side by side */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {/* Methodology Suites — 3 columns */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {/* SAFe Suite */}
         <div className="glass-content p-4 sm:p-5 flex flex-col justify-between gap-4 border-nexus-cyan/20">
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.15em] text-nexus-cyan/70 mb-1">SAFe 6.0 Methodology Suite</p>
+            <p className="text-xs font-medium uppercase tracking-[0.15em] text-nexus-cyan/70 mb-1">SAFe 6.0</p>
             <h2 className="text-sm font-semibold text-white">{safeSuite.name}</h2>
             <p className="text-xs text-white/60 mt-1">{safeSuite.description}</p>
           </div>
@@ -113,16 +124,44 @@ export default function BlueprintsPage() {
               <p className="text-lg font-bold text-white">${(safeSuite.price / 100).toFixed(0)}</p>
             </div>
             {hasPurchased("safe-suite") ? (
-              <span className="px-4 py-2 rounded-xl bg-green-500/10 border border-green-500/30 text-green-400 text-sm font-medium whitespace-nowrap">
+              <span className="px-3 py-1.5 rounded-xl bg-green-500/10 border border-green-500/30 text-green-400 text-xs font-medium whitespace-nowrap">
                 Purchased
               </span>
             ) : (
               <button
                 onClick={handleBuySafeSuite}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-nexus-cyan to-nexus-violet text-white text-sm font-medium hover:opacity-90 transition-opacity whitespace-nowrap cursor-pointer"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-gradient-to-r from-nexus-cyan to-nexus-violet text-white text-xs font-medium hover:opacity-90 transition-opacity whitespace-nowrap cursor-pointer"
               >
-                <ShoppingCart className="w-4 h-4" />
-                Get the Suite
+                <ShoppingCart className="w-3.5 h-3.5" />
+                Get Suite
+              </button>
+            )}
+          </div>
+        </div>
+
+        {/* Agile Suite */}
+        <div className="glass-content p-4 sm:p-5 flex flex-col justify-between gap-4 border-emerald-400/20">
+          <div>
+            <p className="text-xs font-medium uppercase tracking-[0.15em] text-emerald-400/70 mb-1">Agile &amp; Scrum</p>
+            <h2 className="text-sm font-semibold text-white">{agileSuite.name}</h2>
+            <p className="text-xs text-white/60 mt-1">{agileSuite.description}</p>
+          </div>
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-xs text-white/50 line-through">${(agileBlueprints.length * 297)}</p>
+              <p className="text-lg font-bold text-white">${(agileSuite.price / 100).toFixed(0)}</p>
+            </div>
+            {hasPurchased("agile-suite") ? (
+              <span className="px-3 py-1.5 rounded-xl bg-green-500/10 border border-green-500/30 text-green-400 text-xs font-medium whitespace-nowrap">
+                Purchased
+              </span>
+            ) : (
+              <button
+                onClick={handleBuyAgileSuite}
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-gradient-to-r from-emerald-500 to-nexus-cyan text-white text-xs font-medium hover:opacity-90 transition-opacity whitespace-nowrap cursor-pointer"
+              >
+                <ShoppingCart className="w-3.5 h-3.5" />
+                Get Suite
               </button>
             )}
           </div>
@@ -141,16 +180,16 @@ export default function BlueprintsPage() {
               <p className="text-lg font-bold text-white">${(pmbokSuite.price / 100).toFixed(0)}</p>
             </div>
             {hasPurchased("pmbok-suite") ? (
-              <span className="px-4 py-2 rounded-xl bg-green-500/10 border border-green-500/30 text-green-400 text-sm font-medium whitespace-nowrap">
+              <span className="px-3 py-1.5 rounded-xl bg-green-500/10 border border-green-500/30 text-green-400 text-xs font-medium whitespace-nowrap">
                 Purchased
               </span>
             ) : (
               <button
                 onClick={handleBuyPmbokSuite}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-nexus-violet to-nexus-cyan text-white text-sm font-medium hover:opacity-90 transition-opacity whitespace-nowrap cursor-pointer"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-gradient-to-r from-nexus-violet to-nexus-cyan text-white text-xs font-medium hover:opacity-90 transition-opacity whitespace-nowrap cursor-pointer"
               >
-                <ShoppingCart className="w-4 h-4" />
-                Get the Suite
+                <ShoppingCart className="w-3.5 h-3.5" />
+                Get Suite
               </button>
             )}
           </div>

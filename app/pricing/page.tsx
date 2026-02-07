@@ -11,7 +11,7 @@ import {
   FileText,
   ShoppingCart,
 } from "lucide-react";
-import { allBlueprints, safeSuite, pmbokSuite } from "@/data/blueprints";
+import { allBlueprints, safeSuite, pmbokSuite, agileSuite } from "@/data/blueprints";
 import { initiatePayFastPayment } from "@/lib/payfast";
 
 const tiers = [
@@ -74,6 +74,27 @@ const tiers = [
     ],
   },
   {
+    id: "agile-suite",
+    name: "Agile & Scrum Suite",
+    price: "$797",
+    period: "one-time",
+    description: "All 4 Agile blueprints — sprint to release coverage.",
+    icon: Layers,
+    accent: "green",
+    cta: "Get Agile Suite",
+    href: "#",
+    features: [
+      "All 4 Agile & Scrum blueprints:",
+      "  — Sprint Planning & Refinement (6 steps)",
+      "  — Sprint Review & Retro Engine (5 steps)",
+      "  — Release Planning & Roadmap (5 steps)",
+      "  — Kanban Flow Optimizer (5 steps)",
+      "21 total steps, 50+ artifacts",
+      "Save $391 vs buying individually",
+      "Lifetime access & methodology updates",
+    ],
+  },
+  {
     id: "pmbok-suite",
     name: "PMBOK Methodology Suite",
     price: "$897",
@@ -106,6 +127,16 @@ export default function PricingPage() {
       itemDescription: "All 4 SAFe 6.0 blueprints — complete methodology coverage",
       amount: safeSuite.price / 100,
       blueprintId: safeSuite.id,
+      returnPath: "/blueprints",
+    });
+  }
+
+  function handleBuyAgileSuite() {
+    initiatePayFastPayment({
+      itemName: agileSuite.name,
+      itemDescription: "All 4 Agile & Scrum blueprints — sprint to release coverage",
+      amount: agileSuite.price / 100,
+      blueprintId: agileSuite.id,
       returnPath: "/blueprints",
     });
   }
@@ -144,7 +175,7 @@ export default function PricingPage() {
       </header>
 
       {/* Pricing cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-5">
         {tiers.map((tier) => {
           const accentColors = {
             green: {
@@ -210,9 +241,9 @@ export default function PricingPage() {
               </ul>
 
               {/* CTA */}
-              {tier.id === "safe-suite" || tier.id === "pmbok-suite" ? (
+              {tier.id === "safe-suite" || tier.id === "agile-suite" || tier.id === "pmbok-suite" ? (
                 <button
-                  onClick={tier.id === "safe-suite" ? handleBuySafeSuite : handleBuyPmbokSuite}
+                  onClick={tier.id === "safe-suite" ? handleBuySafeSuite : tier.id === "agile-suite" ? handleBuyAgileSuite : handleBuyPmbokSuite}
                   className="mt-6 inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-sm font-medium transition-all bg-gradient-to-r from-nexus-cyan to-nexus-violet text-white hover:opacity-90 cursor-pointer"
                 >
                   <ShoppingCart className="w-4 h-4" />

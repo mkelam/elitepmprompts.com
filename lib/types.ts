@@ -85,7 +85,7 @@ export interface Blueprint {
   slug: string;
   title: string;
   subtitle: string;
-  methodology: 'SAFe' | 'PRINCE2' | 'PMBOK' | 'COBIT';
+  methodology: 'SAFe' | 'PRINCE2' | 'PMBOK' | 'COBIT' | 'Agile';
   version: string;
   estimatedTime: string;
   stepCount: number;

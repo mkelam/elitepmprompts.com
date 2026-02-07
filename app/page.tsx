@@ -8,6 +8,13 @@ const safeBlueprints = [
   { title: "Portfolio Kanban Builder", steps: 5, slug: "safe-portfolio-kanban" },
 ];
 
+const agileBlueprints = [
+  { title: "Sprint Planning & Refinement", steps: 6, slug: "agile-sprint-planning" },
+  { title: "Sprint Review & Retro Engine", steps: 5, slug: "agile-sprint-review-retro" },
+  { title: "Release Planning & Roadmap", steps: 5, slug: "agile-release-planning" },
+  { title: "Kanban Flow Optimizer", steps: 5, slug: "agile-kanban-optimization" },
+];
+
 const pmbokBlueprints = [
   { title: "Initiation & Planning Copilot", steps: 7, slug: "pmbok-initiation-planning" },
   { title: "Execution & Monitoring Copilot", steps: 5, slug: "pmbok-execution-monitoring" },
@@ -73,6 +80,38 @@ export default function LandingPage() {
                       {bp.steps} steps
                     </span>
                     <ArrowRight className="w-4 h-4 text-white/20 group-hover:text-nexus-cyan group-hover:translate-x-1 transition-all duration-300" />
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Agile Suite */}
+          <div className="space-y-10">
+            <div className="text-center space-y-4">
+              <p className="text-xs font-medium uppercase tracking-[0.2em] text-emerald-400/70">
+                Agile &amp; Scrum
+              </p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white text-shadow-heading">
+                Four blueprints. Sprint to release.
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+              {agileBlueprints.map((bp) => (
+                <Link
+                  key={bp.slug}
+                  href={`/blueprints/${bp.slug}`}
+                  className="glass-content p-6 group hover:border-emerald-400/30 transition-all duration-300 flex flex-col justify-between min-h-[160px]"
+                >
+                  <h3 className="text-sm font-semibold text-white/90 group-hover:text-emerald-400 transition-colors leading-snug">
+                    {bp.title}
+                  </h3>
+                  <div className="flex items-center justify-between mt-6">
+                    <span className="text-xs text-white/30 font-medium">
+                      {bp.steps} steps
+                    </span>
+                    <ArrowRight className="w-4 h-4 text-white/20 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all duration-300" />
                   </div>
                 </Link>
               ))}

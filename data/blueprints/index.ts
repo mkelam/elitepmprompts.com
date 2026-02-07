@@ -9,6 +9,10 @@ export { pmbokInitiationPlanning } from "./pmbok-initiation-planning";
 export { pmbokExecutionMonitoring } from "./pmbok-execution-monitoring";
 export { pmbokRiskProcurement } from "./pmbok-risk-procurement";
 export { pmbokClosureLessons } from "./pmbok-closure-lessons";
+export { agileSprintPlanning } from "./agile-sprint-planning";
+export { agileSprintReviewRetro } from "./agile-sprint-review-retro";
+export { agileReleasePlanning } from "./agile-release-planning";
+export { agileKanbanOptimization } from "./agile-kanban-optimization";
 
 // Re-import for use in allBlueprints array
 import { safePiPlanning } from "./safe-pi-planning";
@@ -19,6 +23,10 @@ import { pmbokInitiationPlanning } from "./pmbok-initiation-planning";
 import { pmbokExecutionMonitoring } from "./pmbok-execution-monitoring";
 import { pmbokRiskProcurement } from "./pmbok-risk-procurement";
 import { pmbokClosureLessons } from "./pmbok-closure-lessons";
+import { agileSprintPlanning } from "./agile-sprint-planning";
+import { agileSprintReviewRetro } from "./agile-sprint-review-retro";
+import { agileReleasePlanning } from "./agile-release-planning";
+import { agileKanbanOptimization } from "./agile-kanban-optimization";
 
 // All blueprints
 export const allBlueprints: Blueprint[] = [
@@ -30,6 +38,10 @@ export const allBlueprints: Blueprint[] = [
   pmbokExecutionMonitoring,
   pmbokRiskProcurement,
   pmbokClosureLessons,
+  agileSprintPlanning,
+  agileSprintReviewRetro,
+  agileReleasePlanning,
+  agileKanbanOptimization,
 ];
 
 // Suite definitions
@@ -49,6 +61,15 @@ export const pmbokSuite: BlueprintSuite = {
   description: "All 4 PMBOK 7th Edition blueprints — complete coverage from project initiation and planning through execution monitoring, risk and procurement management, and formal closure with lessons learned.",
   blueprints: ["pmbok-initiation-planning", "pmbok-execution-monitoring", "pmbok-risk-procurement", "pmbok-closure-lessons"],
   price: 89700,
+};
+
+export const agileSuite: BlueprintSuite = {
+  id: "agile-suite",
+  name: "Agile & Scrum Methodology Suite",
+  methodology: "Agile",
+  description: "All 4 Agile blueprints — from sprint planning and backlog refinement through release management, retrospectives, and Kanban flow optimization.",
+  blueprints: ["agile-sprint-planning", "agile-sprint-review-retro", "agile-release-planning", "agile-kanban-optimization"],
+  price: 79700,
 };
 
 // Lookup helpers

@@ -35,6 +35,7 @@ export function useBlueprintAccess() {
       // Check suite purchases (unlocks all blueprints in that suite)
       if (purchases.some((p) => p.blueprintId === "safe-suite")) return true;
       if (purchases.some((p) => p.blueprintId === "pmbok-suite")) return true;
+      if (purchases.some((p) => p.blueprintId === "agile-suite")) return true;
       return false;
     },
     [purchases, isDevMode]
