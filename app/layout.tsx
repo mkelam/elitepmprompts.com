@@ -2,44 +2,46 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { PWARegister } from "@/app/components/PWARegister";
+import { Navbar } from "@/app/components/layout/Navbar";
+import { Footer } from "@/app/components/layout/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const siteUrl = "https://pm-nexus.com";
-const siteName = "The Project Manager's Nexus";
-const siteDescription = "The Ultimate Command Center for Enterprise Project Execution. 50+ specialized AI prompts for Agile, Waterfall, Hybrid, Construction, and ITIL methodologies. Framework-aligned. Offline-first. Built for professionals.";
+const siteUrl = "https://elitepmprompts.com";
+const siteName = "ElitePMPrompts — The Project Manager's Nexus";
+const siteDescription = "Methodology-native AI workflow blueprints that produce complete PM artifacts in 60-90 minutes. SAFe PI Planning, PRINCE2, PMBOK, COBIT. Built for enterprise project managers.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: siteName,
-    template: `%s | ${siteName}`,
+    template: `%s | ElitePMPrompts`,
   },
   description: siteDescription,
   keywords: [
-    "project management prompts",
-    "AI prompts for PMs",
-    "PMBOK prompts",
-    "Agile prompts",
-    "Scrum prompts",
-    "Waterfall project management",
-    "construction project management",
-    "ITIL prompts",
-    "risk management AI",
-    "stakeholder management",
-    "project charter template",
-    "sprint planning AI",
-    "enterprise project tools",
-    "offline project management",
+    "SAFe PI Planning AI",
+    "agentic PM workflows",
+    "project management AI blueprints",
+    "SAFe 6.0 copilot",
+    "PI Planning automation",
+    "PRINCE2 AI prompts",
+    "PMBOK AI workflow",
+    "COBIT governance AI",
+    "release train engineer tools",
+    "PMO AI automation",
+    "project management prompt library",
+    "enterprise PM tools",
+    "methodology-native AI",
+    "PM artifact generation",
   ],
-  authors: [{ name: "PM Nexus" }],
-  creator: "PM Nexus",
-  publisher: "PM Nexus",
+  authors: [{ name: "ElitePMPrompts" }],
+  creator: "ElitePMPrompts",
+  publisher: "ElitePMPrompts",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: siteName,
+    title: "ElitePMPrompts",
   },
   formatDetection: {
     telephone: false,
@@ -48,7 +50,7 @@ export const metadata: Metadata = {
     title: siteName,
     description: siteDescription,
     url: siteUrl,
-    siteName: siteName,
+    siteName: "ElitePMPrompts",
     locale: "en_US",
     type: "website",
     images: [
@@ -56,7 +58,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "The Project Manager's Nexus - Enterprise Command Center",
+        alt: "ElitePMPrompts — Agentic AI Blueprints for Enterprise PMs",
       },
     ],
   },
@@ -82,29 +84,45 @@ export const metadata: Metadata = {
   },
 };
 
-// JSON-LD Structured Data
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: siteName,
+  name: "ElitePMPrompts",
   description: siteDescription,
   url: siteUrl,
   applicationCategory: "BusinessApplication",
-  operatingSystem: "Web, iOS, Android",
-  offers: {
-    "@type": "Offer",
-    price: "49",
-    priceCurrency: "USD",
-    description: "Full access to 50+ PM prompts. One-time purchase.",
-  },
+  operatingSystem: "Web",
+  offers: [
+    {
+      "@type": "Offer",
+      name: "SAFe Blueprint Single",
+      price: "297",
+      priceCurrency: "USD",
+      description: "Single agentic blueprint — complete PM artifacts in 60-90 minutes.",
+    },
+    {
+      "@type": "Offer",
+      name: "SAFe Methodology Suite",
+      price: "697",
+      priceCurrency: "USD",
+      description: "All 4 SAFe blueprints — PI Planning, Inspect & Adapt, ART Sync, Portfolio Kanban.",
+    },
+    {
+      "@type": "Offer",
+      name: "Free PM Prompt Library",
+      price: "0",
+      priceCurrency: "USD",
+      description: "50+ methodology-aligned AI prompts across 12 PM frameworks.",
+    },
+  ],
   featureList: [
-    "50+ Project Management AI Prompts",
-    "Offline-First PWA",
-    "Export to Excel & Markdown",
-    "Variable Substitution",
-    "PMBOK, Agile, PRINCE2 Aligned",
-    "Construction & ITIL Specialized",
-    "Risk, Stakeholder, Schedule Management",
+    "SAFe 6.0 PI Planning Copilot",
+    "Multi-step agentic workflow blueprints",
+    "Complete PM artifact generation",
+    "Checkpoint-driven quality gates",
+    "Model-agnostic (Claude, ChatGPT, Gemini)",
+    "50+ free PM prompts across 12 frameworks",
+    "Offline-first PWA",
   ],
 };
 
@@ -131,7 +149,6 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        {/* JSON-LD Structured Data for SEO */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -139,7 +156,9 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} circuit-bg min-h-screen text-white/90`}>
         <div className="fixed inset-0 bg-black/75 z-[-1]" />
+        <Navbar />
         {children}
+        <Footer />
         <PWARegister />
       </body>
     </html>

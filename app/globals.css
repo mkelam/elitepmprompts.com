@@ -27,33 +27,40 @@ body {
   min-height: 100vh;
 }
 
-/* Glassmorphism Utilities - Tiered System */
+/* ═══════════════════════════════════════════════════
+   GLASSMORPHISM SYSTEM v2 — WCAG AA Compliant
+   ═══════════════════════════════════════════════════
+   Contrast floor: every text element >= 4.5:1
+   Strategy: higher panel opacity + higher text alpha
+   Glass feel preserved via blur, borders, inset glow
+   ═══════════════════════════════════════════════════ */
+
 @layer utilities {
-  /* Base glass - minimal, for legacy compatibility */
+  /* Base glass — minimal, for legacy compatibility */
   .glass {
     @apply bg-white/[0.01] backdrop-blur-sm border border-white/[0.05] shadow-xl;
   }
 
-  /* Tier 1: Content cards - high readability for prompt cards */
+  /* Tier 1: Content cards — primary readability surface */
   .glass-content {
-    background: rgba(0, 0, 0, 0.65);
+    background: rgba(0, 0, 0, 0.72);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.10);
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.05),
-      0 4px 24px rgba(0, 0, 0, 0.3);
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      0 4px 24px rgba(0, 0, 0, 0.35);
     @apply rounded-xl transition-all duration-300;
   }
 
   .glass-content:hover {
-    background: rgba(0, 0, 0, 0.60);
-    border-color: rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.68);
+    border-color: rgba(255, 255, 255, 0.18);
   }
 
-  /* Tier 2: Modal/detail views - maximum readability */
+  /* Tier 2: Modal/detail views — maximum readability */
   .glass-modal {
-    background: rgba(0, 0, 0, 0.50);
+    background: rgba(0, 0, 0, 0.78);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.12);
@@ -63,19 +70,19 @@ body {
     @apply rounded-xl;
   }
 
-  /* Tier 3: Chrome/nav/toolbar - lighter black glass */
+  /* Tier 3: Chrome/nav/toolbar — structural glass */
   .glass-chrome {
-    background: rgba(0, 0, 0, 0.55);
+    background: rgba(0, 0, 0, 0.70);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
     @apply rounded-xl;
   }
 
-  /* Tier 4: Inputs - clear affordance */
+  /* Tier 4: Inputs — clear affordance */
   .glass-input-field {
-    background: rgba(0, 0, 0, 0.45);
+    background: rgba(0, 0, 0, 0.60);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.12);
@@ -83,19 +90,19 @@ body {
   }
 
   .glass-input-field:focus {
-    background: rgba(0, 0, 0, 0.55);
+    background: rgba(0, 0, 0, 0.68);
     border-color: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.3);
+    box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.3);
   }
 
-  /* Legacy glass-card - now uses content tier */
+  /* Legacy glass-card — now uses content tier */
   .glass-card {
     @apply glass-content;
   }
 
   /* Glass button base */
   .glass-btn {
-    background: rgba(0, 0, 0, 0.40);
+    background: rgba(0, 0, 0, 0.50);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.12);
@@ -103,13 +110,76 @@ body {
   }
 
   .glass-btn:hover {
-    background: rgba(0, 0, 0, 0.50);
+    background: rgba(0, 0, 0, 0.58);
     border-color: rgba(255, 255, 255, 0.2);
   }
 
-  /* Legacy glass-input - for backward compatibility */
+  /* Legacy glass-input — backward compatibility */
   .glass-input {
     @apply glass-input-field w-full px-4 py-2 focus:outline-none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   TEXT SHADOW — for text over variable backgrounds
+   ═══════════════════════════════════════════════════ */
+@layer utilities {
+  .text-shadow-hero {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.4);
+  }
+
+  .text-shadow-heading {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  .text-shadow-body {
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   ACCESSIBILITY: Reduced Transparency
+   ═══════════════════════════════════════════════════ */
+@media (prefers-reduced-transparency: reduce) {
+  .glass-content,
+  .glass-modal,
+  .glass-chrome,
+  .glass-input-field,
+  .glass-btn {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .glass-content {
+    background: rgba(10, 15, 30, 0.95) !important;
+  }
+
+  .glass-modal {
+    background: rgba(8, 12, 25, 0.97) !important;
+  }
+
+  .glass-chrome {
+    background: rgba(10, 15, 30, 0.95) !important;
+  }
+
+  .glass-input-field {
+    background: rgba(10, 15, 30, 0.92) !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   ACCESSIBILITY: Forced Colors (Windows High Contrast)
+   ═══════════════════════════════════════════════════ */
+@media (forced-colors: active) {
+  .glass-content,
+  .glass-modal,
+  .glass-chrome,
+  .glass-input-field,
+  .glass-btn {
+    border: 1px solid ButtonText !important;
+    background: Canvas !important;
+    color: CanvasText !important;
+    forced-color-adjust: auto;
   }
 }
 
@@ -139,7 +209,7 @@ body {
 
 /* Accessibility Utilities */
 @layer utilities {
-  /* Screen reader only - visually hidden but accessible */
+  /* Screen reader only — visually hidden but accessible */
   .sr-only {
     position: absolute;
     width: 1px;
@@ -152,7 +222,7 @@ body {
     border-width: 0;
   }
 
-  /* Skip link - visible on focus for keyboard users */
+  /* Skip link — visible on focus for keyboard users */
   .skip-link {
     @apply sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-4 focus:left-4 focus:px-4 focus:py-2 focus:bg-blue-600 focus:text-white focus:rounded-lg focus:font-medium;
   }
@@ -161,7 +231,7 @@ body {
 /* Focus visible styles for better keyboard navigation */
 @layer base {
   :focus-visible {
-    outline: 2px solid rgba(96, 165, 250, 0.5);
+    outline: 2px solid rgba(6, 182, 212, 0.6);
     outline-offset: 2px;
   }
 

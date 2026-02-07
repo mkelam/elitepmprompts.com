@@ -1,11 +1,8 @@
-# robots.txt for PM Nexus
+# robots.txt for ElitePMPrompts
 # https://www.robotstxt.org/robotstxt.html
 
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://pm-nexus.com/sitemap.xml
-
-# Disallow admin or private routes (none currently)
-# Disallow: /admin/
+Sitemap: https://elitepmprompts.com/sitemap.xml

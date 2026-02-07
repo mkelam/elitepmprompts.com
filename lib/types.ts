@@ -49,3 +49,79 @@ export interface FrameworkDefinition {
 
 // Backward compatibility - will remove after migration
 export type PromptCategory = Framework;
+
+// === BLUEPRINT TYPES ===
+
+export interface ArtifactTemplate {
+  name: string;
+  description: string;
+  format: 'table' | 'list' | 'text' | 'matrix';
+  columns?: string[];
+  rows?: string[];
+}
+
+export interface CheckpointItem {
+  label: string;
+  description?: string;
+}
+
+export interface BlueprintStep {
+  id: number;
+  title: string;
+  purpose: string;
+  estimatedTime: string;
+  prompt: string;
+  expectedOutput: string;
+  artifacts: ArtifactTemplate[];
+  checkpoint: {
+    title: string;
+    items: CheckpointItem[];
+    failAction: string;
+  };
+}
+
+export interface Blueprint {
+  id: string;
+  slug: string;
+  title: string;
+  subtitle: string;
+  methodology: 'SAFe' | 'PRINCE2' | 'PMBOK' | 'COBIT';
+  version: string;
+  estimatedTime: string;
+  stepCount: number;
+  steps: BlueprintStep[];
+  requiredInputs: {
+    name: string;
+    description: string;
+    format: string;
+  }[];
+  artifactsProduced: string[];
+  tier: 'free' | 'premium';
+  price: number;
+  suiteId: string;
+}
+
+export interface BlueprintSuite {
+  id: string;
+  name: string;
+  methodology: string;
+  description: string;
+  blueprints: string[];
+  price: number;
+}
+
+export interface PurchaseRecord {
+  blueprintId: string;
+  paymentRef: string;
+  purchasedAt: string;
+  email: string;
+}
+
+export interface BlueprintProgress {
+  blueprintId: string;
+  currentStep: number;
+  completedSteps: number[];
+  checkpointResults: Record<number, boolean[]>;
+  startedAt: string;
+  lastUpdatedAt: string;
+}

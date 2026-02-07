@@ -1,7 +1,7 @@
 {
-  "name": "The Project Manager's Nexus",
-  "short_name": "PM Nexus",
-  "description": "The Ultimate Command Center for Enterprise Project Execution. Framework-aligned. Offline-first.",
+  "name": "ElitePMPrompts — Agentic AI Blueprints",
+  "short_name": "ElitePMPrompts",
+  "description": "Methodology-native AI workflow blueprints that produce complete PM artifacts in 60-90 minutes. SAFe PI Planning, Inspect & Adapt, ART Sync, Portfolio Kanban.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0F172A",
@@ -64,14 +64,14 @@
       "sizes": "1280x720",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "PM Nexus Desktop View"
+      "label": "ElitePMPrompts Desktop View"
     },
     {
       "src": "/screenshots/mobile.png",
       "sizes": "390x844",
       "type": "image/png",
       "form_factor": "narrow",
-      "label": "PM Nexus Mobile View"
+      "label": "ElitePMPrompts Mobile View"
     }
   ]
 }

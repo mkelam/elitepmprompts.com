@@ -1,321 +1,327 @@
-"use client";
+import React from "react";
+import Link from "next/link";
+import {
+  Zap,
+  ArrowRight,
+  Clock,
+  FileCheck,
+  Shield,
+  CheckCircle2,
+  BookOpen,
+  Target,
+  Layers,
+  TrendingUp,
+} from "lucide-react";
 
-import React, { useState, useMemo } from "react";
-import { pmPrompts } from "@/data/pm-prompts";
-import { Prompt } from "@/lib/types";
-import { PromptSearch } from "@/app/components/features/PromptSearch";
-import { PromptList } from "@/app/components/features/PromptList";
-import { PromptModal } from "@/app/components/features/PromptModal";
-import { UnlockModal } from "@/app/components/features/UnlockModal";
-import { useLicenseKey } from "@/hooks/useLicenseKey";
-import { useFavorites } from "@/hooks/useFavorites";
-import { useRecentlyViewed } from "@/hooks/useRecentlyViewed";
-import { useAnalytics } from "@/hooks/useAnalytics";
-import { Lock, Unlock, Crown, Heart, Clock, Download } from "lucide-react";
-import { exportLibraryToHTML } from "@/lib/export";
+const blueprintPreviews = [
+  {
+    title: "PI Planning Copilot",
+    steps: 7,
+    time: "60–90 min",
+    artifacts: "PI Board, dependency map, ROAM risk register, team PI Objectives, confidence vote",
+    slug: "safe-pi-planning",
+  },
+  {
+    title: "Inspect & Adapt Engine",
+    steps: 5,
+    time: "45–60 min",
+    artifacts: "PI metrics dashboard, problem-solving workshop, improvement backlog",
+    slug: "safe-inspect-adapt",
+  },
+  {
+    title: "ART Sync Orchestrator",
+    steps: 4,
+    time: "30–45 min",
+    artifacts: "Dependency status, impediment tracker, PI objectives progress report",
+    slug: "safe-art-sync",
+  },
+  {
+    title: "Portfolio Kanban Builder",
+    steps: 5,
+    time: "45–60 min",
+    artifacts: "Epic hypotheses, lean business cases, portfolio Kanban, WIP analysis",
+    slug: "safe-portfolio-kanban",
+  },
+];
 
-type FilterMode = "all" | "favorites" | "recent";
+const comparisonRows = [
+  {
+    dimension: "Interaction",
+    prompt: "One-shot. Paste, get output, done.",
+    blueprint: "5-8 linked steps with checkpoints and quality gates.",
+  },
+  {
+    dimension: "Output",
+    prompt: "Text blob you reformat into a deliverable.",
+    blueprint: "Complete PM artifacts ready for stakeholder review.",
+  },
+  {
+    dimension: "Methodology",
+    prompt: "References the framework. May use correct terms.",
+    blueprint: "Enforces the framework. Every step maps to a methodology phase.",
+  },
+  {
+    dimension: "Time Saved",
+    prompt: "Minutes on a single prompt response.",
+    blueprint: "Hours to days of manual facilitation replaced.",
+  },
+];
 
-export default function Home() {
-  const allPrompts = pmPrompts;
-
-  const [filteredPrompts, setFilteredPrompts] = useState<Prompt[]>(allPrompts);
-  const [selectedPrompt, setSelectedPrompt] = useState<Prompt | null>(null);
-  const [showUnlockModal, setShowUnlockModal] = useState(false);
-  const [filterMode, setFilterMode] = useState<FilterMode>("all");
-  const [showDownloadMenu, setShowDownloadMenu] = useState(false);
-
-  const { isUnlocked, isLoading, unlock, lock } = useLicenseKey();
-  const { favorites, toggleFavorite, isFavorite } = useFavorites();
-  const { recentIds, addToRecent } = useRecentlyViewed();
-  const { trackPromptView, trackFavoriteToggle, trackFilterModeChange, trackPremiumUnlock } = useAnalytics();
-
-  // Count free and premium prompts
-  const freeCount = allPrompts.filter(p => p.tier === "free").length;
-  const premiumCount = allPrompts.filter(p => p.tier === "premium").length;
-
-  // Get prompts based on filter mode
-  const displayPrompts = useMemo(() => {
-    let basePrompts = filteredPrompts;
-
-    if (filterMode === "favorites") {
-      basePrompts = allPrompts.filter(p => favorites.includes(p.id));
-    } else if (filterMode === "recent") {
-      basePrompts = recentIds
-        .map(id => allPrompts.find(p => p.id === id))
-        .filter((p): p is Prompt => p !== undefined);
-    }
-
-    return basePrompts;
-  }, [filteredPrompts, filterMode, favorites, recentIds, allPrompts]);
-
-  // Handle prompt selection (track recently viewed and analytics)
-  const handleSelectPrompt = (prompt: Prompt) => {
-    setSelectedPrompt(prompt);
-    addToRecent(prompt.id);
-    trackPromptView(prompt.id, prompt.title, prompt.framework, prompt.tier);
-  };
-
-  // Handle filter mode change with analytics
-  const handleFilterModeChange = (mode: FilterMode) => {
-    setFilterMode(mode);
-    trackFilterModeChange(mode);
-  };
-
-  // Handle favorite toggle with analytics
-  const handleToggleFavorite = (promptId: string) => {
-    const action = isFavorite(promptId) ? "remove" : "add";
-    toggleFavorite(promptId);
-    trackFavoriteToggle(promptId, action);
-  };
-
-  // Handle premium unlock with analytics
-  const handleUnlock = (key: string) => {
-    const success = unlock(key);
-    trackPremiumUnlock(success);
-    return success;
-  };
-
+export default function LandingPage() {
   return (
-    <>
-      {/* Skip Link for keyboard navigation */}
-      <a href="#main-content" className="skip-link">
-        Skip to main content
-      </a>
+    <main className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative px-4 pt-10 pb-12 sm:pt-16 sm:pb-20">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-nexus-cyan/10 border border-nexus-cyan/30">
+            <span className="w-1.5 h-1.5 rounded-full bg-nexus-cyan animate-pulse" />
+            <span className="text-xs text-nexus-cyan font-medium">SAFe 6.0 Blueprints — Now Available</span>
+          </div>
 
-      <main
-        id="main-content"
-        className="min-h-screen p-4 md:p-8 lg:p-12 max-w-7xl mx-auto space-y-6"
-        role="main"
-      >
-        {/* Compact Header with Integrated Actions */}
-        <header className="glass-chrome p-4 sm:p-6 space-y-2 relative z-30">
-          {/* Top Row: Title + Actions */}
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3">
-            <div className="text-center lg:text-left">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-nexus-cyan via-white to-nexus-violet pb-1 uppercase tracking-tight">
-                The Project Manager&apos;s Nexus
-              </h1>
-              <p className="text-sm md:text-base text-slate-400 font-light mt-1">
-                The Ultimate Command Center for <span className="text-nexus-cyan font-medium">Enterprise Execution</span>
-              </p>
-            </div>
+          {/* Headline */}
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight text-shadow-hero">
+            <span className="text-white">Stop Prompting.</span>
+            <br />
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-nexus-cyan to-nexus-violet">
+              Start Producing Artifacts.
+            </span>
+          </h1>
 
-            {/* Action Buttons - Right aligned on desktop */}
-            {!isLoading && (
-              <div className="flex flex-wrap justify-center lg:justify-end items-center gap-2">
-                {isUnlocked ? (
-                  <button
-                    onClick={() => lock()}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/50 border border-green-500/40 text-green-300 text-xs hover:bg-black/60 hover:border-green-500/60 transition-colors"
-                  >
-                    <Crown className="w-3.5 h-3.5" />
-                    <span className="hidden sm:inline">Premium Active</span>
-                    <span className="sm:hidden">Pro</span>
-                  </button>
-                ) : (
-                  <button
-                    onClick={() => setShowUnlockModal(true)}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/50 border border-yellow-500/40 text-yellow-300 text-xs hover:bg-black/60 hover:border-yellow-500/60 transition-colors"
-                  >
-                    <Lock className="w-3.5 h-3.5" />
-                    <span className="hidden sm:inline">Unlock Premium</span>
-                    <span className="sm:hidden">Unlock</span>
-                  </button>
-                )}
+          {/* Subheadline */}
+          <p className="text-base sm:text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
+            Agentic AI blueprints that walk you through complete PM workflows step-by-step.
+            Produce methodology-compliant PI Planning packs, risk registers, and governance artifacts
+            in <span className="text-nexus-cyan font-medium">60–90 minutes</span> instead of days.
+          </p>
 
-                {/* Download Library Button */}
-                <div className="relative">
-                  <button
-                    onClick={() => setShowDownloadMenu(!showDownloadMenu)}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/50 border border-blue-500/40 text-blue-300 text-xs hover:bg-black/60 hover:border-blue-500/60 transition-colors"
-                  >
-                    <Download className="w-3.5 h-3.5" />
-                    <span className="hidden sm:inline">Export</span>
-                  </button>
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+            <Link
+              href="/blueprints"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-nexus-cyan to-nexus-violet text-white font-semibold text-sm hover:opacity-90 transition-opacity"
+            >
+              View SAFe Blueprints
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link
+              href="/prompts"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-white/80 font-medium text-sm hover:bg-white/10 transition-colors"
+            >
+              Browse Free Prompts
+            </Link>
+          </div>
 
-                  {/* Download Dropdown */}
-                  {showDownloadMenu && (
-                    <div className="absolute top-full mt-2 right-0 z-50 bg-black/90 backdrop-blur-xl border border-white/20 rounded-xl shadow-2xl overflow-hidden min-w-[200px]">
-                      <button
-                        onClick={async () => {
-                          setShowDownloadMenu(false);
-                          await exportLibraryToHTML(allPrompts);
-                        }}
-                        className="w-full px-4 py-3 text-left text-sm text-white/80 hover:bg-white/10 transition-colors flex items-center gap-3"
-                      >
-                        <span className="w-8 h-8 rounded-lg bg-black/50 border border-purple-500/30 flex items-center justify-center text-purple-400">
-                          🌐
-                        </span>
-                        <div>
-                          <div className="font-medium">Interactive HTML</div>
-                          <div className="text-xs text-white/40">Offline-ready web app</div>
-                        </div>
-                      </button>
-                    </div>
-                  )}
+          {/* Trust signals */}
+          <div className="flex flex-wrap justify-center gap-4 pt-4 text-xs text-white/60">
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 className="w-3.5 h-3.5 text-green-400" />
+              SAFe 6.0 Compliant
+            </span>
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 className="w-3.5 h-3.5 text-green-400" />
+              Model-Agnostic (Claude, ChatGPT, Gemini)
+            </span>
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 className="w-3.5 h-3.5 text-green-400" />
+              50+ Free PM Prompts
+            </span>
+          </div>
+        </div>
+      </section>
+
+      {/* Value Proposition — Prompts vs Blueprints */}
+      <section className="px-4 py-10 sm:py-12 bg-black/20">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-6">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">
+              Beyond Prompts. Beyond Templates.
+            </h2>
+            <p className="text-sm text-white/60 max-w-xl mx-auto">
+              A prompt gives you text. A blueprint gives you a complete, methodology-compliant deliverable.
+            </p>
+          </div>
+
+          {/* Stacked cards on mobile, table on md+ */}
+          <div className="hidden md:block glass-content p-1 rounded-2xl overflow-hidden">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-white/10">
+                  <th className="text-left px-4 py-3 text-white/60 text-xs font-medium uppercase tracking-wider w-1/4">Dimension</th>
+                  <th className="text-left px-4 py-3 text-white/60 text-xs font-medium uppercase tracking-wider w-[37.5%]">Static Prompt</th>
+                  <th className="text-left px-4 py-3 text-nexus-cyan text-xs font-medium uppercase tracking-wider w-[37.5%]">Agentic Blueprint</th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparisonRows.map((row, i) => (
+                  <tr key={row.dimension} className={i < comparisonRows.length - 1 ? "border-b border-white/5" : ""}>
+                    <td className="px-4 py-3 text-white/70 font-medium">{row.dimension}</td>
+                    <td className="px-4 py-3 text-white/60">{row.prompt}</td>
+                    <td className="px-4 py-3 text-white/80">{row.blueprint}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Stacked cards on mobile */}
+          <div className="md:hidden space-y-3">
+            {comparisonRows.map((row) => (
+              <div key={row.dimension} className="glass-content p-4 space-y-2">
+                <h3 className="text-sm font-semibold text-white">{row.dimension}</h3>
+                <div className="space-y-1.5">
+                  <p className="text-xs text-white/60">
+                    <span className="text-white/50 font-medium">Prompt: </span>{row.prompt}
+                  </p>
+                  <p className="text-xs text-white/80">
+                    <span className="text-nexus-cyan font-medium">Blueprint: </span>{row.blueprint}
+                  </p>
                 </div>
               </div>
-            )}
-          </div>
-
-          {/* Methodology Tags - Subtle bottom line */}
-          <p className="text-[10px] sm:text-xs text-slate-500/80 font-mono tracking-wide text-center lg:text-left">
-            Agile • Scrum • Kanban • SAFe • Waterfall • PRINCE2 • PMBOK • ITIL
-          </p>
-        </header>
-
-      {/* Unified Search & Filter Toolbar */}
-      <section className="glass-chrome p-3 sm:p-4">
-        {/* Search Row with View Tabs */}
-        <div className="flex flex-col sm:flex-row gap-3 items-stretch">
-          {/* Search Input - Full Width */}
-          <div className="flex-1">
-            <PromptSearch prompts={allPrompts} onFilter={setFilteredPrompts} />
-          </div>
-
-          {/* View Mode Tabs - Compact */}
-          <div
-            className="flex items-center gap-1 p-1 rounded-lg bg-black/40 border border-white/10 self-center sm:self-auto"
-            role="tablist"
-            aria-label="Filter prompt view"
-          >
-            <button
-              onClick={() => handleFilterModeChange("all")}
-              role="tab"
-              aria-selected={filterMode === "all"}
-              aria-controls="prompts-panel"
-              className={`min-h-[36px] px-3 py-1.5 rounded-md text-xs font-medium transition-all focus:outline-none focus:ring-2 focus:ring-blue-400/50 ${
-                filterMode === "all"
-                  ? "bg-black/60 text-blue-200 border border-blue-500/40"
-                  : "text-white/60 hover:text-white/80 hover:bg-black/30"
-              }`}
-            >
-              All
-            </button>
-            <button
-              onClick={() => handleFilterModeChange("favorites")}
-              role="tab"
-              aria-selected={filterMode === "favorites"}
-              aria-controls="prompts-panel"
-              className={`min-h-[36px] px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-blue-400/50 ${
-                filterMode === "favorites"
-                  ? "bg-black/60 text-pink-200 border border-pink-500/40"
-                  : "text-white/60 hover:text-white/80 hover:bg-black/30"
-              }`}
-            >
-              <Heart className={`w-3.5 h-3.5 ${filterMode === "favorites" ? "fill-pink-300" : ""}`} aria-hidden="true" />
-              {favorites.length > 0 && (
-                <span className="text-[10px]" aria-label={`${favorites.length} favorites`}>
-                  {favorites.length}
-                </span>
-              )}
-            </button>
-            <button
-              onClick={() => handleFilterModeChange("recent")}
-              role="tab"
-              aria-selected={filterMode === "recent"}
-              aria-controls="prompts-panel"
-              className={`min-h-[36px] px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-blue-400/50 ${
-                filterMode === "recent"
-                  ? "bg-black/60 text-purple-200 border border-purple-500/40"
-                  : "text-white/60 hover:text-white/80 hover:bg-black/30"
-              }`}
-            >
-              <Clock className="w-3.5 h-3.5" aria-hidden="true" />
-              {recentIds.length > 0 && (
-                <span className="text-[10px]" aria-label={`${recentIds.length} recent`}>
-                  {recentIds.length}
-                </span>
-              )}
-            </button>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Results Grid */}
-      <section id="prompts-panel" role="tabpanel" aria-label={`${filterMode === "all" ? "All" : filterMode === "favorites" ? "Favorite" : "Recent"} prompts`}>
-        {/* Compact Results Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 px-1">
-          <div className="flex items-center gap-2">
-            {filterMode === "favorites" && <Heart className="w-3.5 h-3.5 text-pink-400 fill-pink-400" />}
-            {filterMode === "recent" && <Clock className="w-3.5 h-3.5 text-purple-400" />}
-            <span className="text-white/70 text-sm font-medium">
-              {displayPrompts.length} {filterMode === "all" ? "Prompts" : filterMode === "favorites" ? "Favorites" : "Recent"}
-            </span>
-          </div>
-          <div className="flex items-center gap-3 text-[11px] text-white/50">
-            <span className="flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-400"></span>
-              {freeCount} Free
-            </span>
-            <span className="flex items-center gap-1">
-              {isUnlocked ? (
-                <Unlock className="w-3 h-3 text-green-400" />
-              ) : (
-                <Lock className="w-3 h-3 text-yellow-400/70" />
-              )}
-              {premiumCount} Premium
-            </span>
-          </div>
-        </div>
-
-        {/* Empty State for Favorites/Recent */}
-        {displayPrompts.length === 0 && filterMode !== "all" && (
-          <div className="text-center py-12">
-            <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/5 mb-3">
-              {filterMode === "favorites" ? (
-                <Heart className="w-6 h-6 text-white/30" />
-              ) : (
-                <Clock className="w-6 h-6 text-white/30" />
-              )}
+      {/* Blueprint Showcase */}
+      <section className="px-4 py-10 sm:py-12">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-nexus-violet/10 border border-nexus-violet/30 mb-3">
+              <BookOpen className="w-3.5 h-3.5 text-nexus-violet" />
+              <span className="text-xs text-nexus-violet font-medium">SAFe 6.0 Methodology Suite</span>
             </div>
-            <p className="text-white/50 text-base mb-1">
-              {filterMode === "favorites" ? "No favorites yet" : "No recently viewed"}
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">
+              4 Blueprints. Complete SAFe Coverage.
+            </h2>
+            <p className="text-sm text-white/60 max-w-xl mx-auto">
+              Each blueprint produces real, stakeholder-ready artifacts — not explanatory text.
             </p>
-            <p className="text-white/30 text-xs max-w-xs mx-auto">
-              {filterMode === "favorites"
-                ? "Click the heart on any prompt to save it here."
-                : "Prompts you view will appear here."}
-            </p>
-            <button
-              onClick={() => setFilterMode("all")}
-              className="mt-3 text-nexus-cyan hover:text-nexus-cyan/80 text-xs inline-flex items-center gap-1"
-            >
-              Browse all prompts
-            </button>
           </div>
-        )}
 
-        {displayPrompts.length > 0 && (
-          <PromptList
-            prompts={displayPrompts}
-            onSelect={handleSelectPrompt}
-            isUnlocked={isUnlocked}
-            onUnlockClick={() => setShowUnlockModal(true)}
-            favorites={favorites}
-          />
-        )}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {blueprintPreviews.map((bp) => (
+              <Link
+                key={bp.slug}
+                href={`/blueprints/${bp.slug}`}
+                className="glass-content p-5 group hover:border-nexus-cyan/30 transition-all"
+              >
+                <div className="flex items-start justify-between mb-3">
+                  <h3 className="text-base font-semibold text-white group-hover:text-nexus-cyan transition-colors">
+                    {bp.title}
+                  </h3>
+                  <ArrowRight className="w-4 h-4 text-white/50 group-hover:text-nexus-cyan transition-colors" />
+                </div>
+
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="flex items-center gap-1 text-xs text-white/50">
+                    <Layers className="w-3 h-3" />
+                    {bp.steps} steps
+                  </span>
+                  <span className="flex items-center gap-1 text-xs text-white/50">
+                    <Clock className="w-3 h-3" />
+                    {bp.time}
+                  </span>
+                </div>
+
+                <p className="text-xs text-white/60 leading-relaxed">
+                  <span className="text-white/80 font-medium">Artifacts: </span>
+                  {bp.artifacts}
+                </p>
+              </Link>
+            ))}
+          </div>
+
+          <div className="text-center mt-6">
+            <Link
+              href="/blueprints"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white/70 text-sm font-medium hover:bg-white/10 hover:text-white transition-all"
+            >
+              View All Blueprints
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
       </section>
 
-      {/* Prompt Detail Modal */}
-      {selectedPrompt && (
-        <PromptModal
-          prompt={selectedPrompt}
-          onClose={() => setSelectedPrompt(null)}
-          isFavorite={isFavorite(selectedPrompt.id)}
-          onToggleFavorite={() => handleToggleFavorite(selectedPrompt.id)}
-        />
-      )}
+      {/* How It Works */}
+      <section className="px-4 py-10 sm:py-12 bg-black/20">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-6">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">
+              How Blueprints Work
+            </h2>
+            <p className="text-sm text-white/60 max-w-lg mx-auto">
+              AI-assisted, human-validated. You stay in control at every step.
+            </p>
+          </div>
 
-      {/* Unlock Modal */}
-      {showUnlockModal && (
-        <UnlockModal
-          onClose={() => setShowUnlockModal(false)}
-          onUnlock={handleUnlock}
-        />
-      )}
-      </main>
-    </>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              {
+                icon: Target,
+                title: "1. Load Context",
+                desc: "Set up your AI with the methodology primer and your organizational data.",
+              },
+              {
+                icon: Layers,
+                title: "2. Run Steps",
+                desc: "Copy each step's prompt into your AI tool. Get structured artifact outputs.",
+              },
+              {
+                icon: Shield,
+                title: "3. Verify at Gates",
+                desc: "Check the output against the checkpoint criteria before proceeding.",
+              },
+              {
+                icon: FileCheck,
+                title: "4. Ship Artifacts",
+                desc: "Download or copy complete, stakeholder-ready PM deliverables.",
+              },
+            ].map((step) => (
+              <div key={step.title} className="glass-content p-4 text-center space-y-2">
+                <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-nexus-cyan/20 to-nexus-violet/20 border border-white/10">
+                  <step.icon className="w-5 h-5 text-nexus-cyan" />
+                </div>
+                <h3 className="text-sm font-semibold text-white">{step.title}</h3>
+                <p className="text-xs text-white/60 leading-relaxed">{step.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ROI Anchor */}
+      <section className="px-4 py-10 sm:py-12">
+        <div className="max-w-3xl mx-auto">
+          <div className="glass-content p-6 sm:p-8 text-center space-y-4 border-nexus-cyan/20">
+            <TrendingUp className="w-8 h-8 text-nexus-cyan mx-auto" />
+            <h2 className="text-xl sm:text-2xl font-bold text-white">
+              Replace 2-3 Days of Manual Facilitation
+            </h2>
+            <p className="text-sm text-white/60 max-w-lg mx-auto leading-relaxed">
+              A typical PI Planning session takes a team of 6 across 2 full days — roughly 96 person-hours
+              at $75/hr loaded cost. That&apos;s <span className="text-white font-medium">$7,200 per session</span>.
+              A blueprint produces equivalent artifacts in 90 minutes for <span className="text-nexus-cyan font-medium">$297</span>.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+              <Link
+                href="/pricing"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-nexus-cyan to-nexus-violet text-white font-semibold text-sm hover:opacity-90 transition-opacity"
+              >
+                View Pricing
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="/prompts"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white/70 text-sm font-medium hover:bg-white/10 transition-colors"
+              >
+                Try Free Prompts First
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
