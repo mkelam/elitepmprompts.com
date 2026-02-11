@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 
 const safeBlueprints = [
   { title: "PI Planning Copilot", steps: 7, slug: "safe-pi-planning" },
@@ -26,36 +26,38 @@ export default function LandingPage() {
   return (
     <main className="min-h-screen">
       {/* Hero */}
-      <section className="relative flex items-center justify-center min-h-[85vh] px-6">
-        <div className="max-w-3xl mx-auto text-center space-y-8 animate-fade-in-up">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-white text-shadow-hero">
+      <section className="relative flex flex-col items-center justify-center min-h-[50vh] px-6">
+        <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in-up">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold leading-[1.15] tracking-tight text-white text-shadow-hero">
             Agentic Blueprints for
             <br />
             Enterprise Project Managers
           </h1>
 
-          <p className="text-lg sm:text-xl text-white/50 max-w-xl mx-auto leading-relaxed font-light">
+          <p className="text-lg sm:text-xl text-white/60 max-w-xl mx-auto leading-relaxed font-light">
             Multi-step AI workflows that produce complete, methodology-compliant
             artifacts in 60 minutes instead of days.
           </p>
 
-          <div className="pt-4">
-            <Link
-              href="/blueprints"
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-nexus-cyan to-nexus-violet text-white font-semibold text-base hover:opacity-90 transition-opacity shadow-lg shadow-nexus-cyan/20"
-            >
-              Explore Blueprints
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
+          <Link
+            href="/blueprints"
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-nexus-cyan to-nexus-violet text-white font-semibold text-base hover:opacity-90 transition-opacity shadow-lg shadow-nexus-cyan/20"
+          >
+            Explore Blueprints
+            <ArrowRight className="w-5 h-5" />
+          </Link>
+        </div>
+
+        <div className="absolute bottom-8 animate-bounce">
+          <ChevronDown className="w-6 h-6 text-white/30" />
         </div>
       </section>
 
       {/* Blueprint Showcase */}
-      <section className="px-6 py-24 sm:py-32">
-        <div className="max-w-5xl mx-auto space-y-20">
+      <section className="px-6 pt-0 sm:pt-0 pb-16 sm:pb-24">
+        <div className="max-w-5xl mx-auto space-y-14">
           {/* SAFe Suite */}
-          <div className="space-y-10">
+          <div className="space-y-8">
             <div className="text-center space-y-4">
               <p className="text-xs font-medium uppercase tracking-[0.2em] text-nexus-cyan/70">
                 SAFe 6.0 Methodology Suite
@@ -70,7 +72,7 @@ export default function LandingPage() {
                 <Link
                   key={bp.slug}
                   href={`/blueprints/${bp.slug}`}
-                  className="glass-content p-6 group hover:border-nexus-cyan/30 transition-all duration-300 flex flex-col justify-between min-h-[160px]"
+                  className="glass-content p-6 group hover:border-nexus-cyan/30 transition-all duration-300 flex flex-col justify-between min-h-[120px]"
                 >
                   <h3 className="text-sm font-semibold text-white/90 group-hover:text-nexus-cyan transition-colors leading-snug">
                     {bp.title}
@@ -87,7 +89,7 @@ export default function LandingPage() {
           </div>
 
           {/* Agile Suite */}
-          <div className="space-y-10">
+          <div className="space-y-8">
             <div className="text-center space-y-4">
               <p className="text-xs font-medium uppercase tracking-[0.2em] text-emerald-400/70">
                 Agile &amp; Scrum
@@ -102,7 +104,7 @@ export default function LandingPage() {
                 <Link
                   key={bp.slug}
                   href={`/blueprints/${bp.slug}`}
-                  className="glass-content p-6 group hover:border-emerald-400/30 transition-all duration-300 flex flex-col justify-between min-h-[160px]"
+                  className="glass-content p-6 group hover:border-emerald-400/30 transition-all duration-300 flex flex-col justify-between min-h-[120px]"
                 >
                   <h3 className="text-sm font-semibold text-white/90 group-hover:text-emerald-400 transition-colors leading-snug">
                     {bp.title}
@@ -119,7 +121,7 @@ export default function LandingPage() {
           </div>
 
           {/* PMBOK Suite */}
-          <div className="space-y-10">
+          <div className="space-y-8">
             <div className="text-center space-y-4">
               <p className="text-xs font-medium uppercase tracking-[0.2em] text-nexus-violet/70">
                 PMBOK 7th Edition
@@ -134,7 +136,7 @@ export default function LandingPage() {
                 <Link
                   key={bp.slug}
                   href={`/blueprints/${bp.slug}`}
-                  className="glass-content p-6 group hover:border-nexus-violet/30 transition-all duration-300 flex flex-col justify-between min-h-[160px]"
+                  className="glass-content p-6 group hover:border-nexus-violet/30 transition-all duration-300 flex flex-col justify-between min-h-[120px]"
                 >
                   <h3 className="text-sm font-semibold text-white/90 group-hover:text-nexus-violet transition-colors leading-snug">
                     {bp.title}
@@ -153,16 +155,16 @@ export default function LandingPage() {
       </section>
 
       {/* Closing CTA */}
-      <section className="px-6 py-24 sm:py-32">
+      <section className="px-6 pt-8 sm:pt-12 pb-24 sm:pb-32">
         <div className="max-w-2xl mx-auto">
-          <div className="glass-content p-10 sm:p-14 text-center space-y-6">
+          <div className="glass-content p-8 sm:p-10 text-center space-y-5">
             <h2 className="text-xl sm:text-2xl font-bold text-white text-shadow-heading">
               Ready to transform how you deliver?
             </h2>
-            <p className="text-sm text-white/50 max-w-md mx-auto leading-relaxed">
+            <p className="text-sm text-white/60 max-w-md mx-auto leading-relaxed">
               Start with 50+ free prompts or go straight to the blueprints.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/blueprints"
                 className="inline-flex items-center gap-3 px-7 py-3.5 rounded-2xl bg-gradient-to-r from-nexus-cyan to-nexus-violet text-white font-semibold text-sm hover:opacity-90 transition-opacity"

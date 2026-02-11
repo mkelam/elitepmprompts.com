@@ -155,7 +155,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.className} circuit-bg min-h-screen text-white/90`}>
-        <div className="fixed inset-0 bg-black/55 z-[-1]" />
+        <div className="fixed inset-0 bg-black/65 z-[-1]" />
         <Navbar />
         {children}
         <Footer />
